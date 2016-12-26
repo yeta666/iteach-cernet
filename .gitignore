@@ -1,12 +1,12 @@
 /target
-*.class
+# *.class #
 
 # Package Files #
 *.jar
 *.war
 *.ear
 
-*.classpath
-*.jupiter
-*.project
-*.settings/
+# *.classpath #
+# *.jupiter #
+# *.project #
+# *.settings #/
