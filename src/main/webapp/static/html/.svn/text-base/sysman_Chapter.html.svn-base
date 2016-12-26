@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-folder-open"></i> 资源管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>章节管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+
+								<!-- 学生学习进度- -->
+								<div class="ibox float-e-margins" id="tabContent1" style='display: block;'>
+									<div class="ibox-title">
+										<h2><i class="fa fa-wrench"></i> 章节管理</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content" >
+									<div id="infomsg"></div>
+									<!-- Operating START -->
+									<form onsubmit="return false;" class="form-inline">
+									<!-- 操作栏 s -->
+										<a id="addButton" class="btn btn-warning" type="button"> <i
+											class='fa fa-plus'></i>&nbsp;增加
+										</a>
+										<a id="delButton" class="btn btn-danger"> <i
+											class='fa fa-minus'></i>&nbsp;删除
+										</a>
+										<!-- 操作栏 e -->
+									 <select id="Course" class="resCourse form-control1 selectType3">
+											<option value="-1">=课程=</option>
+										</select> <input id='searchChapName' class="form-control1" type="text"
+											data-provide="typeahead" placeholder="请输入章节名称"> <a
+											id="courseSel" class="btn btn-primary" style='cursor: pointer;'> <i
+											class='fa fa-search'></i>&nbsp;搜索
+										</a>
+										
+									</form>
+									<!-- Operating END -->
+									
+									<!-- search END -->
+									<div id="res-center" class="tab-pane fade in active">
+										<table id="mainTable"
+											class=" table table-bordered table-condensed">
+											<thead>
+												<tr>
+													<th><a href="javascript:void(0);" id="chooseall">全选</a></th>
+													<th>序</th>
+													<th>章节</th>
+													<th>名称</th>
+													<th>课程</th>
+													<th>描述</th>
+													<th>所含资源</th>
+												</tr>
+											</thead>
+											<tbody id='mytbody1'>
+												<!-- js生成 -->
+											</tbody>
+										</table>
+									</div>
+									<div>
+										<span class="label label-info">注</span> 点击名称即可进行修改
+									</div>
+									<!-- 分页区域 -->
+									
+										<div id="pagination" class="pagination page-left"  ></div>
+										
+										<br/><br/>
+									<!-- /分页区域 -->
+									
+									</div>
+								</div>
+								<!-- 学生学习进度- -->
+
+
+								<!--添加章节 start -->
+								<div class="ibox float-e-margins" id='addModPartDiv' style='display: none;'>
+									<div class="ibox-title">
+										<h2><i class="fa fa-anchor"></i>&nbsp;<span id='addModTitle'>添加、修改章节</span></h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content" style="height:700px;">
+									<div id="infomsg"></div>
+									<!-- Operating START -->
+										<form class="form-horizontal">
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-2" for="chapOrdinal">章节号：</label>
+											<div class="">
+												第&nbsp;&nbsp;<input type="text" class="form-control2"
+													id="chapOrdinal" placeholder="章节号">&nbsp;&nbsp;章 <span
+													class="help-inline">*章节号，数字，如1，2...</span>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-2" for="chapName">章节名：</label>
+											<div class="">
+												<input type="text" id="chapName" placeholder="章节名" class="form-control2">
+												<span class="help-inline">*该章节的名称</span>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-2" for="course">所属课程：</label>
+											<div class="">
+												<select id='course' onchange="changeSelectRigth(this);" class="form-control2"
+													defaultname='<option value="0">==选择课程==</option>'>
+												</select> <span class="help-inline">*章节所属课程</span>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-2" for="chapDescribe">章节描述：</label>
+											<div class="">
+												<textarea  id='chapDescribe' placeholder="章节描述"  class="form-control2" style="margin: 0px; width: 300px; height: 150px;"></textarea>
+												<span class="help-inline">*章节的描述</span>
+											</div>
+										</div>
+									
+											<div class="form-group col-sm-12">
+											
+                                             <label class="control-label col-sm-2" for="chapDescribe">类型：</label>
+											<table>
+											<tr >
+											<td colspan="3"><select class='form-control2 selectType'
+												id='chosenType1'>
+													<option value='0'>=资源类型=</option>
+													<option value='1'>链接资源</option>
+													<option value='2'>文档资源</option>
+													<option value='3'>视频资源</option>
+											</select> 
+											<span class="help-inline">*</span> 
+											</td>
+										</tr>
+										<tr class="form-inline1">
+											<td><span class="label label-primary">课程资源</span></td>
+											<td></td>
+											<td><span class="label label-primary">选中资源</span></td>
+										</tr>
+										<tr>
+											<td  style="width:300px;">
+											<select class="form-control" size='8' id='freeResoSelect' multiple=""> </select>
+											</td>
+											<td>
+												<div>
+													<input type='button' id='delResoButton'
+														style='font-size: 13px; position: relative; margin-bottom: 25px;'
+														class='btn btn-small btn-primary' value='<<' /><br> <input
+														type='button' id='addResoButton' style='font-size: 13px;'
+														class='btn btn-small btn-primary' value='>>' />
+												</div>
+											</td>
+											<td>
+											<div style="width:300px;">
+											<select class="form-control" size='8' id='chosenResoSelect' multiple="">
+                                                </select></div>
+											</td>
+										</tr>
+												</table> 
+											</div>
+											<div class="form-group col-sm-12">
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">
+											<a id='confirmAddOrModButton'
+													class='btn btn-small btn-success'><i class="fa fa-check-square-o"></i> 提交</a> <a
+													id='returnTableButton' class='btn btn-info'>
+													<i class="fa fa-repeat"></i>
+													返回</a>
+											</div>
+										</div>
+											
+											</form>
+										</div>
+										
+									
+									<!-- Operating END -->
+									
+									
+									</div>
+								</div>
+								<!-- 添加章节 end -->
+								
+								
+
+
+
+
+								<!--弹出增加对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="delModal2">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+													<h3>删除链接资源</h3>
+											</div>
+											<div class="modal-body">
+												<p id='delLabel'>确认删除？</p>
+											</div>
+											<div class="modal-footer">
+												<a id="cancel" class="btn btn-info" data-dismiss="modal"><i
+													class="fa fa-close"></i> 关闭</a> <a 
+													class="btn btn-primary " id="delChapterButton1" href="#"><i
+													class="fa fa-check-square-o"></i> 确认</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="footer" class="footer">
+			</div>
+			</div>
+			</div>
+
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/sysman_Chapter.js"></script>
+
+
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>

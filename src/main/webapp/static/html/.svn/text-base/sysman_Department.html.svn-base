@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-sitemap"></i> 机构管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>机构管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+
+								<!-- 学生学习进度- -->
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-inbox"></i> 机构管理
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+
+										<div>
+											<form class="form-inline">
+												&nbsp;&nbsp;&nbsp;&nbsp; <label>机构类型：</label> <select
+													id="type" class="span2 form-control1">
+													<option value="0">全部</option>
+													<option value="1">大学</option>					
+													<option value="3">专业</option>
+												</select> <select id="area" class="span3 form-control1">
+													<option value="-1">全部</option>
+												</select> <select id="school" class="span3 form-control1">
+													<option value="-1">全部</option>
+												</select>
+											</form>
+										</div>
+										<div>
+											<form onsubmit="return false;" class="form-inline">
+												&nbsp;&nbsp;&nbsp;&nbsp; <label>搜索选项：</label> <select
+													id="searchType" class="span2 form-control1">
+													<option value="1">名称</option>
+													<option value="2">简称</option>
+													<option value="3">代码</option>
+												</select> <input id="searchWord" type="text"
+													class="span3 form-control1" data-provide="typeahead"
+													placeholder="请输入搜索词"> <a id="search" href="#"
+													class="btn btn-primary"><i class="fa fa-search"></i> 搜索</a>
+											</form>
+										</div>
+										<div class="buttonGroup form-inline">
+											&nbsp;&nbsp;&nbsp;&nbsp; <a type="button" href="#addOrMod"
+												onclick="setDepartInfo(-1);" data-toggle="modal"
+												class="btn btn-warning" id="createDepart"
+												href="sysmanDepartmentDetail.html"><i class="fa fa-plus"></i>
+												新增</a> <a type="button" class="btn btn-danger"
+												id="deleteDeparts" onclick="javascript:deleteDeparts();"><i
+												class="fa fa-minus"></i> 删除</a> <a type="button"
+												class="btn btn-info" id="importDeparts"
+												href="#batchImportDeparts" data-toggle="modal"><i
+												class="fa fa-sign-in"></i> 批量导入</a> <a type="button"
+												class="btn btn-success" id="exportDeparts"
+												onclick="javascript:exportDeparts();"><i
+												class="fa fa-share"></i> 批量导出</a>
+										</div>
+										<div id="infomsg"></div>
+										<!-- search END -->
+										<div id="res-center" class="tab-pane fade in active">
+											<table id="departList"
+												class="table table-hover table-bordered">
+												<thead>
+													<tr>
+														<th><a href="###" id="chooseall">全选</a></th>
+														<th>序</th>
+														<th>名称</th>
+														<th>类型</th>
+														<th>简称</th>
+														<th>代码</th>
+														<th>上级机构</th>
+													</tr>
+												</thead>
+												<tbody id="mainTable">
+													<!-- js生成 -->
+												</tbody>
+											</table>
+										</div>
+
+										<!-- 分页区域 -->
+										
+											<div id="pagination" class="pagination page-left"></div>
+										
+										<br /> <br />
+										<!-- /分页区域 -->
+
+									</div>
+								</div>
+								<!-- 学生学习进度- -->
+
+
+
+
+
+
+
+
+								<!--弹出增加对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="addOrMod">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h2 id="boxTitle">新增机构</h2>
+
+											</div>
+											<div class="modal-body" style="height: 300px;">
+
+												<form class="form-horizontal">
+													<input type="hidden" id="depaId" name="depaId" value="-1"></input>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="postTitle">机构类型：</label>
+														<div class="col-sm-6">
+															<select class=" form-control" id="depaType"
+																name="depaType">
+																<option value="1">市</option>
+																<option value="2">区</option>
+																<option value="3">学校</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="postTitle">上级部门：</label>
+														<div class="col-sm-6">
+															<select class=" form-control" id="depaParentId"
+																name="depaParentId">
+																<option value="-1">无</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="postTitle">机构名称：</label>
+														<div class="col-sm-6">
+															<input type="text" class=" form-control"
+																class="input-xlarge" id="depaName" name="depaName"></input>
+														</div>
+														<div class="col-sm-1">
+															<span class="help-inline">*</span>
+														</div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="postContent">机构简称：</label>
+														<div class="col-sm-6">
+															<input type="text" class=" form-control"
+																class="input-xlarge" id="depaAbbreviation"
+																name="depaAbbreviation"></input>
+														</div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="postFileInput">机构代码：</label>
+														<div class="col-sm-6">
+															<input type="text" class="form-control"
+																class="input-xlarge" id="depaCode" name="depaCode"></input>
+														</div>
+													</div>
+
+												</form>
+
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn-info"
+													data-dismiss="modal">
+													<i class="fa fa-close"></i> 取消
+												</button>
+												<a id="sub" class="btn btn-success"><i
+													class="fa fa-info"></i> 添加</a>
+											</div>
+
+											<!-- <div class="modal-footer">
+                                           
+                                           <button id="submit" type="button" class="btn btn-success" onclick="submitDepart();" data-dismiss="modal"><i class="fa fa-close"></i> 添加</button>
+                                        <button type="button" id="reset" class="btn btn-info" data-dismiss="modal"><i class="fa fa-close"></i> 取消</button>
+                                        </div> -->
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+		</div>
+
+
+
+
+		<!--  批量导入  start -->
+		<div class="modal inmodal" tabindex="-1" role="dialog"
+			aria-hidden="true" id="batchImportDeparts">
+			<div class="modal-dialog">
+				<div class="modal-content animated flipInY">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h2 id="boxTitle">批量导入机构</h2>
+
+					</div>
+					<div class="modal-body" style="height: 400px;">
+						<div class="alert alert-info">
+							<h4 class="alert-heading">导入须知</h4>
+							<br /> <br />
+							<ol>
+								<li>上传文件必须为.xls格式文件，文件中每一行为一条机构记录；</li>
+								<li>单个文件大小不要太大，用户可以多次上传文件；</li>
+								<li>可以<a
+						href="../../handler/load/download?
+							attaId=-1&attaFilename=DepartmentModel.xls
+							&attaLocation=upload/sysman/
+							&attaOriFilename=DepartmentModel.xls">
+								<font color="red">下载模板</font> </a>获取导入模板，上传文件的内容参考导入模板填写；
+								</li>
+								<li>导入模板中“序号”列只用作说明，不会写入数据库；</li>
+								<li>导入模板中“机构名称”和“机构类型”必须填写，机构类型填写数字：1表示市，2表示区，3表示学校，其他列可以为空；</li>
+								<li>导入模板中“上级机构id”必须填写数据库中已有机构的id（可以通过导出机构获得），若为空，则表示无上级机构（一般，市级机构没有上级机构）；</li>
+							</ol>
+						</div>
+						<form onsubmit="return false;" id="uploadform"
+							enctype="multipart/form-data" class="form-inline well" style="height:60px;">
+							<div class="form-group col-sm-12">
+														<label class="control-label col-sm-2" for="fileInput">上传框</label>
+							<div class="col-sm-7">
+							<input class="input-file" id="postfile" name="postfile" type="file" />
+							</div>
+								<div class="col-sm-3"><img id="loading" src="../img/loading.gif" style="display: none;"><!-- </div>
+							<div class="col-sm-2"> -->
+							<button class="btn btn-primary btn-xs" type="button" id="upload" onclick="importDeparts();">上传</button>
+														</div>
+													</div>
+						</form>
+					</div>
+					<div class="modal-footer"></div>
+					
+				</div>
+			</div>
+		</div>
+		<!--  批量导入  end -->
+
+
+
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script src="../js/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script type="text/javascript" src="../js/sysman_Department.js"></script>
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>

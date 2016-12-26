@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="domain.announcement">
+	<select id="all" resultType="com.swust.kelab.domain.NoticeAnnouncement">
+		<![CDATA[
+			SELECT 
+				na.noan_id as noanId,
+				na.noan_title as noanTitle,
+				na.noan_content as noanContent,
+				na.noan_roleids as noanRoleids,
+				na.noan_pubtime as noanPubtime,
+				na.noan_topdays as noanTopdays,
+				na.noan_isimport as noanIsimport,
+				na.noan_viewnum as noanViewnum,
+				na.noan_attachment as noanAttachment,
+				na.noan_creatorid as noanCreatorid
+			FROM NoticeAnnouncement na
+	]]>
+	</select>
+</mapper>

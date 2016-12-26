@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-sitemap"></i> 机构管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>班级管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<!-- ibox float-e-margins- -->
+								<div class="ibox float-e-margins" >
+									<div class="ibox-title">
+										<h2><i class="fa fa-bars"></i> 班级管理</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+									
+											<div>
+										<form onsubmit="return false;" class="form-inline">
+											 <select id="schoolId"
+												style="display: none;" class="span2 form-control1">
+												<option value="-1">选择学校</option>
+											</select> <select id="gradeId" name="gradeId" class="span2 form-control1">
+												<option value="-1">选择年级</option>
+											</select> <select id="searchType" class="span2 form-control1">
+												<option value="1">按：班级</option>
+												<option value="2">按：学校</option>
+											</select> <input id="searchWord" type="text" data-provide="typeahead"
+												placeholder="请输入搜索词" class="form-control1"> <a id="search" href="#"
+												class="btn btn-primary"><i class="fa fa-search"></i> 搜索</a>
+												<a type="button" href="#addOrMod" onclick="setDepartInfo(-1);"
+											data-toggle="modal" class="btn btn-warning"><i
+											class="fa fa-plus"></i> 新增</a> <a type="button"
+											class="btn btn-danger" id=delButton><i
+											class="fa fa-minus"></i> 删除</a>
+										</form>
+									</div>
+									
+									<div id="infomsg"></div>
+									<!-- search END -->
+									<div id="res-center" class="tab-pane fade in active">
+										<table id="departList"
+											class="table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th><a href="#" id="chooseall">全选</a></th>
+													<th>序</th>
+													<th>班级</th>
+													<th>年级</th>
+													<th>学校</th>
+													<th>备注</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+												<!-- js生成 -->
+											</tbody>
+										</table>
+									</div>
+									
+									<!-- 分页区域 -->
+									
+										<div id="pagination" class="pagination page-left"  ></div>
+										
+										<br/><br/>
+				<!-- /分页区域 -->
+									
+									</div>
+								</div>
+								<!-- 学生学习进度- -->
+
+
+
+								<!--弹出增加对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="addOrMod">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h2 id="boxTitle">新增年级、班级</h2>
+
+											</div>
+											<div class="modal-body" style="height: 280px;">
+												<form class="form-horizontal">
+													<input type="hidden" id="depaId" name="depaId" value="-1"></input>
+													<div id="school" class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="schoolType">学校：</label>
+														<div class="col-sm-6">
+															<select id="schoolType" name="depaType" class=" form-control">
+															</select>
+														</div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="greadType">年级：</label>
+														<div class="col-sm-6">
+															<select id="greadType" name="greadType" class=" form-control">
+															</select>
+														</div>
+													</div>
+													<div class="form-group col-sm-12" id="addGread"></div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="className">班级：</label>
+														<div class="col-sm-6">
+															<input type="text" class="input form-control" id="className"
+																name="className" > 
+														</div>
+														<div class="col-sm-3">
+														<span class="help-block m-b-none">*(例如“1班”)</span></div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label class="control-label col-sm-3" for="classRemark">备注：</label>
+														<div class="col-sm-6">
+															<input type="text" class="input form-control" id="classRemark"
+																name="classRemark"></input>
+														</div>
+													</div>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<a id="cancel" class="btn btn-info" data-dismiss="modal"><i
+													class="fa fa-close"></i> 取消</a> <a id="sub"
+													class="btn btn-primary " onclick="addClass()" href="#"><i class="fa fa-check-square-o"></i> 保存</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer">
+				
+			</div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/sysman_Class.js"></script>
+
+
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>

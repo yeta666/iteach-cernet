@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+   <link href="../css/ncss/bootstrap.css?v=3.4.0" rel="stylesheet">
+    <link href="../css/ncss/font-awesome.css?v=4.3.0"rel="stylesheet">
+     <link href="../css/ncss/animate.css" rel="stylesheet">
+          <link href="../css/ncss/style.css" rel="stylesheet">
+          <link href="../css/ncss/styleh.css" rel="stylesheet">
+     <!--  <link href="../css/ncss/style1.css?v=2.2.0" rel="stylesheet"> -->
+     <link href="../css/ncss/common.css" rel="stylesheet">
+     <link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+
+<body>
+<div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+
+		</div>
+		</nav>
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling"class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+         <div class="row  border-bottom white-bg dashboard-header">
+ 	<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-smile-o"></i> 课程讨论
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>课程讨论</strong></li>
+					</ol>
+				</div>
+            </div>
+        			<div class="wrapper wrapper-content"  >
+        			<div class="row animated fadiInRight">
+				<div class="row">
+				  <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+					  <div class="ibox-title">
+					  <h2><i class="fa fa-envelope"></i> 课程讨论</h2>
+									 <div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+								</div>
+								<div class = "ibox-content m-b-sm border-bottom">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="bbs_manage">
+							<div id="content">
+								<!--二级栏目  -->
+								
+								<div id="myTabContent" class="tab-content" >
+									<div id="viewBbslable" >
+										<ul class="nav nav-pills" id="bbscourselist"></ul>
+										<!--显示课程列表  -->
+									</div>
+									<!-- 按钮区 -->
+									<div>
+									<form onsubmit="return false;" class="form-search">
+									<button id="searchPost" type="button"
+												class="btn btn-primary"><i class="fa fa-search"></i>搜索</button>
+										<a type="button" class="btn btn-warning" id="newPost"
+											href="bbs_newPost.html?firstCol=3&secondCol=18"><i
+											class=" fa fa-plus"> </i>发起讨论</a> <a type="button"
+											class="btn btn-info" id="myPost"
+											onclick="javascript:myDiscss();"> <i
+											class=" fa fa-paste"></i>我的讨论
+										</a> <a type="button" class="btn btn-success" id="myReply"
+											onclick="javascript:myReply();"> <i
+											class="fa fa-check"></i>我的回复
+										</a>
+									 	
+									 	<div class="col-md-4"style="padding-left: 00px">
+											<input id="searchKeyWord" name="searchKeyd" type="text"
+												class="form-control" placeholder="输入发帖人姓名">
+													</div>
+											
+											
+									
+									</form>
+									</div>
+									<div id="viewPostList">
+										<!--数据显示  -->
+										<table class="table table-hover table-bordered"
+											id="viewPostListTable">
+											<thead>
+												<tr>
+													<th>序</th>
+													<th>主题</th>
+													<th>课程</th>
+													<th>作者</th>
+													<th>发表时间</th>
+													<th>人气/回复</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+										<!-- 分页区域 -->
+										
+										<div id="pagination" class="pagination page-left"  ></div>
+								
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+								
+				</div>
+				</div>
+		
+			</div>
+		
+			</div>
+        </div>
+        </div>
+        <div id="footer" class="footer">
+        </div>
+        </div>
+</div>
+</body>
+
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js?v=3.4.0"></script>
+
+
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/bbs_index.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>
+<script src="../js/pace.min.js"></script>
+ <script src="../js/njs/hplus.js?v=2.2.0"></script><!--控制导航自动缩进  -->
+</html>

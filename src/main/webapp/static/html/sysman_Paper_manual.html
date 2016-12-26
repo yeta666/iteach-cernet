@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul  id="side-menu" class="nav">
+				</ul>
+			</div>
+	    </nav>
+	    <div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">				
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-calendar-o"></i> 测试管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><a href="sysman_Paper.html?firstCol=6&secondCol=28">测试管理</a></li>
+						<li><strong>试卷管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+		            <div class="row">
+		                <div class="col-lg-12">
+		                    <div class="wrapper wrapper-content animated fadeInRight">
+							   <div class="ibox float-e-margins">	
+							       <div class="ibox-title">
+									<h2>
+										<i class="fa fa fa-bell"></i> 手动组卷
+									</h2>
+									<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+									</div>
+								</div>						       						   		                                                                       
+		                              <!-- 查询区域 -->                           		
+									<div id="myTabContent" class="ibox-content" >
+		                                <form role="form" class="form-inline">
+		                                    <!-- 管理员“增加删除”信息区域 -->										
+											<select id="quCourse"
+											class="form-control1" onchange="chooseSourse();">
+											<option value="-1">选择课程</option>
+											</select> 
+											<select id="quType" name="quType" class="form-control1"
+												onchange="changeQuType();">
+												<option value="-1">选择题型</option>
+												<option value="1">单选题</option>
+												<option value="2">多选题</option>
+												<option value="3">判断题</option>
+												<option value="4">填空题</option>
+												<option value="5">问答题</option>
+											</select>
+												<!-- /管理员“增加删除”信息区域 -->			                                                               
+		                                    <input type="text" placeholder="开始时间" data-date-format="yyyy-mm-dd" class="form-control1" id="startTime">                                   
+		                                     ~                                  
+		                                    <input type="text" placeholder="结束时间" data-date-format="yyyy-mm-dd" class="form-control1" id="endTime">
+		                                    <input type="text" placeholder="请输入关键词" id="keyword" class="form-control1">		                                 
+		                                    <button class="btn btn-primary" id="search"><i class="fa fa-search"></i> 搜索</button><br>	                                   
+		                                </form>
+		                                <div style="color: red" id="tipMsg"></div>
+		                                <div id="param_field">
+											<div class="form-horizontal">
+												<div id="course" class="control-group col-sm-12">
+													<label class="control-label col-sm-2" for="courseName"><strong>已选课程：</strong></label>
+													<div class="controls col-sm-4">
+														<input type="text" id="courseName" class="form-control"
+															disabled value="未选择">
+													</div>
+													<div class="col-sm-4">
+														<button id="changeCourse" class="btn btn-warning"
+															onclick="changeCourse();">
+															<i class="icon-edit icon-white"></i> 修改课程
+														</button>
+													</div>
+												</div>
+												<div class="control-group col-sm-12">
+													<label class="control-label col-sm-2" for="isSelectedQues"><strong>已选择题目ID：</strong>
+													</label>
+													<div class="controls col-sm-4">
+														<input type="text" id="isSelectedQues"
+															class="span8 form-control" disabled value="未选择">
+													</div>
+													<div class="col-sm-6" style="cursor:default">
+													   
+														<button id="showTotalMsg" align="center"
+															class="btn btn-info disabled"
+															>已选择 0 题</button>
+													</div>
+												</div>
+												<div id="buttonGroup" class="control-group col-sm-12 col-md-offset-3">
+													<button id="adduser" class="btn btn-primary"
+														onclick="batchAdd()">
+														<i class="icon-plus-sign icon-white"></i> 添加所选
+													</button>
+													<button id="clearSelect" class="btn btn-danger"
+														onclick="clearAllSelected()">
+														<i class="icon-trash icon-white"></i> 清空所选
+													</button>
+												</div>
+												<br><br><br><br><br><br>
+												</div>
+												
+											</div>
+										</div>
+		                            </div>					    
+		                        </div>	
+		                        <div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-tasks"></i> 试题列表
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<!-- 查询区域 -->
+									<div class="ibox-content" >
+										<!-- 查询区域 -->
+									<div id="user-center-content">
+										<table class="table table--hover table-bordered">
+											<thead>
+												<tr>
+													<th><a href="#" id="chooseall">全选</a></th>
+													<th>试题ID</th>
+													<th>课程</th>
+													<th>类型</th>
+													<th>题干</th>
+													<th>创建时间</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+											</tbody>
+										</table>
+									</div>
+									<div id="pagination" class="pagination page-left"></div><br><br>
+									<div id="stepBtn">
+										<input id="start_next" class="btn btn-primary" value="下一步" type="button"
+											onclick="selectedQuesShow()" class="btn" />
+									</div>
+								
+								</div>
+								</div>              
+		                </div>
+		            </div>
+                </div>
+            </div>
+            <div id="footer" class="footer">                
+            </div>
+		</div>
+	</div>
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>	
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../js/sysman_Paper_manual.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="../js/njs/hplus.js?v=2.2.0"></script> 
+<!--控制导航自动缩进-->
+</html>

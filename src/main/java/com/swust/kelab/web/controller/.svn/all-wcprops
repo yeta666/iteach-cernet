@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iteach/!svn/ver/427/iteach-svn/src/main/java/com/swust/kelab/web/controller
+END
+MassedLearningController.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/MassedLearningController.java
+END
+StudentCenterController.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iteach/!svn/ver/48/iteach-svn/src/main/java/com/swust/kelab/web/controller/StudentCenterController.java
+END
+ChapterController.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iteach/!svn/ver/48/iteach-svn/src/main/java/com/swust/kelab/web/controller/ChapterController.java
+END
+BannerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/BannerController.java
+END
+UserController.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iteach/!svn/ver/427/iteach-svn/src/main/java/com/swust/kelab/web/controller/UserController.java
+END
+AuthorityController.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/AuthorityController.java
+END
+TeacherController.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/TeacherController.java
+END
+NoticeAnnouncementController.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/iteach/!svn/ver/388/iteach-svn/src/main/java/com/swust/kelab/web/controller/NoticeAnnouncementController.java
+END
+VideoServerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/VideoServerController.java
+END
+EvaluateMethodController.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/iteach/!svn/ver/388/iteach-svn/src/main/java/com/swust/kelab/web/controller/EvaluateMethodController.java
+END
+CourseCategoryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/CourseCategoryController.java
+END
+SelectCourseController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/SelectCourseController.java
+END
+BbsReplyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/BbsReplyController.java
+END
+ColumnController.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/ColumnController.java
+END
+CourseStatisticController.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/CourseStatisticController.java
+END
+BbsPostController.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/BbsPostController.java
+END
+DepartmentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/iteach/!svn/ver/409/iteach-svn/src/main/java/com/swust/kelab/web/controller/DepartmentController.java
+END
+ResourceController.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/ResourceController.java
+END
+RecomCourseController.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/iteach/!svn/ver/388/iteach-svn/src/main/java/com/swust/kelab/web/controller/RecomCourseController.java
+END
+AdminUserInfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/AdminUserInfoController.java
+END
+TrainController.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/TrainController.java
+END
+WebTestController.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/WebTestController.java
+END
+RegisterController.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/RegisterController.java
+END
+AttachmentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/AttachmentController.java
+END
+LogDBController.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iteach/!svn/ver/388/iteach-svn/src/main/java/com/swust/kelab/web/controller/LogDBController.java
+END
+GradeClassController.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/GradeClassController.java
+END
+FileUpDownloadController.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/FileUpDownloadController.java
+END
+HomeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/HomeController.java
+END
+LearnProcessRecordController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/LearnProcessRecordController.java
+END
+CourseController.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/CourseController.java
+END
+SystemParameterController.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/SystemParameterController.java
+END
+ScoreExportConfirmController.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/ScoreExportConfirmController.java
+END
+RoleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/web/controller/RoleController.java
+END

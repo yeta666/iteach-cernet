@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-credit-card"></i> 系统管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>日志管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+							<div class="ibox-title">
+										<h2>
+											<i class="fa  fa-qrcode"></i> 日志管理
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+								
+								<div class="ibox-content ">
+									<!-- search START -->
+									<form onsubmit="return false;" class="form-search"  style="margin-bottom: 5px;">
+										 <span style="margin-bottom: 5px;"> </span>
+										 <a class="btn btn-danger" style='cursor: pointer;'
+												id="deleteLogs"><i class=" fa fa-close"></i>删除</a>
+												<a class="btn btn-primary" style='cursor: pointer;'
+												onclick="exportLog();" target="_blank"><i
+													class=" fa fa-share"></i>导出</a>
+										<select id="maxLogCount"  class="chooseSchool form-control1" value="0">
+										        <option value="1">最大1万条</option>
+												<option value="2">最大2万条</option>
+												<option value="3">最大3万条</option>
+												<option value="3">最大4万条</option>
+												<option value="4">最大5万条</option>
+												<option value="5">最大6万条</option>
+											</select>
+										 <span >时间:</span> 
+										 <input id="startTime" data-date-format="yyyy-mm-dd" class="form-control1"
+											placeholder="开始时间..." type="text">- -
+											<input id="endTime" data-date-format="yyyy-mm-dd" class="form-control1"
+											placeholder="结束时间..." type="text"> 
+										
+										<input id="searchWord" name="searchWord" type="text" class="form-control1" placeholder="请输入用户名或操作内容.." >
+											<button id="search" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button>									
+									</form>
+									<!-- search END -->
+									
+									<div id="res-center" class="tab-pane fade in active">
+										<!--数据显示  -->
+										<table class="table table-hover table-bordered"
+											id="tableContent">
+											<thead>
+												<tr>
+													
+													<th class="tdcenter">序</th>
+												
+													<th class="tdcenter">用户名</th>
+													<th class="tdcenter">操作内容</th>
+													<th class="tdcenter">时间</th>
+													<th class="tdcenter">IP</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+											</tbody>
+										</table>
+										<!-- 分页区域 -->
+										<div id="waring-nodata"></div>
+										
+										<div id="pagination" class="pagination page-left"  ></div>
+										
+										<br/><br/>
+									</div>
+							
+								</div>
+
+
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer">
+				
+			</div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+    <script src="../js/extend.js"></script>
+    <script src="../js/njs/bootstrap.min.js?v=3.4.0"></script>
+    <script src="../js/njs/jquery.metisMenu.js"></script>
+	
+    
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/fileUploadModel.js"></script>
+<script type="text/javascript" src="../js/sysman_Journal.js"></script>
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/njs/hplus.js?v=2.2.0"></script> <!--控制导航自动缩进-->
+</body>
+</html>

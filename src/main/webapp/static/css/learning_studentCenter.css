@@ -1,0 +1,27 @@
+.remark-info
+{
+	background: url("http://study.163.com/res/images/settings.png?ea9548d91ce927de5ea00035fde96403") no-repeat scroll 0 -14px transparent;
+	color: #81BC9B;
+    display: block;
+    font-size: 12px;
+    height: 20px;
+    padding: 0 0 0 20px;
+    width: 80px;
+}
+.user-info-show
+{
+	list-style-type:none
+}
+.item-info
+{
+	float: left;
+	color: #CCCCCC;
+	font-size: 15px;
+	font-family:tahoma,"宋体",arial,helvetica,sans-serif"
+}
+
+.person-info
+{
+	padding-bottom: 20px;
+}
+

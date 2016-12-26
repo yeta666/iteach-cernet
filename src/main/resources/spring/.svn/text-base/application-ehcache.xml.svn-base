@@ -1,0 +1,27 @@
+<!-- 
+*开启注解缓存配置
+*@author yangzq
+*@date 2013/8/5
+*说明，用于统一的栏目获取处理
+ -->
+<beans
+  	xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cache="http://www.springframework.org/schema/cache"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache-3.1.xsd">
+    <!-- 开启缓存对注解的支持 -->
+    <cache:annotation-driven cache-manager="cacheManager"/>
+    
+   <!-- 配置Ehcache缓存管理器,读取配置文件 -->
+    <bean id="ehCacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache.xml"></property>
+    </bean>
+    
+    <!-- 配置缓存管理器,获取cache -->
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" >
+          <property name="cacheManager" ref="ehCacheManagerFactoryBean" />
+    </bean>
+</beans>
