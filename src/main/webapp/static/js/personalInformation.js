@@ -106,6 +106,7 @@ function showUserInfo(backInfo) {
 			AjaxJson("../../handler/attachment/findAttachmentById", {
 				attaId : arr[8]
 			}, function(backData) {
+				console.log(backData);
 				var data = backData.data.attachment;
 				userAttaId = data.attaId;
 				var imgUrl = "../../upload/portrait/user.jpg";
@@ -147,6 +148,7 @@ function fileUp()
 				location:"upload/portrait/"
 			},
 			'success' : function(data, status) {
+				console.log(data);
 				//删除原来的图片附件
 				if(attaId>0){
 					AjaxJson("../../handler/attachment/delete",{attachId:attaId},function(backData){
@@ -173,6 +175,7 @@ function fileUp()
 
 			},
 			'error' : function(data, status, e) {
+				console.log(data);
 				state = 'error';
 				header = "添加失败";
 				message = "头像上传失败!!";

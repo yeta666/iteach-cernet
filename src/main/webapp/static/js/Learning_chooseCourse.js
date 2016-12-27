@@ -418,7 +418,6 @@ function lastPost(courseId)
 		},
 		dataType:'json',
 		success:function(result){
-			console.log(result);
 			var pdata = result.data.pageData;
 			var postlist = '';
 			if(pdata!=""&&pdata!=null){

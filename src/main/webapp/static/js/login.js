@@ -57,6 +57,7 @@ $(function() {
 						if(resultData == "success") {
 							$.cookie('colVideo', '0'); //控制视频 唯一开启
 							window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+							return;
 						} else if(resultData == "passwordError" || resultData == "null") {
 							alert("用户或者密码错误！");
 						} else if(resultData == "unVerify") {

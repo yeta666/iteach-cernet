@@ -99,7 +99,6 @@ function recommendCourseslist() {
 		url: "../../handler/courseReom",
 		dataType: "json",
 		success: function(data) {
-			console.log("获取猜你喜欢数据" + data);
 			if(!data.ret) {
 				console.log("数据加载出错，请联系管理员！");
 				return;
@@ -141,7 +140,6 @@ function homeTeacherList(){
 		dataType:'json',
 		success:function(result){
 			var homeTeacherData = result.data.users;
-			console.log("想知道这个数据是拿来干嘛的？" + homeTeacherData);
 			var homehtml = "";
 			if(homeTeacherData != null){
 				//var coursenum = homeTeacherData.length;

@@ -1,8 +1,8 @@
 var title="";
 $(document).ready(function() {
+	showWelcomeMsg();//获取首页顶部栏目条（由于样式不同于其他栏目，单独构建）
 	showStatistic();// 获取统计信息
 	showLinks();// 友情链接显示
-	showWelcomeMsg();//获取首页顶部栏目条（由于样式不同于其他栏目，单独构建）
 	showAPP();//关于首页app下载部分的显示
 });
 
