@@ -110,18 +110,14 @@ var unLoginData = new Object();
 //获取导航菜单数据
 function loadNavibarInfo() {
 	if($.cookie("user") == null || $.cookie("user") == "") {
+		//cookie里面没有保存user信息
 		unLoginData = {
 			"userName": "登录",
 			"userLoginname": ""
 		};
 		getNavibar(unLoginData);
 	} else {
-		if($.cookie("photo") != null && $.cookie("photo") != "") {
-			var parCookie = $.cookie("photo");
-			userPhoto = parCookie;
-		} else {
-			userPhoto = "user.jpg";
-		}
+		//cookie里面保存了user信息
 		$.ajax({
 			type: 'GET',
 			contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
@@ -289,27 +285,47 @@ function ShowColumn() {
 	if(firstCol == null || firstCol == "undefine") {
 		firstCol = 0;
 	}
-	var imgUrl = "../../upload/portrait/user.jpg";
-	if(userPhoto != "" && userPhoto.length > 0) {
-		imgUrl = "../../upload/portrait/" + userPhoto;
-	}
-	if(!CheckImgExists(imgUrl)) {
-		imgUrl = "../../upload/portrait/user.jpg";
-	} //dropdown profile-element
+	
+	//请求一下用户信息，后台把用户头像存在cookie里面
+	$.ajax({
+		type: "post",
+		contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+		url: '../../handler/user/findUserById',
+		async: false,
+		data: {
+			userId: userId
+		},
+		dataType: 'json',
+		success: function(data) {
+			var img;
+			if(data.ret){
+				if($.cookie("photo") != null && $.cookie("photo") != "" && $.cookie("photo") != '""'){
+					img = $.cookie("photo");
+				}else{
+					img = "user.jpg";
+				}
+			}else{
+				img = "user.jpg";
+			}
+			imgUrl = "../../upload/portrait/" + img;
+			//设置用户头像--yeta
+			for(var i = 0; i < $(".user_img").length; i++) {
+				$(".user_img")[i].src = imgUrl;
+			}
+		}
+	});
+	
+	//dropdown profile-element
 	var tmp = "firstCol=1&secondCol=14";
-	//
-	//设置用户头像--yeta
-	for(var i = 0; i < $(".user_img").length; i++) {
-		$(".user_img")[i].src = imgUrl;
-	}
+	
 	//设置用户姓名--yeta
 	for(var i = 0; i < $(".user_name").length; i++) {
 		$(".user_name").html(userName);
 	}
 	//
-	var columnHtml = "<li class=\"nav-header\"><div class=\"dropdown profile-element fadeInRight m-t-xs\"><span><img alt=\"image\" class=\"photo\" src='" + imgUrl + "' /></div><p class='userInfo'/></span> <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"home.html#\"> <span class=\"clear\"> " +
+	/*var columnHtml = "<li class=\"nav-header\"><div class=\"dropdown profile-element fadeInRight m-t-xs\"><span><img alt=\"image\" class=\"photo\" src='" + imgUrl + "' /></div><p class='userInfo'/></span> <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"home.html#\"> <span class=\"clear\"> " +
 		"<span class=\"text-muted text-xs block\">" + userName + " <b class=\"caret\"></b></span></span></a><ul class=\"dropdown-menu animated fadeInRight m-t-xs\"><li><a href='modifyPassword_home.html?" + tmp + "'>密码设置</a></li>" +
-		"<li><a href='personalInformation_home.html?" + tmp + "'>个人资料</a></li><li><a href='aboutSystem_home.html?" + tmp + "'>关于系统</a></li><li><a href='aboutHelp_home.html?" + tmp + "'>联机帮助</a></li><li class='divider'></li><li><a href='#' onclick='loginOff();'>安全退出</a></li></ul></div><div class=\"logo-element\">" + userName + " </div></li>";
+		"<li><a href='personalInformation_home.html?" + tmp + "'>个人资料</a></li><li><a href='aboutSystem_home.html?" + tmp + "'>关于系统</a></li><li><a href='aboutHelp_home.html?" + tmp + "'>联机帮助</a></li><li class='divider'></li><li><a href='#' onclick='loginOff();'>安全退出</a></li></ul></div><div class=\"logo-element\">" + userName + " </div></li>";*/
 	if($.cookie("user") != null && $.cookie("user") != "") {
 		// 为空时,才请求后台,避免出现重复请求
 		var url = "../../handler/column/loadColumns";
@@ -350,7 +366,7 @@ function ShowColumn() {
 					});
 					//动态加载左边导航--yeta
 
-					$.each(colVal, function(index, item) { //fa fa-globe 
+					/*$.each(colVal, function(index, item) { //fa fa-globe 
 						columnHtml += "<li id='firstCol" + item.colid + "'><a href='" + item.colurl + "'><i class=\"" + item.colicon + "\"></i> <span class=\"nav-label\">" + item.colname + "</span>";
 						if(item.subcols != null && item.subcols.length > 0 && item.subcols != "") {
 							columnHtml += "<span class=\"fa arrow\"></span>";
@@ -361,14 +377,14 @@ function ShowColumn() {
 						}
 						columnHtml += subcolsde + "</li>";
 						subcolsde = "";
-					});
+					});*/
 				}
 			} else {
 				alert("栏目获取失败！");
 			}
 		});
 	}
-	$("#side-menu").html(columnHtml);
+	/*$("#side-menu").html(columnHtml);*/
 	highlightColum(); //暂未检查
 }
 

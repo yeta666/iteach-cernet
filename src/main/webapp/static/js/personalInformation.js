@@ -1,5 +1,6 @@
 var attaId = -1;
 $(document).ready(function() {
+	//console.log(userId);
 	getInfo(userId);
 	ShowColumn();
 	$("#remark-info").click(changeInfo);
@@ -93,7 +94,6 @@ function showUserInfo(backInfo) {
 			$(id).html("<input id='" + i + "' type='text' class='form-control' readonly='readonly' value='" + arr[i] + "'><span " + (i < 2 ? "class='no-info'" : "class='info'") + "></span>");
 		}
 		$("#info-item7").html("<textarea class='form-control' id='" + 7 + "' style='width:400px;height:100px;resize:none;' readonly='readonly'>" + arr[7] + "</textarea><span class='info'></span>");
-
 		if(arr[8] != undefined) {
 			attaId = arr[8];
 			AjaxJson("../../handler/attachment/findAttachmentById", {
@@ -103,10 +103,11 @@ function showUserInfo(backInfo) {
 					var data = backData.data.attachment;
 					userAttaId = data.attaId;
 					var imgUrl = "../../" + data.attaLocation + data.attaFilename;
-					if(!CheckImgExists(imgUrl)) {
+					/*if(!CheckImgExists(imgUrl)) {
 						imgUrl = "../../upload/portrait/user.jpg";
-					}
+					}*/
 					$("#head-pic").attr("src", imgUrl);
+					$("#head-pic")[0].onerror = function(){this.src = "../../upload/portrait/user.jpg"};
 				} else {
 					$("#head-pic").attr("src", "../../upload/portrait/user.jpg");
 				}
@@ -128,7 +129,6 @@ function fileUp() {
 		moveto("table");
 		return;
 	}
-
 	if("" != pic) {
 		//上传头像
 		$.ajaxFileUpload({
@@ -141,38 +141,52 @@ function fileUp() {
 				location: "upload/portrait/"
 			},
 			'success': function(data, status) {
-				console.log(data);
+				//保存图片id到user表中
+				var params = {
+						userId: userId,
+						gender: $("#2").val(),
+						userIdCard: $("#3").val(),
+						email: $("#4").val(),
+						phone: $("#5").val(),
+						address: $("#6").val(),
+						mark: $("#7").val(),
+						picId: data.data.attachId
+					};
+				AjaxJson("../../handler/user/modifyPersonalInfo", params, function(result){
+					console.log(result);
+				});
 				//删除原来的图片附件
 				if(attaId > 0) {
 					AjaxJson("../../handler/attachment/delete", {
 						attachId: attaId
 					}, function(backData) {
-						console.log(backData);
 						if(!backData.ret) {
 							alert("删除原始头像失败！");
 						}
 					});
 				}
-
-				//显示新上传的图片
-				attachmentId = data.data.attachId;
+				//显示新上传的图片，并修改顶部导航栏用户头像
 				AjaxJson("../../handler/attachment/findAttachmentById", {
-					attaId: attachmentId
+					attaId: data.data.attachId
 				}, function(backData) {
 					var data = backData.data.attachment;
 					if(data == null) {
 						$("#head-pic").attr("src", "../../upload/portrait/user.jpg");
-						alert("1111");
+						for(var i = 0; i < $(".user_img").length; i++) {
+							$(".user_img")[i].src = "../../upload/portrait/user.jpg";
+						}
 					} else {
 						userAttaId = data.attaId;
 						attaId = userAttaId;
 						$("#head-pic").attr("src", "../../" + data.attaLocation + data.attaFilename);
+						for(var i = 0; i < $(".user_img").length; i++) {
+							$(".user_img")[i].src = "../../" + data.attaLocation + data.attaFilename;
+						}
 					}
 				});
 
 			},
 			'error': function(data, status, e) {
-				console.log(data);
 				state = 'error';
 				header = "添加失败";
 				message = "头像上传失败!!";
@@ -204,4 +218,5 @@ function changeInfo() {
 function backOfModify(backInfo) {
 	var data = backInfo.data.data;
 	alert(data.info);
+	location.reload();
 }

@@ -405,7 +405,7 @@ public class UserController {
                 userPhoto = attach.getAttaFilename();
             }
         }
-        CookieUtil.colsCookie(userPhoto, "photo", "/", "", 100000, respons);
+       CookieUtil.colsCookie(userPhoto, "photo", "/", "", 100000, respons);
         return jav.addData("data", findUser);
     }
 

@@ -193,7 +193,6 @@ public class FileUpDownloadController {
             return;
         }
         //存储文件
-        
         try {
         	String str = request.getSession().getServletContext().getRealPath("/") + "/" + location + newFileName;
         	File newFile_by_yeta = new File(str);
