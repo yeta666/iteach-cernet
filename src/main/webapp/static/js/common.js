@@ -143,11 +143,10 @@ function loadNavibarInfo() {
 
 function getNavibar(data) {
 	//ajax 获取系统标题 （系统名字为空需要判定）此处需修改    systemName
-
 	$.ajaxSettings.async = false;
 	userName = data.userName;
 	userLoginname = data.userLoginname;
-	var notLogin = "onclick='entrancePerson()'";
+	/*var notLogin = "onclick='entrancePerson()'";
 	var userHtml = "";
 	var userCenterHtml = "";
 	if(userLoginname.length > 0) {
@@ -159,17 +158,16 @@ function getNavibar(data) {
 	} else {
 		userHtml = "<ul class='dropdown-menu'><li><a class='judgevideo' href='aboutSystem_home.html'><i class='icon-eye-open'></i>关于系统</a></li><li><a class='judgevideo' href='aboutHelp_home.html'><i class='icon-question-sign'></i>联机帮助</a></li>" +
 			"</ul>";
-	}
+	}*/
 
 	//加载系统标题--yeta
 	$("#system_title_by_yeta").html(systemName);
 	//加载系统标题--yeta
 
 	//暂时未做登录与未登录区分
-	var headerHtml = "<li class=\"navbar-left\"style=\"margin-top:-17px\"><a href=\"home.html\" title=\"首页\"><h1 >" + systemName + "</h1></a></li><li class=\"navbar-right\"><a href='#' onclick='loginOff();'><i class=\"fa fa-sign-out\" href='#' onclick='loginOff()'></i> 退出</a></li>" +
+	/*var headerHtml = "<li class=\"navbar-left\"style=\"margin-top:-17px\"><a href=\"home.html\" title=\"首页\"><h1 >" + systemName + "</h1></a></li><li class=\"navbar-right\"><a href='#' onclick='loginOff();'><i class=\"fa fa-sign-out\" href='#' onclick='loginOff()'></i> 退出</a></li>" +
 		"<li class=\"navbar-right\"><ul class='styles'><li class='' id='color' ></li><li class='' id='green' ></li><li class='' id='red' ></li></ul></li>";
-
-	$("#navibartitle").html(headerHtml);
+	$("#navibartitle").html(headerHtml);*/
 }
 
 function setCookie(cname, cvalue, exdays) {

@@ -143,7 +143,7 @@ public class FileUpDownloadController {
         //获取原文件名和文件格式
         String oriFileName=postfile.getOriginalFilename();
         String type="";
-        int position = oriFileName.lastIndexOf(".");        
+        int position = oriFileName.lastIndexOf("."); 
         if(position>=0){
             type=oriFileName.substring(position+1);
         }
@@ -193,8 +193,11 @@ public class FileUpDownloadController {
             return;
         }
         //存储文件
+        
         try {
-            postfile.transferTo(new File(request.getSession().getServletContext().getRealPath(location+newFileName)));
+        	String str = request.getSession().getServletContext().getRealPath("/") + "/" + location + newFileName;
+        	File newFile_by_yeta = new File(str);
+            postfile.transferTo(newFile_by_yeta);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             logger.error("存储文件失败！\n"+e.getLocalizedMessage());
