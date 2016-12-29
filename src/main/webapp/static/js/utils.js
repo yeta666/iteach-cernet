@@ -97,12 +97,13 @@ function infoNotice(state, header, message) {
 /**
  * 控制附件上传 author:吴岘辉
  */
-function sunbmitNewBbsAttach(type, location) {
+function sunbmitNewBbsAttach(type) {
 	var upload = $("#postfile").val();
 	if (upload == null || upload == "") {
 		alert("请先点击“浏览”按钮选择要上传的附件！");
 		return false;
 	}
+	var location = "upload/bbs/";
 	$("#loading").show();// 动态加载小图标
 	$.ajaxFileUpload({
 		url : '../../handler/load/upload',
@@ -124,8 +125,7 @@ function sunbmitNewBbsAttach(type, location) {
 						attachesIds += "," + data.data.attachId;
 					}
 
-					$("#attachment")
-					.append(
+					$("#attachment").append(
 							"<p id="
 							+ data.data.attachId
 							+ "1>"

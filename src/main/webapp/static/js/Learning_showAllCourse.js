@@ -413,7 +413,6 @@ function recommendCourseslist() {
 		},
 		dataType:'json',
 		success:function(result){
-			console.log(result);
 			if(result.ret){
 				var recommendCourseData= result.data.result;
 				var homehtml = "";

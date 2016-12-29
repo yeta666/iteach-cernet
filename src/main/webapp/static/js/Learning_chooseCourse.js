@@ -382,6 +382,7 @@ function selectCourse(userId)
 }
 var firstReplayResult = '<p style="color:red;">暂无回复</p>';
 function getFirstReplay(postId){
+	firstReplayResult = '<p style="color:red;">暂无回复</p>';
 	var viewaction = "../../handler/bbsReply/viewReplyList";
 	var params = {
 			"bbsPostId": postId,
@@ -420,7 +421,7 @@ function lastPost(courseId)
 		success:function(result){
 			var pdata = result.data.pageData;
 			var postlist = '';
-			if(pdata!=""&&pdata!=null){
+			if(pdata != "" && pdata != null){
 				if(pdata.length>0){
 					var postdata = pdata[0].data;
 					if(postdata.length >0 ){
@@ -428,7 +429,7 @@ function lastPost(courseId)
 						$.each(postdata, function(itemIndex, item) {
 							getFirstReplay(item.bbpoId);
 							//console.log(firstReplayResult);
-							postlist = postlist + '<li style="list-style:none">'+
+							postlist += '<li style="list-style:none">'+
 							'<div class="col-sm-1" style="padding:0;"><i class="fa fa-file-text" style="width:100%; height:100%; text-align:center; font-size:20px;"></i></div>'+
 							'<div class="col-sm-11"  style="margin-bottom:20px;">'+
 							'<p>'+item.userName+'</p>'+
@@ -440,6 +441,8 @@ function lastPost(courseId)
 						});
 					}
 				}
+			}else{
+				postlist += '<li style="list-style:none">暂无讨论</li>';
 			}
 			$("#coursePost").empty().append(postlist);
 		}

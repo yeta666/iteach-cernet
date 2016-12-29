@@ -137,7 +137,6 @@ function viewPostInfo(){
 			bbsPostId :postId
 		},
 		success : function(data) {
-			//console.log(data);
 			if(data.ret){
 				var flag="";
 				if (data.data.isTop) {
@@ -167,11 +166,11 @@ function viewPostInfo(){
 					"时间："+data.data.pubTime+"</small></td>"+
 					"</tr>";
 				postContentInfo+="<tr><td><p>"+data.data.postContent+"</p></td></tr>";
-				if(data.data.attachs!=undefined){
+				
+				if(data.data.attachs != undefined){
 					$.each(data.data.attachs, function(i, val) {
-						postContentInfo+="<tr class='warning'>";
-
-						postContentInfo+="<td>" +
+						postContentInfo += "<tr class='warning'>";
+						postContentInfo += "<td>" +
 						"<strong>附件:</strong>"+
 						"&nbsp;&nbsp;&nbsp;&nbsp;"+
 						"<a href='../../handler/load/download?attaId="+val.attaId+
@@ -281,9 +280,9 @@ function submitNewReplyContent() {
 					alert("回复成功！");
 					//显示回复信息
 					viewReplyInfo();
-					var temp=$("#replayText").summernote()[0];
+					var temp = $("#replayText").summernote()[0];
 					$("#replayText").val("");
-					temp.updateFrame();
+					//temp.updateFrame();
 					$("#attachment").empty();
 					attachesIds="";
 					$("#postfile").val("");

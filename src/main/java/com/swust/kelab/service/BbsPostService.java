@@ -329,7 +329,7 @@ public class BbsPostService {
         if (post.isBbpoHasattach()) {
             Map query = new HashMap();
             query.put("sourceId", bbsPostId);
-            query.put("sourceType", 1);
+            query.put("sourceType", 2);
             List<Attachment> attas = null;
             try {
                 attas = attachmentDAO.getAttachBySourceTypeId(query);
