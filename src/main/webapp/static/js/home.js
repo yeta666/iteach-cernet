@@ -1,6 +1,5 @@
-var title="";
 $(document).ready(function() {
-	showWelcomeMsg();//获取首页顶部栏目条（由于样式不同于其他栏目，单独构建）
+	showWelcomeMsg();//获取首页顶部导航信息
 	showStatistic();// 获取统计信息
 	showLinks();// 友情链接显示
 	showAPP();//关于首页app下载部分的显示
@@ -24,25 +23,22 @@ function showWelcomeMsg(){
 				return;
 			}else{
 			var resultData = data.data.result;
-			var welcomeHtml = "";
-			
-			$.each(resultData, function(DataIndex, index) {
-				if(index.sypaEnName=="systemName")
-					title1 = index.sypaValue;
-			});
+			//加载系统名称
+			$("#header_title").html(resultData[3].sypaValue);
+			//加载版权信息
+			$(".template").html(resultData[6].sypaValue);
+			//加载介绍信息
+			//$("#welcomeMsg").html(resultData[7].sypaValue)
+			//加载顶部右边功能按钮
 			if ($.cookie("user") == null || $.cookie("user") == "") {
-				unLoginData = {
-						"userName" : "登录",
-						"userLoginname" : ""
-				};
-				//加载系统标题
-				$("#header_title").html(title1);
-				//加载顶部右边功能按钮
-				$("#header_menu").html('<li><a href="#login_modal" data-toggle="modal">登录</a></li><li><a href="register_home.html">注册</a></li>');
+				//判断是否开放注册
+				if(resultData[1].sypaValue == "是"){
+					$("#header_menu").html('<li><a href="#login_modal" data-toggle="modal">登录</a></li><li><a href="register_home.html">注册</a></li>');
+				}else{
+					//加载顶部右边功能按钮
+					$("#header_menu").html('<li><a href="#login_modal" data-toggle="modal">登录</a></li>');
+				}
 			} else {
-				//加载系统标题
-				$("#header_title").html(title1);
-				//加载顶部右边功能按钮
 				$("#header_menu").html('<li><a href="userCenter.html?firstCol=1&secondCol=14">进入系统</a></li>');
 			}
 		   }

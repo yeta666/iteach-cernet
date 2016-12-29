@@ -1,9 +1,8 @@
 var result ="";
 $(document).ready(function(){
-	judgeShowTeacher();	//为什么要判断？
-	homeCourselist();	//名师讲堂
+	homeCourselist();	//加载名师讲堂
 	recommendCourseslist();	//猜你喜欢
-	homeTeacherList();	//干什么的？
+	judgeShowTeacher();//判断是否显示主讲教师	
 	
 	//过滤效果
 	var $container = $('#gallery');
@@ -40,7 +39,7 @@ $(document).ready(function(){
 	});
 });
 
-//为什么要判断？
+//判断是否显示主讲教师
 function judgeShowTeacher(){
 	$.ajax({
 		type:"post",
@@ -52,16 +51,16 @@ function judgeShowTeacher(){
 		dataType:'json',
 		success:function(result){
 			result1 = result.data.value;
-			if(result1=="是"){
-				$("#ShowTeacher").show();
+			if(result1 == "是"){
+				homeTeacherList();	//显示主讲教师
 			}else{
-				$("#ShowTeacher").hide();
+				
 			}
 		}
 	});
 }
 /**
- * 最新课程介绍
+ * 名师讲堂数据
  */
 function homeCourselist() {
 	//获取名师讲堂数据
@@ -126,6 +125,8 @@ function recommendCourseslist() {
 		}
 	});
 }
+
+//这个功能暂时没用
 /**
  * 名师简介 
  */

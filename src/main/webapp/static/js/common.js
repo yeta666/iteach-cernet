@@ -427,7 +427,6 @@ function showCarousel() {
 	var liHtml = '';
 	var imgHtml = '';
 	$.get(url, function(data, status) {
-		console.log(data);
 		if(data.data) {
 			$.each(data.data.result, function(entryIndex, entry) {
 				img = entry.filename;
