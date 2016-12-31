@@ -52,6 +52,7 @@ $(function() {
 				},
 				dataType: 'json',
 				success: function(data) {
+					console.log(data);
 					if(data.ret) {
 						var resultData = data.data.result;
 						if(resultData == "success") {

@@ -331,7 +331,7 @@ function backOfUserInfo(backInfo) {
 	//alert(studentUser);
 	classId = data.userClasId;
 	$("#userNameCanChange").text("用户名（学籍号）");
-	if (studentUser == 2 || studentUser == 1) {
+	//if (studentUser == 2 || studentUser == 1) {
 		if (undefined == userAttaId) {
 			$("#head-pic-mod").attr("src", "../../upload/portrait/user.jpg");
 		} else {
@@ -346,7 +346,7 @@ function backOfUserInfo(backInfo) {
 				}
 			});
 		}
-	}
+	//}
 
 	if (studentUser == 1) {
 		$("#student-grade").removeAttr("style");

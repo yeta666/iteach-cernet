@@ -55,7 +55,6 @@ function buildNewStr(str){
 function showmycourse(){
 	$.getJSON("../../handler/course/viewCourseList.do",{},function(data){
 		var mycourse = data.data.courseList;
-		console.log("我的课程" + mycourse);
 		var mycoursehtml = "";
 		if(mycourse != null && mycourse.length>0){
 			var coursenum = mycourse.length;

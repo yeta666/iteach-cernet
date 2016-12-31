@@ -520,6 +520,7 @@ function judgecomvideo() {
 	var url = window.location.href;
 	var juid = url.indexOf("learning_video");
 	if(juid != -1) {
+		//当前是视频页面
 		$(".judgevideo").click(function() {
 			$.cookie('colVideo', '0');
 		});

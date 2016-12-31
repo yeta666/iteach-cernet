@@ -42,6 +42,7 @@ function showContent() {
 	$("#mainTable").empty();
 	var startIndex = 1;
 	$.get(url, function(data, status) {
+		console.log(data);
 		$.each(data.data.json, function(itemIndex1, item1) {
 			colData = data.data.json;
 			var columnHtml = "";

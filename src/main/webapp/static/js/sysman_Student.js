@@ -240,14 +240,14 @@ function AjaxJson(url, param, success) {
  */
 function showSchoolToSelect(data) {
 	var data1 = data.data.departments;
-	var Html = "<option value='-1'>=学校=</option>";
+	var Html = "<option value='-1'>=专业=</option>";
 	for ( var i = 0; i < data1.length; i++) {
 		Html += "<option value=" + data1[i].depaId + ">" + data1[i].depaName + "</option>";
 	}
 	$("#chooseSchool").html(Html);
 	$("#chooseSchool").change(function() {
 		var depid = $(this).val();
-		// 当学校被点击，请求年级
+		// 当专业被点击，请求年级
 		if (!(depid == -1)) {
 			$("#quGrade").removeAttr("style");
 			updatedata(depid);
