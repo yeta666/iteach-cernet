@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="User">
+	<resultMap id="BaseResultMap" type="com.swust.kelab.domain.User">
+		<id column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="user_depa_id" property="userDepaId" jdbcType="INTEGER" />
+		<result column="user_clas_id" property="userClasId" jdbcType="INTEGER" />
+		<result column="user_loginname" property="userLoginname"
+			jdbcType="VARCHAR" />
+		<result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
+		<result column="user_realname" property="userRealname"
+			jdbcType="VARCHAR" />
+		<result column="user_gender" property="userGender" jdbcType="VARCHAR" />
+		<result column="user_type" property="userType" jdbcType="INTEGER" />
+		<result column="user_year_of_entrance" property="userYearOfEntrance"
+			jdbcType="VARCHAR" />
+		<result column="user_cadas_exam_num" property="userCadasExamNum"
+			jdbcType="VARCHAR" />
+		<result column="user_id_num" property="userIdNum" jdbcType="VARCHAR" />
+		<result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+		<result column="user_phone_num" property="userPhoneNum"
+			jdbcType="VARCHAR" />
+		<result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+		<result column="user_edu_level" property="userEduLevel"
+			jdbcType="VARCHAR" />
+		<result column="user_workunit" property="userWorkunit"
+			jdbcType="VARCHAR" />
+		<result column="user_verify" property="userVerify" jdbcType="BIT" />
+		<result column="user_remark" property="userRemark" jdbcType="LONGVARCHAR" />
+		<result column="user_loginState" property="userLoginstate"
+			jdbcType="INTEGER" />
+		<result column="user_loginNum" property="userLoginnum"
+			jdbcType="INTEGER" />
+		<result column="user_coverPictureId" property="userCoverPictureId"
+			jdbcType="INTEGER" />
+	</resultMap>
+
+	<!-- 通过用户id查询用户Type @author EasonLian -->
+	<select id="selectOneUserById" parameterType="integer"
+		resultType="com.swust.kelab.domain.User">
+		SELECT
+		user_type as UserType
+		FROM
+		User
+		WHERE
+		user_id = #{userId}
+	</select>
+	
+	<!--
+		通过资料验证用户
+		@author easonlian 
+	 -->
+	<select id="confirmUserInfo" parameterType="hashmap" resultType="com.swust.kelab.domain.User">
+		SELECT
+			user_id as userId
+		FROM
+			User as user
+		LEFT JOIN	
+			Class as clas
+		ON	
+			clas.clas_id = user.user_clas_id 
+		WHERE	
+			user.user_depa_id = #{depaId}
+			AND  clas_grad_id=#{gradId} 
+			AND  user.user_realname = #{userRealname}
+			AND  user.user_id_num = #{userIdNum}
+	</select>
+
+	<select id="findOneUser" parameterType="int" resultMap="BaseResultMap">
+		SELECT
+		user_id,
+		user_depa_id,
+		user_clas_id,
+		user_loginname,
+		user_pwd,
+		user_realname,
+		user_gender,
+		user_type,
+		user_year_of_entrance,
+		user_cadas_exam_num,
+		user_id_num, user_email,
+		user_phone_num,
+		user_address,
+		user_edu_level,
+		user_workunit,
+		user_verify,
+		user_remark,
+		user_loginState,
+		user_loginNum,
+		user_coverPictureId
+		FROM
+		User
+		WHERE
+		user_id = #{userId}
+	</select>
+
+	<!-- 根据传入的user条件,查询user信息 -->
+	<select id="findUsersByUser" parameterType="com.swust.kelab.domain.User"
+		resultMap="BaseResultMap">
+	<![CDATA[
+			SELECT 
+				us.user_id, 
+				us.user_depa_id, 
+				us.user_clas_id, 
+				us.user_loginname, 
+				us.user_pwd, 
+				us.user_realname, 
+				us.user_gender, 
+    			us.user_type, 
+    			us.user_year_of_entrance, 
+    			us.user_cadas_exam_num, 
+    			us.user_id_num,
+    			us.user_email, 
+    			us.user_phone_num, 
+    			us.user_address, 
+    			us.user_edu_level, 
+    			us.user_workunit, 
+    			us.user_verify,
+    			us.user_remark,
+    			us.user_coverPictureId,
+    			us.user_loginState
+			FROM User us
+	]]>
+		<where>
+			<if test="userId != null and userId > 0">
+				us.user_id=#{userId}
+			</if>
+			<if test="userDepaId != null and userDepaId > 0">
+				AND us.user_depa_id=#{userDepaId}
+			</if>
+			<if test="userClasId != null and userClasId > 0">
+				AND us.user_clas_id=#{userClasId}
+			</if>
+			<if test="userLoginname != null and userLoginname != ''">
+				AND us.user_loginname=#{userLoginname}
+			</if>
+			<if test="userPwd != null and userPwd != ''">
+				AND us.user_pwd=#{userPwd}
+			</if>
+			<if test="userRealname != null and userRealname != ''">
+				AND us.user_realname=#{userRealname}
+			</if>
+			<if test="userGender != null and userGender != ''">
+				AND us.user_gender=#{userGender}
+			</if>
+			<if test="userType != null and userType > 0">
+				AND us.user_type=#{userType}
+			</if>
+			<if test="userYearOfEntrance != null and userYearOfEntrance != ''">
+				AND us.user_year_of_entrance=#{userYearOfEntrance}
+			</if>
+			<if test="userCadasExamNum != null and userCadasExamNum != ''">
+				AND us.user_cadas_exam_num=#{userCadasExamNum}
+			</if>
+			<if test="userIdNum != null and userIdNum != ''">
+				AND us.user_id_num=#{userIdNum}
+			</if>
+			<if test="userEmail != null and userEmail != ''">
+				AND us.user_email=#{userEmail}
+			</if>
+			<if test="userPhoneNum != null and userPhoneNum != ''">
+				AND us.user_phone_num=#{userPhoneNum}
+			</if>
+			<if test="userAddress != null and userAddress != ''">
+				AND us.user_address=#{userAddress}
+			</if>
+			<if test="userEduLevel != null and userEduLevel != ''">
+				AND us.user_edu_level=#{userEduLevel}
+			</if>
+			<if test="userWorkunit != null and userWorkunit != ''">
+				AND us.user_workunit=#{userWorkunit}
+			</if>
+			<if test="userVerify != null">
+				AND us.user_verify=#{userVerify}
+			</if>
+			<if test="userRemark != null and userRemark != ''">
+				AND us.user_remark=#{userRemark}
+			</if>
+		</where>
+	</select>
+
+	<update id="updateUserPwd" parameterType="com.swust.kelab.domain.User">
+		UPDATE
+		User
+		SET
+		user_pwd = #{userPwd},
+		user_depa_id = #{userDepaId},
+		user_clas_id = #{userClasId},
+		user_loginname = #{userLoginname},
+		user_realname = #{userRealname},
+		user_gender = #{userGender},
+		user_type = #{userType},
+		user_year_of_entrance = #{userYearOfEntrance},
+		user_cadas_exam_num = #{userCadasExamNum},
+		user_id_num = #{userIdNum},
+		user_email = #{userEmail},
+		user_phone_num = #{userPhoneNum},
+		user_address = #{userAddress},
+		user_edu_level = #{userEduLevel},
+		user_workunit = #{userWorkunit},
+		user_verify = #{userVerify},
+		user_remark = #{userRemark},
+		user_coverPictureId = #{userCoverPictureId}
+		WHERE
+		user_id = #{userId}
+	</update>
+
+	<!-- 登入登出设置用户状态 by yangzq -->
+	<update id="updateUserState" parameterType="com.swust.kelab.domain.User">
+		UPDATE
+		User
+		SET
+		user_loginState = #{userLoginstate}
+		WHERE
+		user_id = #{userId}
+	</update>
+
+	<!-- 成功插入数据后返回该数据在数据库中的id -->
+	<insert id="insertUser" parameterType="com.swust.kelab.domain.User"
+		keyProperty="userId">
+		insert into User (
+		user_depa_id, user_clas_id,
+		user_loginname, user_pwd,
+		user_realname, user_gender,
+		user_type, user_year_of_entrance,
+		user_cadas_exam_num, user_id_num,
+		user_email, user_phone_num,
+		user_address, user_edu_level,
+		user_workunit, user_verify,
+		user_loginState, user_loginNum,
+		user_remark,user_coverPictureId
+		)
+		values (
+		#{userDepaId,jdbcType=INTEGER}, #{userClasId,jdbcType=INTEGER},
+		#{userLoginname,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR},
+		#{userRealname,jdbcType=VARCHAR}, #{userGender,jdbcType=VARCHAR},
+		#{userType,jdbcType=INTEGER}, #{userYearOfEntrance,jdbcType=VARCHAR},
+		#{userCadasExamNum,jdbcType=VARCHAR}, #{userIdNum,jdbcType=VARCHAR},
+		#{userEmail,jdbcType=VARCHAR}, #{userPhoneNum,jdbcType=VARCHAR},
+		#{userAddress,jdbcType=VARCHAR}, #{userEduLevel,jdbcType=VARCHAR},
+		#{userWorkunit,jdbcType=VARCHAR}, #{userVerify,jdbcType=BIT},
+		#{userLoginstate,jdbcType=INTEGER}, #{userLoginnum,jdbcType=INTEGER},
+		#{userRemark,jdbcType=LONGVARCHAR},#{userCoverPictureId,jdbcType=INTEGER}
+		)
+	</insert>
+
+	<!-- 通过角色id，获取用户基本信息及所在部门名称 -->
+	<select id="viewUserByRole" parameterType="int" resultType="TeacherModel">
+		select
+		user_id as teacherId,
+		user_realname as teacherName,
+		depa_name as schoolName,
+		depa_id as schoolId
+		from
+		User
+		inner join Re_UserRole on user_id=rero_user_id
+		inner join Role on rero_role_id=role_id
+		inner join Department on user_depa_id=depa_id
+		<where>
+			<if test="_parameter!=null and _parameter>0">
+				role_id=#{_parameter}
+			</if>
+		</where>
+		order by
+		user_id
+	</select>
+
+	<!-- 统计在线人数 -->
+	<select id="staOnlineUserNum" resultType="int">
+		select
+		count(*)
+		from
+		User
+		where
+		user_loginState=1
+	</select>
+
+	<!-- 统计教师人数 -->
+	<select id="staTeacherNum" resultType="int">
+		select
+		count(*)
+		from
+		User
+		where
+		user_type=2
+	</select>
+
+	<!-- 统计学生人数 -->
+	<select id="staStudentNum" resultType="int">
+		select
+		count(*)
+		from
+		User
+		where
+		user_type=1
+	</select>
+	
+	<!-- 统计每个年级的学生人数 -->
+	<select id="staGradeStudentNum" resultType="GradeStaticModel">
+		select 
+			clas_grad_id as gradeId,
+			count(*) as studentNum
+		from 
+			Class 
+			INNER JOIN User on user_clas_id=clas_id 
+		GROUP BY  clas_grad_id
+	</select>
+	
+	<!-- 返回所有学生 -->
+	<select id="viewAllStudent" resultType="User">
+		SELECT
+		user_id as userId
+		FROM
+		User
+		WHERE
+		user_type=1
+	</select>
+	
+	<!-- 批量查询用户姓名 -->
+	<select id="findUsersByUserIds" parameterType="java.util.List"
+		resultType="TeacherModel">
+		select
+		user_id as teacherId,
+		user_realname as teacherName,
+		user_depa_id as schoolId
+		from
+		User
+		<where>
+			<if test="list != null and list.size() > 0">
+				user_id in
+				<foreach collection="list" index="index" item="idItem" open="("
+					close=")" separator=",">
+					#{idItem}
+				</foreach>
+			</if>
+		</where>
+
+	</select>
+
+	<!-- 根据用户的ids 批量删除用户信息 -->
+	<delete id="deleteUserInfo" parameterType="Integer">
+		DELETE FROM User
+		<where>
+			user_id in
+			<foreach collection="array" item="userId" open="(" separator=","
+				close=")">
+				#{userId}
+			</foreach>
+		</where>
+	</delete>
+	<!-- 查找用户查询的总数 -->
+	<select id="findUserCountByQuery" parameterType="hashmap"
+		resultType="int">
+		<![CDATA[
+			SELECT 
+				COUNT(*)
+			FROM 
+				User u
+				]]>
+		<if
+			test="searchModel.type == 2 and searchModel.courseId != null and searchModel.courseId > 0 ">
+				<![CDATA[
+			INNER JOIN
+				Course c
+				]]>
+		</if>
+		<if test="searchModel.type == 1">
+				<![CDATA[
+				LEFT JOIN
+					Class class ON class.clas_id = u.user_clas_id
+				LEFT JOIN
+					Grade g ON g.grad_id = class.clas_grad_id
+					]]>
+		</if>
+
+		<where>
+			u.user_verify =1 
+			<if test="searchModel.type != null">
+				<![CDATA[
+				and u.user_type = #{searchModel.type}
+				]]>
+			</if>
+			<if test="searchWord !=null">
+			<![CDATA[
+			and (u.user_realname like CONCAT('%','${searchWord}','%' )
+			or u.user_loginname like CONCAT('%','${searchWord}','%' )
+			)
+			]]>
+			</if>
+			<if test="searchModel.deptId != null and searchModel.deptId > 0">
+				<![CDATA[
+				and u.user_depa_id = #{searchModel.deptId}
+				]]>
+			</if>
+			<if test="searchModel.classId != null and searchModel.classId > 0">
+				<![CDATA[
+				and u.user_clas_id = #{searchModel.classId}
+				]]>
+			</if>
+			<if test="searchModel.grade != null and searchModel.grade > 0">
+				<![CDATA[
+				and g.grad_id = #{searchModel.grade}
+				]]>
+			</if>
+			<if test="searchModel.courseId != null and searchModel.courseId > 0">
+				<![CDATA[
+				and c.cour_id = #{searchModel.courseId}
+				and c.cour_teacher_ids like CONCAT('%,',u.user_id,',%')
+				]]>
+			</if>
+		</where>
+	</select>
+	<!-- 查询用户信息@author 张鑫 -->
+	<select id="findUserByQuery" parameterType="hashmap"
+		resultType="com.swust.kelab.model.UserManageBackInfo">
+		<![CDATA[
+			SELECT 
+				u.user_id as userId,
+				u.user_realname as name,
+				u.user_loginname as userNumber,
+				u.user_email as email ,
+				u.user_phone_num as phoneNum,
+				att.atta_id as userCoverPictureId,
+				att.atta_location as attaLocation,
+				att.atta_filename as attaFilename,
+				d.depa_name as depaName]]>
+		<if
+			test="searchModel.type == 2 and searchModel.courseId != null and searchModel.courseId > 0 ">
+			<![CDATA[
+			,
+				c.cour_name as courseName
+			]]>
+		</if>
+		<if test="searchModel.type == 1">
+			<![CDATA[
+			,
+				u.user_cadas_exam_num as examNum,
+				class.clas_name as className,
+				g.grad_name as gradeName
+			]]>
+		</if>
+			<![CDATA[
+			FROM 
+				User u
+			LEFT OUTER JOIN Attachment att 
+				ON att.atta_id = u.user_coverPictureId
+			]]>
+		<if
+			test="searchModel.type == 2 and searchModel.courseId != null and searchModel.courseId > 0 ">
+			<![CDATA[
+			INNER JOIN
+				Course c
+			]]>
+		</if>
+			<![CDATA[
+			LEFT JOIN
+				Department d ON d.depa_id = u.user_depa_id
+				]]>
+		<if test="searchModel.type == 1">
+			<![CDATA[
+			LEFT JOIN
+				Class class ON class.clas_id = u.user_clas_id
+			LEFT JOIN
+				Grade g ON g.grad_id = class.clas_grad_id
+				]]>
+		</if>
+		<where>
+			u.user_verify = 1 
+			<if test="searchModel.type != null">
+				<![CDATA[
+				and u.user_type = #{searchModel.type}
+				]]>
+			</if>
+			<if test="searchWord !=null">
+			<![CDATA[
+			and (u.user_realname like CONCAT('%','${searchWord}','%' )
+			or u.user_loginname like CONCAT('%','${searchWord}','%' )
+			)
+			]]>
+			</if>
+			<if test="searchModel.deptId != null and searchModel.deptId > 0">
+				<![CDATA[
+				and u.user_depa_id = #{searchModel.deptId}
+				]]>
+			</if>
+			<if test="searchModel.classId != null and searchModel.classId > 0">
+				<![CDATA[
+				and u.user_clas_id = #{searchModel.classId}
+				]]>
+			</if>
+			<if test="searchModel.grade != null and searchModel.grade > 0">
+				<![CDATA[
+				and g.grad_id = #{searchModel.grade}
+				]]>
+			</if>
+			<if test="searchModel.courseId != null and searchModel.courseId > 0">
+				<![CDATA[
+				and c.cour_id = #{searchModel.courseId}
+				and c.cour_teacher_ids like CONCAT('%,',u.user_id,',%')
+				]]>
+			</if>
+			<if test="userVerify != null and userVerify >= 0">
+				and u.user_verify = #{userVerify}
+			</if>
+		</where>
+		<if test="maxCount!=null">
+			limit
+			<if test="startIndex!=null">
+				#{startIndex},
+			</if>
+			#{maxCount}
+		</if>
+	</select>
+
+	<!-- 通过角色id获取用户列表(id和realname),供筛选使用 -->
+	<select id="viewUsersByRole" resultType="User">
+		select
+		user_id as userId,
+		user_realname as userRealname
+		from
+		User
+		inner join Re_UserRole on user_id=rero_user_id
+		inner join Role on rero_role_id=role_id
+		<where>
+			<if test="roleId!=null and roleId>0">
+				role_id=#{roleId}
+			</if>
+			<if test="depaId!=null and depaId>0">
+				and user_depa_id=#{depaId}
+			</if>
+		</where>
+	</select>
+
+	<!-- 通过学校id，年级id，班级id，查询学生信息 -->
+	<select id="findStudentByIds" parameterType="hashmap"
+		resultType="com.swust.kelab.model.StudentMassedLearningInfoModel">
+		SELECT
+		U.user_id as stuId,
+		U.user_loginname as stuNum,
+		U.user_realname as stuName,
+		C.clas_name as stuClass,
+		G.grad_name as stuGrade
+		FROM
+		User as U
+		LEFT JOIN Class as C on C.clas_id = U.user_clas_id
+		LEFT JOIN Grade
+		as G on G.grad_id = C.clas_grad_id
+		LEFT JOIN Department as D on
+		D.depa_id = U.user_depa_id
+		LEFT JOIN Re_SelectCource as RSC on
+		RSC.rsco_user_id = U.user_id
+		<trim prefix="WHERE" prefixOverrides="AND">
+			rsco_valid=1 and rsco_verify=1
+			<if test="departId != null">
+				AND D.depa_id = #{departId}
+			</if>
+			<if test="gradeId != null">
+				AND G.grad_id = #{gradeId}
+			</if>
+			<if test="courseId != null and courseId >0">
+				AND RSC.rsco_cour_id = #{courseId}
+			</if>
+			<if test="classId != null">
+				AND U.user_clas_id = #{classId}
+			</if>
+			<if test="studentName != null">
+				AND U.user_realname like CONCAT('%','${studentName}','%')
+			</if>
+			AND U.user_type = 1
+		</trim>
+		<if test="maxCount!=null">
+			limit
+			<if test="startIndex!=null">
+				#{startIndex},
+			</if>
+			#{maxCount}
+		</if>
+	</select>
+
+	<select id="totalStudentByIds" parameterType="hashmap"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM
+		User as U
+		LEFT JOIN Class as C on C.clas_id = U.user_clas_id
+		LEFT JOIN Grade
+		as G on G.grad_id = C.clas_grad_id
+		LEFT JOIN Department as D on
+		D.depa_id = U.user_depa_id
+		LEFT JOIN Re_SelectCource as RSC on
+		RSC.rsco_user_id = U.user_id
+		<trim prefix="WHERE" prefixOverrides="AND">
+			rsco_valid=1 and rsco_verify=1 
+			<if test="departId != null">
+				AND D.depa_id = #{departId}
+			</if>
+			<if test="gradeId != null">
+				AND G.grad_id = #{gradeId}
+			</if>
+			<if test="classId != null">
+				AND U.user_clas_id = #{classId}
+			</if>
+			<if test="courseId != null and courseId >0">
+				AND RSC.rsco_cour_id = #{courseId}
+			</if>
+			<if test="studentName != null">
+				AND U.user_realname like CONCAT('%','${studentName}','%')
+			</if>
+			AND U.user_type = 1
+		</trim>
+	</select>
+
+	<!-- 根据用户类型和所属机构获取用户列表 -->
+	<select id="viewUsersByTypeAndDepa" resultType="User">
+		select
+		user_id as userId,
+		user_realname as userRealName,
+		user_depa_id as userDepaId
+		from
+		User
+		<where>
+		1=1
+			<if test="userType!=null and userType>0">
+				and user_type = #{userType}
+			</if>
+			<if test="depaId!=null and depaId>0">
+				and user_depa_id = #{depaId}
+			</if>
+			<if test="name!=null and name.length()>0">
+				and user_realname like CONCAT('%','${name}','%')
+			</if>
+		</where>
+	</select>
+	<!-- @author ZhangXin -->
+	<update id="modifyPersonalInfo" parameterType="com.swust.kelab.model.UserPersonalInfo">
+		update User u set
+			u.user_id_num = #{userIdCard},
+			u.user_gender = #{gender},
+			u.user_email = #{email},
+			u.user_phone_num = #{phone},
+			u.user_address = #{address},
+			u.user_remark = #{mark},
+			u.user_coverPictureId = #{picId}
+		where 
+			u.user_id = #{userId}
+	</update>
+	
+	<!-- 批量修改用户的激活状态 @author 罗晖 -->
+	<update id="modifyPersonVerify" parameterType="hashmap">
+		UPDATE
+			User u 
+		SET
+			u.user_verify = #{verify}
+		<trim prefix="WHERE">
+			<if test="userIds != null and userIds.length > 0">
+				u.user_id in
+				<foreach collection="userIds" open="(" close=")" separator="," item="userId">
+					#{userId}
+				</foreach>
+			</if>
+		</trim>
+	</update>
+	
+	<!--
+		 通过用户id查询她所属的部门、及上级部门
+	 -->
+	<select 
+			id="viewOneUserByUserId" 
+			parameterType="integer" 
+			resultType="com.swust.kelab.model.UserModel">
+		SELECT
+			user.user_depa_id as userDepaId,
+			depa.depa_parent_id as userDepaParentId
+		FROM
+			User as user
+		LEFT JOIN
+			Department as depa
+		WHERE
+			user.user_id = #{userId}
+	</select>
+	
+	<!--通过id列表获取对应的所有用户（教师）的个人信息 -->
+	<select id="viewUserInfoByIds"	resultType="TeacherModel">
+		select 
+			u.user_id as teacherId,
+			u.user_realname as teacherName,
+		    d.depa_name as schoolName,
+		    u.user_email as teacherEmail,
+		    u.user_remark as teacherRemark,
+		    a.atta_location as teacherCoverLocation,
+		    a.atta_filename as teacherCoverFileName
+		from
+			User as u
+			left join Attachment as a on a.atta_id=u.user_coverPictureId
+			left join Department as d on d.depa_id=u.user_depa_id
+		<where>
+			<if test="list != null and list.size() > 0">
+				u.user_id in
+				<foreach collection="list" open="(" close=")" separator="," item="userId">
+					#{userId}
+				</foreach>
+			</if>
+		</where> 			
+	</select>
+	<!-- 查询指定用户的选课时需要的额外信息 -->
+	<select id="viewUserScInfo" parameterType="User" resultType="ReSelectCourse">
+		select
+			user_clas_id, 			
+			depa_name as rscoDepartName
+			<if test="userType==1">
+				,clas_name as rscoClassName,
+				grad_name as rscoGradeName,
+				grad_id as rscoGradeId
+			</if> 
+		from 
+			`User`
+			left join `Department` on depa_id=user_depa_id
+			<if test="userType==1">
+				left join `Class` on clas_id=user_clas_id
+				left join `Grade` on grad_id=clas_grad_id
+			</if> 
+		where 
+			user_id=#{userId}
+	</select>
+</mapper>

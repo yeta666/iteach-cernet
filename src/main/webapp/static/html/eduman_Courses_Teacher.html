@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-credit-card"></i> 教务管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>辅导教师管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+							<div class="ibox-title">
+										<h2>
+											<i class="fa  fa-qrcode"></i> 辅导教师管理
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+								
+								<div class="ibox-content ">
+									<!-- search START -->
+									<form onsubmit="return false;" class="form-search"  style="margin-bottom: 5px;">
+										 <span style="margin-bottom: 5px;"> </span>
+										<select id="seleteDepartID"  class="chooseSchool form-control1" value="0">	<option value="0">所有学校</option></select>
+										 
+										<select class="form-control1" id="searchType" value="">
+											<option value="1">按课程名称</option>
+												<option value="2">按课程代码</option>
+										</select> 
+										
+										<input id="searchWord" name="searchWord" type="text" class="form-control1" placeholder="请输入内容.." >
+											<button id="search" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button>									
+									</form>
+									<!-- search END -->
+									
+									<div id="openCloseBBS" class="tab-pane fade in active">
+										<!--数据显示  -->
+										<table class="table table-hover table-bordered"
+											id="courseList">
+											<thead>
+												<tr>
+													
+													<th class="tdcenter">序</th>
+													<th class="tdcenter">课程名称</th>
+													<th class="tdcenter">课程代码</th>
+													<th class="tdcenter">创建学校</th>
+													<th class="tdcenter">创建人</th>
+													<th class="tdcenter">辅导教师</th>
+													
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+											</tbody>
+										</table>
+										<!-- 分页区域 -->
+										<div id="waring-nodata"></div>
+										
+										<div id="pagination" class="pagination pagination-right"  ></div>
+										
+										<br/><br/>
+									</div>
+							
+								</div>
+
+
+								<!--弹出modal  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog" aria-hidden="true" id="mod">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h4 id="boxTitle">修改课程教师</h4>
+
+											</div>
+											<div class="modal-body">
+											<form class="form-horizontal">
+				<input type="hidden" id="courId" name="courId" value="-1" ></input>
+				<h5>辅导教师:</h5>
+				<div>
+					<select id="departs" style="display:none;">
+						<option value="-1">所有学校</option>
+					</select>
+					<select id="mentroTeacher"></select>
+					<a id="submit" onclick="addTeacher(2);" 
+					class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp;增加</a><br/><br/>
+				</div>
+				<div id="mentroTeachers"></div>
+				
+			</form>
+            </div>
+											<div class="modal-footer">
+											<!-- <div id="buttonFunction">
+											<button class="btn btn-success" id="pass" type="button"><i class="fa fa-check"></i>&nbsp;通过</button>
+				                              <button class="btn btn-danger" id="refuse" type="button"><i class="fa fa-close"></i>&nbsp;拒绝</button>
+				                              <button class="btn btn-warning" id="undoAl" type="button"><i class="fa fa-question"></i>&nbsp;暂不审核</button>
+											</div> -->
+											<br/>
+			<button id="submit" onclick="modifyTeachers();" 
+					class="btn btn-success"><i class="fa fa-check"></i>&nbsp;保存修改</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer">
+				
+			</div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+    <script src="../js/extend.js"></script>
+    <script src="../js/njs/bootstrap.min.js?v=3.4.0"></script>
+    <script src="../js/njs/jquery.metisMenu.js"></script>
+	
+
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/fileUploadModel.js"></script>
+
+<script type="text/javascript" src="../js/eduman_Courses_Teacher.js"></script>
+    <script src="../js/njs/hplus.js?v=2.2.0"></script> <!--控制导航自动缩进-->
+</body>
+</html>

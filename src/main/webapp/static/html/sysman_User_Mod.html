@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title></title>
+<link href="../css/ncss/bootstrap.css?v=3.4.0" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css?v=4.3.0" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link href="../css/ncss/summernote.css" rel="stylesheet">
+<link href="../css/ncss/summernote-bs3.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+
+			</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+					<div id="scaling" class="navbar-header"></div>
+					<ul id="navibartitle" class="nav navbar-top-links">
+						<!--commonjs 118行 打印 -->
+					</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-credit-card"></i> 用户管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><a href="sysman_Student.html?firstCol=11&secondCol=44">用户管理</a></li>
+						<li><strong>用户信息修改</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox-content m-b-sm border-bottom">
+							<h2>
+								<i class="fa fa-edit"></i> 用户信息修改
+							</h2>
+							<div class="ibox-content">
+
+								<form class="form-horizontal">
+								<div id="infomsg"></div>
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2"  id="head-pic" >头像：</label>
+										<div class="col-sm-3">
+										<img id='head-pic-mod' src="" width='170px' height="200px">	
+										</div>
+										<div class="col-sm-3">
+										<input id="postfile" name="postfile" type="file" style='padding-top:100px;' onchange="fileUp()">
+											
+										</div>
+									</div>
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2"  id="userNameCanChange">用户名/学籍号：</label>
+										<div class="col-sm-3">
+											<input type="text" id="userNameNew" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-block m-b-none" id="user-add-check">*必填,4-20位,工号可作为登录名</span>
+										</div>
+									</div>
+				<div class="form-group col-sm-12" id="userNameCanChange">
+										<label class="control-label col-sm-2" >真实姓名：</label>
+										<div class="col-sm-3">
+											<input type="text" id="userRealNameNew" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-block m-b-none" >*必填,用户真实姓名,1-16位</span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2" >性别：</label>
+									<div class="col-sm-3">
+									<select id="sex" class="form-control">
+															<option value="男">男</option>
+															<option value="女">女</option></select></div>
+									</div>
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2" >密码：</label>
+										<div class="col-sm-3">
+											<input type="password" id="passwordNew"  class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-block m-b-none">*必填,4-20位</span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12" id="departments"  style="display: none;">
+										<label class="control-label col-sm-2"  >所在单位/学校：</label>
+										<div class="col-sm-3">
+											<select id="modify-depart" class="form-control">						
+											</select>
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline">*必选，修改用户所在单位或学校</span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12" id="student-grade" style="display: none;">
+										<label class="control-label col-sm-2" >所在年级：</label>
+										<div class="col-sm-3">
+											<select id="modify-grade" class="form-control">											
+											</select>
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline">*必选，修改用户所在年级</span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12" id="student-class"  style="display: none;">
+										<label class="control-label col-sm-2" >所在班级：</label>
+										<div class="col-sm-3">
+											<select id="modify-class" class="form-control">												
+											</select>
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline">*必选，修改用户所在班级</span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12" id="time-in"  style="display: none;">
+										<label class="control-label col-sm-2" >入学时间：</label>
+										<div class="col-sm-3">
+											<input id="time-inschool" class="form-control"
+														type="text" data-date-format="yyyy-mm-dd">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline">*必填</span>
+										</div>
+									</div>
+										
+							
+									<div class="form-group col-sm-12" id="study-id"  style="display: none;">
+										<label class="control-label col-sm-2" >考籍号：</label>
+										<div class="col-sm-3">
+											<input type="text" id="study-id-new" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-block m-b-none"></span>
+										</div>
+									</div>
+									
+									<div class="form-group col-sm-12"  id="rolesNew">
+												<label class="control-label col-sm-2" for="confirmPassword">用户角色：</label>
+												<div class="input-group col-sm-5" style="left: 15px;">
+													<input type="text" class="form-control" id="role-input"
+														readonly="readonly">
+
+													<div class="input-group-btn ">
+														<button class="btn btn-white "
+															 type="button" id="dropdownToggle" >角色
+															<span class="caret"></span>
+														</button>
+														<div class="dropdown-menu" id="content">
+															<div class="arrow"></div>
+															<h3 class="popover-title">用户角色<span id="close">关闭</span></h3>
+															<div id="roles" class="popover-content"></div>
+														</div>
+													</div>
+													<span class="help-block m-b-none">&nbsp;&nbsp;*为该用户指定权限</span>
+												</div>
+											</div>
+
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2" >身份证号：</label>
+										<div class="col-sm-3">
+											<input id="userIdNew" type="text" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline">15位或者18位</span>
+										</div>
+									</div>
+										<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2" >电子邮件：</label>
+										<div class="col-sm-3">
+											<input id="emailNew" type="text" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline">位数不能超过40,符合邮箱要求</span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2" >电话号码：</label>
+										<div class="col-sm-3">
+											<input id="phoneNumNew" type="text" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline"></span>
+										</div>
+									</div>
+									<div class="form-group col-sm-12">
+										<label class="control-label col-sm-2" >通讯地址：</label>
+										<div class="col-sm-3">
+											<input id="addressNew" type="text" 
+												class="form-control">
+										</div>
+										<div class="col-sm-3">
+											<span class="help-inline"></span>
+										</div>
+									</div>
+
+									<div class="form-group col-sm-12">
+										<label for="content" class="control-label col-sm-2">备注：</label>
+									<!-- 	<div class="col-sm-10" >
+
+											<div class="summernote" id="remarkNew" ></div>
+										</div> -->
+										<div class="col-sm-3">
+													<textarea id="remarkNew" rows="5" class="span7"
+														class="form-control"></textarea>
+												</div>
+									</div>
+
+									<div class="form-group ">
+										<div class="col-sm-12 col-sm-offset-3">
+											<a id="submit-modify" type="button" class="btn btn-primary"><i
+												class="fa fa-check-square-o"></i> &nbsp;提交修改</a> 
+												<a id="cancle-modify" type="button" 
+												class="btn btn-success"><i class="fa fa-repeat"></i>
+												&nbsp;取消修改</a>
+										</div>
+									</div>
+						
+							</form>
+	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="footer" class="footer"></div>
+		</div>
+<!-- 信息展示框 -->
+	<!-- Modal -->
+	<div id="myModal" class="modal inmodal"" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+				<div class="modal-content animated flipInY">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel" style="color: #0A950A;">通 知</h3>
+		</div>
+		<div class="modal-body">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<h2 id="announce-title"></h2>
+						<p id="announce-content"></p>
+					</div>
+					<div class="span12">
+						<p id="announce-time" style="float: right"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+		</div>
+</div>
+			</div>
+	</div>
+
+	
+
+
+
+</div>
+	<!-- Mainly scripts -->
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js?v=3.4.0"></script>
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/md5.js"></script>
+	<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script type="text/javascript" src="../js/sysman_User_Mod.js"></script>
+
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<!-- <!--编辑器控件  
+<script src="../js/clEditor/jquery.cleditor.min.js"></script>
+<script src="../js/clEditor/jquery.cleditor.js"></script> -->
+<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+
+	<!-- SUMMERNOTE -->
+	<script src="../js/njs/summernote.min.js"></script>
+	<script src="../js/njs/summernote-zh-CN.js"></script>
+</body>
+
+</html>

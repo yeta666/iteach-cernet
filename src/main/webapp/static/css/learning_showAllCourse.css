@@ -1,0 +1,11 @@
+.active1 {
+  background-color:#337ab7;
+  border-radius:5px;
+}
+.nav-pills > .active1 > a, .nav-pills > .active1 > a:hover, .nav-pills > .active1 > a:focus {
+    background-color: #0088cc;
+    color: #ffffff;
+}
+.active1>a{
+	color:#FFF;
+}

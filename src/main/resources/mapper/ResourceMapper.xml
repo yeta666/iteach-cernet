@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="resource">
+
+	<!-- ResultMap Start -->	
+	 
+	<resultMap id="BaseResultMap" type="com.swust.kelab.domain.Resource">
+		<id column="reso_id" property="resoId" jdbcType="INTEGER"/>
+		<result column="reso_cour_id" property="resoCourId" jdbcType="INTEGER"/>
+		<result column="reso_type" property="resoType" jdbcType="INTEGER"/>
+		<!-- reso_title is allowed to be null -->
+		<result column="reso_title" property="resoTitle" jdbcType="VARCHAR"/>
+		<result column="reso_location" property="resoLocation" jdbcType="VARCHAR"/>
+		<!-- reso_filename is allowed to be null -->
+		<result column="reso_filename" property="resoFilename" jdbcType="VARCHAR"/>
+		<!-- reso_describe is allowed to be null -->
+		<result column="reso_describe" property="resoDescribe" jdbcType="LONGVARCHAR"/>
+		<result column="reso_userid" property="resoUserid" jdbcType="INTEGER"/>
+		<!-- reso_addtime is allowed to be null -->
+		<result column="reso_addtime" property="resoAddtime" jdbcType="TIMESTAMP"/>
+		<!-- reso_downnum is allowed to be null -->
+		<result column="reso_downnum" property="resoDownnum" jdbcType="INTEGER"/>
+		<!-- reso_share is allowed to be null -->
+		<result column="reso_share" property="resoShare" jdbcType="BIT"/>
+	</resultMap>
+	
+	<!-- ResultMap End -->
+	
+	<!--
+		查询最近修改的资源 
+		@author EasonLIan
+	 -->
+	<select 
+			id="viewRecentResourceList" 
+			resultType="com.swust.kelab.model.ResourceModel">
+		SELECT
+			reso.reso_title as resoTitle,
+			reso.reso_type as resoType,
+			cour.cour_name as courName
+		FROM
+			Resource as reso
+		LEFT JOIN
+			Course as cour
+		ON	
+			cour.cour_id = reso.reso_cour_id
+		ORDER BY
+			reso.reso_addTime
+		DESC
+		LIMIT 5
+	</select>
+	
+	<!--
+		查询某个章节已选择的资源列表 
+	 -->
+	<select id="viewResourceListWithUserChoose"
+			parameterType="hashmap"
+			resultType="com.swust.kelab.domain.Resource">
+		SELECT
+			reso_id as resoId,
+			reso_title as resoTitle,
+			reso_location as resoLocation,
+			reso_type as resoType
+		FROM	
+			Resource as reso,Re_ChapterResource as rcre
+		WHERE
+			rcre.rcre_reso_id = reso.reso_id
+		AND	
+			rcre.rcre_chap_id = #{chapId,jdbcType=INTEGER}
+		<if test="resoType != null">
+			AND reso.reso_type = #{resoType,jdbcType=INTEGER}
+		</if>
+		<if test="resoName != null">
+			AND (
+				reso_title LIKE '%${resoName}%'
+				OR reso_location LIKE '%${resoName}%'
+				)
+		</if>
+	</select>
+	
+	<!--
+		查询所有资源列表，查id name type
+	 -->
+	<select id="viewResourceListByChapterPage"
+			parameterType="hashmap" 
+			resultType="com.swust.kelab.domain.Resource">
+		SELECT
+			reso_id as resoId,
+			reso_title as resoTitle,
+			reso_location as resoLocation,
+			reso_type as resoType
+		FROM	
+			Resource as reso
+		WHERE
+			1 = 1 
+		<if test="resoStatus != null">
+			AND	
+				reso.reso_status = #{resoStatus}
+		</if>
+		<if test="courId != null">
+			AND 
+				reso.reso_cour_id = #{courId,jdbcType=INTEGER}
+		</if>
+		<if test="chapId != null">
+			AND
+				reso.reso_id not in (
+					SELECT rcre_reso_id FROM Re_ChapterResource as rcre WHERE rcre.rcre_chap_id = #{chapId} 
+				)
+		</if>
+		<if test="resoType != null">
+			AND reso_type = #{resoType,jdbcType=INTEGER}
+		</if>
+		<if test="resoName != null">
+			AND (
+				reso_title LIKE '%${resoName}%'
+				OR reso_location LIKE '%${resoName}%'
+				)
+		</if>
+	</select>
+	
+	<!--
+		删除Re_ChapterResource表中的关联数据 
+	 -->
+	<delete id="delRcreByChapterId" parameterType="hashmap">
+		DELETE
+		FROM Re_ChapterResource
+		WHERE
+			rcre_reso_id in ${ids}
+	</delete>	
+	
+	<!--
+		删除资源文件
+		@author EasonLian 
+	 -->
+	<delete id="delResourceByAdmin" parameterType="hashmap">
+		DELETE
+		FROM Resource
+		WHERE
+		reso_id in ${ids}
+	</delete>
+	
+	<update id="delResourceByAdminByUpdate" parameterType="hashmap">
+		UPDATE	
+			Resource
+		SET
+			reso_status = 2
+		WHERE
+			reso_id in ${ids}
+	</update>
+	
+	<!--
+		添加资源文件
+		@author EasonLian
+		@Type insert
+	 -->
+	<insert 
+			id="addResourceByAdmin" 
+			parameterType="com.swust.kelab.domain.Resource" 
+			keyColumn="reso_id" keyProperty="resoId">
+		INSERT INTO
+			Resource
+		SET
+			reso_cour_id = #{resoCourId,jdbcType=INTEGER},
+			reso_type = #{resoType,jdbcType=INTEGER},
+			<if test="resoTitle != null">
+				reso_title = #{resoTitle,jdbcType=VARCHAR},
+			</if>
+			reso_location = #{resoLocation,jdbcType=VARCHAR},
+			<if test="resoFilename != null">
+				reso_filename = #{resoFilename,jdbcType=VARCHAR},
+			</if>
+			<if test="resoDescribe != null">
+				reso_describe = #{resoDescribe,jdbcType=LONGVARCHAR}, 
+			</if>
+			<if test="resoDownnum != null">
+				reso_downnum = #{resoDownnum,jdbcType=INTEGER},
+			</if>
+			<if test="resoVediotime != null">
+				reso_Vediotime = #{resoVediotime,jdbcType=INTEGER},
+			</if>
+			<if test="resoStatus != null">
+				reso_status = #{resoStatus,jdbcType=INTEGER},
+			</if>
+			reso_userid = #{resoUserid,jdbcType=INTEGER}
+	</insert>
+	
+	<!--
+		查询宗条数
+		@author EasonLian 
+	 -->
+	<select id="getResourceCount" parameterType="hashmap" resultType="integer">
+		SELECT
+			count(*)
+		FROM
+			Resource as reso
+		LEFT JOIN
+			Course as cour
+		ON 
+			cour.cour_id = reso.reso_cour_id
+		LEFT JOIN
+			User as user
+		ON	
+			user.user_id = reso.reso_userid
+		WHERE
+			reso.reso_status = 1
+		<if test="courId != null">
+			AND cour.cour_id = #{courId}
+		</if>
+		<if test="resoTitle != null">
+			AND reso.reso_title LIKE '%${resoTitle}%'
+		</if>
+		<if test="resoType != null">
+			AND reso.reso_type = #{resoType,jdbcType=INTEGER}
+		</if>
+		<if test="courName != null">
+			AND cour.cour_name LIKE '%${courName}%'
+		</if>
+	</select>
+	
+	<!--
+		 管理员页面修改资源信息 
+	 -->
+	<update id="modResourceByAdmin" parameterType="com.swust.kelab.domain.Resource">
+		UPDATE
+			Resource
+		SET
+			<!-- reso_cour_id = #{resoCourId,jdbcType=INTEGER}, -->
+			<if test="resoType != null">
+				reso_type = #{resoType,jdbcType=INTEGER},
+			</if>
+			<if test="resoCourId != null">
+				reso_cour_id = #{resoCourId,jdbcType=INTEGER},
+			</if>
+			<if test="resoLocation != null">
+				reso_location = #{resoLocation},
+			</if>
+			<if test="resoTitle != null">
+				reso_title = #{resoTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="resoFilename != null">
+				reso_filename = #{resoFilename,jdbcType=VARCHAR},
+			</if>
+			<if test="resoDescribe != null">
+				reso_describe = #{resoDescribe,jdbcType=VARCHAR}, 
+			</if>
+			<if test="resoDownnum != null">
+				reso_downnum = #{resoDownnum,jdbcType=INTEGER},
+			</if>
+			<if test="resoVediotime != null">
+				reso_Vediotime = #{resoVediotime,jdbcType=INTEGER},
+			</if>
+			<if test="resoStatus != null">
+				reso_status = #{resoStatus},
+			</if>
+			reso_userid = #{resoUserid,jdbcType=INTEGER}
+		WHERE
+			reso_id = #{resoId,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 
+		查询管理员页面资源列表
+		@author EasonLian
+	 -->
+	<select id="viewResourceListForAdmin" resultType="com.swust.kelab.model.ResourceModel">
+		SELECT
+			reso.reso_id as resoId,
+			reso.reso_type as resoType,
+			reso.reso_location as resoLocation,
+			reso.reso_title as resoTitle,
+			reso.reso_filename as resoFilename,
+			reso.reso_describe as resoDescribe,
+			reso.reso_addtime as resoAddtime,
+			reso.reso_vedioTime as resoVedioTime,
+			reso.reso_status as resoStatus,
+			cour.cour_id as courId,
+			cour.cour_name as courName,
+			user.user_realname as userRealname
+		FROM
+			Resource as reso
+		LEFT JOIN
+			Course as cour
+		ON 
+			cour.cour_id = reso.reso_cour_id
+		LEFT JOIN
+			User as user
+		ON	
+			user.user_id = reso.reso_userid
+			<if test="depaIds != null">
+			AND user.user_depa_id IN (
+				${depaIds}
+			)
+		</if>
+		WHERE
+			1=1
+		<if test="courId != null">
+			AND cour.cour_id = #{courId}
+		</if>
+		<if test="resoTitle != null">
+			AND reso.reso_title LIKE '%${resoTitle}%'
+		</if>
+		<if test="resoType != null">
+			AND reso.reso_type = #{resoType,jdbcType=INTEGER}
+		</if>
+		<if test="courName != null">
+			AND cour.cour_name LIKE '%${courName}%'
+		</if>
+		<if test="sTime != null and eTime != null">
+			AND UNIX_TIMESTAMP(reso.reso_addtime) 
+				BETWEEN #{sTime,jdbcType=INTEGER} 
+					AND #{eTime,jdbcType=INTEGER}
+		</if>
+		<if test="keyWord != null">
+			AND	(
+				reso.reso_title LIKE "%${keyWord}%"
+				OR reso.reso_location LIKE "%${keyWord}%"
+				OR cour.cour_name LIKE '%${keyWord}%'
+				OR user.user_realname LIKE '%${keyWord}%'
+			)
+		</if>
+		<if test="resoType != null and resoType == 3">
+			AND 
+				reso.reso_status in (0,1)
+		</if>
+		<if test="resoType != null and resoType == 2">
+			AND 
+				reso.reso_status = 1
+		</if>
+		<if test="resoType != null and resoType == 1">
+			AND 
+				reso.reso_status = 1
+		</if>
+		<if test="courIds != null">
+			AND	cour.cour_id IN (
+				${courIds}
+			)
+		</if>
+		ORDER BY
+			reso.reso_addtime
+		DESC
+		LIMIT 
+			#{start,jdbcType=INTEGER},#{rows,jdbcType=INTEGER}
+	</select>
+	
+	<!--
+		 通过章节id查询对应的所有资源
+	 -->	
+	<select id="viewResourceList" parameterType="hashmap" resultMap="BaseResultMap">
+		SELECT * FROM Resource as r where 1=1
+		<if test="courId != null">
+			AND r.reso_cour_id = #{courId,jdbcType=INTEGER}
+		</if>
+		<if test="resoType != null">
+			AND r.reso_type = #{resoType,jdbcType=VARCHAR}
+		</if>
+		<if test="resoTitle != null">
+			AND r.reso_title = #{resoTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="beginTime !=null and endTime != null">
+			AND unix_timestamp(r.reso_addtime) 
+					BETWEEN unix_timestamp(#{beginTime}) AND unix_timestamp(#{endTime})
+			<!-- <![CDATA[
+				AND r.reso_addtime >= #{beginTime} 
+				AND r.reso_addtime <= #{endTime}
+			]]> -->
+		</if>
+		<if test="chapId != null">
+			AND r.reso_id IN (
+				SELECT 
+					rcre_reso_id 
+				FROM 
+					Re_ChapterResource as rcre
+				WHERE
+					rcre.rcre_chap_id = #{chapId,jdbcType=INTEGER}
+			)
+		</if>
+		<!-- <if test="start >= 0 and rows >= 0">
+			LIMIT #{start},#{rows}
+		</if> -->
+	</select>
+	
+	<select id="selectOneResource" parameterType="hashmap" resultType="com.swust.kelab.domain.Resource">
+		SELECT 
+			reso_id as resoId,
+			reso_filename as resoFilename,
+			reso_location as resoLocation
+		FROM 
+			Resource as r
+		WHERE
+			r.reso_id = #{resoId,jdbcType=INTEGER}
+			AND	r.reso_type = #{resoType,jdbcType=INTEGER}
+	</select>
+	
+	<select 
+			id="selectOneResourceById" 
+			parameterType="map" 
+			resultType="com.swust.kelab.domain.Resource">
+		SELECT
+			reso_id as resoId,
+			reso_cour_id as resoCourId,
+			reso_type as resoType,
+			reso_location as resoLocation,
+			reso_filename as resoFilename,
+			reso_describe as resoDescribe,
+			reso_vedioTime as resoVediotime
+		FROM
+			Resource as reso
+		WHERE 
+			reso_id = #{resoId}
+		<if test="resoType != null">
+			AND reso_type = #{resoType,jdbcType=INTEGER}
+		</if>
+	</select>
+	
+	<insert id="insertResource" parameterType="com.swust.kelab.domain.Resource">
+		<![CDATA[
+			INSERT INTO Resource(
+				reso_id, 
+				reso_cour_id, 
+				reso_type, 
+				reso_title, 
+				reso_location,
+				reso_filename, 
+				reso_describe, 
+				reso_userid, 
+				reso_addtime,
+				reso_downnum,
+				reso_share
+			) VALUES(
+				#{resoId,jdbcType=INTEGER},
+				#{resoCourId,jdbcType=INTEGER},
+				#{resoType,jdbcType=INTEGER},
+				#{resoTitle,jdbcType=VARCHAR},
+				#{resoLocation,jdbcType=VARCHAR},
+				#{resoFilename,jdbcType=VARCHAR},
+				#{resoDescribe,jdbcType=LONGVARCHAR},
+				#{resoUserid,jdbcType=INTEGER},
+				#{resoAddtime,jdbcType=TIMESTAMP},
+				#{resoDownnum,jdbcType=INTEGER},
+				#{resoShare,jdbcType=BIT}								
+			)
+		]]>
+	</insert>
+	
+	<!-- Sql End -->
+	
+	<!-- 统计资源数 -->
+	<select id="staResourceNum" resultType="int">
+		select 
+			count(*)
+		from 
+			Resource			
+	</select>
+	
+	<!-- 查询某课程的所有资源 -->
+	<select id="findResourceList"  resultType="Resource" parameterType="int">
+		select
+			r.reso_id as resoId,
+			r.reso_title as resoTitle
+		from 
+			Resource r
+		where
+			r.reso_cour_id = #{courseId}
+		
+	</select>
+	
+</mapper>
+

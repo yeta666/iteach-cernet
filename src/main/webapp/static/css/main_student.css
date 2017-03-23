@@ -1,0 +1,50 @@
+#Layer1 {
+	position: absolute;
+	width: 954px;
+	height: 282px;
+	z-index: 1;
+	margin-top: 24px;
+	top: 22px;
+}
+
+#Layer2 {
+	position: absolute;
+	height: 197px;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+}
+
+#Layer3 {
+	position: absolute;
+	width: 927px;
+	height: 76px;
+	z-index: 2;
+	margin-left:5px;
+	margin-top: 228px;
+}
+
+#test {
+	
+	padding-top: 0px;
+	height: auto;
+	border:none;
+}
+
+#bottom {
+	border:none;
+}
+
+#footer {
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 4px #BBBBBB inset;
+	color: #888888;
+	font-size: 0.9em;
+	margin-top: 0.5em;
+	padding-bottom: 25px;
+	padding-top: 0.15em;
+}
+
+.container {
+	width:940px;
+}

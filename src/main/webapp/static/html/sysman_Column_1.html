@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/iteach.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<title>栏目管理</title>
+</head>
+<body>
+	<!-- 导航栏目 -->
+	<div id="navibar" class="row-fluid"></div>
+	<!-- 主框体 -->
+	<div class="container main1">
+		<div class="row-fluid">
+			<div id="pictures" class="span12 pictures"></div>
+		</div>
+		<div class="row-fluid">
+			<div id="column" class="span2 box"></div>
+			<div class="span10 well">
+				<!--中心界面 -->
+				<div class="box">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="geren">
+							<div id="content">
+								<ul class="nav nav-tabs" id="subCols">
+								</ul>
+								<div class="tab-content">
+									<div class="alert alert-error">
+										<a class="close" data-dismiss="alert">×</a>
+										<h3 class="alert-heading">栏目管理须知：</h3>
+									</div>
+									<div id="infomsg"></div>
+									<!-- 修改角色对话框 -->
+									<div class="buttonGroup">
+										<a type="button" class="btn btn-primary" href="#addModal"
+											data-toggle="modal">添加</a> <a id="delButton" type="button"
+											class="btn btn-danger">删除</a>
+									</div>
+									<div id="res-center" class="tab-pane fade in active">
+										<table
+											class="table table-condensed table-hover  table-bordered">
+											<thead>
+												<tr>
+													<th width="100">一级栏目</th>
+													<th width="120">二级栏目</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+												<!-- js生成 -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="addModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="addModalLabel">添加栏目、操作</h3>
+		</div>
+		<div id="addMsg"></div>
+		<div class="modal-body">
+			<form class="form-search">
+				<a class="btn btn-info disabled">增加类型：</a> <select id="addType"
+					onchange="changeFun()">
+					<option value="1">一级栏目</option>
+					<option value="2">二级栏目</option>
+					<option value="3">操作</option>
+				</select>
+			</form>
+			<div>
+				<form id="addArea" class="form-inline"></form>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+			<button id="addFunctionBtn" class="btn btn-primary">添加</button>
+		</div>
+	</div>
+	<div id="modModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="modModalLabel">修改栏目、操作</h3>
+		</div>
+		<div id="addMsg"></div>
+		<div class="modal-body">
+			<div>
+				<form id="modArea" class="form-inline"></form>
+			</div>
+		</div>
+		<div class="modal-footer" id="buttonGroup">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+			<button id="modFunctionBtn" class="btn btn-primary">保存</button>
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+<script src="../js/ext/jquery-1.8.3.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/ext/bootstrap.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<!-- top1 -->
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<!-- top2 -->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/sysman_Column.js"></script>
+</html>

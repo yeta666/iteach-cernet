@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-calendar-o"></i> 测试管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><a href="sysman_CourseTest.html?firstCol=6&secondCol=26">测试管理</a></li>
+						<li><strong>课程测试管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-toggle-right"></i> 新增课程测试
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div id="infomsg"></div>
+									<div class="ibox-content" style="height: 450px;">
+										<form id="addTestForm" class="form-horizontal">
+											<div id="courseShow" class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="ques_add_title">相关课程：</label>
+												<div class="col-sm-4">
+													<div>
+														<select id="quCourse" onchange="changeFun()"
+															class="form-control">
+															<option value="0">请选择</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<span class="help-inline">筛选考试试卷</span>
+												</div>
+											</div>
+
+											<div id="testContent" class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="testName">测试名称：</label>
+												<div class="col-sm-4">
+													<input type="text" id="testName" name="testName"
+														class="form-control" /> 
+												</div>
+												<div class="col-sm-4">
+													<span class="help-inline" style="color: red; display: none"
+														id="nameTips"></span> <span class="help-inline"><font color="red"> (*必填) </font>课程测试名称</span>
+												</div>
+											</div>
+
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="testDescribe">课程测试描述：</label>
+												<div class="col-sm-4">
+													<textarea wrap="wrap" name="testDescribe" id="testDescribe"
+														class="form-control" rows="3" class="span8"></textarea>
+												</div>
+												<div class="col-sm-4">
+													<span class="help-inline">课程测试描述信息</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="testTime">考试时长：</label>
+												<div class="col-sm-4">
+													<input type="text" id="testTime" name="testTime"
+														class="input span4 form-control" /><span
+														class="help-inline" style="color: red; display: none"
+														id="timeTips"></span>
+												</div>
+												<div class="col-sm-6">
+													<span class="help-inline">单位（分钟）课程测试时长,请填写正整数</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="exin_begintime">开放时间：</label>
+												<div class="col-sm-4">
+													<input type="text" id="exin_begintime"
+														name="exin_begintime" class="input span4 form-control"
+														data-date-format="yyyy-mm-dd" placeholder="开放时间" />
+												</div>
+												<div class="col-sm-4">
+													<span class="help-inline">为空表示创建时间即为开放时间</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="exin_endtime">结束时间：</label>
+												<div class="col-sm-4">
+													<input type="text" id="exin_endtime" name="exin_endtime"
+														class="input span4 form-control"
+														data-date-format="yyyy-mm-dd" placeholder="结束时间" />
+												</div>
+												<div class="col-sm-4">
+													<span class="help-inline">为空表示永不截止</span>
+												</div>
+
+											</div>
+										</form>
+									</div>
+								</div>
+
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-toggle-right"></i> 试卷列表
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<table
+											class="table table-condensed table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>选择</th>
+													<th>编号</th>
+													<th>试卷</th>
+													<th>所属课程</th>
+													<th>总分</th>
+													<th>试卷难度</th>
+													<th>创建时间</th>
+													<th>试卷描述</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+											</tbody>
+										</table>
+										<div id="pagination" class="pagination page-left"></div><br><br><br>
+
+										<div class="form-group ">
+											<div class="col-sm-12 col-sm-offset-5">
+												<a href="#" class="btn btn-primary " id="add_ques_submit"
+													onclick="storeExamInfo(0)">保存</a> &nbsp;&nbsp;&nbsp;&nbsp;<a
+													href="javascript:history.go(-1);" class="btn btn-info"
+													id="cancel">返回</a>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+		</div>
+	</div>
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../js/sysman_CourseTest_add.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="../js/njs/hplus.js?v=2.2.0"></script> 
+<!--控制导航自动缩进-->
+</html>

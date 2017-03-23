@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+/* 全局补充 CSS */
+.photo {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.page-right {
+	margin-left: 575px;
+	margin-right: -50px;
+}
+.page-left{
+	margin-left:-40px;
+}
+/*测试考试右边导航样式*/
+#div_processor {
+	position: fixed;
+	left: 75%;
+	top: 80px;
+	width: 200px;
+	height: auto;
+	background: #fff;
+	border: solid 1px #ddd;
+	padding: 5px;
+	text-align: center;
+	height: auto;
+}
+
+#div_processor a {
+	display: block;
+	float: left;
+	padding: 3px;
+	border: solid 1px #ddd;
+	background: #fff;
+	width: 14px;
+	height: 14px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	text-decoration: none;
+}
+
+#div_processor a:hover {
+	background: #fa0
+}
+
+#div_processor a.finished {
+	background: #ADD8E6;
+}
+
+#div_processor div {
+	margin: 0 0 10px 0;
+	float: left;
+	width: 100%;
+	height: auto;
+}

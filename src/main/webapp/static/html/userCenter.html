@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-user"></i> 个人中心
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>个人中心</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+						<div class="wrapper wrapper-content animated fadeInRight">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h2>
+										<i class="fa fa fa-bell"></i> 最新通知
+									</h2>
+									<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+								</div>
+
+								<div class="ibox-content m-b-sm border-bottom">
+									<div class="p-xs">
+										<span id="usernotice"></span>
+									</div>
+								</div>
+								</div>
+
+								<!-- 学生学习进度- -->
+								<div class="ibox float-e-margins" id="student"
+									style="display: none;">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-inbox"></i>
+											<!--fa-barcode-->
+											学习进度
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<div class="table-responsive">
+											<table class="table table-striped" id="viewListTable">
+												<thead>
+													<tr>
+														<th>序</th>
+														<th>课程名称</th>
+														<th>学习次数</th>
+														<th>视频学习（包含集中学习）</th>
+														<th>交互次数</th>
+														<th>考试分数</th>
+														<th>成绩</th>
+														<th>学分</th>
+														<th>成绩确认情况</th>
+													</tr>
+												</thead>
+												<tbody></tbody>
+											</table>
+											<!-- 学生学习成绩柱状图- -->
+											<p>
+												<span class="label label-info">备注：</span>表格中每个考核内容中用“/”分割的每个数字分别“当前学习情况/本项考核上限/本项考核所占比例”。
+											</p>
+											<div id="stuStaBar"></div>
+											<!-- 学生学习成绩柱状图- -->
+										</div>
+									</div>
+								</div>
+								<!-- 学生学习进度- -->
+
+
+
+
+								<!-- 管理员与超级管理员:服务器状态信息- -->
+								<div class="ibox float-e-margins" id="serverStatus" style="display: none;">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-eye-slash"></i> 服务器状态信息
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<div class="table-responsive">
+											<table class="table table-striped" id="serverStatus">
+												<thead>
+													<tr>
+														<th>项目</th>
+														<th>值</th>
+														<th>项目</th>
+														<th>值</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>操作系统版本及类型：</td>
+														<td id="osname"></td>
+														<td>可使用内存：</td>
+														<td id="totalmemory"></td>
+													</tr>
+													<tr>
+														<td>JAVA路径及版本：</td>
+														<td id="jdkpath"></td>
+														<td>剩余内存：</td>
+														<td id="freememory"></td>
+													</tr>
+													<tr>
+														<td>服务器IP：</td>
+														<td id="servipaddr"></td>
+														<td>最大可使用内存：</td>
+														<td id="maxmemory"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+								</div>
+								<!-- 管理员与超级管理员:服务器状态信息- -->
+
+
+								<div id="teacherMana" style="display: none;"
+									class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-rocket"></i> 近期资源更新
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="ibox-content">
+										<table class="table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th>资源名称</th>
+													<th>资源类型</th>
+													<th>资源所属课程</th>
+												</tr>
+											</thead>
+											<tbody id="teachMana-Res">
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="ibox float-e-margins" id="teacher"
+									style="display: none;">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-book"></i> 所授课程信息
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<div class="table-responsive">
+											<table class="table table-striped ">
+												<thead>
+													<tr>
+														<th>序</th>
+														<th>课程名</th>
+														<th>课程编号</th>
+														<th>总人数</th>
+
+													</tr>
+												</thead>
+												<tbody id="teachcourse-info">
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+								</div>
+
+
+
+								<!--弹出对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="myScore">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h4 id="boxTitle">成绩详情</h4>
+
+											</div>
+											<div class="modal-body">
+												<p id="baseInfo"></p>
+												<table class="table table-hover table-bordered "
+													id="scoreList">
+													<thead>
+														<tr>
+															<th>考核内容</th>
+															<th>考核比重</th>
+															<th>满分要求</th>
+															<th>学习情况</th>
+															<th>当前得分</th>
+														</tr>
+													</thead>
+													<tbody></tbody>
+												</table>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-white"
+													data-dismiss="modal">
+													<i class="fa fa-close"></i> 关闭
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+
+								<!-- modal-- -->
+								<div class="modal inmodal" id="myModal" tabindex="-1"
+									role="dialog" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h4 class="modal-title" id="announce-title">通 知</h4>
+											</div>
+											<div class="modal-body">
+												<p id="announce-time" class="text-center"></p>
+												<p id="announce-content"></p>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success"
+													data-dismiss="modal">
+													<i class="fa fa-close"></i> 关闭
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/njs/jQuery.Cookie.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>	
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/ext/highcharts.js"></script>
+	<script type="text/javascript" src="../js/userCenter.js"></script>
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>
