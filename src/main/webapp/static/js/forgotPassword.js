@@ -13,6 +13,7 @@ $(document).ready(function() {
 	//$("#yourname").val("");
 
 	showWelcomeMsg();
+	showLinks();
 	$("#yourCID").val("");
 	$("#youerrealname").val("");
 	$.getJSON("../../handler/register/department", function(data) {
@@ -110,20 +111,13 @@ function showWelcomeMsg(){
 				if(index.sypaEnName=="systemName")
 					title1 = index.sypaValue;
 			});
-			if ($.cookie("user") == null || $.cookie("user") == "") {
-				unLoginData = {
-						"userName" : "登录",
-						"userLoginname" : ""
-				};
-				$("#getnav").html("<div class=\"setTitle nav navbar-nav \">"+title1+"</div><ul class=\"nav navbar-nav navbar-right \">");
-			} else {
-				$("#getnav").html("<div class=\"setTitle nav navbar-nav \">"+title1+"</div><ul class=\"nav navbar-nav navbar-right \">"
-						+"<li><a class='changeTitleright' href=\"userCenter.html?firstCol=1&secondCol=14\">进入系统</a></li></ul>");
-			}
+			$("#getnav").html("<div class=\"setTitle nav navbar-nav \">"+title1+"&nbsp;<span class='titleSmalll'>赛尔网络下一代互联网技术创新项目</span>"+"</div><ul class=\"nav navbar-nav navbar-right \">"
+					+"<li><a href=\"home.html\">返回首页</a></li></ul>");
 			$("#welcomemsg").html(welcomeHtml);
 		   }
 	    }
 	});
+
 
 	if ($.cookie("parameters") != null && $.cookie("parameters") != "") {
 		var parCookie = $.cookie("parameters");
@@ -137,4 +131,31 @@ function showWelcomeMsg(){
 			}
 		}
 	}
+}
+function showLinks() {
+	$.ajax({
+		type : "post",
+		contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+		url : '../../handler/sypaController/viewAllSypa',
+		async : false,
+		data : {
+			"pType" : 10
+		},
+		dataType : 'json',
+		success : function(data) {
+			if(data==""&&data==null){
+				alert("获取数据失败，请联系数据库管理员！");
+				return;
+			}else{
+				var resultData = data.data.result;
+				var linkHtml = "";
+				$.each(resultData, function(DataIndex, index) {
+					linkHtml += "<li class='liststyle-doc'><a target='_blank' id='" + index.sypaId + "' name='" + index.sypaName
+					+ "' href='http://" + index.sypaValue + "'>" + index.sypaName + "</a></li>";
+				});
+				$("#link").html(linkHtml);
+			}
+			
+		}
+	});
 }

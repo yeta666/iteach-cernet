@@ -51,9 +51,7 @@ public class AttachmentController {
             jav.setErrmsg("找不到相应的附件！");
             return jav;
         }
-        String filePath=request.getSession().getServletContext()
-                .getRealPath(attach.getAttaLocation()
-                +attach.getAttaFilename());
+        String filePath = request.getSession().getServletContext().getRealPath("/") + "/" + attach.getAttaLocation() + attach.getAttaFilename();
         String result=attachmentService.deleteAttachment(attachId,filePath);
         if(result!="success"){
             jav.setRet(false);
@@ -88,7 +86,7 @@ public class AttachmentController {
         jav.addData("data", attach);
         
         try {
-        	logopic.transferTo(new File(request.getSession().getServletContext().getRealPath("upload/"+atta.getAttaFilename())));
+        	logopic.transferTo(new File(request.getSession().getServletContext().getRealPath("/upload/"+atta.getAttaFilename())));
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			jav.addData("errormsg", "sava attachment fail");

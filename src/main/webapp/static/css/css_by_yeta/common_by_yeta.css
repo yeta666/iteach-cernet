@@ -1,0 +1,72 @@
+@charset "utf-8";
+body {
+    background: #424f63;
+    font-family: "微软雅黑";
+    color: #7a7676;
+    line-height: 20px;
+    overflow-x: hidden;
+    font-size: 14px;
+}
+
+body .logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    z-index: 100;
+    background: #424f63;
+
+}
+
+body .header-section {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    width: 100%;
+    z-index: 101;
+}
+
+body .main-content {
+    padding-top: 50px;
+}
+
+body .menu-right {
+    margin-right: 255px;
+}
+
+body.left-side-collapsed .header-section {
+    left: 52px;
+}
+
+body.left-side-collapsed .menu-right {
+    margin-right: 67px;
+}
+
+input, select, textarea {
+    font-family: "微软雅黑";
+    color: #767676;
+}
+
+a {
+    color: #65CEA7;
+}
+
+a:focus, a:active, a:hover {
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: #353F4F;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "微软雅黑";
+}
+
+.mtop10 {
+    margin-top: 10px;
+}
+
+hr {
+    border-color: #ddd;
+}

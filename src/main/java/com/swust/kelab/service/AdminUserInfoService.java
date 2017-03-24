@@ -16,6 +16,7 @@ import java.util.zip.ZipOutputStream;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.aspectj.weaver.ast.Var;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +49,7 @@ import com.swust.kelab.utils.MD5;
 @Service()
 public class AdminUserInfoService {
 
-	final static Logger logger = LoggerFactory
-			.getLogger(AdminUserInfoService.class);
+	final static Logger logger = LoggerFactory.getLogger(AdminUserInfoService.class);
 
 	private RoleDao roleDao;
 
@@ -97,8 +97,7 @@ public class AdminUserInfoService {
 	 * @author lujoCom
 	 */
 	@Transactional
-	public Map<String, Object> addRoleToUser(Integer userId, Integer roleId)
-			throws Exception {
+	public Map<String, Object> addRoleToUser(Integer userId, Integer roleId) throws Exception {
 		Map<String, Object> data = new HashMap<String, Object>();
 
 		ReUserRole reUserRole = new ReUserRole();
@@ -199,9 +198,8 @@ public class AdminUserInfoService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public Map<String, Object> importUserInfoFromExcel(InputStream inputStream,
-			String fileType, int userType, HttpServletRequest request)
-			throws Exception {
+	public Map<String, Object> importUserInfoFromExcel(InputStream inputStream, String fileType, int userType,
+			HttpServletRequest request) throws Exception {
 		long startTime = System.currentTimeMillis();
 		Map<String, Object> getData = new HashMap<String, Object>();
 		Map<String, Object> returnData = new HashMap<String, Object>();
@@ -209,28 +207,23 @@ public class AdminUserInfoService {
 		List<UserModel> errorUsers = null;
 		if (fileType.equals(".xls")) {
 			// 处理03版本的excel
-			HSSFSheet sheet = ExcelResolver_03.newInstance()
-					.createWorkbook(inputStream).getSheet(0);
+			HSSFSheet sheet = ExcelResolver_03.newInstance().createWorkbook(inputStream).getSheet(0);
 			if (!ExcelResolver_03.isUserInfoExcel(sheet, userType)) {
 				returnData.put("status", new Integer(2));
 				return returnData;
 			}
-			getData = ExcelResolver_03.newInstance().getUserInfoFromExcel(
-					sheet, userType);
-		} /*else {
-			// 处理07版本的excel
-			XSSFSheet sheet = ExcelResolver_07.newInstance()
-					.createWorkBook(inputStream).getSheet(0);
-			if (!ExcelResolver_07.isUserInfoExcel(sheet)) {
-				returnData.put("status", new Integer(0));
-				return returnData;
-			}
-			getData = ExcelResolver_07.newInstance()
-					.getUserInfoFromExcel(sheet);
-		}*/
+			getData = ExcelResolver_03.newInstance().getUserInfoFromExcel(sheet, userType);
+		} /*
+			 * else { // 处理07版本的excel XSSFSheet sheet =
+			 * ExcelResolver_07.newInstance()
+			 * .createWorkBook(inputStream).getSheet(0); if
+			 * (!ExcelResolver_07.isUserInfoExcel(sheet)) {
+			 * returnData.put("status", new Integer(0)); return returnData; }
+			 * getData = ExcelResolver_07.newInstance()
+			 * .getUserInfoFromExcel(sheet); }
+			 */
 		users = (List<UserModel>) getData.get("userData");
 		errorUsers = (List<UserModel>) getData.get("errorDataRow");
-
 		User user = null;
 		Integer index = 0;
 		for (UserModel u : users) {
@@ -241,16 +234,15 @@ public class AdminUserInfoService {
 				errorUsers.add(u);
 			}
 		}
-		String fileName  = null;
+		String fileName = null;
 		// 将有误的用户信息保存在excel中
 		if (errorUsers.size() != 0) {
-			fileName = saveErrorUserInfoToExcel(request, "errorUserInfo", errorUsers,
-					userType);
+			fileName = saveErrorUserInfoToExcel(request, "errorUserInfo", errorUsers, userType);
 			returnData.put("fileName", fileName);
 			returnData.put("status", new Integer(0));
 			return returnData;
 		}
-		
+
 		returnData.put("status", new Integer(1));
 		long endTime = System.currentTimeMillis();
 		logger.debug("time:" + (endTime - startTime));
@@ -266,20 +258,16 @@ public class AdminUserInfoService {
 	 * @return 不合法的用户信息
 	 * @throws Exception
 	 */
-	private UserModel importUserInfoToDB(UserModel userModel, User user,
-			int userType) throws Exception {
+	private UserModel importUserInfoToDB(UserModel userModel, User user, int userType) throws Exception {
 
 		user.setUserLoginname(userModel.getUseLoginName());
 		Integer userId = null;
-		//判断信息是否齐全
-        if(userModel.getUseLoginName()==null
-                ||userModel.getUseLoginName().length()<=0
-                ||userModel.getUserRealName()==null
-                ||userModel.getUserRealName().length()<=0
-                ){
-            userModel.setErrorReason("用户信息不全！");
-            return userModel;
-        }
+		// 判断信息是否齐全
+		if (userModel.getUseLoginName() == null || userModel.getUseLoginName().length() <= 0
+				|| userModel.getUserRealName() == null || userModel.getUserRealName().length() <= 0) {
+			userModel.setErrorReason("用户信息不全！");
+			return userModel;
+		}
 		// 判断该用户信息是否已经存在，若已存在查出用户id
 		if (userDAO.findUsersByUser(user).size() != 0) {
 			userModel.setErrorReason("该用户已存在！");
@@ -302,14 +290,12 @@ public class AdminUserInfoService {
 		// 判断部门是否存在于数据库中，不存在则保存数据库中，并返回部门id
 		Department department = new Department();
 		department.setDepaName(userModel.getUserDepatmentName());
-		
-		List<Department> departs = departmentDao
-				.findDepartmentsByDepar(department);
+
+		List<Department> departs = departmentDao.findDepartmentsByDepar(department);
 
 		int departId = 0;
 		if (departs.size() == 0) {
-			userModel
-					.setErrorReason("此用户的部门或者学校不存在，请根据《departmentInfo.xls》填写用户部门或者学校！");
+			userModel.setErrorReason("此用户的部门或者学校不存在，请根据《departmentInfo.xls》填写用户部门或者学校！");
 			return userModel;
 		} else {
 			departId = departs.get(0).getDepaId();
@@ -326,8 +312,7 @@ public class AdminUserInfoService {
 			// 根据年级名称以及学校id查询该学校该年级是否存在，若是不存在将此用户信息返回给用户重新填写
 			gradeId = gradeDao.findGradIdByGraNamAndSchId(grade);
 			if (gradeId == null) {
-				userModel
-						.setErrorReason("此学生的年级不存在，请根据《departmentInfo.xls》填写学生的年级信息");
+				userModel.setErrorReason("此学生的年级不存在，请根据《departmentInfo.xls》填写学生的年级信息");
 				return userModel;
 			}
 		}
@@ -342,8 +327,7 @@ public class AdminUserInfoService {
 			// 根据班级信息查询班级id,若班级id为空则说明数据库中不存在此班级,则将此用户信息返回给用户重新填写
 			classId = gradeDao.findClasIdByClaNamAndGradId(clas);
 			if (classId == null) {
-				userModel
-						.setErrorReason("此学生的年级不存在，请根据《departmentInfo.xls》填写学生的班级信息");
+				userModel.setErrorReason("此学生的年级不存在，请根据《departmentInfo.xls》填写学生的班级信息");
 				return userModel;
 			}
 			user.setUserClasId(classId);
@@ -373,21 +357,24 @@ public class AdminUserInfoService {
 	 * @param userInfos
 	 * @param userType
 	 */
-	public String saveErrorUserInfoToExcel(HttpServletRequest request,
-			String fileName, List<UserModel> userInfos, int userType) {
+	public String saveErrorUserInfoToExcel(HttpServletRequest request, String fileName, List<UserModel> userInfos,
+			int userType) {
 		User user = CookieUtil.getCookieUser(request);
-		Map<String, String> propertyName = getPropertyName(userType + 2);
-		String filePath = request.getSession().getServletContext()
-				.getRealPath("/upload/temp");
-		File errorFile = newFile(filePath, user.getUserLoginname()+System.currentTimeMillis()+".xls");
+		int userType1 = userType;
+		if(userType1 == 3){
+			//因为教务员是3，老师是2
+			userType1 = 2;
+		}
+		Map<String, String> propertyName = getPropertyName(userType1 + 2);
+		String filePath = request.getSession().getServletContext().getRealPath("/upload/temp");
+		File errorFile = newFile(filePath, user.getUserLoginname() + System.currentTimeMillis() + ".xls");
 		try {
 			logger.debug(errorFile.getCanonicalPath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ExportAsExcel.exportExcel(UserModel.class.getName(), propertyName,
-				"用户导入信息错误数据", errorFile, userInfos);
+		ExportAsExcel.exportExcel(UserModel.class.getName(), propertyName, "用户导入信息错误数据", errorFile, userInfos);
 
 		return errorFile.getName();
 	}
@@ -401,8 +388,8 @@ public class AdminUserInfoService {
 	 * @return
 	 * @throws IOException
 	 */
-	public String writeUserInfoModelToFile(String fileName, Integer userType,
-			HttpServletRequest request) throws IOException {
+	public String writeUserInfoModelToFile(String fileName, Integer userType, HttpServletRequest request)
+			throws IOException {
 		String result = "fail";
 		User user = CookieUtil.getCookieUser(request);
 		// 查询所有部门或者学校的所有班级信息
@@ -410,39 +397,32 @@ public class AdminUserInfoService {
 		querySchInfo.put("departId", user.getUserDepaId());
 		querySchInfo.put("departType", user.getUserDepartType());
 		querySchInfo.put("userType", userType);
-		
-		
+
 		Map<String, String> propertyName = getPropertyName(userType);
 		// 将部门信息写入excel文件中
-		String filePath = request.getSession().getServletContext()
-				.getRealPath("/upload/temp");
+		String filePath = request.getSession().getServletContext().getRealPath("/upload/temp");
 		File departInfos = newFile(filePath, "departmentInfo.xls");
 
-		String userInfoModelPath = request.getSession().getServletContext()
-				.getRealPath("/upload/resource");
+		String userInfoModelPath = request.getSession().getServletContext().getRealPath("/upload/resource");
 
 		File userInfoModel = null;
 		boolean isFinish = false;
 		if (userType == 1) {
-			List<ClasModel> schoolInfo = gradeDao
-					.getSchoolAndGraClasInfo(querySchInfo);
-			isFinish = ExportAsExcel.exportExcel(ClasModel.class.getName(),
-					propertyName, "学校以及政府部门列表", departInfos, schoolInfo);
+			List<ClasModel> schoolInfo = gradeDao.getSchoolAndGraClasInfo(querySchInfo);
+			isFinish = ExportAsExcel.exportExcel(ClasModel.class.getName(), propertyName, "学校以及政府部门列表", departInfos,
+					schoolInfo);
 			// 学生用户信息导入模板
-			userInfoModel = new File(new File(userInfoModelPath),
-					"studentInfoTemplate.xls");
+			userInfoModel = new File(new File(userInfoModelPath), "studentInfoTemplate.xls");
 		} else {
 			List<Department> departmentInfo = departmentDao.findDepartmentsByDepar(null);
-			isFinish = ExportAsExcel.exportExcel(Department.class.getName(),
-					propertyName, "学校以及政府部门列表", departInfos, departmentInfo);
+			isFinish = ExportAsExcel.exportExcel(Department.class.getName(), propertyName, "学校以及政府部门列表", departInfos,
+					departmentInfo);
 			// 教师或者教务员信息导入模板
-			userInfoModel = new File(new File(userInfoModelPath),
-					"teacherAndAcdemicDeanInfoTemplate.xls");
+			userInfoModel = new File(new File(userInfoModelPath), "teacherAndAcdemicDeanInfoTemplate.xls");
 		}
+		//放入压缩包
 		File exportZip = newFile(filePath, fileName);
-
-		ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(
-				exportZip));
+		ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(exportZip));
 		if (isFinish) {
 			zipFile(zos, departInfos);
 			zipFile(zos, userInfoModel);

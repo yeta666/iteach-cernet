@@ -245,11 +245,11 @@ function setSelected(id) {
 		$("#questionShow" + id).attr("onclick", "cancelSelected(" + id + ")");
 		$("#questionShow" + id).html("取消选择");
 		// 设置对应的选择框
-		$("[name='chooseQu']").each(function() {
-			if ($(this).attr("value") == id) {
-				$(this).attr("checked", "checked");
+		$("input[name='chooseQu']").each(function() {
+			if ($(this).val() == id) {
+				$(this).is(":checked");
 			}
-		});
+		});	
 	} else
 		alert("请先选择课程");
 }
@@ -277,8 +277,8 @@ function cancelSelected(id) {
 	$("#questionShow" + id).attr("onclick", "setSelected(" + id + ")");
 	$("#questionShow" + id).html("选择");
 	// 取消对应的选择框
-	$("[name='chooseQu']").each(function() {
-		if ($(this).attr("value") == id) {
+	$("input[name='chooseQu']").each(function() {
+		if ($(this).val() == id) {
 			$(this).removeAttr("checked");
 		}
 	});

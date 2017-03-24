@@ -448,8 +448,8 @@ function refreshContent(data) {
 					'无':dataList[i].resoDescribe)+"'>" +
 					"<td><input class='dataCheckbox' type='checkbox'/></td>" +
 					"<td>" +((currentPage-1)*recordPerPage+i+1) + "</td>" +
-					"<td class='courName' cid='" + dataList[i].courId + "'>" + dataList[i].courName + "</td>" +
 					"<td class='title' style='cursor:pointer;'><a class='modVideo' name='"+ dataList[i].resoFilename+"'>" + dataList[i].resoTitle + "</a></td>" +
+					"<td class='courName' cid='" + dataList[i].courId + "'>" + dataList[i].courName + "</td>" +
 					"<td class='realname'>" + dataList[i].userRealname + "</td>" +
 					"<td class='addtime' value='" + (dataList[i].resoDescribe == null?
 							'':dataList[i].resoDescribe) + "'>" + dataList[i].resoAddtime + "</td>" +

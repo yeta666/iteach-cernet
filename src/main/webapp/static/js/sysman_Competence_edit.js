@@ -64,11 +64,11 @@ function showContent() {
 				isFirst = false;
 				if (item2.subcols != null) {
 					$.each(item2.subcols, function(itemIndex3, item3) {
-						columnHtml += "<label class='checkbox-inline'> <input type='checkbox' id='" + item3.colid
+						columnHtml += "<input type='checkbox' id='" + item3.colid
 								+ "' name='3Record" + startIndex + "' value='" + item2.colid + "' firstCol='"
 								+ item1.colid + "' secondCol='" + item2.colid
 								+ "'  coltype='action' onchange='chooseall3(" + startIndex + "," + item2.colid
-								+ ",this)'>" + item3.colname + "</label>";
+								+ ",this)'>" + item3.colname + "<span style='margin-right:20px;'></span>";
 					});
 				}
 				columnHtml += "</td></tr>";
