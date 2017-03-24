@@ -380,6 +380,27 @@ function selectCourse(userId)
 		}
 	});
 }
+var firstReplayResult = '<p style="color:red;">暂无回复</p>';
+function getFirstReplay(postId){
+	firstReplayResult = '<p style="color:red;">暂无回复</p>';
+	var viewaction = "../../handler/bbsReply/viewReplyList";
+	var params = {
+			"bbsPostId": postId,
+			"pageArray": new Array(),
+			"recordPerPage": 10
+	};	
+	$.post(viewaction, params, function(data) {
+		//console.log(data);
+		if(data.ret){
+			if(data.data.totalCount > 0){
+				firstReplayResult = data.data.pageData[0].data[data.data.totalCount - 1].replyContent;
+			}
+		}else{
+			firstReplayResult = data.errmsg;
+		}
+	});
+}
+
 
 //课程论坛最新信息
 function lastPost(courseId)
@@ -399,21 +420,54 @@ function lastPost(courseId)
 		dataType:'json',
 		success:function(result){
 			var pdata = result.data.pageData;
-			var postlist = "";
-			if(pdata!=""&&pdata!=null){
+			var postlist = '';
+			if(pdata != "" && pdata != null){
 				if(pdata.length>0){
 					var postdata = pdata[0].data;
 					if(postdata.length >0 ){
 						discussNum=postdata.length;
 						$.each(postdata, function(itemIndex, item) {
-							postlist = postlist + "<li class=\"list-group-item\"><i class='fa fa-file-text'></i>&nbsp;<a href=\"bbs_viewPost.html?id="+item.bbpoId+"&firstCol=3&secondCol=17\" target=\"_blank\">"+titleFormat(item.bbpoTitle,18)+"</a></li>";
+							getFirstReplay(item.bbpoId);
+							//console.log(firstReplayResult);
+							postlist += '<li style="list-style:none">'+
+							'<div class="col-sm-1" style="padding:0;"><i class="fa fa-file-text" style="width:100%; height:100%; text-align:center; font-size:20px;"></i></div>'+
+							'<div class="col-sm-11"  style="margin-bottom:20px;">'+
+							'<p>'+item.userName+'</p>'+
+							'<a href="javascript:onclick=visitPostDetail('+item.bbpoId+');" style="font-size:18px; font-weight:bold; color:black; display:block; margin: 10px 0;">'+
+							titleFormat(item.bbpoTitle,18)+'</a>'+
+							'<p class="pull-left">[最新的回复]&nbsp;&nbsp;</p><p>'+firstReplayResult+
+							'</p><p><span class="pull-left">时间：  '+item.realUpdatetime+'</span>'+
+							'<span class="pull-right">'+item.bbpoReplynum+'&nbsp;&nbsp;回复&nbsp;&nbsp;&nbsp;&nbsp;'+item.bbpoVisitnum+'&nbsp;&nbsp;浏览</span></p></div><hr style="clear:both;" /></li>';
 						});
 					}
 				}
+			}else{
+				postlist += '<li style="list-style:none">暂无讨论</li>';
 			}
 			$("#coursePost").empty().append(postlist);
 		}
 	});
+}
+
+function visitPostDetail(id) {
+	$.ajaxSettings.async = false;
+	$.ajax({
+		type : 'post',
+		contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+		url : "../../handler/bbsPost/addVisitNum",
+		dataType : 'json',
+		data : {
+			bbsPostId : id
+		},
+		success : function(data) {
+			if (data.ret) {
+				window.location.href = "bbs_viewPost.html?id="+ id+"&page=1"+"&firstCol=3&secondCol=17";
+			} else {
+				alert("data.errmsg");
+			}
+		}
+	});
+	return false;
 }
 
 

@@ -1,171 +1,342 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../css/ncss/bootstrap.css" rel="stylesheet">
-  <link href="../css/ncss/font-awesome.css"rel="stylesheet">
-       <link href="../css/ncss/animate.css" rel="stylesheet">
-     <link href="../css/ncss/style.css" rel="stylesheet">
-     <link href="../css/ncss/common.css" rel="stylesheet">
-     <link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
-<!-- 时间选择css -->
-<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
-<title></title>
-<!-- author：郭海蓉  time:2013-08 -->
-</head>
-<body>
-<div id="wrapper">
-        <nav class="navbar-default navbar-static-side" role="navigation">
-		<div class="sidebar-collapse">
-			<ul class="nav" id="side-menu">
-			</ul>
 
-		</div>
-		</nav>
-        <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-				<nav class="navbar navbar-static-top" role="navigation"
-					style="margin-bottom: 0">
-		<div id="scaling" class="navbar-header">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+		<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+		<link href="../css/ncss/style.css" rel="stylesheet">
+		<link href="../css/ncss/animate.css" rel="stylesheet">
+		<!-- 时间选择css -->
+		<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+
+		<!--普遍样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/common_by_yeta.css" />
+		<!--左边导航样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/leftside_by_yeta.css" />
+		<!--顶部导航样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/headersection_by_yeta.css" />
+		<!--主体部分样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/maincontent_by_yeta.css" />
+		<!--底部样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/footer_by_yeta.css" />
+		<!--响应式样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/style-responsive.css" />
+	</head>
+
+	<body>
+
+		<section>
+			<!-- left side start-->
+			<div class="left-side sticky-left-side">
+
+				<!--logo and iconic logo start-->
+				<div class="logo">
+					<a href="index.html"><img src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
 				</div>
-				<ul  id ="navibartitle" class="nav navbar-top-links" >
-					<!--commonjs 118行 打印 -->
-				</ul>
-				</nav>
+
+				<div class="logo-icon text-center">
+					<a href="index.html"><img src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+				</div>
+				<!--logo and iconic logo end-->
+
+				<div class="left-side-inner">
+
+					<!-- visible to small devices only -->
+					<div class="visible-xs hidden-sm hidden-md hidden-lg">
+						<div class="media logged-user">
+							<img alt="user" src="" class="media-object user_img">
+							<div class="media-body">
+								<h4 class="user_name"></h4>
+							</div>
+						</div>
+						<ul class="nav nav-pills nav-stacked custom-nav">
+							<li>
+								<a href="personalInformation_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> <span>个人资料</span></a>
+							</li>
+							<li>
+								<a href="modifyPassword_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> <span>密码设置</span></a>
+							</li>
+							<li>
+								<a href="aboutSystem_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> <span>关于系统</span></a>
+							</li>
+							<li>
+								<a href="aboutHelp_home.html?firstCol=1&secondCol=14"><i class="fa fa-cog"></i> <span>联机帮助</span></a>
+							</li>
+							<li>
+								<a href="#" onclick="loginOff();"><i class="fa fa-sign-out"></i> <span>安全退出</span></a>
+							</li>
+						</ul>
+					</div>
+
+					<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav" id="left_side">
+						<!-- <li class="menu-list nav-active">
+							<a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+							<ul class="sub-menu-list">
+								<li class="active">
+									<a href="blank_page.html"> Blank Page</a>
+								</li>
+							</ul>
+						</li> -->
+					</ul>
+					<!--sidebar nav end-->
+
+				</div>
 			</div>
-         <div class="row  border-bottom white-bg dashboard-header">
- 	<div class="col-lg-10">
-					<h2>
-						<i class="fa fa-smile-o"></i> 论坛管理
-					</h2>
-					<ol class="breadcrumb">
-						<li><a href="home.html">主页</a></li>
-				
-						<li><strong>课程讨论管理</strong></li>
-					</ol>
+			<!-- left side end-->
+
+			<!-- main content start-->
+			<div class="main-content">
+
+				<!-- header section start-->
+				<div class="header-section">
+
+					<!--toggle button start-->
+					<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+					<!--toggle button end-->
+
+					<!--notification menu start -->
+					<div class="menu-right">
+						<ul class="notification-menu">
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+									<i class="fa fa-tasks"></i>
+									<span class="badge">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-head pull-right">
+									<h5 class="title">You have 8 pending task</h5>
+									<ul class="dropdown-list user-list">
+										<li class="new">
+											<a href="#">
+												<div class="task-info">
+													<div>Database update</div>
+												</div>
+												<div class="progress progress-striped">
+													<div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+														<span class="">40%</span>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+									<i class="fa fa-envelope-o"></i>
+									<span class="badge">5</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-head pull-right">
+									<h5 class="title">You have 5 Mails </h5>
+									<ul class="dropdown-list normal-list">
+										<li class="new">
+											<a href="">
+												<span class="thumb"><img src="" alt="" /></span>
+												<span class="desc">
+                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
+												<span class="msg">Lorem ipsum dolor sit amet...</span>
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+									<i class="fa fa-bell-o"></i>
+									<span class="badge">4</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-head pull-right">
+									<h5 class="title">Notifications</h5>
+									<ul class="dropdown-list normal-list">
+										<li class="new">
+											<a href="">
+												<span class="label label-danger"><i class="fa fa-bolt"></i></span>
+												<span class="name">Server #1 overloaded.  </span>
+												<em class="small">34 mins</em>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									<img class="user_img" src="" alt="user" />
+									<span class="user_name"></span>
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+									<li>
+										<a href="personalInformation_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> 个人资料</a>
+									</li>
+									<li>
+										<a href="modifyPassword_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> 密码设置</a>
+									</li>
+									<li>
+										<a href="aboutSystem_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> 关于系统</a>
+									</li>
+									<li>
+										<a href="aboutHelp_home.html?firstCol=1&secondCol=14"><i class="fa fa-cog"></i> 联机帮助</a>
+									</li>
+									<li>
+										<a href="#" onclick="loginOff();"><i class="fa fa-sign-out"></i> 安全退出</a>
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+					<!--notification menu end -->
+
 				</div>
-            </div>
-            			<div class="wrapper wrapper-content"  >
-        			<div class="row animated fadiInRight">
-				<div class="row">
-				  <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-					  <div class="ibox-title">
-					  <h2><i class="fa fa-envelope"></i> 课程讨论管理</h2>
-									 <div class="ibox-tools">
+				<!-- header section end-->
+
+				<!-- page heading start-->
+				<div class="page-heading">
+					<h3 id="system_title_by_yeta"></h3>
+					<ul class="breadcrumb">
+						<li>
+							<a href="home.html">主页</a>
+						</li>
+						<li class="active">课程讨论管理</li>
+					</ul>
+				</div>
+				<!-- page heading end-->
+
+				<!--body wrapper start-->
+				<div class="wrapper">
+					<div class="row animated fadiInRight">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2><i class="fa fa-envelope"></i> 课程讨论管理</h2>
+										<div class="ibox-tools">
 											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+											<a class="close-link"> <i class="fa fa-times"></i>
 											</a>
 										</div>
-								</div>
-								<div class = "ibox-content m-b-sm border-bottom">
-	<!-- 主框体 -->
-	
-		<div class="row-fluid">
-			<div id="pictures" class="span12 pictures"></div>
-		</div>
-		<div class="row-fluid">
-			<div id="column" class="span2 box"></div>
-	
-				<div class="box">
-					<div id="myTabContent white-bg" class="tab-content">
-						<div class="tab-pane fade active in" id="bbs_manage">
-							<div id="content">
-							
-								<div id="myTabContent white-bg" class="tab-content">
-									<!-- 查询区域 -->
-									<form class="form-inline white-bg">
-										<select
-											id="seleteSchoolID" class="form-control">
-										</select> <select id="selecteCourserID" class="form-control"style="width:200px;">
-										</select> <span class="label">时间</span> <input id="startTime"
-											data-date-format="yyyy-mm-dd" class="form-control"
-											placeholder="开始时间..." type="text"> <label>~~</label>
-										<input id="endTime" data-date-format="yyyy-mm-dd"
-											class="form-control" placeholder="结束时间..." type="text"> <input
-											id="searchKeyd" name="searchKeyd" type="text" class="form-control"
-											placeholder="输入帖子主题" class="form-control">
-										<button id="search" class="btn btn-primary"><i class="fa fa-search">搜索</i></button>
-									</form>
-									<div style="margin-bottom: 5px" class="white-bg">
-										<button type="button" class="btn btn-success" id="bbs_top"
-											name="bbs_top" onclick="javascript:setPost(1,1);">
+									</div>
+									<div class="ibox-content m-b-sm border-bottom">
+										<!-- 主框体 -->
+
+										<div class="row-fluid">
+											<div id="pictures" class="span12 pictures"></div>
+										</div>
+										<div class="row-fluid">
+											<div id="column" class="span2 box"></div>
+
+											<div class="box">
+												<div id="myTabContent white-bg" class="tab-content">
+													<div class="tab-pane fade active in" id="bbs_manage">
+														<div id="content">
+
+															<div id="myTabContent white-bg" class="tab-content">
+																<!-- 查询区域 -->
+																<form class="form-inline white-bg">
+																	<select id="seleteSchoolID" class="form-control">
+																	</select>
+																	<select id="selecteCourserID" class="form-control" style="width:200px;">
+																	</select> <span class="label">时间</span> <input id="startTime" data-date-format="yyyy-mm-dd" class="form-control" placeholder="开始时间..." type="text"> <label>~~</label>
+																	<input id="endTime" data-date-format="yyyy-mm-dd" class="form-control" placeholder="结束时间..." type="text"> <input id="searchKeyd" name="searchKeyd" type="text" class="form-control" placeholder="输入帖子主题" class="form-control">
+																	<button id="search" class="btn btn-primary"><i class="fa fa-search">搜索</i></button>
+																</form>
+																<div style="margin-bottom: 5px" class="white-bg">
+																	<button type="button" class="btn btn-success" id="bbs_top" name="bbs_top" onclick="javascript:setPost(1,1);">
 											<i class="icon-arrow-up icon-white"></i> 置顶
 										</button>
-										<button type="button" class="btn btn-warning"
-											id="bbs_canceltop" name="bbs_canceltop"
-											onclick="javascript:setPost(1,2);">
+																	<button type="button" class="btn btn-warning" id="bbs_canceltop" name="bbs_canceltop" onclick="javascript:setPost(1,2);">
 											<i class="icon-share-alt icon-white"></i> 取消置顶
 										</button>
-										<button type="button" class="btn btn-success" id="bbs_starte"
-											name="bbs_starte" onclick="javascript:setPost(2,1);">
+																	<button type="button" class="btn btn-success" id="bbs_starte" name="bbs_starte" onclick="javascript:setPost(2,1);">
 											<i class="icon-star-empty icon-white"></i>精品
 										</button>
-										<button type="button" class="btn btn-warning"
-											id="bbs_canclestarte" name="bbs_canclestarte"
-											onclick="javascript:setPost(2,2);">
+																	<button type="button" class="btn btn-warning" id="bbs_canclestarte" name="bbs_canclestarte" onclick="javascript:setPost(2,2);">
 											<i class="icon-share-alt icon-white"></i> 取消精品
 										</button>
-										<button type="button" class="btn btn-danger" id="bbs_delete"
-											name="bbs_delete" onclick="javascript:deletePost();">
+																	<button type="button" class="btn btn-danger" id="bbs_delete" name="bbs_delete" onclick="javascript:deletePost();">
 											<i class="icon-trash icon-white"></i>删除
 										</button>
-									</div>
-									<div id="viewPostList">
-										<!--数据显示  -->
-										<table class="table table-hover table-bordered white-bg"
-											id="viewPostListTable">
-											<thead class="white-bg">
-												<tr>
-													<th><a href="#" id="chooseallPost" >全选</a></th>
-													<th>序</th>
-													<th>标题</th>
-													<th>课程</th>
-													<th>作者</th>
-													<th>发表时间</th>
-													<th>人气/回复</th>
-												</tr>
-											</thead>
-											<tbody id="mainTable">
-											</tbody>
-										</table>
-										<!-- 分页区域 -->
-										
-										<div id="pagination" class="pagination page-left"  ></div>
-									
-										<br/><br/>
+																</div>
+																<div id="viewPostList">
+																	<!--数据显示  -->
+																	<table class="table table-hover table-bordered white-bg" id="viewPostListTable">
+																		<thead class="white-bg">
+																			<tr>
+																				<th>
+																					<a href="#" id="chooseallPost">全选</a>
+																				</th>
+																				<th>序</th>
+																				<th>标题</th>
+																				<th>课程</th>
+																				<th>作者</th>
+																				<th>发表时间</th>
+																				<th>人气/回复</th>
+																			</tr>
+																		</thead>
+																		<tbody id="mainTable">
+																		</tbody>
+																	</table>
+																	<!-- 分页区域 -->
+
+																	<div id="pagination" class="pagination page-left"></div>
+
+																	<br/><br/>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--span10  -->
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!--body wrapper end-->
+
+				<!--footer section start-->
+				<footer id="footer">
+
+				</footer>
+				<!--footer section end-->
+
 			</div>
-			<!--span10  -->
-		</div>
-			
-	</div>
-	</div>
-	<div id="footer"class="footer"></div>
-	</div></div></div></div></div>
+			<!-- main content end-->
+		</section>
 
+		<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
+		<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
+		<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
+		<script src="../js/njs/jquery.metisMenu.js"></script>
+		<!-- 导航手风琴插件 -->
+		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+		<!-- 美化滚动条插件 -->
+		<script src="../js/jquery.scrollUp.min.js" type="text/javascript"></script>
+		<!-- 回到顶部插件 -->
+		<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
+		<!-- 延迟加载插件 -->
+		<script src="../js/ext/highcharts.js" type="text/javascript"></script>
+		<script src="../js/extend.js" type="text/javascript"></script>
+		<!-- 不晓得啥子用 -->
+		<script src="../js/utils.js" type="text/javascript"></script>
+		<script src="../js/common.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/cachepage.js"></script>
+		<!--时间选择js -->
+		<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+		<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
+		<script type="text/javascript" src="../js/eduman_BbsInfoManage.js"></script>
+		<script src="../js/pace.min.js"></script>
+		<script src="../js/njs/hplus.js?v=2.2.0"></script>
+		<script src="../js/yeta_script.js" type="text/javascript"></script>
 
-</body>
-<script src="../js/njs/jquery-2.1.1.min.js"></script>
-<script src="../js/extend.js"></script>
-<script src="../js/njs/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/utils.js"></script>
-<script type="text/javascript" src="../js/common.js"></script>
-<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
-<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
-<script type="text/javascript" src="../js/cachepage.js"></script>
+	</body>
 
-<!--时间选择js -->
-<script src="../js/ext/bootstrap-datetimepicker.js"></script>
-<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
-<script type="text/javascript" src="../js/eduman_BbsInfoManage.js"></script>
-<script src="../js/njs/jquery.metisMenu.js"></script>
-<script src="../js/pace.min.js"></script>
- <script src="../js/njs/hplus.js?v=2.2.0"></script><!--控制导航自动缩进  -->
 </html>

@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iteach/!svn/ver/408/iteach-svn/src/main/java/com/swust/kelab/service
+END
+GradeInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/GradeInfoService.java
+END
+WebTestService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/WebTestService.java
+END
+AdminUserInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/AdminUserInfoService.java
+END
+TrainService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/TrainService.java
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/LoginService.java
+END
+UserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iteach/!svn/ver/380/iteach-svn/src/main/java/com/swust/kelab/service/UserService.java
+END
+ChapterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iteach/!svn/ver/48/iteach-svn/src/main/java/com/swust/kelab/service/ChapterService.java
+END
+ResourceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iteach/!svn/ver/304/iteach-svn/src/main/java/com/swust/kelab/service/ResourceService.java
+END
+MassedLearningService.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/MassedLearningService.java
+END
+DepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iteach/!svn/ver/408/iteach-svn/src/main/java/com/swust/kelab/service/DepartmentService.java
+END
+BbsPostService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/BbsPostService.java
+END
+CourseStatisticService.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/iteach/!svn/ver/203/iteach-svn/src/main/java/com/swust/kelab/service/CourseStatisticService.java
+END
+ColumnService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/ColumnService.java
+END
+RoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/RoleService.java
+END
+GradeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/GradeService.java
+END
+BbsReplyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/BbsReplyService.java
+END
+SelectCourseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/SelectCourseService.java
+END
+CourseCategoryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/CourseCategoryService.java
+END
+SystemParameterService.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/SystemParameterService.java
+END
+ScoreExportConfirmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/ScoreExportConfirmService.java
+END
+EvaluateMethodService.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/EvaluateMethodService.java
+END
+StudentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/StudentService.java
+END
+CourseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/iteach/!svn/ver/294/iteach-svn/src/main/java/com/swust/kelab/service/CourseService.java
+END
+LearnProcessRecordService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/LearnProcessRecordService.java
+END
+VedioServerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/VedioServerService.java
+END
+VideoServerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/VideoServerService.java
+END
+NoticeAnnouncementService.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/iteach/!svn/ver/391/iteach-svn/src/main/java/com/swust/kelab/service/NoticeAnnouncementService.java
+END
+LogDBService.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iteach/!svn/ver/390/iteach-svn/src/main/java/com/swust/kelab/service/LogDBService.java
+END
+AuthorityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/AuthorityService.java
+END
+AttachmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/java/com/swust/kelab/service/AttachmentService.java
+END

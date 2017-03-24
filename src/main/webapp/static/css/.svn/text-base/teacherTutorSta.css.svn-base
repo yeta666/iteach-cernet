@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+.column {
+	line-height: 20px;
+	font-size: 14px;
+}

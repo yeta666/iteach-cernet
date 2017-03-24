@@ -34,11 +34,11 @@ function getAllParameter() {
 		success : function(data) {
 			$.each(data.data.result, function(i, data) {
 				if (data.sypaType < 10) {
-					html = "<form class='form-horizontal'><div class='form-group col-sm-12'><label class='control-label col-sm-2' >" + data.sypaName
+					html = "<form class='form-horizontal'><div class='form-group col-sm-12'><label class='control-label col-sm-3' >" + data.sypaName
 					+ "</label><div class='col-sm-4'>";
 					if (data.sypaEnName == 'sensitiveWords' || data.sypaEnName == 'examInfo'||data.sypaEnName == 'fileFormats'
 						|| data.sypaEnName == 'copyright' || data.sypaEnName == 'studyModule'||data.sypaEnName=='welcomeMsg') {
-						html += "<textarea class='form-control' style='height: 100px; width: 310px;' name='" + data.sypaEnName + "' id='" + data.sypaId
+						html += "<textarea class='form-control' style='height: 100px; width: 100%;' name='" + data.sypaEnName + "' id='" + data.sypaId
 						+ "' value='" + data.sypaValue + "'>" + data.sypaValue + "</textarea > ";
 					} else if (data.sypaEnName == "cheatingControl" || data.sypaEnName == "register"||data.sypaEnName == "isShowTeacher") {
 						if(data.sypaValue=="是"){
@@ -62,7 +62,7 @@ function getAllParameter() {
 						html += "<input type='text' class='form-control' name='" + data.sypaEnName + "' id='"
 						+ data.sypaId + "' value='" + data.sypaValue + "'></input> ";
 					}
-					html += "</div><div class='col-sm-4'><span class='help-inline'>" + data.sypaRemark + "</span></div></div>";
+					html += "</div><div class='col-sm-5'><span class='help-inline'>" + data.sypaRemark + "</span></div></div>";
 					if (data.sypaType == 1) {
 						$('#study_center').append(html);
 					} else if (data.sypaType == 2) {

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry location="C:\MySQL\mysql-connector-java-5.1.20-bin.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://10.10.4.78:3306/iteach6" userId="root" password="cs.swust" />
+		<javaModelGenerator targetPackage="com.swust.kelab.utils" targetProject="iteach" />
+		<!-- <sqlMapGenerator targetPackage="com.swust.kelab.mapper" targetProject="iteach" /> -->
+		<!-- <javaClientGenerator targetPackage="com.swust.kelab.mapper" targetProject="iteach" type="XMLMAPPER" /> -->
+		
+		<!-- 添加所有表 -->
+		<!-- 
+		<table schema="iteach" tableName="User" domainObjectName="User">
+			<generatedKey column="user_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Department" domainObjectName="Department">
+			<generatedKey column="depa_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Action" domainObjectName="Action">
+			<generatedKey column="acti_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Attachment" domainObjectName="Attachment">
+			<generatedKey column="atta_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="BbsPost" domainObjectName="BbsPost">
+			<generatedKey column="bbpo_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="BbsReply" domainObjectName="BbsReply">
+			<generatedKey column="bbre_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Chapter" domainObjectName="Chapter">
+			<generatedKey column="chap_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Class" domainObjectName="Clas">
+			<generatedKey column="clas_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Course" domainObjectName="Course">
+			<generatedKey column="cour_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="CourseCategory" domainObjectName="CourseCategory">
+			<generatedKey column="coca_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="CourseSelectInformation" domainObjectName="CourseSelectInformation">
+			<generatedKey column="csin_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="EvaluateMethod" domainObjectName="EvaluateMethod">
+			<generatedKey column="evme_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="ExamInformation" domainObjectName="ExamInformation">
+			<generatedKey column="exin_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="ExamPaper" domainObjectName="ExamPaper">
+			<generatedKey column="expa_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="ExamQuestion" domainObjectName="ExamQuestion">
+			<generatedKey column="exqu_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="FunctionAction" domainObjectName="FunctionAction">
+			<generatedKey column="fuac_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="FunctionModel" domainObjectName="FunctionModel">
+			<generatedKey column="fumo_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Grade" domainObjectName="Grade">
+			<generatedKey column="grad_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="GroupPaperParameter" domainObjectName="GroupPaperParameter">
+			<generatedKey column="gppa_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="HomepageColumn" domainObjectName="HomepageColumn">
+			<generatedKey column="hoco_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="HomepageDetail" domainObjectName="HomepageDetail">
+			<generatedKey column="hode_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="LearnProcessRecord" domainObjectName="LearnProcessRecord">
+			<generatedKey column="lpre_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="MassedLearning" domainObjectName="MassedLearning">
+			<generatedKey column="male_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="MassedLearningManage" domainObjectName="MassedLearningManage">
+			<generatedKey column="mlma_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="NoticeAnnouncement" domainObjectName="NoticeAnnouncement">
+			<generatedKey column="noan_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Option" domainObjectName="Option">
+			<generatedKey column="opti_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Re_Authority" domainObjectName="ReAuthority">
+			<generatedKey column="reau_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Re_AutoTest" domainObjectName="ReAutoTest">
+			<generatedKey column="rate_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Re_ChapterResource" domainObjectName="ReChapterResource">
+			<generatedKey column="rcre_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Re_GroupPaper" domainObjectName="ReGroupPaper">
+			<generatedKey column="rgpa_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Re_SelectCource" domainObjectName="ReSelectCourse">
+			<generatedKey column="rsco_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Re_UserRole" domainObjectName="ReUserRole">
+			<generatedKey column="rero_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Resource" domainObjectName="Resource">
+			<generatedKey column="reso_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Role" domainObjectName="Role">
+			<generatedKey column="role_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="Solve" domainObjectName="Solve">
+			<generatedKey column="solv_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="StudentMassedLearning" domainObjectName="StudentMassedLearning">
+			<generatedKey column="smle_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="SystemParameter" domainObjectName="SystemParameter">
+			<generatedKey column="sypa_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="VedioServer" domainObjectName="VedioServer">
+			<generatedKey column="vese_id" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="iteach" tableName="log" domainObjectName="Log">
+			<generatedKey column="log_id" sqlStatement="MySql" identity="true" />
+		</table>
+		-->
+		<table schema="iteach" tableName="BbsPost" domainObjectName="BbsPost">
+			<generatedKey column="bbpo_id" sqlStatement="MySql" identity="true" />
+		</table>
+		
+	</context>
+</generatorConfiguration>
+
+
+

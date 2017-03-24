@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+   <link href="../css/ncss/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/ncss/style.css" rel="stylesheet">
+     <link href="../css/ncss/animate.css" rel="stylesheet">
+     <link href="../css/ncss/font-awesome.css"rel="stylesheet">
+     <link href="../css/ncss/common.css" rel="stylesheet">
+<title>我教你— 学习平台-课程讨论</title>
+</head>
+
+<body>
+<div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+
+		</div>
+		</nav>
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        <ul  id ="navibartitle" class="nav navbar-top-links" ></ul>
+         <div class="row  border-bottom white-bg dashboard-header">
+ 	<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-smile-o"></i> 课程讨论
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="userCenter.html">主页</a></li>
+						<li><strong>课程讨论</strong></li>
+					</ol>
+				</div>
+            </div>
+        			<div class="span10 well white-bg"  >
+					<div id="myTabContent" class="tab-content">
+									<div style="margin-bottom: 5px">
+										<!--参数传x,1代表操作，x,2代表取消操作 -->
+										<button type="button" class="btn btn-info" id="bbs_top"
+											style="display: none" name="bbs_top"
+											onclick="javascript:setPost(1,1);">
+											<i class="icon-arrow-up icon-white"></i> 置顶
+										</button>
+										<button type="button" class="btn btn-warning"
+											id="bbs_canceltop" style="display: none" name="bbs_canceltop"
+											onclick="javascript:setPost(1,2);">
+											<i class="icon-share-alt icon-white"></i>取消置顶
+										</button>
+										<button type="button" class="btn btn-success" id="bbs_starte"
+											style="display: none" name="bbs_starte"
+											onclick="javascript:setPost(2,1);">
+											<i class="icon-star-empty icon-white"></i>精品
+										</button>
+										<button type="button" class="btn btn-warning"
+											id="bbs_canclestarte" style="display: none"
+											name="bbs_canclestarte" onclick="javascript:setPost(2,2);">
+											<i class="icon-share-alt icon-white"></i>取消精品
+										</button>
+										<button type="button" class="btn btn-danger" id="bbs_delete"
+											name="bbs_delete" style="display: none"
+											onclick="javascript:deletePost();">
+											<i class="icon-trash icon-white"></i>删帖
+										</button>
+										<button type="button" class="btn btn-danger" id="bbs_delete"
+											name="bbs_deleteMy" style="display: none"
+											onclick="javascript:deletePostMy();">
+											<i class="icon-trash icon-white"></i>删帖
+										</button>
+									</div>
+									<div class="" id="annocement" style="display: none">
+										<a class="close" data-dismiss="alert">×</a>
+									</div>
+									<!-- 显示帖子信息 -->
+									<div id="postDataArea">
+										<div id="viewPostinfo">
+											<!-- <p id="postTitle" align="center"></p> -->
+											<table class="table table-bordered" id="viewPostinfoTable">
+												<thead>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+										<div id="viewReplyInfo">
+											<table id="viewReplyInfoTable" class="table table-bordered">
+												<thead></thead>
+												<tbody>
+
+												</tbody>
+											</table>
+											<!-- 分页区域 -->
+											<div id="pagination" class="pagination pagination-right"></div>
+										</div>
+									</div>
+									<div id="newReply" style="display: none">
+										<legend>发表回复</legend>
+										<form class="form-horizontal">
+											<div class="control-group">
+												<label class="control-label" for="bbsReplyContent">内容：</label>
+												<div class="controls">
+													<textarea id="replayText" name="replayText" class="span10"
+														rows="8"></textarea>
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label " for="bbsReplyFileInput">附件：</label>
+												<div class="controls">
+													<img id="loading" src="../img/loading.gif"
+														style="display: none;"> <input class="span4"
+														class="input-file" id="postfile" name="postfile"
+														type="file">
+													<button class="btn btn btn-info" id="addAttachment"
+														type="button" onClick="javascript:sunbmitNewBbsAttach(2);">
+														<i class="icon-plus-sign icon-white"></i>添加
+													</button>
+													<span class="label label-info" id="allowfileext"></span>
+												</div>
+												<div class="controls" id="attachment"></div>
+											</div>
+											<div class="control-group">
+												<div class="controls">
+													<button class="btn btn-primary" type="button"
+														id="submitBbsReply"
+														onclick="javascript:submitNewReplyContent();">
+														<i class="icon-share icon-white"></i>发表
+													</button>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+														href="javascript:history.go(-1);" class="btn btn-success"
+														id="bbs"><i class="icon-arrow-left icon-white"></i>返回</a>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+			</div>
+			<div id="footer" class="footer">
+			</div>
+        </div>
+        </div>
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js?v=3.4.0"></script>
+
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/l_bbs_index.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>
+<script src="../js/pace.min.js"></script>
+</html>

@@ -68,7 +68,7 @@ function loadCourse() {
 			"firstCol":firstCol,
 			"secondCol" : secondCol
 	};
-	// /判断cookie中是否有查询参数
+	//判断cookie中是否有查询参数
 	if ($.cookie("Search") != null && $.cookie("Search") != "") {
 		var SearchCookie = $.cookie("Search");
 		var SearchPar = JSON.parse(SearchCookie);
@@ -485,7 +485,7 @@ function recommendCourseslist() {
 				}
 				$("#recommendCourses").append(homehtml);
 			}else{
-				alert("数据加载出错，请联系管理员！");
+				console.log("数据加载出错，请联系管理员！");
 				return ;
 			}
 

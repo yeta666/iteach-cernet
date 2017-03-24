@@ -62,8 +62,7 @@ public class AdminUserInfoController {
 
 	private AdminUserInfoService adminUserInfoService;
 
-	final Logger logger = LoggerFactory
-			.getLogger(AdminUserInfoController.class);
+	final Logger logger = LoggerFactory.getLogger(AdminUserInfoController.class);
 
 	@Autowired
 	public void setUserService(UserService userService) {
@@ -74,8 +73,7 @@ public class AdminUserInfoController {
 	HttpServletRequest request;
 
 	@Autowired
-	public void setAdminUserInfoService(
-			AdminUserInfoService adminUserInfoService) {
+	public void setAdminUserInfoService(AdminUserInfoService adminUserInfoService) {
 		this.adminUserInfoService = adminUserInfoService;
 	}
 
@@ -113,8 +111,7 @@ public class AdminUserInfoController {
 		Map<String, Object> data = null;
 		try {
 			data = userService.addNewUserToDB(user, userRoles);
-			logDBService.insertNewLog(request, LogDBService.ADD_OPERATION,
-					"用户管理", "添加新用户：" + user.getUserLoginname());
+			logDBService.insertNewLog(request, LogDBService.ADD_OPERATION, "用户管理", "添加新用户：" + user.getUserLoginname());
 			jv.setRet(true);
 			jv.addAllData(data);
 		} catch (Exception e) {
@@ -156,15 +153,13 @@ public class AdminUserInfoController {
 	 * @author lujoCom
 	 */
 	@RequestMapping(value = "/modefiedUserInfo", method = RequestMethod.POST)
-	public JsonAndView modefiedUserInfo(User user, String roleDel,
-			String roleAdd) {
+	public JsonAndView modefiedUserInfo(User user, String roleDel, String roleAdd) {
 		JsonAndView jv = new JsonAndView();
 
-		Map<String, Object> map = userService.modifyUserInfo(user, roleDel,
-				roleAdd);
+		Map<String, Object> map = userService.modifyUserInfo(user, roleDel, roleAdd);
 		if (map != null) {
-			logDBService.insertNewLog(request, LogDBService.UPDATA_OPERATION,
-					"用户管理", "修改用户信息：" + user.getUserLoginname());
+			logDBService.insertNewLog(request, LogDBService.UPDATA_OPERATION, "用户管理",
+					"修改用户信息：" + user.getUserLoginname());
 			jv.setRet(true);
 			jv.addAllData(map);
 		} else {
@@ -219,8 +214,8 @@ public class AdminUserInfoController {
 			data = adminUserInfoService.modifyUserVerify(userIds);
 		}
 
-		logDBService.insertNewLog(request, LogDBService.DELETE_OPERATION,
-				"用户管理", "删除用户：" + userIds.split(",").length + "人");
+		logDBService.insertNewLog(request, LogDBService.DELETE_OPERATION, "用户管理",
+				"删除用户：" + userIds.split(",").length + "人");
 		if (data == null) {
 			jv.setRet(false);
 			jv.setErrmsg("发生未知错误，请稍后再试");
@@ -242,11 +237,9 @@ public class AdminUserInfoController {
 	 * @author lujoCom
 	 */
 	@RequestMapping(value = "/importUserInfo", method = RequestMethod.POST)
-	public void importUserInfo(int userType, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void importUserInfo(int userType, HttpServletRequest request, HttpServletResponse response) {
 
-		CommonsMultipartFile comMultiFile = (CommonsMultipartFile) ((MultipartHttpServletRequest) request)
-				.getFile("file");
+		CommonsMultipartFile comMultiFile = (CommonsMultipartFile) ((MultipartHttpServletRequest) request).getFile("file");
 		String fileName = comMultiFile.getOriginalFilename();
 		String fileType = fileName.substring(fileName.lastIndexOf("."));
 		// 防止返回数据被IE当做下载流
@@ -261,10 +254,7 @@ public class AdminUserInfoController {
 				pw.close();
 				return;
 			}
-
-			Map<String, Object> data = adminUserInfoService
-					.importUserInfoFromExcel(comMultiFile.getInputStream(),
-							fileType, userType, request);
+			Map<String, Object> data = adminUserInfoService.importUserInfoFromExcel(comMultiFile.getInputStream(), fileType, userType, request);
 			String type = "非数据库对应类型";
 			switch (userType) {
 			case 1:
@@ -288,15 +278,12 @@ public class AdminUserInfoController {
 				pw.write("{'ret':true,'status':2,'data':'数据导入成功'}");
 				pw.flush();
 				pw.close();
-				logDBService
-						.insertNewLog(request, LogDBService.DELETE_OPERATION,
-								"用户管理", "批量导入用户：" + type);
+				logDBService.insertNewLog(request, LogDBService.DELETE_OPERATION, "用户管理", "批量导入用户：" + type);
 				break;
 
 			case FAILED:
 				pw = response.getWriter();
-				pw.write("{'ret':true,'status':3,'data':'数据导入失败','errorData':'"
-						+ data.get("fileName") + "'}");
+				pw.write("{'ret':true,'status':3,'data':'数据导入失败','errorData':'" + data.get("fileName") + "'}");
 				pw.flush();
 				pw.close();
 				break;
@@ -332,8 +319,7 @@ public class AdminUserInfoController {
 	 * @author lujoCom
 	 */
 	@RequestMapping(value = "/downloadErrorUserInfo", method = RequestMethod.GET)
-	public void downloadErrorUserInfo(String fileName,
-			HttpServletRequest request, HttpServletResponse response) {
+	public void downloadErrorUserInfo(String fileName, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			// 获取文件资源
 			String filePath = "upload/temp/" + fileName;
@@ -341,8 +327,8 @@ public class AdminUserInfoController {
 				return;
 			}
 
-			ServletContextResource downFile = new ServletContextResource(
-					request.getSession().getServletContext(), filePath);
+			ServletContextResource downFile = new ServletContextResource(request.getSession().getServletContext(),
+					filePath);
 			if (!downFile.exists()) {
 				logger.error("找不到文件或者文件不存在！！");
 				return;
@@ -354,8 +340,7 @@ public class AdminUserInfoController {
 			OutputStream os = response.getOutputStream();
 			try {
 				response.reset();
-				response.setHeader("Content-Disposition",
-						"attachment; filename=" + fileName);
+				response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 				response.setContentType("application/octet-stream; charset=utf-8");
 				os.write(FileUtils.readFileToByteArray(downFile.getFile()));
 				os.flush();
@@ -380,8 +365,8 @@ public class AdminUserInfoController {
 	 * @author lujoCom
 	 */
 	@RequestMapping(value = "/downloadUserInfoModel", method = RequestMethod.GET)
-	public void downloadUserInfoModel(String fileName, Integer userType,
-			HttpServletRequest request, HttpServletResponse response) {
+	public void downloadUserInfoModel(String fileName, Integer userType, HttpServletRequest request,
+			HttpServletResponse response) {
 		try {
 			// 获取文件资源
 			String filePath = "upload/temp/" + fileName;
@@ -389,13 +374,12 @@ public class AdminUserInfoController {
 				return;
 			}
 			if (fileName.contains("userInfoMode.zip")) {
-				String result = adminUserInfoService.writeUserInfoModelToFile(
-						fileName, userType, request);
+				String result = adminUserInfoService.writeUserInfoModelToFile(fileName, userType, request);
 				if (result.equals("fail"))
 					return;
 			}
-			ServletContextResource downFile = new ServletContextResource(
-					request.getSession().getServletContext(), filePath);
+			ServletContextResource downFile = new ServletContextResource(request.getSession().getServletContext(),
+					filePath);
 			if (!downFile.exists()) {
 				logger.error("找不到文件或者文件不存在！！");
 				return;
@@ -407,8 +391,7 @@ public class AdminUserInfoController {
 			OutputStream os = response.getOutputStream();
 			try {
 				response.reset();
-				response.setHeader("Content-Disposition",
-						"attachment; filename=" + fileName);
+				response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 				response.setContentType("application/octet-stream; charset=utf-8");
 				os.write(FileUtils.readFileToByteArray(downFile.getFile()));
 				os.flush();
