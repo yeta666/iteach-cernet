@@ -241,11 +241,11 @@ public class DepartmentService {
             for (DepartmentModel dm : list) {
                 departNames.put(dm.getDepaId(), dm.getDepaName());
                 switch (dm.getDepaType()) {
-                case 1:dm.setDepaTypeName("市");                
+                case 1:dm.setDepaTypeName("大学");                
                 break;
-                case 2:dm.setDepaTypeName("区");                
-                break;
-                case 3:dm.setDepaTypeName("学校");                
+               /* case 2:dm.setDepaTypeName("区");                
+                break;*/
+                case 3:dm.setDepaTypeName("专业");                
                 break;
                 default:
                     break;
@@ -322,11 +322,11 @@ public class DepartmentService {
         for (DepartmentModel dm : list) {
             departNames.put(dm.getDepaId(), dm.getDepaName());
             switch (dm.getDepaType()) {
-            case 1:dm.setDepaTypeName("市");                
+            case 1:dm.setDepaTypeName("大学");                
             break;
-            case 2:dm.setDepaTypeName("区");                
-            break;
-            case 3:dm.setDepaTypeName("学校");                
+           /* case 2:dm.setDepaTypeName("区");                
+            break;*/
+            case 3:dm.setDepaTypeName("专业");                
             break;
             default:
                 break;

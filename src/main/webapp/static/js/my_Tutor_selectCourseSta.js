@@ -198,7 +198,7 @@ function operateCourseSelecte(selectCourseId, tepaId) {
 							tableContentselecte = "";
 							aEvmePattern = item2.evmePattern.split(",");// 考核比重
 							aevmeThrehold = item2.evmeThrehold.split(",");// 满分要求
-							baseInfo = "<span><strong>课程名称：</strong>" + item.courseName
+							baseInfo = "<span><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课程名称：</strong>" + item.courseName
 									+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span><strong>学生姓名：</strong>"
 									+ item.stuName + "</span>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 									+ "<span><strong>考核方式：</strong>" + item2.evmeName + "</span>";

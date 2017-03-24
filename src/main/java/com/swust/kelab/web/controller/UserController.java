@@ -78,12 +78,20 @@ public class UserController {
     private DepartmentService departmentService;
 
     @RequestMapping(value = "/recom.do", method = RequestMethod.GET)
-    public JsonAndView testRecom(String s,Integer userId){
+    public JsonAndView testRecom(final String s,Integer userId){
     	JsonAndView jav = new JsonAndView();
-    	if("recom".equals(s)){ //手动触发生推荐引擎【先训练模型，再为每个用户重新生成推荐结果，默认是每日3点】
-    		recomService.recomScheduled();
-    	}else if("random".equals(s)){ //随机生成评分记录
-    		recomService.randomUserRate();
+    	if(s!=null&&!"".equals(s)){
+    	    new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if("recom".equals(s)){ //手动触发生推荐引擎【先训练模型，再为每个用户重新生成推荐结果，默认是每日3点】
+                        recomService.recomScheduled();
+                    }else if("random".equals(s)){ //随机生成评分记录
+                        recomService.randomUserRate();
+                    }
+                }
+            }).start();
+    	    jav.addData("result", "任务开始执行中！请稍后"); 
     	}
     	if(userId!=null&&userId>0){
     		UserRecom userRecom=recomService.getUserRecom(userId);
@@ -397,7 +405,7 @@ public class UserController {
                 userPhoto = attach.getAttaFilename();
             }
         }
-        CookieUtil.colsCookie(userPhoto, "photo", "/", "", 100000, respons);
+       CookieUtil.colsCookie(userPhoto, "photo", "/", "", 100000, respons);
         return jav.addData("data", findUser);
     }
 

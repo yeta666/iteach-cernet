@@ -184,11 +184,11 @@ function addTeacher(){
 		if(temp!=null&&temp.length>0){
 			alert("教师不能重复添加!");
 		}else{
-			var str="<span id='main"+newTeaId+"' >";			
-			str+="&nbsp;&nbsp;&nbsp;&nbsp;";			
+			var str="<span id='main"+newTeaId+"' class='col-sm-5'>";			
+			//str+="&nbsp;&nbsp;&nbsp;&nbsp;";			
 			str+=$("#CourseTeacher option[value='"+newTeaId+"']").text()+"&nbsp;"+
 			"<a onclick='delTeacher(\"main"+newTeaId+"\");' "+ 
-			"class='btn btn-mini btn-warning'><i class=' icon-remove icon-white'></i></a></span>"
+			"class='btn btn-mini btn-warning'><i class=' fa fa-minus'></i></a></span>";
 			$("#courseTeachers").append(str);
 		}
 }

@@ -10,7 +10,9 @@ var buffereTime = 0;//	缓冲时间计时
 var locationIndex = 0;
 var studyTime ;
 $(document).ready(function() {
-	ShowSubColumn();
+	
+	ShowSubColumnb();
+	ShowColumn();
 	AjaxJson("../../handler/resource/viewVideoAddress.do", {
 		rid : resourceId,
 		courId : courseId
@@ -113,9 +115,9 @@ function uploadStudyTime() {
 }
 
 //暂时  面包条（最终合并在util.js中）
-function ShowSubColumn() {
-	var columnHtml = "<ul class='breadcrumb bread'><li><a class='checkid' href='home.html'><i class='icon-home'></i>首页</a> <span class='divider'>/</span></li>"+
-	"<li><a class='checkid' href='my_Tutor.html?firstCol=5&secondCol=19'>我的课堂</a> <span class='divider'>/</span></li>"+
-	"<li><a class='checkid' href='my_Tutor_studyTogether.html?firstCol=5&secondCol=20'>集中学习</a><span class='divider'>/</span></li><li class='active'>"+courseName+"</li></ul>";
+function ShowSubColumnb() {
+	var columnHtml = "<ul class='breadcrumb bread'><li><a class='checkid' href='home.html'><i class='icon-home'></i>首页</a> </li>"+
+	"<li><a class='checkid' href='my_Tutor.html?firstCol=5&secondCol=19'>我的课堂</a> </li>"+
+	"<li><a class='checkid' href='my_Tutor_studyTogether.html?firstCol=5&secondCol=20'>集中学习</a></li><li class='active'>"+courseName+"</li></ul>";
 	$("#subcolumn").html(columnHtml);
 }

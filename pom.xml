@@ -6,8 +6,8 @@
 		<artifactId>kelab-supom-generic</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>iteach</artifactId>
-	<version>6.1.1.130815_beta</version>
+	<artifactId>iteach-cernet</artifactId>
+	<version>1.0_beta</version>
 	<packaging>war</packaging>
 	<dependencyManagement>
 		<dependencies>
@@ -133,10 +133,10 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
 		<!--Apache log4j redirect to slf4j -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>log4j-over-slf4j</artifactId>
-		</dependency>
+		</dependency> -->
 		<!--Java Util Logging redirect to slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
