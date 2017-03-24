@@ -13,6 +13,7 @@ $(document).ready(function() {
 	} else{
 		paginationPage();
 	}
+	
 	$('#bbs_InfoManage').attr("class", "active");
 	
 	

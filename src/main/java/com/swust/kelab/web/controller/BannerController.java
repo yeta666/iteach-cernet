@@ -51,7 +51,7 @@ public class BannerController {
         List<Object> resultList = new ArrayList<Object>();
         JsonAndView jv = new JsonAndView();
         List<String> fileNames = new ArrayList<String>();
-        String directory = request.getSession().getServletContext().getRealPath("static/img/banner");
+        String directory = request.getSession().getServletContext().getRealPath("/static/img/banner");
         File file = new File(directory);
         if (file.isDirectory()) {
             String[] filelist = file.list();
@@ -69,9 +69,9 @@ public class BannerController {
                 }
             }
         }
-        String cookies = JsonUtil.getJSON(fileNames);
-        CookieUtil cookieUtil = new CookieUtil();
-        cookieUtil.colsCookie(cookies, "Banners", "/", "", 10000, response);
+        //String cookies = JsonUtil.getJSON(fileNames);
+        //CookieUtil cookieUtil = new CookieUtil();
+        //cookieUtil.colsCookie(cookies, "Banners", "/", "", 10000, response);
         data.put("result", resultList);
         jv.addAllData(data);
         return jv;
@@ -98,8 +98,9 @@ public class BannerController {
         }
         String newFileName = System.currentTimeMillis() + type;
         try {
-            fileInput.transferTo(new File(request.getSession().getServletContext()
-                    .getRealPath("static/img/banner/" + newFileName)));
+        	String str = request.getSession().getServletContext().getRealPath("/static/img/banner") + "/" + newFileName;
+        	File newFile = new File(str);
+            fileInput.transferTo(newFile);
             // 防止返回数据被IE当做下载流
             response.reset();
             response.setContentType("text/html; charset=utf-8");
@@ -139,7 +140,7 @@ public class BannerController {
             String[] banners = delbanners.split(",");
             for (int i = 0; i < banners.length; i++) {
                 String delbanner = banners[i];
-                String directory = request.getSession().getServletContext().getRealPath("static/img/banner");
+                String directory = request.getSession().getServletContext().getRealPath("/static/img/banner");
                 File savefile = new File(new File(directory), delbanner);
                 if (savefile.exists()) {
                     savefile.delete();

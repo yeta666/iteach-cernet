@@ -63,14 +63,14 @@ $(document).ready(function() {
 	});
 	//监听添加用户完成按钮
 	$("#add-student-finish").click(function(){
-		if($("a[name^='getAllowStu']").size()>malaMaxStudentNum)
+		if($("option[name^='getAllowStu']").size()>malaMaxStudentNum)
 		{
 			alert("超过最大人数");
 			return;
 		}
 		var studentAddIds = "";
 		var studentDeleteIds="";
-		$("a[name^='getAllowStu']").each(function(){
+		$("option[name^='getAllowStu']").each(function(){
 			var canAdd = true;
 			var nowVal = $(this).attr("value");
 			for(var i=0;i<attendedStudentIds.length;i++)
@@ -90,7 +90,7 @@ $(document).ready(function() {
 		{
 			var canDel = true;
 			var nowVal = attendedStudentIds[i];
-			$("a[name^='getAllowStu']").each(function(){
+			$("option[name^='getAllowStu']").each(function(){
 				if($(this).attr("value")==nowVal)
 				{
 					canDel = false;
@@ -106,16 +106,17 @@ $(document).ready(function() {
 				addStuIds:studentAddIds,
 				deleStudent:studentDeleteIds
 		};
+		//alert(params);
 		AjaxJson("../../handler/massedLearning/addStudentToOneMassedLearning",params,buildOk);
 	});
-	/*	//监听移除用户
+	//监听移除用户
 	$("#remove-student").click(function(){
-		$("a[name^='getAllowStu']").each(function(){
+		$("option[name^='getAllowStu']").each(function(){
 			if(this.selected)
 			{
 				var val=$(this).val();
 				$(this).remove();
-				$("#now-student").html("<p>已添加学生总人数："+$("a[name^='getAllowStu']").size()+" 人</p>");
+				$("#now-student").html("<p>已添加学生总人数："+$("option[name^='getAllowStu']").size()+" 人</p>");
 				$("input[class='student-add-together']").each(function(){
 					if($(this).val()==val&&$(this).attr("checked")=="checked")
 					{
@@ -124,7 +125,7 @@ $(document).ready(function() {
 				});
 			}
 		});
-	});*/
+	});
 });
 /**
  * back of system parameter
@@ -292,17 +293,17 @@ function refreshContent(pageRecords) {
 				{
 					var foo = attendedStudents[i].split(",");
 					attendedStudentIds[i] = parseInt(foo[0]);
-					$("#all-selected-student").append("<a name='getAllowStu' value='"+parseInt(foo[0])+"'>"+foo[1]+";</a>");
+					$("#all-selected-student").append("<option name='getAllowStu' value='"+parseInt(foo[0])+"'>"+foo[1]+";</option>");
 				}
 			}
 			//显示已选总人数
-			$("#now-student").html("<p>已添加学生总人数："+$("a[name^='getAllowStu']").size()+" 人</p>");
+			$("#now-student").html("<p>已添加学生总人数："+$("option[name^='getAllowStu']").size()+" 人</p>");
 
 			var conflictStudent = ","+pageRecords.data.conflictMassed;
 			//判断重复，如果select框中已经有了该学生，那么就在界面上勾选上
 			$.each(pageRecords.data.pageData,function(itemIndex, item) {
 				var iscontain = false;
-				$("a[name^='getAllowStu']").each(function(){
+				$("option[name^='getAllowStu']").each(function(){
 					if($(this).attr("value")==item.stuId)
 						iscontain = true;
 				});
@@ -335,14 +336,14 @@ function refreshContent(pageRecords) {
 							{
 								alert("attr prop");
 								$(this).remove();
-								$("#now-student").html("<p>已添加学生总人数："+$("a[name^='getAllowStu']").size()+" 人</p>");
+								$("#now-student").html("<p>已添加学生总人数："+$("option[name^='getAllowStu']").size()+" 人</p>");
 							}
 						});
 					}
 					else
 					{
-						$("#all-selected-student").append("<a name='getAllowStu' value='"+foo+"'>"+studentName+";</a>");
-						$("#now-student").html("<p>已添加学生总人数："+$("a[name^='getAllowStu']").size()+" 人</p>");
+						$("#all-selected-student").append("<option name='getAllowStu' value='"+foo+"'>"+studentName+";</option>");
+						$("#now-student").html("<p>已添加学生总人数："+$("option[name^='getAllowStu']").size()+" 人</p>");
 					}
 				});
 			});

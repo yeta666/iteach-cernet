@@ -68,6 +68,7 @@ public class AuthorityService {
 		for (FunctionModel func : functions) {
 			// 父模块
 			Map<String, Object> map = new HashMap<String, Object>();
+			System.out.println(func.getFumoName());
 			if (func.getFunctions() != null && func.getFunctions().size() > 0) {
 				// 子模块封装subList
 				List<Map<String, Object>> subList = new ArrayList<Map<String, Object>>();

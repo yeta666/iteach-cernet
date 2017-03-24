@@ -282,10 +282,10 @@ function refreshContent(data) {
 	for(var i=0;i<dataList.length;i++) {
 		HTML += "<tr value='" + dataList[i].chapId + "' value2='" + dataList[i].courId + "'>"
 		+ "<td><input type='checkbox'/></td><td>"+startIndex+"</td>"
-		+ "<td>" + dataList[i].courName + "</td>"
-		+ "<td title=\""+dataList[i].chapDescribe+"\">" +titleFormat( dataList[i].chapDescribe,10) + "</td>"
 		+ "<td value='"+dataList[i].chapOrdinal+"'>"+"第" + dataList[i].chapOrdinal + "章"+"</td>"
 		+ "<td onclick='modTdClick(this);' class='chapNameTd' style='cursor:pointer' title=\""+dataList[i].chapName+"\"><a>" + titleFormat(dataList[i].chapName,10) + "</a></td>"
+		+ "<td>" + dataList[i].courName + "</td>"
+		+ "<td title=\""+dataList[i].chapDescribe+"\">" +titleFormat( dataList[i].chapDescribe,10) + "</td>"
 		+ "<td>" +"<select class='chapterResSet form-control'><option value='-1'>=章节资源=</option>";
 		var chapterRes = dataList[i].resources;
 		if(chapterRes != null) {

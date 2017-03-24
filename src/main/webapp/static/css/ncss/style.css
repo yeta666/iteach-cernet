@@ -1,6 +1,4 @@
-@import
-	url("http://fonts.useso.com/css?family=Open+Sans:300,400,600,700&amp;lang=en")
-	;
+
 /*
  *
  *   H+ - Admin Theme
@@ -746,11 +744,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
 	border-color: #26d7d9;
 }
 
-.btn-default {
-	background-color: #c2c2c2;
-	border-color: #c2c2c2;
-	color: #FFFFFF;
-}
+
 
 .btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default
 	{

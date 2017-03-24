@@ -170,20 +170,22 @@ function updataInfo(courId){
 								data.data.courseInfo.timeSchelue!=undefined){
 							schelue=data.data.courseInfo.timeSchelue;
 						}						
-						tableContent="<tr  class=\"success\"><td class='span2'>课程代码:</td><td>"+data.data.courseInfo.courCode+"</td></tr>"+
-						"<tr><td class='span2'>课程分类:</td><td>"+data.data.courseInfo.courCateName+"</td></tr>"+
-						"<tr><td class='span2'>课程名称:</td><td>"+data.data.courseInfo.courName+"</td></tr>"+
-						"<tr><td class='span2'>课程描述:</td><td>"+data.data.courseInfo.description+"</td></tr>"+
-						"<tr><td class='span2'>课程安排:</td><td>"+schelue+"</td></tr>"+
-						"<tr><td class='span2'>申请者:</td><td>"+data.data.courseInfo.courCreateUserName+"</td></tr>"+
-						"<tr><td class='span2'>申请时间:</td><td>"+data.data.courseInfo.courCreateTime+"</td></tr>";
+						tableContent="<tr  class=\"success\"><td width='100px'>课程代码:</td><td>"+data.data.courseInfo.courCode+"</td></tr>"+
+						"<tr><td >课程分类:</td><td>"+data.data.courseInfo.courCateName+"</td></tr>"+
+						"<tr><td>课程名称:</td><td>"+data.data.courseInfo.courName+"</td></tr>"+
+						"<tr><td >课程描述:</td><td>"+data.data.courseInfo.description+"</td></tr>"+
+						"<tr><td >课程安排:</td><td>"+schelue+"</td></tr>"+
+						"<tr><td >申请者:</td><td>"+data.data.courseInfo.courCreateUserName+"</td></tr>"+
+						"<tr><td >申请时间:</td><td>"+data.data.courseInfo.courCreateTime+"</td></tr>";
 						if(data.data.courseInfo.courVerify>0){
 							$("#buttonFunction").empty().append("<button class=\"btn btn-warning\" id=\"undoAl\" type=\"button\">返回</button>");
 							if(data.data.courseInfo.courVerify==1){
-								tableContent+="<tr><td class='span2'>审核状态:</td><td>通过</td></tr>";
+								tableContent+="<tr><td '>审核状态:</td><td>通过</td></tr>";
 							}else{
-								tableContent+="<tr><td class='span2'>审核状态:</td><td>拒绝</td></tr>";
+								tableContent+="<tr><td >审核状态:</td><td>拒绝</td></tr>";
 							}
+						}else{
+							$("#buttonFunction").empty().append("<button class='btn btn-success' id='pass' type='button'><i class='fa fa-check'></i>&nbsp;通过</button> <button class='btn btn-danger' id='refuse' type='button'><i class='fa fa-close'></i>&nbsp;拒绝</button><button class='btn btn-warning' id='undoAl' type='button'><i class='fa fa-question'></i>&nbsp;暂不审核</button>");
 						}
 						if (data.data.courseInfo.courOpenToAll==false) {
 							$("#publicState").val(0);

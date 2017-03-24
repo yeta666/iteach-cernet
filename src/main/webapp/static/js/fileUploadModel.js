@@ -9,6 +9,8 @@ $(document).ready(function() {
 	});
 	$("#upload").click(function(){
 		importUserExcel($(this).attr("name"));
+		
+		//下面的id都找不到
 		$("#waitFileUpload").modal({
 			'backdrop':true
 		});
@@ -21,8 +23,11 @@ $(document).ready(function() {
 
 
 function importUserExcel(userType) {
+	//要上传的文件名
 	var fileName = $("#file").val();
+	//要上传的文件名的后缀
 	var suffix = fileName.slice(fileName.lastIndexOf(".") + 1);
+	//如果没有选择要上传的文件，则出现错误提示
 	if (fileName == "") {
 		var Html = "<div class=\"alert alert-block alert-error fade in\">"+
 		"<button data-dismiss=\"alert\" class=\"close\" type=\"button\">×</button>"+
@@ -32,9 +37,8 @@ function importUserExcel(userType) {
 		$("#waring-data").removeAttr("style");
 		return false;
 	}
-
+	//如果要上传的文件名的后缀不为xls，则出现错误提示
 	if (!(suffix == "xls")) {
-
 		var Html = "<div class=\"alert alert-block alert-error fade in\">"+
 		"<button data-dismiss=\"alert\" class=\"close\" type=\"button\">×</button>"+
 		"<h4 class=\"alert-heading\">导入信息出现错误</h4>"+
@@ -75,6 +79,7 @@ function importUserExcel(userType) {
 						path : '/'  //上传学生信息判定是否重复打开浏览器
 					});
 					alert("导入数据成功");
+					$("#search").trigger("click");
 				}
 				else if(3==status)
 				{

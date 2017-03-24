@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     // MetsiMenu
     $('#side-menu').metisMenu();
+    $('#left_side').metisMenu();
 
     // Collapse ibox function
     $('.collapse-link').click( function() {

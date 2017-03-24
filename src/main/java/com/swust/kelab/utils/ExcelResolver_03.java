@@ -201,8 +201,9 @@ public class ExcelResolver_03 {
 			for (int index = start; index <= end; index++) {
 				HSSFRow row = sheet.getRow(index);
 				int lastCellIndex = row.getLastCellNum();
-				if (lastCellIndex != 14 && lastCellIndex != 15)
+				if (lastCellIndex != 14 && lastCellIndex != 15){
 					continue;
+				}
 				// 遇到空行跳出循环进行下一次循环
 				if (judgeType(row.getCell(0)) == null)
 					continue;
@@ -242,8 +243,9 @@ public class ExcelResolver_03 {
 			for (int index = start; index <= end; index++) {
 				HSSFRow row = sheet.getRow(index);
 				int lastCellIndex = row.getLastCellNum();
-				if (lastCellIndex != 11 || lastCellIndex != 12)
+				if (lastCellIndex != 11 && lastCellIndex != 12){
 					continue;
+				}
 				// 遇到空行跳出循环进行下一次循环
 				if (judgeType(row.getCell(0)) == null)
 					continue;
