@@ -1,6 +1,0 @@
-.control-label-res {
-  float: left;
-  width: 60px;
-  padding-top: 5px;
-  text-align: right;
-}
