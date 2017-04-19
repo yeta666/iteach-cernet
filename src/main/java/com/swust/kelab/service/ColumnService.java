@@ -132,7 +132,7 @@ public class ColumnService {
                             }
                         }
                         // 加载二级栏目,有传入值则匹配，无传入值，则默认权限第一栏目
-                        if (fun.getFumoId() == firstCol) {
+                        //if (fun.getFumoId() == firstCol) {
                             // 子模块功能封装为subcols
                             Map<String, Object> subcolmap = new HashMap<String, Object>();
                             subcolmap.put("colid", subfunc.getFumoId());// 子模块id
@@ -157,7 +157,7 @@ public class ColumnService {
                             // 子模块处理好封装到subcols
                             subcolmap.put("subacs", sub);
                             subList.add(subcolmap);
-                        }
+                        //}
                     }
                 }
                 if (subflag) {

@@ -74,7 +74,7 @@
 .notification-menu .dropdown-toggle {
     padding: 12px 10px;
     border-color: #fff;
-    background: #fff;
+    /* background: #fff; */
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;

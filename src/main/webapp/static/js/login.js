@@ -39,7 +39,6 @@ $(function() {
 			var userLoginname = $("#userLoginname").val();
 			var userPwd = hex_md5($("#userPwd").val()); // 对密码进行MD5码加密
 			var authcode = $("#authcode").val();
-			console.log(userPwd);
 			$.ajax({
 				type: 'POST',
 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
@@ -52,7 +51,6 @@ $(function() {
 				},
 				dataType: 'json',
 				success: function(data) {
-					console.log(data);
 					if(data.ret) {
 						var resultData = data.data.result;
 						if(resultData == "success") {
