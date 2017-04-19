@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-folder-open"></i> 资源管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>服务器管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<!-- ibox float-e-margins- -->
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-database"></i> 服务器管理
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<!-- 查询区域 -->
+										<form class="form-search">
+											<a id="addButton"
+												onclick="buttonHtml('sysman_Server_add.html');"
+												class="btn btn-warning"><i class='fa fa-plus'></i>&nbsp;增加</a>
+											<a id="delButton" class="btn btn-danger"><i
+												class='fa fa-minus'></i>&nbsp;删除</a> <a id="testServer"
+												href="#serverT" class="btn btn-primary" type="button"
+												data-toggle="modal"><i class='fa fa-refresh'></i> 测试点击</a>
+											<!-- 搜索按钮 -->
+
+										</form>
+										<!-- /查询区域 -->
+										<div id="infomsg">
+											<h4></h4>
+											<p></p>
+										</div>
+										<!-- /增删查导入等功能区域 -->
+										<div id="dataCoontent" class="tab-pane fade in active">
+											<table
+												class="table table-condensed table-hover table-bordered">
+												<thead>
+												<tr>
+													<th><a href="#" id="chooseall">全选</a></th>
+													<th>序</th>
+													<th>名称</th>
+													<th>所属部门</th>
+													<th>类型</th>
+													<th>状态</th>
+													<th>使用</th>
+													<th>用户名/密码</th>
+													<th>备注</th>
+													</tr>
+												</thead>
+												<tbody id="mainTable">
+												</tbody>
+											</table>
+										</div>
+
+										<!-- 分页区域 -->
+										
+										<div id="pagination" class="pagination page-left"  ></div>
+									
+										<br/><br/>
+										<!-- /分页区域 -->
+
+									</div>
+								</div>
+								<!-- - -->
+
+
+
+								<!--弹出增加对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="addModal">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h2>添加文档资源</h2>
+											</div>
+											<div class="modal-body" style="height: 280px;">
+												<table border="0" class="sysVideo">
+													<tr>
+														<td>文档名称</td>
+														<td><input id="resoTitle" type="text"
+															class="form-control1 selectType" data-provide="typeahead"></td>
+													</tr>
+													<tr>
+														<td>文档上传</td>
+														<td>
+															<!-- <div id="addUploadRes" class="controls">
+																<input class="span3 input-file" id="file" name="file" type="file">
+															</div> --> <label class="control-label-res"
+															for="bbsReplyFileInput"></label>
+															<div id="addUploadRes" class="controls">
+																<img id="loading " src="../img/loading.gif"
+																	style="display: none;"> <input class="span3"
+																	class="input-file" id="file" name="file" type="file">
+															</div>
+															<div id="addLinkRes" class="controls"
+																style="display: none;">
+																<textarea id="addLinkRe"
+																	class=' form-control1 selectType'></textarea>
+															</div> <span id="allowfileext"></span>
+														</td>
+													</tr>
+													<tr>
+														<td>文档所属科目</td>
+														<td><select id="resoCourse"
+															class=" form-control1 selectType">
+																<option value="-1">=选择课程=</option>
+														</select></td>
+													</tr>
+													<tr>
+														<td>资源描述</td>
+														<td><textarea id="resoDescribe"
+																class='form-control1 selectType'></textarea></td>
+													</tr>
+												</table>
+
+											</div>
+											<div class="modal-footer">
+												<a id="cancel" class="btn btn-info" data-dismiss="modal"><i
+													class="fa fa-close"></i> 取消</a> <a id="addResouceButton"
+													class="btn btn-primary " href="#"><i
+													class="fa fa-check-square-o"></i> 保存</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+								<!--弹出修改对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="modModal">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h2>添加文档资源</h2>
+
+											</div>
+											<div class="modal-body" style="height: 280px;">
+												<table border="0" class="sysVideo">
+													<tr>
+														<td>文档名称</td>
+														<td><input id="resoTitle2" type="text"
+															class="form-control1 selectType" data-provide="typeahead"></td>
+													</tr>
+													<tr>
+														<td>文档原有文件传</td>
+														<td><input id="modReoDoc" type="text"
+															class='form-control1 selectType' readonly='readonly' />
+														</td>
+													</tr>
+													<tr>
+														<td>更改视频文件</td>
+														<td><div id="addUploadRes" class="controls">
+																<img id="loading" src="../img/loading.gif"
+																	style="display: none;"> <input class="span3"
+																	class="input-file" id="file1" name="file" type="file" />
+															</div></td>
+													</tr>
+													<tr>
+														<td>文档所属科目</td>
+														<td><select id="resoCourse2"
+															class=" form-control1 selectType">
+																<option value="-1">=选择课程=</option>
+														</select></td>
+													</tr>
+													<tr>
+														<td>资源描述</td>
+														<td><textarea id="resoDescribe2"
+																class='form-control1 selectType'></textarea></td>
+													</tr>
+												</table>
+
+											</div>
+											<div class="modal-footer">
+												<a id="cancel" class="btn btn-info" data-dismiss="modal"><i
+													class="fa fa-close"></i> 取消</a> <a id="modResouceButton"
+													class="btn btn-success " href="#"><i
+													class="fa fa-check-square-o"></i> 修改</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+								<!--弹出删除对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="delModal">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h2>删除文档资源</h2>
+
+											</div>
+											<div class="modal-body">
+												<p id='delLabel'>确认删除？</p>
+											</div>
+											<div class="modal-footer">
+												<a id="cancel" class="btn btn-info" data-dismiss="modal"><i
+													class="fa fa-close"></i> 关闭</a> <a id="delResouceButton"
+													class="btn btn-success" href="#"><i
+													class="fa fa-check-square-o"></i> 确认</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+
+								<!--弹出测试服务器对话框  -->
+								<div class="modal inmodal" tabindex="-1" role="dialog"
+									aria-hidden="true" id="serverT">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h2>服务器地址测试信息</h2>
+
+											</div>
+											<div class="modal-body">
+												<form class="form-horizontal">
+													<div class="control-group">
+														<label class="control-label">当前计算机IP地址：</label>
+														<div class="controls" id="nowIP"></div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">当前服务器群地址：</label>
+													</div>
+													<div id="allIP"></div>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<a id="cancel" class="btn btn-info" data-dismiss="modal"><i
+													class="fa fa-close"></i> 关闭</a> <a id="delResouceButton"
+													class="btn btn-success" href="#"><i
+													class="fa fa-check-square-o"></i> 确认</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- modal-- -->
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<script src="../js/ajaxfileupload.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script type="text/javascript" src="../js/sysman_Server.js"></script>
+
+
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>

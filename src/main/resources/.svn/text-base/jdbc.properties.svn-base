@@ -1,0 +1,4 @@
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc\:mysql\://10.10.4.217\:3306/iteach_mianyang?useUnicode\=true&characterEncoding\=utf-8
+jdbc.username=root
+jdbc.password=cs.swust

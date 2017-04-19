@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>我教你 — 学习平台-课程视频播放</title>
+    <link href="../css/ncss/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/ncss/font-awesome.css" rel="stylesheet">
+    <link href="../css/ncss/animate.css" rel="stylesheet">
+    <link href="../css/ncss/style.css" rel="stylesheet">
+    <link href="../css/ncss/common.css" rel="stylesheet">
+    <link href="../css/learning_showAllCourse.css" rel="stylesheet">
+    <link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+</head>
+<body onBeforeUnload="if(ClosesWindow == true){CheckWindowClosed();}"
+	onmouseover="ClosesWindow=false;" onmouseout="ClosesWindow=true;">   
+	<div id="wrapper">
+		 <nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</nav>  	   
+	    <div id="page-wrapper" class="gray-bg dashbard-1">						 
+            <div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10" style="padding-left: 5px;"> 
+                <h2 style="padding-left: 20px;"><i class="fa fa-book"></i> 学习中心</h2>                             
+                    <div class="row">
+						<div id="subcolumn" style="padding-left: 35px;"></div>
+					</div>
+                </div>              
+            </div>
+		<div class="wrapper wrapper-content">
+			<div class="row animated fadeInRight">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox float-e-margins">
+							<div class="ibox-content m-b-sm border-bottom">
+							    <div class="row">
+							        <h2 id="resoTitle" style="padding-left: 15px;"></h2> <br/>
+							    </div>
+								<div class="row">
+									<div class="col-xs-8">								
+										<div id="mediaspace">Loading..</div>
+										<div id="resoDescribe"></div>
+									</div>
+									<div class="col-xs-4" id="chaperId">						
+										<div id="courseimg" class="course_learning"></div>
+										<div class="panel blank-panel">
+											<div class="panel-heading" style="padding-left: 28px;">
+												<div class="panel-options">
+													<ul class="nav nav-tabs">
+														<li class="active"><a data-toggle="tab"
+															href="tabs_panels.html#chaper"><i
+																class="fa fa-desktop"></i>课程目录</a></li>
+														<li class=""><a data-toggle="tab"
+															href="tabs_panels.html#bbs"><i class="fa fa-signal"></i>其他资料</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="tab-content">
+													<div id="chaper" class="tab-pane active">
+														<ul
+															style="list-style-type: none; padding-left: 20px;; padding-right: 30px;"
+															id="courseresolist"></ul>
+													</div>
+													<div id="bbs" class="tab-pane">
+														<div class="row" style="margin-left: 25px;">
+															<div class="col-lg-8 row">
+																<h4 class="page-header">
+																	<i class="fa fa-book"></i>文档资料
+																</h4>
+																<ul id="docCourse">
+																</ul>
+															</div>
+														</div>
+														<div class="row" style="margin-left: 25px;">
+															<div class="col-lg-8  row">
+																<h4 class="page-header">
+																	<i class="fa fa-globe"></i>链接资料
+																</h4>
+																<ul id="linkCourse">
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="footer"></div>
+	</div>
+
+	<!-- 验证码弹出框 对话框 -->
+	<div class="modal hide fade" id="getRandom">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h4>请正确填写验证码信息</h4>
+		</div>
+		<div class="modal-body">
+			<input type="text" class="span2" placeholder="验证码" id="RandomVal">
+			<span class="help-inline label label-info" id="lvideo"> <img
+				id='randomcode' src='../../handler/resource/getVideoConfirmCode.do'
+				onclick='reloadcode1()' alt='验证码'>
+			</span>
+		</div>
+		<div class="modal-footer">
+			<a id="sendRandom" class="btn btn-primary">提交验证码</a>
+		</div>
+	</div>
+
+
+	<!-- 课程评分弹出框 对话框 -->
+	<div class="modal inmodal" id="getMark" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal">×</a>
+					<h3>课程评价</h3>
+				</div>
+				<div class="modal-body">
+					请诚实的根据自己对课程的满意度打分 <select id="getChapScore" class="span2">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+				<div class="modal-footer">
+					<a id="sendMark" class="btn btn-primary">提交评分</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<!-- 放在utils.js上面 -->
+ <script src="../js/njs/bootstrap.min.js"></script>
+ <script src="../js/njs/jquery.metisMenu.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<!-- top1 -->
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<!-- top2 -->
+<script type="text/javascript" src="../js/ext/jwplayer.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/ext/jwplayer_control.js"></script>
+<script type="text/javascript" src="../js/learning_video.js"></script>
+<script src="../js/njs/hplus.js"></script>
+</html>

@@ -1,6 +1,7 @@
 var userLoginname = "";
 var userName = "";
 var userId = 0;
+var imgUrl = "";
 var userType = 0;
 var postId = ""; // 记录本页的postid值
 var departId = 0;

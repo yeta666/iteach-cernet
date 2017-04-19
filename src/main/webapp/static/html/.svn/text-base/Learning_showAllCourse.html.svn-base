@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/learning.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">  
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title>我教你 — 学习平台-选择课程</title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul  id="side-menu" class="nav">
+				</ul>
+			</div>
+	    </nav>
+	    <div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">				
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-calendar-o"></i> 选课中心
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li>
+                            <a href="Learning.html?firstCol=2&secondCol=16">学习中心</a>
+                        </li>
+						<li>
+                            <strong>选课中心</strong>
+                        </li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			 <div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+		            <div class="row">
+		                <div class="col-lg-12">
+		                    <div class="wrapper wrapper-content animated fadeInRight">
+		                   
+							   <div class="ibox float-e-margins">	
+							       <div class="ibox-title">
+										<h2>
+											<i class="fa fa-briefcase"></i> 选择课程
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+								   </div>						       						   		                                                                       
+		                           <!-- 查询区域 -->
+									<div class="ibox-content" style="padding-left: 4px;">
+										<div class="row dashboard-header" id="viewCategorylable" style="margin-left: 0px;">
+											<div class="nav nav-pills" id="Categorylist"></div>
+										</div>
+										<div class="row">
+											<form role="form" class="form-inline"
+												style="padding-left: 16px; padding-left: 35px;">
+												<a class="btn btn-primary disabled">课程搜索</a> <input id="course-input"
+													type="text" placeholder="课程名或主讲老师或课程类别"
+													class="form-control"> <input id="course-start-time"
+													type="text" placeholder="课程开始时间.."
+													data-date-format="yyyy-mm-dd hh" class="form-control">
+												~<input type="text" placeholder="课程结束时间.."
+													id="course-end-time" data-date-format="yyyy-mm-dd hh"
+													class="form-control">
+												<button class="btn btn-primary" id="course-search">
+													<i class="fa fa-search"></i> 搜索
+												</button>
+											</form>
+										</div>
+										<div class="row">
+											<div id="recommend-course"></div>										
+										</div>
+										<!-- 分页区域 -->
+										
+											<div id="pagination" class="pagination page-left" style="margin-left: -18px;"></div>
+										
+										<br /> <br />
+										<!-- /分页区域 -->
+									</div>
+		                          </div>
+		                           <!-- 猜你喜欢 -推荐-start -->
+		                       <div class="ibox float-e-margins">	
+							       <div class="ibox-title">
+										<h2>
+											<i class="fa fa-gift"></i> 猜你喜欢
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+								   </div>						       						   		                                                                       
+		                           <!-- 查询区域 -->
+									<div class="ibox-content" style="padding-left: 4px;">
+										<div class="row">
+											<div id="recommendCourses"></div>										
+										</div>
+									</div>
+		                          </div>
+		                   <!-- 猜你喜欢-推荐- end -->
+		                       </div>		              
+		                </div>
+		            </div>
+                </div>
+            </div>
+            <div id="footer" class="footer">                
+            </div>
+		</div>
+	</div>
+	<!-- 教师信息弹出层 start -->
+	<div id="myModal" class="modal inmodal">
+		<div class="modal-dialog">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h3 id="myModalLabel">老师信息</h3>
+				</div>
+				<div class="modal-body">
+					<div class="row-fluid">
+						<div class="span6">
+							<img id="teacher-pic">
+						</div>
+						<div class="span6">
+							<p id='teacher-name'></p>
+							<p id="teacher-remark"></p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 教师信息弹出层 end -->
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/Learning_showAllCourse.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="../js/njs/hplus.js"></script>
+<!--控制导航自动缩进-->
+</html>

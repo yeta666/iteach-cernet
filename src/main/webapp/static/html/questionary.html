@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自适应界面调查表</title>
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/adaptive_ui/questionary.css" rel="stylesheet">
+</head>
+<body>
+	<div class="outer_box">
+			<div class="questionary_box">
+				
+				<p>说明：不同的人有不同的学习风格，对别人来说是有效的学习方式，对你不一定适合，下面是一个了解自己学习风格的问卷，一共有 <span id="total_question_num"></span> 题，每个问题有多个答案可供选择。请选出最符合你学习情况或兴趣的答案。</p>
+				
+				<hr />
+				
+				<form role="form" id="questionary_form">
+				
+				</form>
+				
+				<div class="btn_div">
+					<table>
+						<tr>
+							<td>
+								<button type="button" id="submit_btn" class="btn btn-primary" title="您确定要提交吗？" 
+										data-container="body" data-toggle="popover" data-placement="top" 
+										data-content="<button class='btn btn-success' id='submit_btn_ok'>
+										<span class='glyphicon glyphicon-ok' aria-hidden='true'></span>确定</button>
+										<button class='btn btn-danger' id='submit_btn_remove'>
+										<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>取消</button>">
+									<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+									提交
+								</button>
+							</td>
+							<td>
+								<button type="button" id="remove_btn" class="btn btn-warning" title="您确定不想填了吗？" 
+										data-container="body" data-toggle="popover" data-placement="top" 
+										data-content="<button class='btn btn-success' id='remove_btn_ok'>
+										<span class='glyphicon glyphicon-ok' aria-hidden='true'></span>确定</button>
+										<button class='btn btn-danger' id='remove_btn_remove'>
+										<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>取消</button>">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									不想填了
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<hr />
+							
+				<div class="question_navbar question_navbar1">
+				
+				</div>
+				<div class="question_navbar question_navbar2">
+					
+				</div>
+			</div>
+	</div>
+	
+	<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/adaptive_ui/bootstrap-loading.js" type="text/javascript"></script>
+	<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
+	<script src="../js/adaptive_ui/questionary.js" type="text/javascript"></script>
+</body>
+</html>

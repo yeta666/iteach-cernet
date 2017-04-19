@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.min.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-folder-open"></i> 资源管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><a href="sysman_Server.html?firstCol=8&secondCol=35">服务器管理</a></li>
+						<li><strong>增加服务器信息</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<!-- ibox float-e-margins- -->
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-joomla"></i> 增加服务器信息
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content" style="height:800px;">
+										<div id="infomsg"></div>
+										<!-- 查询区域 -->
+										<form id="addQuesForm" class="form-horizontal">
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseName">服务器名称：</label>
+												<div class="col-sm-5">
+													<input id="veseName" type="text" placeholder="服务器名称" class="form-control1 selectType2">
+													<span id="checkName" class="help-inline"></span> <span
+														class="help-inline">*必填</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseLoginName">服务器用户名：</label>
+												<div class="col-sm-5">
+													<input id="veseLoginName" type="text" placeholder="服务器用户名" class="form-control1 selectType2">
+													<span class="help-inline"></span> <span class="help-inline">*必填
+													</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="vesePassword">服务器密码：</label>
+												<div class="col-sm-5">
+													<input id="vesePassword" type="password" class="form-control1 selectType2"
+														placeholder="服务器密码"> <span id="checkPass"
+														class="help-inline"></span> <span class="help-inline">*必填</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="vesePassword1">确认密码：</label>
+												<div class="col-sm-5">
+													<input id="vesePassword1" type="password" class="form-control1 selectType2"
+														placeholder="请再次输入密码"> <span id="checkPass1"
+														class="help-inline"></span> <span class="help-inline">*必填</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseInnerIp">服务器IP：</label>
+												<div class="col-sm-5">
+													<input id="veseInnerIp" type="text" placeholder="服务器IP" class="form-control1 selectType2">
+													<span id="checkIP" class="help-inline"></span> <span
+														class="help-inline"></span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseInnerMask">服务器子网掩码：</label>
+												<div class="col-sm-5">
+													<input id="veseInnerMask" type="text" placeholder="服务器子网掩码" class="form-control1 selectType2">
+													<span id="checkMask" class="help-inline"></span> <span
+														class="help-inline"></span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseOuterIp">客户端访问IP：</label>
+												<div class="col-sm-5">
+													<input id="veseOuterIp" type="text" placeholder="客户端访问IP" class="form-control1 selectType2">
+													<span class="help-inline"></span> <span class="help-inline">*必填</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseOuterMask" >客户端子网掩码：</label>
+												<div class="col-sm-5">
+													<input id="veseOuterMask" type="text" placeholder="客户端子网掩码" class="form-control1 selectType2">
+													<span id="" class="help-inline"></span> <span
+														class="help-inline">*必填</span>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseDepaId">所属部门：</label>
+												<div class="col-sm-5">
+													<select id="veseDepaId" name="veseType" class="form-control1 selectType2">
+														<option value="0">选择主服务器所属部门</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseType">服务器类型：</label>
+												<div class="col-sm-5">
+													<select id="veseType" name="veseType" class="form-control1 selectType2">
+														<option value="1">主服务器</option>
+														<option value="2">从服务器</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseState">服务器状态：</label>
+												<div class="col-sm-5">
+													<select id="veseState" name="veseState" class="form-control1 selectType2">
+														<option value="0">正常</option>
+														<option value="1">故障</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseEnable">服务器使用情況：</label>
+												<div class="col-sm-5">
+													<select id="veseEnable" name="veseEnable" class="form-control1 selectType2">
+														<option value="1">使用</option>
+														<option value="0">未使用</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="control-label col-sm-2" for="veseRemark">服务器备注：</label>
+												<div class="">
+													<textarea cols="" id="veseRemark" class="form-control1 selectType2 textAreaClass"
+														placeholder="服务器备注、说明"></textarea>
+													<span class="help-inline"></span> <span class="help-inline">服务器备注、说明</span>
+												</div>
+											</div>
+											<div class="col-sm-12">
+											<div class="col-sm-2"></div>
+											<div class="col-sm-4">
+											<a href="#" class="btn btn-success" id="addButton"><i class="fa fa-check-square-o"></i> 添加</a>
+												&nbsp;&nbsp;&nbsp;&nbsp;<a
+													href="javascript:history.go(-1);" class="btn btn-info"
+													id="cancel"><i class="fa fa-repeat"></i> 返回</a>
+											</div>
+												<div class="col-sm-6"></div>
+											</div>
+										</form>
+
+
+									</div>
+								</div>
+								<!-- - -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/sysman_Server_add.js"></script>
+
+
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>

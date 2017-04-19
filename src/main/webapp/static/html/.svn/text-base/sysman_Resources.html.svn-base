@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- 已作废 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/iteach.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<link rel="stylesheet" href="../css/resources.css" />
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title>我教你 — 学习平台-教学资源管理</title>
+</head>
+<body>
+	<!-- 导航栏目 -->
+	<div id="navibar" class="row-fluid"></div>
+	<!-- 主框体 -->
+	<div class="container main1">
+		<div class="row-fluid">
+			<div id="pictures" class="span12 pictures"></div>
+		</div>
+		<div class="row-fluid">
+			<div id="column" class="span2 box"></div>
+			<div class="span10 well">
+				<!--中心界面 -->
+				<div class="box">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="geren">
+							<div id="content">
+								<ul class="nav nav-tabs">
+									<!-- 	<li id="sysmanCenter"><a href="sysmanCourse.html">课程测试管理</a></li> -->
+									<li class="active"><a href="#">教学资源管理</a></li>
+									<li><a href="sysmanChapter.html">章节管理</a></li>
+								</ul>
+								<div id="myTabContent" class="tab-content">
+									<!-- Operating START -->
+									<span>
+										<form class="form-search">
+											<select id="Course" class="span2 resCourse">
+												<option value="-1">=选择课程=</option>
+											</select> <a id="courseSel" class="btn btn-info"
+												style='cursor: pointer;'>课程检索</a>
+											<!-- 操作栏 s -->
+											<span style="margin-bottom: 5px;"> <a id="addRe"
+												href="#addReModal" data-toggle="modal"
+												class="btn btn-primary" type="button">增加 </a> <a id="modRe"
+												href="#modReModal" data-toggle="modal"
+												class="btn btn-warning" type="button">修改 </a> <a id="delRe1"
+												class="btn btn-danger">删除</a>
+											</span>
+											<!-- 操作栏 e -->
+										</form>
+									</span>
+									<!-- Operating END -->
+									<!-- search START -->
+									<span>
+										<form class="form-search">
+											<select id="quResType" name="quResType" class="span3">
+												<option value="-1" selected='selected'>=选择资源类型=</option>
+												<option value="3">视频资源</option>
+												<option value="2">文档资源</option>
+												<option value="1">链接资源</option>
+											</select> <input id='quResTitle' type="text" data-provide="typeahead"
+												placeholder="请输入资源名称"> <a id='resoSearch'
+												class="btn btn-info">查询资源</a>
+											<!-- 操作栏 s -->
+											<!-- 操作栏 e -->
+										</form>
+									</span>
+									<!-- search END -->
+									<div id="res-center" class="tab-pane fade in active">
+										<table class="
+													table table-condensedtable-hover">
+											<thead>
+												<tr>
+													<th><a href="javascript:void(0);" id="chooseall">全选</a></th>
+													<th>资源名称</th>
+													<th>资源类型</th>
+													<th>资源创建时间</th>
+													<th>资源创建人</th>
+													<th>资源所属科目</th>
+													<th>附件</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+												<!-- js生成 -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 分页区域 -->
+				<div id="pagination" class="pagination pagination-right"></div>
+				<!-- /分页区域 -->
+				<!-- /中心界面 -->
+			</div>
+		</div>
+	</div>
+	<div id="footer"> </div>
+	<!-- 添加  对话框 -->
+	<div class="modal hide fade" id="addReModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h4>添加教学资源信息</h4>
+		</div>
+		<div class="modal-body">
+			<table border="0">
+				<tr>
+					<td>资源名称</td>
+					<td><input id="resName" type="text" class="input-medium"
+						data-provide="typeahead"></td>
+				</tr>
+				<tr>
+					<td>资源类型</td>
+					<td><select id="resType" class="input-medium"
+						onchange="javascript:selRes();">
+							<option value="-1">=选择资源类型=</option>
+							<option value="1">视频资源</option>
+							<option value="2">文档资源</option>
+							<option value="3">链接资源</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>资源所属科目</td>
+					<td><select id="addResCoures"
+						class="input-medium course resCourse">
+							<option value="-1">=选择课程=</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>资源描述</td>
+					<td><textarea id="resDescribe"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<!-- 	<div class="control-group"> --> <label
+						class="control-label-res" for="bbsReplyFileInput">附件：</label>
+					</td>
+					<td><div id="addUploadRes" class="controls"
+							style="display: none;">
+							<img id="loading " src="../img/loading.gif"
+								style="display: none;"> <input class="span3"
+								class="input-file" id="file" name="file" type="file">
+						</div>
+						<div id="addLinkRes" class="controls" style="display: none;">
+							<textarea id="addLinkRe"></textarea>
+						</div> <br>
+						<div class="controls" id="attachment"></div> <!-- 		 </div>  --></td>
+				</tr>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<a id="readdsewo" class="btn">重置</a> <a id="addsewo"
+				class="btn btn-primary" onClick="javascript:uploadRes();">添加</a>
+		</div>
+	</div>
+	<!--  添加  end -->
+
+	<!-- 修改  对话框 -->
+	<div class="modal hide fade" id="modReModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h4>修改教学资源信息</h4>
+		</div>
+		<div class="modal-body">
+			<table border="0">
+				<tr>
+					<td>资源名称</td>
+					<td><input id="modResName" type="text" class="input-medium"
+						data-provide="typeahead"></td>
+				</tr>
+				<tr>
+					<td>资源类型</td>
+					<td><select id="modResType" class="input-medium">
+							<option value="-1">=选择资源类型=</option>
+							<option value="1">视频资源</option>
+							<option value="2">文档资源</option>
+							<option value="3">链接资源</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>资源所属科目</td>
+					<td><select id="modResCoures"
+						class="input-medium course resCourse">
+							<option value="-1">=选择课程=</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>资源描述</td>
+					<td><textarea id="modResDescribe"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<!-- 	<div class="control-group"> --> <label
+						class="control-label-res" for="bbsReplyFileInput">附件：</label>
+					</td>
+					<td><div class="controls">
+							<img id="loading " src="../img/loading.gif"
+								style="display: none;"> <input class="span3"
+								class="input-file" id="postfile" name="postfile" type="file">
+							<button class="btn btn btn-info" id="addAttachment" type="button"
+								onClick="javascript:uploadRes(2);">添加</button>
+						</div> <br>
+						<div class="controls" id="attachment"></div> <!-- </div> --></td>
+				</tr>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<a id="reModRes" class="btn">重置</a> <a id="modRes"
+				class="btn btn-primary">修改</a>
+		</div>
+	</div>
+	<!--  修改  end -->
+
+
+</body>
+<script src="../js/ext/jquery-1.8.3.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/ext/bootstrap.js"></script>
+<script src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<!-- top1 -->
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<!-- top2 -->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../js/sysman_Resources.js"></script>
+</html>

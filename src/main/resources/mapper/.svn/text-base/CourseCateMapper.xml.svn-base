@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="courseCate">
+
+	<select id="viewCocaNameByIds" parameterType="hashmap" resultType="string">
+		SELECT 
+			coca_name as cocaName
+		FROM
+			CourseCategory
+		WHERE
+			coca_id IN (
+				${ids}
+			)
+	</select>
+
+	<select id="getAllEvame"  parameterType="int" resultType="com.swust.kelab.domain.CourseCategory">
+		SELECT coca_id as cocaId,coca_name as cocaName
+		FROM CourseCategory
+		<if test="_parameter!=null and _parameter>=0">
+			where coca_state = #{_parameter}
+		</if>
+		ORDER BY coca_name ASC
+	</select>
+	
+	<!-- 根据分页获取类别列表 -->
+	<select id="viewList" resultType="CourseCategoryModel">
+		select 
+			coca_id as cocaId,
+			coca_name as cocaName,
+			coca_descirbe as cocaDescirbe,
+			coca_code as cocaCode,
+			user_realname as creatorName,
+			coca_create_time as cocaCreateTime,
+			coca_state as cocaState
+		from
+			CourseCategory
+			inner join User on user_id=coca_create_userid
+		order by coca_create_time desc
+		<if test="maxCount!=null">
+			limit
+			<if test="startIndex!=null">
+				#{startIndex},
+			</if>
+			#{maxCount}
+		</if>	
+	</select>
+	
+	<!-- 获取类别总数 -->
+	<select id="countTotalCate" resultType="int">
+		select
+			count(*)
+		from 
+			CourseCategory
+	</select>
+	
+	<!-- 新增课程类别 -->
+	<insert id="create" parameterType="CourseCategory">
+		insert into
+			CourseCategory
+			(coca_name,coca_descirbe,coca_code,coca_create_userid,
+			coca_create_time,coca_state)
+		values
+			(#{cocaName},#{cocaDescirbe},#{cocaCode},
+			#{cocaCreateUserid},#{cocaCreateTime},#{cocaState})
+	</insert>
+	
+	<!-- 批量删除课程类别 -->
+	<delete id="delete" parameterType="list">
+		delete from
+			CourseCategory
+		<where>
+			<if test="list!=null and list.size()>0">
+				coca_id in
+				<foreach collection="list" item="cocaId" 
+						index="index" open="(" close=")" 
+						separator=",">
+					#{cocaId}
+				</foreach>
+			</if>
+		</where>
+	</delete>
+	
+	<!-- 修改课程类别 -->
+	<update id="modify" parameterType="CourseCategory">
+		update
+			CourseCategory
+		set
+			coca_name = #{cocaName},
+			coca_descirbe = #{cocaDescirbe},
+			coca_code = #{cocaCode},
+			coca_state = #{cocaState}
+		where
+			coca_id = #{cocaId}
+	</update>
+	
+	<!-- 统计课程类别对应的课程数 -->
+	<select id="countCourseNum" parameterType="list" resultType="CourseCategoryModel">
+		select
+			coca_id as cocaId,
+			count(cour_id) as courseNum
+		from
+			CourseCategory
+			inner join Course on (cour_cateIds like  CONCAT("%a",coca_id,',%') 
+				or cour_cateIds like CONCAT('%,',coca_id,',%') 
+				or cour_cateIds like CONCAT('%,',coca_id,'a%') 
+				or cour_cateIds like CONCAT('%a',coca_id,'a%') )
+		<where>
+			<if test="list!=null and list.size()>0">
+				coca_id in
+				<foreach collection="list" item="cateId" index="index" 
+						open="(" close=")" separator=",">
+					#{cateId}
+				</foreach>
+			</if>
+		</where>
+		group by coca_id
+	</select>
+</mapper>
