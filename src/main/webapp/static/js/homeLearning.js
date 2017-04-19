@@ -91,12 +91,19 @@ function homeCourselist() {
  * 猜你喜欢栏目
  */
 function recommendCourseslist() {
+	//获取userId
+	//console.log(userId);
+	
 	//获取猜你喜欢数据
 	$.ajax({
 		type: "post",
 		contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-		url: "../../handler/courseReom",
+		//url:'../../handler/courseReom',
+		url: "http://127.0.0.1:8081/recom/courseRecom",
 		dataType: "json",
+		data: {
+			"userId": userId
+		},
 		success: function(data) {
 			if(!data.ret) {
 				console.log("数据加载出错，请联系管理员！");
