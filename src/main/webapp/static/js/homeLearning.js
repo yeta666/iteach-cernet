@@ -99,7 +99,7 @@ function recommendCourseslist() {
 		type: "post",
 		contentType: "application/x-www-form-urlencoded;charset=UTF-8",
 		//url:'../../handler/courseReom',
-		url: "http://127.0.0.1:8081/recom/courseRecom",
+		url: "http://127.0.0.1:8082/recom/courseRecom",
 		dataType: "json",
 		data: {
 			"userId": userId
