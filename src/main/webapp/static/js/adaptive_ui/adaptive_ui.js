@@ -74,25 +74,34 @@ $(function() {
 		}
 	});
 	
-	var userType = JSON.parse($.cookie("userType"));
+	var userType = $.cookie("userType");
 	console.log(userType);
-	for(var i = 0; i < userType.length; i++){
-		if(userType[i].type == "活跃型"){
-			//活跃型对应的模块展示
-		}else if(userType == "沉思型"){
-			//沉思型对应的模块展示
-		}else if(userType == "感悟型"){
-			//感悟型对应的模块展示
-		}else if(userType == "自觉型"){
-			//自觉型对应的模块展示
-		}else if(userType == "视觉型"){
-			//视觉型对应的模块展示
-		}else if(userType == "言语型"){
-			//言语型对应的模块展示
-		}else if(userType == "序列型"){
-			//序列型对应的模块展示
-		}else if(userType == "综合型"){
-			//综合型对应的模块展示
-		}
+	if(userType == "活跃型"){
+		//活跃型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+	}else if(userType == "沉思型"){
+		//沉思型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+	}else if(userType == "感悟型"){
+		//感悟型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+	}else if(userType == "自觉型"){
+		//自觉型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+	}else if(userType == "视觉型"){
+		//视觉型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+	}else if(userType == "言语型"){
+		//言语型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+	}else if(userType == "序列型"){
+		//序列型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+	}else if(userType == "综合型"){
+		//综合型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+	}else if(userType == "default"){
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
 	}
+	
 })
