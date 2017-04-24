@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<!-- 服务器管理 by lixw -->
+<mapper namespace="videoServer">
+	<!-- 查询所有服务器 -->
+	<select id="selectAllServer" resultType="com.swust.kelab.model.VideoServerModel">
+		<![CDATA[
+		SELECT
+		   vs.vese_id as veseId,
+		   vs.vese_name as veseName,
+		   vs.vese_innerIp as  veseInnerIp,
+		   vs.vese_outerIp as  veseOuterIp,
+		   vs.vese_location as veseLocation,
+		   vs.vese_remark as veseRemark,
+		   dp.depa_name as veseDepart,
+		   vs.vese_type as veseType,
+		   vs.vese_state as veseState,
+		   vs.vese_enable as veseEnable,
+		   vs.vese_loginName as veseLoginName,
+		   vs.vese_password as vesePassword,
+		   vs.vese_innerMask as  veseInnerMask,
+		   vs.vese_outerMask as  veseOuterMask
+		   
+		FROM
+		   VedioServer vs , Department dp
+		 
+		    
+	]]>
+		<trim prefix="where" prefixOverrides="and|or">
+			vs.vese_depa_id=dp.depa_id
+			order by dp.depa_id DESC
+		</trim>
+		<if test="maxCount!=null">
+			limit
+			<if test="startIndex!=null">
+				#{startIndex},
+			</if>
+			#{maxCount}
+		</if>
+		
+	</select>
+
+
+	<!--查询单个服务器 -->
+	<select id="selectById" parameterType="int"
+		resultType="com.swust.kelab.model.VideoServerModel">
+		<![CDATA[
+		SELECT
+		  vs.vese_id as veseId,
+		   vs.vese_name as veseName,
+		   vs.vese_innerIp as  veseInnerIp,
+		   vs.vese_outerIp as  veseOuterIp,
+		   vs.vese_location as veseLocation,
+		   vs.vese_remark as veseRemark,
+		   dp.depa_id as veseDepart,
+		   vs.vese_type as veseType,
+		   vs.vese_state as veseState,
+		   vs.vese_enable as veseEnable,
+		   vs.vese_loginName as veseLoginName,
+		   vs.vese_password as vesePassword,
+		   vs.vese_innerMask as  veseInnerMask,
+		   vs.vese_outerMask as  veseOuterMask
+		FROM
+		   VedioServer vs,Department dp
+		WHERE
+		   vs.vese_depa_id=dp.depa_id
+		   AND vs.vese_id=#{veseId}
+		 
+		    
+	]]>
+	</select>
+
+	<!-- 更新服务器 -->
+	<update id="updateServer" parameterType="com.swust.kelab.domain.VedioServer">
+	<![CDATA[
+		UPDATE
+		    VedioServer vs
+		SET
+		   vs.vese_name = #{veseName},
+		   vs.vese_innerIp=#{veseInnerIp},
+		   vs.vese_outerIp=#{veseOuterIp},
+		   vs.vese_location = "/oflaDemo/",
+		   vs.vese_remark = #{veseRemark},
+		   vs.vese_depa_id = #{veseDepaId},
+		   vs.vese_type = #{veseType},
+		   vs.vese_state = #{veseState},
+		   vs.vese_enable  = #{veseEnable},
+		   vs.vese_loginName = #{veseLoginName},
+		   vs.vese_password = #{vesePassword},
+		   vs.vese_innerMask=#{veseInnerMask},
+		   vs.vese_outerMask=#{veseOuterMask}
+		    
+		    
+		WHERE
+		   vs.vese_id=#{veseId}
+	]]>
+	</update>
+
+	<!-- 添加服务器 -->
+	<insert id="insertServer" parameterType="com.swust.kelab.domain.VedioServer"
+		useGeneratedKeys="true" keyProperty="veseId">
+	<![CDATA[
+	INSERT INTO
+		VedioServer (
+			 vese_name,
+		     vese_innerIp,
+		     vese_location,
+		     vese_remark,
+		     vese_depa_id,
+		     vese_type,
+		     vese_state,
+		     vese_enable,
+		     vese_loginName,
+		     vese_password,
+		     vese_outerIp,
+		     vese_innerMask,
+		     vese_outerMask
+		     
+		     
+		)
+		values (
+			 #{veseName},
+		     #{veseInnerIp},
+		     "/oflaDemo/",
+		     #{veseRemark},
+		     #{veseDepaId},
+		     #{veseType},
+		     #{veseState},
+		     #{veseEnable},
+		     #{veseLoginName},
+		     #{vesePassword},
+		     #{veseOuterIp},
+		     #{veseInnerMask},
+		     #{veseOuterMask}
+		      
+		)
+	]]>
+	</insert>
+
+	<!-- 删除服务器 -->
+	<delete id="deleteServer" parameterType="String">
+		<![CDATA[
+		DELETE  FROM
+		     VedioServer
+		 WHERE
+		     vese_id in
+		]]>
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 统计分页 -->
+	<select id="countAllServer" parameterType="java.util.HashMap"
+		resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT
+				COUNT(vs.vese_id)
+			FROM
+				 VedioServer vs
+		]]>
+		<trim prefix="where" prefixOverrides="and|or">
+		</trim>
+		<if test="maxCount!=null">
+			limit
+			<if test="startIndex!=null">
+				#{startIndex},
+			</if>
+			#{maxCount}
+		</if>
+	</select>
+
+
+	<select id="isServerExsit" resultType="int"
+		parameterType="com.swust.kelab.domain.VedioServer">
+		<![CDATA[
+		SELECT
+		 COUNT(vs.vese_id)
+		FROM
+		   VedioServer vs
+		WHERE
+		   vs.vese_innerIp=#{veseInnerIp}
+	   and vs.vese_innerMask=#{veseInnerMask}
+	]]>
+		 
+	</select>
+	
+	 <select id="selectOrderServer" resultType="com.swust.kelab.model.VideoServerModel">
+		<![CDATA[
+		SELECT
+		   vs.vese_id as veseId,
+		   vs.vese_name as veseName,
+		   vs.vese_innerIp as  veseInnerIp,
+		   vs.vese_outerIp as  veseOuterIp,
+		   vs.vese_location as veseLocation,
+		   vs.vese_remark as veseRemark,
+		   dp.depa_name as veseDepart,
+		   vs.vese_type as veseType,
+		   vs.vese_state as veseState,
+		   vs.vese_enable as veseEnable,
+		   vs.vese_loginName as veseLoginName,
+		   vs.vese_password as vesePassword,
+		   vs.vese_innerMask as  veseInnerMask,
+		   vs.vese_outerMask as  veseOuterMask
+		   
+		FROM
+		   VedioServer vs , Department dp
+		where
+		   vs.vese_depa_id=dp.depa_id
+		   and vs.vese_state=0
+		   and vs.vese_enable=1
+		    
+	]]>
+	</select>
+	 
+	
+</mapper>

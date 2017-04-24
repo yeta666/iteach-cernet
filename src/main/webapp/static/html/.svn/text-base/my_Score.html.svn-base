@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+  <link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title></title>
+</head>
+<body>
+
+<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-pencil-square-o"></i> 我的测试
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>我的成绩</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<div class="ibox float-e-margins" id="tabContent1"
+									style='display: block;'>
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-list-alt"></i>我的成绩
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<div id="infomsg"></div>
+										<!-- Operating START -->
+										<form onsubmit="return false;" class="form-inline" >
+											<!-- 操作栏 s -->
+										 <select id="quCourse" class="resCourse form-control1 selectType4" onchange="changeFun()">
+											<option value="-1">选择课程</option>
+										</select> <input id="startTime" class="form-control1"
+											data-date-format="yyyy-mm-dd" placeholder="考试时间…" type="text">~<input
+											id="endTime" class="form-control1"
+											data-date-format="yyyy-mm-dd" placeholder="考试时间…" type="text">&nbsp;<input
+											type="text" class="form-control1" id="keyword"
+											placeholder="关键词（测试名称）">&nbsp;<a id="search" class="btn btn-primary" style='cursor: pointer;'><i
+											class="icon-search"></i>&nbsp;搜索</a>
+										</form>
+										<!-- Operating END -->
+
+										<!-- search END -->
+										<div class="tab-pane fade in active">
+										<table
+											class="table table-condensed table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>编号</th>
+													<th>课程</th>
+													<th>测试名称</th>
+													<th>描述</th>
+													<th>分数</th>
+													<th>测试时间</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+											</tbody>
+										</table>
+									</div>
+										<!-- 分页区域 -->
+									
+										<div id="pagination" class="pagination page-left"  ></div>
+										
+										<br/><br/>
+										<!-- /分页区域 -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+		</div>
+	</div>
+	<!-- <div id="navibar" class="row-fluid"></div>
+	主框体
+	<div class="container main1">
+		<div class="row-fluid">
+			<div id="pictures" class="span12 pictures"></div>
+		</div>
+		<div class="row-fluid">
+			<div id="column" class="span2 box"></div>
+			<div class="span10 well">
+				测试训练界面
+				<div class="box">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in">
+							<div id="content">
+								<ul class="nav nav-tabs" id="subCols"></ul>
+								<div id="myTabContent" class="tab-content">
+									题库列表
+									查询区域
+									<form class="form-search">
+										<a class="btn btn-info disabled">搜索</a> <select id="quCourse"
+											class="span2" onchange="changeFun()">
+											<option value="-1">选择课程</option>
+										</select> <input id="startTime" class="input span2"
+											data-date-format="yyyy-mm-dd" placeholder="考试时间…" type="text">~<input
+											id="endTime" class="input span2"
+											data-date-format="yyyy-mm-dd" placeholder="考试时间…" type="text"><input
+											type="text" class="input-medium" id="keyword"
+											placeholder="关键词（测试名称）"><a id="search" class="btn"><i
+											class="icon-search"></i></a>
+									</form>
+									<div class="tab-pane fade in active">
+										<table
+											class="table table-condensed table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>编号</th>
+													<th>课程</th>
+													<th>测试名称</th>
+													<th>描述</th>
+													<th>分数</th>
+													<th>测试时间</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				分页区域
+				<div id="pagination" class="pagination pagination-right"></div>
+				/分页区域
+				/测试训练界面
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div> -->
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/my_Score.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/njs/hplus.js?v=2.2.0"></script>
+<!--控制导航自动缩进-->
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/iteach.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<title>我教你 — 用户管理-教务员管理</title>
+</head>
+<body>
+	<!-- 导航栏目 -->
+	<div id="navibar" class="row-fluid"></div>
+	<!-- 主框体 -->
+	<div class="container main1">
+		<div class="row-fluid">
+			<div id="pictures" class="span12 pictures"></div>
+		</div>
+		<div class="row-fluid">
+			<div id="column" class="span2 box"></div>
+			<div class="span10 well">
+				<!--中心界面 -->
+				<div class="box">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="geren">
+							<div id="content">
+								<ul class="nav nav-tabs" id="subCols">
+								</ul>
+								<div id="myTabContent" class="tab-content">
+									<!-- search START -->
+									
+										<form onsubmit="return false;" class="form-search">
+											<a class="btn btn-info disabled" style='cursor: pointer;'>搜索</a>
+											<select id="quUnit" name="quUnit" class="span3">
+												<option value="-1">=单位=</option>
+											</select> <input id="admin-name" type="text" data-provide="typeahead"
+												placeholder="请输入教务员姓名或工号"> <a id="search"
+												class="btn"><i class="icon-search"></i> </a>
+											<!-- 操作栏 s -->
+											<!-- 操作栏 e -->
+										</form>
+									<!-- search END -->
+									<!-- Operating START -->
+									
+										<form  class="form-search buttonGroup">
+											<!-- 操作栏 s -->
+											<a id="addEducational"
+												onclick="buttonHtml('sysman_Educational_add.html');"
+												class="btn btn-primary" type="button"><i
+													class="icon-plus-sign icon-white"></i>增加 </a> <!-- <a id="modEducational"
+												href="#" class="btn btn-warning" type="button">修改 </a> --> <a
+												id="info-warning" data-toggle="modal" href="#delEduModel"
+												type="button" class="btn btn-danger"> <i
+													class="icon-minus-sign icon-white"></i>删除 </a> <a
+												id="impEducational" class="btn btn-success"
+												data-backdrop="true" data-keyboard="true"
+												data-toggle="modal"> <i
+													class="icon-info-sign icon-white"></i>批量导入 </a> </span>
+											<!-- 操作栏 e -->
+										</form>
+
+
+									<div id='waring-data' style='display: none;'>
+									</div>
+
+
+									<!-- Operating END -->
+									<div id="res-center" class="tab-pane fade in active">
+										<table class="
+													table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th><a href="javascript:void(0);" id="chooseall">全选</a>
+													</th>
+													<th>序</th>
+													<th>教务工号</th>
+													<th>姓名</th>
+													<th>电话</th>
+													<th>邮箱</th>
+													<th>所属单位</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+												<!-- js生成 -->
+											</tbody>
+										</table>
+										<div id="waring-nodata"></div>
+										<div id="pagination" class="pagination pagination-right"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 分页区域 -->
+
+				<!-- /分页区域 -->
+				<!-- /中心界面 -->
+			</div>
+		</div>
+	</div>
+
+	<div class="modal hide fade" id="importModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">关闭×</a>
+			<h3>
+				批量导入用户 <span style="color: red;" id="tipMsg"></span>
+			</h3>
+		</div>
+		<div class="modal-body">
+			<div class="alert alert-info">
+				<h4 class="alert-heading">批量导入须知</h4>
+				<ol>
+					<li>批量导入用户目前仅支持EXCEL格式文件，且需要按照如下文件格式写入<span style="color: red">请参照模板中的范例填写</span>
+					</li>
+					<li><a
+						href="../../handler/adminUserInfo/downloadUserInfoModel?fileName=userInfoMode.zip&userType=3"
+						style="color: red"> 点击这里 </a>下载模板文件<font color="red">（如果格式不正确将不能导入）</font>
+					</li>
+				</ol>
+			</div>
+			<div id="faileArea" style="display: none">
+				<div class="row alert alert-error">
+					<a class="close" data-dismiss="alert">×</a>
+					<h3 class="alert-heading">批量导入用户失败：</h3>
+					<a href="" id="failDownload" style="color: red"> 点击这里 </a>下载批量导入失败数据，具体原因见该文件！
+				</div>
+			</div>
+			<div class="btn-toolbar">
+				<form id="uploadform" class="form-inline well">
+					<label class="control-label" for="file">上传附件</label> <input
+						class="input-file" id="file" name="file" type="file">
+					<button data-dismiss="modal" class="btn btn-primary" type="button" id="upload" name="3">上传导入</button>
+					<button class="btn btn-danger" type="button" id="dataImport"
+						style="display: none" onclick="">导入</button>
+				</form>
+			</div>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+	<div id="delEduModel" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel">警告</h3>
+		</div>
+		<div class="modal-body">
+			<p id="model-info" style="color: red;">用户删除将无法恢复,是否继续删除</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+			<button id="make-sure" data-dismiss="modal" aria-hidden="true"
+				class="btn btn-primary">确认</button>
+		</div>
+	</div>
+	<div id="footer"> </div>
+
+</body>
+<script src="../js/ext/jquery-1.8.3.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/ext/bootstrap.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<!-- top1 -->
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<!-- top2 -->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<script type="text/javascript" src="../js/sysman_Educational.js"></script>
+<script type="text/javascript" src="../js/fileUploadModel.js"></script>
+</html>

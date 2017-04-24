@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="recom">
+	<select id="queryUserCount" resultType="int">
+		select count(*) from User
+	</select>
+	<select id="queryCourseCount" resultType="int">
+		select count(*) from Course
+	</select>
+	<select id="queryRateCount" resultType="int">
+		select count(*) from user_rate
+	</select>
+	<select id="getUsersByBatch" parameterType="hashmap" resultType="Integer">
+		select user_id from User limit #{startIndex},#{pageSize}
+	</select>
+	<select id="getCoursesByBatch" parameterType="hashMap"
+		resultType="Integer">
+		select cour_id from Course limit #{startIndex},#{pageSize}
+	</select>
+	<select id="getUserRateByBatch" parameterType="hashMap"
+		resultType="com.swust.kelab.recom.UserRate">
+		select user as user,course as course,rate as rate from user_rate limit
+		#{startIndex},#{pageSize}
+	</select>
+	<select id="getUserRateItemIds" parameterType="int" resultType="Integer">
+		select course from user_rate where user=#{userId}
+	</select>
+	<select id="getMeanRate" resultType="double">
+		select avg(rate) from user_rate
+	</select>
+	<select id="getUserRecom" resultType="com.swust.kelab.recom.UserRecom"
+		parameterType="int">
+		select user as user,time as time,recom as recom from user_recom where
+		user=#{userId}
+	</select>
+	<select id="getTopKSelectCourse" resultType="Integer" parameterType="int">
+		select rsco_cour_id from Re_SelectCource GROUP BY rsco_cour_id ORDER BY COUNT(rsco_user_id) DESC limit #{N};
+	</select>
+	
+	<select id="selectUserCourseRate" parameterType="hashMap" resultType="com.swust.kelab.recom.UserRate">
+		select user as user,course as course,rate as rate from user_rate where user=#{userId} and course=#{courseId}
+	</select>
+	<insert id="insertUserRate" parameterType="hashMap" >
+		insert into user_rate(user,course,rate)
+		values(#{userId},#{courseId},#{rate})
+	</insert>
+	<insert id="insertUserRateByBatch" parameterType="java.util.List">
+		replace into user_rate(user,course,rate,time) values
+		<foreach collection="list" item="item" separator="," index="index">
+			(#{item.user},#{item.course},#{item.rate},#{item.time})
+		</foreach>
+	</insert>
+
+	<update id="updateUserRate" parameterType="hashMap">
+		update user_rate set rate=(rate+#{rate})/2 where user=#{userId} and
+		course=#{courseId}
+	</update>
+	
+	
+	<insert id="replaceIntoUserRecom" parameterType="hashMap">
+		replace into user_recom(user,time,recom)
+		values(#{userId},#{time},#{recom,jdbcType=VARCHAR})
+	</insert>
+	<insert id="updateUserRecomItems" parameterType="java.util.List">
+		replace into user_recom(user,time,recom) values
+		<foreach collection="list" item="item" separator="," index="index">
+			(#{item.user},#{item.time},#{item.recom,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+</mapper>

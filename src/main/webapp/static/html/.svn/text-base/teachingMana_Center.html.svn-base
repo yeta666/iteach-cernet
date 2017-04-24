@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/iteach.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<title>我教你 — 学习平台 —教务员个人中心</title>
+</head>
+<body>
+	<!-- 导航栏目 -->
+	<div id="navibar" class="row-fluid"></div>
+	<!-- 主框体 -->
+	<div class="container main1">
+		<div class="row-fluid">
+			<div id="pictures" class="span12 pictures"></div>
+		</div>
+		<div class="row-fluid">
+			<div id="column" class="span2 box"></div>
+			<div class="span10 well">
+				<!-- 测试训练界面 -->
+				<div id="mainTable" class="box">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="geren">
+							<div id="content">
+								<ul class="nav nav-tabs" id="subCols">
+								</ul>
+								<div id="myTabContent" class="tab-content">
+									<!-- 个人中心 -->
+									<div id="user-center-content" class="tab-pane fade in active">
+										<div class="container-fluid">
+											<div class="row-fluid">
+												<div class="span12">
+													<h3>近期通知</h3>
+													<table class="table table-hover table-bordered">
+														<thead>
+															<tr>
+																<th></th>
+																<th>通知</th>
+																<th>发布时间</th>
+																<th></th>
+															</tr>
+														</thead>
+														<tbody id="announcement-table">
+														</tbody>
+													</table>
+													<h3>近期资源更新</h3>
+													<table class="table table-hover table-bordered">
+														<thead>
+															<tr>
+																<th>资源名称</th>
+																<th>资源类型</th>
+																<th>资源所属课程</th>
+															</tr>
+														</thead>
+														<tbody id="teachMana-Res">
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<!-- <h3 id="myModalLabel" style="color: #0A950A;">通 知</h3> -->
+			<h3 id="myModalLabel">通 知</h3>
+		</div>
+		<div class="modal-body">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<h4 id="announce-title"></h4>
+						<p id="announce-content"></p>
+					</div>
+					<div class="span12">
+						<p id="announce-time" style="float: right;font-size:10px;"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+		</div>
+	</div>
+	<div id="footer"> </div>
+</body>
+<script src="../js/ext/jquery-1.8.3.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/ext/bootstrap.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/teachingMana_Center.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+</html>

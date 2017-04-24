@@ -20,8 +20,8 @@
 		<!--响应式样式-->
 		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/style-responsive.css" />
 		<!-- 个性化定制组件样式 -->
-		<link href="../css/jquery-ui.structure.css" rel="stylesheet">
-		<link href="../css/jquery-ui.theme2.css" rel="stylesheet">
+		<link href="../css/adaptive_ui/jquery-ui.structure.css" rel="stylesheet">
+		<link id="adaptive_ui" href="" rel="stylesheet">
 	</head>
 
 	<body>
@@ -51,47 +51,7 @@
 							</div>
 						</div>
 						
-						<ul id="user_menu"><!-- class="nav nav-pills nav-stacked custom-nav" -->
-							<li>
-								<div>
-									<a href="personalInformation_home.html?firstCol=1&secondCol=14">
-										<i class="fa fa-user"></i> 
-										<span>个人资料</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div>
-									<a href="modifyPassword_home.html?firstCol=1&secondCol=14">
-										<i class="fa fa-user"></i> 
-										<span>密码设置</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div>
-									<a href="aboutSystem_home.html?firstCol=1&secondCol=14">
-										<i class="fa fa-user"></i> 
-										<span>关于系统</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div>
-									<a href="aboutHelp_home.html?firstCol=1&secondCol=14">
-										<i class="fa fa-cog"></i> 
-										<span>联机帮助</span>
-									</a>
-								</div>
-							</li>
-							<li>
-								<div>
-									<a href="#" onclick="loginOff();">
-										<i class="fa fa-sign-out"></i> 
-										<span>安全退出</span>
-									</a>
-								</div>
-							</li>
+						<ul id="user_menu_left"><!-- class="nav nav-pills nav-stacked custom-nav" -->
 						</ul>
 					</div>
 
@@ -124,7 +84,10 @@
 
 					<!--notification menu start -->
 					<div class="menu-right">
-						<ul class="notification-menu">
+						<ul id="user_menu_right">
+							
+						</ul>
+						<!-- <ul class="notification-menu">
 							<li>
 								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 									<img class="user_img" src="" alt="user" />
@@ -149,7 +112,7 @@
 									</li>
 								</ul>
 							</li>
-						</ul>
+						</ul>   -->
 					</div>
 					<!--notification menu end -->
 
@@ -423,26 +386,24 @@
 		</section>
 
 		<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
-		<script src="../js/njs/jquery-ui.js" type="text/javascript"></script>
 		<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
 		<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
-		<script src="../js/njs/jquery.metisMenu.js"></script>
-		<!-- 导航手风琴插件 -->
+		
 		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
 		<!-- 美化滚动条插件 -->
-		<script src="../js/jquery.scrollUp.min.js" type="text/javascript"></script>
-		<!-- 回到顶部插件 -->
+		
 		<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
 		<!-- 延迟加载插件 -->
 		<script src="../js/ext/highcharts.js" type="text/javascript"></script>
 		<script src="../js/extend.js" type="text/javascript"></script>
-		<!-- 不晓得啥子用 -->
 		<script src="../js/utils.js" type="text/javascript"></script>
 		<script src="../js/common.js?ver=1" type="text/javascript"></script>
 		<script src="../js/userCenter.js" type="text/javascript"></script>
-		<script src="../js/njs/hplus.js?v=2.2.0"></script>
-		<script src="../js/personal_module_by_yeta.js" type="text/javascript"></script>
-		<script src="../js/yeta_script.js" type="text/javascript"></script>
+		<script src="../js/njs/hplus.js"></script>
+		
+		<!-- 模块化界面样式 -->
+		<script src="../js/adaptive_ui/jquery-ui.js" type="text/javascript"></script>
+		<script src="../js/adaptive_ui/adaptive_ui.js" type="text/javascript"></script>
 
 	</body>
 

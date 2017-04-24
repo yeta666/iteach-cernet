@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-bar-chart-o"></i> 教务统计
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>教师辅导统计</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<!-- ibox float-e-margins- -->
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-pencil"></i> 教师辅导统计
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<div>
+											<form onsubmit="return false;" class="form-inline">
+												<select id="seleteSchoolID" style="display: none;"
+													class="span2 form-control1">
+													<option value="-1">所有机构</option>
+												</select> <select id="selecteCourserID" name="gradeId"
+													class="span2 form-control1">
+													<option value="-1">所有课程</option>
+												</select> 
+												<input id="inputTeacherName" type="text" data-provide="typeahead" name="teacherName"
+												placeholder="输入教师姓名" class="form-control1">
+												<a id="searchTeacherTutor" type="button"
+													class="btn btn-primary"><i class="fa fa-search"></i> 搜索</a>
+												<a type="button" class="btn btn-success"
+													onclick="javascript:exportTeacherTourSta();"><i class='fa fa-share'></i>导出</a>
+											</form>
+										</div>
+										<!-- search END -->
+										<div id="res-center" class="tab-pane fade in active">
+											<table id="teacherTutorSta"
+												class="table table-hover table-bordered">
+												<thead>
+													<tr>
+														<th>序</th>
+														<th>教师</th>
+														<th>课程代码</th>
+														<th>课程名称</th>
+														<th>学校</th>
+														<th>学生数</th>
+														<th>发帖数</th>
+														<th>答疑数</th>
+													</tr>
+												</thead>
+												<tbody id="mainTable">
+													<!-- js生成 -->
+												</tbody>
+											</table>
+										</div>
+
+										<!-- 分页区域 -->									
+										    <div id="pagination" class="pagination page-left"  ></div>
+										<br/><br/>
+										<!-- /分页区域 -->
+
+									</div>
+								</div>
+								<!-- 学生学习进度- -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+	<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
+	<script type="text/javascript" src="../js/eduman_Statistic_TeacherTutorSta.js"></script>
+    <!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+</body>
+</html>

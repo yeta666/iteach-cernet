@@ -1,0 +1,686 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Times New Roman","serif";}
+h2
+	{mso-style-link:"标题 2 Char";
+	margin-top:7.8pt;
+	margin-right:0cm;
+	margin-bottom:7.8pt;
+	margin-left:0cm;
+	text-indent:0cm;
+	page-break-after:avoid;
+	layout-grid-mode:char;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";}
+h3
+	{mso-style-link:"标题 3 Char";
+	margin-right:0cm;
+	margin-left:0cm;
+	text-indent:0cm;
+	page-break-after:avoid;
+	font-size:10.5pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"标题 Char";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+span.2Char
+	{mso-style-name:"标题 2 Char";
+	mso-style-link:"标题 2";
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+span.3Char
+	{mso-style-name:"标题 3 Char";
+	mso-style-link:"标题 3";
+	font-weight:bold;}
+span.Char
+	{mso-style-name:"标题 Char";
+	mso-style-link:标题;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=ZH-CN link=blue vlink=purple style='text-justify-trim:
+punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoTitle><a name="_Toc368259989"><span lang=EN-US>3.</span></a><span
+style='font-family:宋体'>教师用户操作</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+style='font-family:宋体'>教师部分主要有<b>个人中心、学习中心、课程讨论、我的课堂、测试管理、论坛管理、资源管理</b>等七个模块，主要用于<b>教师用户与学生用户的教学交流，课堂安排，课程内容安排，课程资源安排，考试内容安排以及通知消息的接收</b>等</span><span
+style='font-family:宋体'>。</span></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368259990"><span lang=EN-US>3.1 </span></a><span
+style='font-family:宋体'>访问教师个人中心</span></h2>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+style='font-family:宋体'>教师个人中心</span></b><span lang=zh-CN style='font-family:
+宋体'>由两个</span><span style='font-family:宋体'>部分</span><span lang=zh-CN
+style='font-family:宋体'>组成：</span><b><span style='font-family:宋体'>教师</span></b><b><span
+lang=zh-CN style='font-family:宋体'>个人中心，消息中心</span></b><span lang=zh-CN
+style='font-family:宋体'>。</span><b><span style='font-family:宋体'>个人中心</span></b><span
+lang=zh-CN style='font-family:宋体'>主要是显示用户需求量高的两个模块（</span><b><span
+style='font-family:宋体'>最新通知、所授课程信息</span></b><span lang=zh-CN style='font-family:
+宋体'>），而<b>消息中心</b>主要是显示用户所有的消息通知等信息。</span></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368259991"><span
+lang=EN-US>3.1.1 </span></a><span style='font-family:宋体'>查看教师最新通知、所授课程信息</span></h3>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=zh-CN style='font-family:宋体'>教师登录系统后，默认进入</span><b><span style='font-family:
+宋体'>教师个人中心</span></b><span lang=zh-CN style='font-family:宋体'>。个人中心主要包括：</span><b><span
+style='font-family:宋体'>最新通知、所授课程信息</span></b><span lang=zh-CN style='font-family:
+宋体'>等。教师个人中心界面如图</span><span lang=zh-CN>3</span><span lang=zh-CN>-1</span><span
+lang=zh-CN style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US><img
+width=586 height=366 src="aboutHelp_teacher_home.files/image001.jpg"></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-1 </span></b><b><span
+style='font-family:宋体'>个人中心－个人中心</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368259992"><span
+lang=EN-US>3.1.2 </span></a><span style='font-family:宋体'>查看教师通知消息</span></h3>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=zh-CN style='font-family:宋体'>在</span><b><span style='font-family:宋体'>个人中心</span></b><span
+lang=zh-CN style='font-family:宋体'>一级栏目中选择二级栏目</span><b><span style='font-family:
+宋体'>消息中心</span></b><span lang=zh-CN style='font-family:宋体'>即可进入消息中心。</span><b><span
+style='font-family:宋体'>消息中心</span></b><span lang=zh-CN style='font-family:宋体'>主要包括：<b>教师所有的通知消息</b>。消息中心界面如图</span><span
+lang=zh-CN>3</span><span lang=zh-CN>-2</span><span lang=zh-CN style='font-family:
+宋体'>所示，消息具体信息和学生部分相似，在此就不一一列举了：</span></p>
+
+<p class=MsoNormal align=center style='margin-left:.05pt;text-align:center;
+text-indent:-6.65pt'><b><span lang=EN-US><img width=590 height=369
+src="aboutHelp_teacher_home.files/image002.jpg"></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-2 </span></b><b><span
+style='font-family:宋体'>个人中心－消息中心</span></b></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368259993"><span lang=EN-US>3.2 </span></a><span
+style='font-family:宋体'>进入学习中心</span></h2>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=zh-CN style='font-family:宋体'>教师学习中心</span></b><span lang=zh-CN
+style='font-family:宋体'>由两个二级栏目组成：<b>选课中心，学习中心</b>。<b>选课中心</b>主要是<b>供教师选择所需要课程的（无学分限制）</b>，而<b>学习中心</b>主要是<b>供教师学习或者检查教学资源使用情况</b>，具体包括：<b>视频资源学习、文档资源下载，链接资源浏览</b>等部分。学习中心由图</span><span
+lang=zh-CN>3</span><span lang=zh-CN>-3</span><span lang=zh-CN style='font-family:
+宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=zh-CN><img
+width=585 height=365 src="aboutHelp_teacher_home.files/image003.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-3 </span></b><b><span
+style='font-family:宋体'>学习中心－学习中心</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368259994"><span
+lang=EN-US>3.2.1 </span></a><span style='font-family:宋体'>选择所需课程</span></h3>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span style='font-family:宋体'>教师选课中心</span></b><span
+style='font-family:宋体'>与<b>学生选课中心</b>差别主要是<b>教师选课不受学分限制</b>，教师可以根据自己的需要选择相应的课程。如图</span><span
+lang=EN-US>3-4</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=599 height=374 src="aboutHelp_teacher_home.files/image004.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-4 </span></b><b><span
+style='font-family:宋体'>学习中心－选课中心</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;</span></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368259995"><span
+lang=EN-US>3.2.2</span></a><span style='font-family:宋体'>学习所选课程</span></h3>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-family:宋体'>由于</span><b><span
+lang=zh-CN style='font-family:宋体'>教师</span></b><b><span style='font-family:
+宋体'>学习中心</span></b><span style='font-family:宋体'>的操作流程和学生学习中心的操作流程一样，请参考学生部分。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span style='font-family:宋体'>学习中心</span></b><span
+style='font-family:宋体'>即是<b>选择已选课程并学习该课程</b>的地方，学生选择对应学习课程，开始进入具体课程页面，可以查看课程<b>基本内容课程简介、课程学习目录</b>（选择相应目录可以进入具体章节的视频学习）<b>、课程论坛信息</b>等，也可以操作<b>退选</b>该课程。学习中心的具体内容如图</span>
+<span style='font-family:宋体'>学生</span><span lang=EN-US>-1</span><span
+style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='margin-left:7.1pt;text-align:center;
+text-indent:-7.1pt'><span lang=zh-CN><img width=609 height=343
+src="aboutHelp_teacher_home.files/image005.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-family:宋体'>图</span> </b><b><span style='font-family:宋体'>学生</span><span
+lang=EN-US>-1 </span></b><b><span style='font-family:宋体'>学习中心</span><span
+lang=EN-US>-</span></b><b><span style='font-family:宋体'>学习课程具体内容</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><span
+lang=zh-CN style='font-family:宋体'>当选择学习目录的相应章节后，进入视频学习界面，右侧有可选择视频章节的快捷栏目，点击最右侧的“<b>其他资料</b>”可以切换至文档链接等资源。如图</span><span
+lang=zh-CN> </span><span style='font-family:宋体'>学生</span><span lang=EN-US>-2</span><span
+lang=zh-CN style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='margin-left:7.1pt;text-align:center;
+text-indent:-7.1pt'><span lang=zh-CN><img width=589 height=332
+src="aboutHelp_teacher_home.files/image006.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-family:宋体'>图</span> </b><b><span style='font-family:宋体'>学生</span><span
+lang=EN-US>-2 </span></b><b><span style='font-family:宋体'>学习中心</span><span
+lang=EN-US>-</span></b><b><span style='font-family:宋体'>课程学习</span><span
+lang=EN-US>-</span></b><b><span style='font-family:宋体'>视频学习</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-family:宋体'>其他资料中，<b>文档资料</b>点击即可<b>下载</b>；<b>链接资源</b>点击<b>打开新页面</b>学习链接内容。</span><b>
+</b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368259996"><span lang=EN-US>3.3 </span></a><span
+style='font-family:宋体'>参与课程讨论</span></h2>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=zh-CN style='font-family:宋体'>教师课程讨论</span></b><span lang=zh-CN
+style='font-family:宋体'>由两个二级栏目组成：<b>课程讨论，发起讨论</b>。<b>课程讨论</b>主要是<b>供教师与学生之间交流，通过更直观的方式回复学生，发表自己意见，查看他人回复</b>等</span><span
+style='font-family:宋体'>具体的操作</span><span lang=zh-CN style='font-family:宋体'>，具体包括：<b>发起讨论、我的讨论、我的回复</b>。点击蓝色主题部分，可以查看具体讨论信息。整个课程讨论部分与学生课程讨论部分相同，这里就不一一列举了。课程讨论部分由图</span><span
+lang=zh-CN>3</span><span lang=zh-CN>-5</span><span lang=zh-CN style='font-family:
+宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=585 height=365 src="aboutHelp_teacher_home.files/image007.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-5 </span></b><b><span
+style='font-family:宋体'>课堂讨论－课堂讨论</span></b></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368259997"></a><a name="_5.4_我的课堂"></a><span
+lang=EN-US>3.4 </span><span style='font-family:宋体'>安排教学课堂</span></h2>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=zh-CN style='font-family:宋体'>我的课堂</span></b><span lang=zh-CN
+style='font-family:宋体'>由三个二级栏目组成：<b>我的课程，集中学习，新课申请</b>。<b>我的课程</b>主要是显示教师所授课程信息，查看学生的具体成绩等信息，以便更好地查询所授课程中学生学习的情况。<b>集中学习</b>部分是指辅导教师可以控制一些学生在特定时间下一起学习一门课程。<b>新课申请</b>是指教师根据自己的需要申请开放一门新的课程。</span></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368259998"><span
+lang=EN-US>3.4.1 </span></a><span style='font-family:宋体'>安排教学课程</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>   </span><b><span style='font-family:宋体'>我的课程</span></b><span
+style='font-family:宋体'>是一级栏目“<b>我的课堂</b>”下的一个二级栏目，主要显示<b>教师所授课程信息以及其选课学生的成绩信息</b>等。为教师了解课程选修情况和选修该课程学生学习情况提供了方便。点击右侧“查看”按钮可以查看选择该课程的学生的学习情况。<b>我的课程</b>如图</span><span
+lang=EN-US>3-6</span><span style='font-family:宋体'>所示，<b>查看我的课程的具体内容</b>如图</span><span
+lang=EN-US>3-7</span><span style='font-family:宋体'>所示，<b>查看我的课程具体内容的个体成绩</b>由</span><span
+lang=EN-US>3-8</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='margin-left:0cm;text-align:center;
+text-indent:-6.6pt'><span lang=EN-US><img width=583 height=364
+src="aboutHelp_teacher_home.files/image008.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-6 </span></b><b><span
+style='font-family:宋体'>我的课堂－我的课程</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:15.75pt'><span
+style='font-family:宋体'>点击查看可以查看<b>学生具体考核成绩</b>。</span></p>
+
+<p class=MsoNormal align=center style='margin-left:0cm;text-align:center;
+text-indent:-6.6pt'><span lang=EN-US><img width=586 height=366
+src="aboutHelp_teacher_home.files/image009.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-7 </span></b><b><span
+style='font-family:宋体'>我的课堂－我的课程具体内容</span></b></p>
+
+<p class=MsoNormal style='margin-left:0cm;text-indent:-6.6pt'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-left:0cm;text-align:center;
+text-indent:-6.6pt'><span lang=EN-US><img width=580 height=341
+src="aboutHelp_teacher_home.files/image010.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-8 </span></b><b><span
+style='font-family:宋体'>我的课堂－我的课程具体内容</span><span lang=EN-US>-</span></b><b><span
+style='font-family:宋体'>个体成绩</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368259999"><span
+lang=EN-US>3.4.2 </span></a><span style='font-family:宋体'>发起集中学习</span></h3>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span style='font-family:宋体'>集中学习</span></b><span
+style='font-family:宋体'>部分是<b>指辅导教师可以控制一些学生在特定时间下一起学习一门课程</b>。辅导老师可以新建集中学习，也可以删除用过了的集中学习。点击“调整”可以调整参与集中学习的具体人数，点击“开始”就将开始该课程的集中学习。总之，集中学习为老师在学校让学生集中网络选修课学校提供了极大的方便。集中学习主界面由图</span><span
+lang=EN-US>3-9</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=590 height=370 src="aboutHelp_teacher_home.files/image011.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-9 </span></b><b><span
+style='font-family:宋体'>我的课堂－集中学习</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-family:宋体'>辅导老师可以根据课程的需要创建集中学习，可以添加或编辑参与集中学习的人员。具体流程如图</span><span
+lang=EN-US>3-10</span><span style='font-family:宋体'>、</span><span lang=EN-US>3-11</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>3-12</span><span
+style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=599 height=374 src="aboutHelp_teacher_home.files/image012.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-10 </span></b><b><span
+style='font-family:宋体'>我的课堂－集中学习－创建集中学习</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=612 height=383 src="aboutHelp_teacher_home.files/image013.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-11 </span></b><b><span
+style='font-family:宋体'>我的课堂－集中学习－添加或更改集中学习的人员</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=578 height=362 src="aboutHelp_teacher_home.files/image014.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-12 </span></b><b><span
+style='font-family:宋体'>我的课堂－集中学习－开始集中学习</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260000"><span
+lang=EN-US>3.4.3 </span></a><span style='font-family:宋体'>创建新课申请</span></h3>
+
+<p class=MsoNormal><span lang=zh-CN>          </span><b><span lang=zh-CN
+style='font-family:宋体'>新课申请</span></b><span lang=zh-CN style='font-family:宋体'>是指教师根据自己的需要申请开放一门新的课程。要填写<b>课程的名称、课程考核方式、课程类别、课程代码、创建人、学分、课程图片、简介、课程计划</b>等信息。新课申请界面如图</span><span
+lang=zh-CN>3</span><span lang=zh-CN>-13</span><span lang=zh-CN
+style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=579 height=362 src="aboutHelp_teacher_home.files/image015.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-13 </span></b><b><span
+style='font-family:宋体'>我的课堂－新课申请</span></b></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368260001"></a><a name="_5.5_测试管理"></a><span
+lang=EN-US>3.5 </span><span style='font-family:宋体'>进行测试管理</span></h2>
+
+<p class=MsoNormal style='text-indent:21.0pt'><b><span lang=zh-CN
+style='font-family:宋体'>测试管理</span></b><span lang=zh-CN style='font-family:宋体'>由四个二级栏目组成：<b>课程测试管理，题库管理，试卷管理，成绩管理</b>。<b>题库管理</b>是放在第一位的，首先教师需要添加题库才能构成试卷；其次是<b>试卷管理</b>，试卷管理分自动组卷和手动组卷，这样合成了一份份试卷；接下来的<b>课程测试管理</b>，这张试卷什么时候考试，怎么考，都有课程测试管理来决定。最后<b>成绩管理</b>很明显是对学生的成绩进行管理。</span></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260002"><span
+lang=EN-US>3.5.1 </span></a><span style='font-family:宋体'>管理考试题库</span></h3>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=zh-CN style='font-family:宋体'>题库管理</span></b><span lang=zh-CN
+style='font-family:宋体'>主要是用于添加、批量导入、修改教师所出的测试题目。题库管理如图</span><span lang=zh-CN>3</span><span
+lang=zh-CN>-14</span><span lang=zh-CN style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=zh-CN><img
+width=580 height=352 src="aboutHelp_teacher_home.files/image016.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-14 </span></b><b><span
+style='font-family:宋体'>测试管理－题库管理</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.0pt'><b><span
+lang=zh-CN style='font-family:宋体'>题库管理</span></b><span lang=zh-CN
+style='font-family:宋体'>可以<b>添加试题、编辑试题、也可以批量导入试题</b>。添加试题如图</span><span
+lang=zh-CN>3</span><span lang=zh-CN>-15</span><span lang=zh-CN
+style='font-family:宋体'>所示，编辑试题如图</span><span lang=zh-CN>3</span><span
+lang=zh-CN>-16</span><span lang=zh-CN style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=zh-CN><img
+width=585 height=333 src="aboutHelp_teacher_home.files/image017.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-15 </span></b><b><span
+style='font-family:宋体'>测试管理－题库管理—添加题目</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US><img
+width=599 height=374 src="aboutHelp_teacher_home.files/image018.jpg"></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-16 </span></b><b><span
+style='font-family:宋体'>测试管理－题库管理—编辑题目</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260003"><span
+lang=EN-US>3.5.2 </span></a><span style='font-family:宋体'>构建考试试卷</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span lang=zh-CN
+style='font-family:宋体'>试卷管理</span></b><span style='font-family:宋体'>分<b>手动组卷和自动组卷</b>。<b>手动组卷</b>即是<b>教师手动添加试卷</b>，<b>自动组卷</b>则是<b>由电脑随机添加试题</b>。试卷管理主界面如图</span><span
+lang=EN-US>3-17</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=570 height=356 src="aboutHelp_teacher_home.files/image019.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-17 </span></b><b><span
+style='font-family:宋体'>测试管理－试卷管理</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>手动组卷</span></b><span style='font-family:宋体'>主要针对<b>有多种类型题目的考试</b>，这里需要教师灵活处理所有的题目，手动组卷无疑提高了组卷的灵活性。手动组卷步骤如图</span><span
+lang=EN-US>3-18</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=585 height=365 src="aboutHelp_teacher_home.files/image020.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-18 </span></b><b><span
+style='font-family:宋体'>测试管理－试卷管理－手动组卷</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>用下拉框选择课程后，系统会自动填充选择已选课程。在试题列表中选择题目后，已选题目</span><span lang=EN-US>ID</span><span
+style='font-family:宋体'>会自动录入，将鼠标移至试题列表的题目处，可以查看题目具体内容。确认这些信息后，可以进行下一步，填写试卷名称、描述、单选分数、难易程度等信息，如图</span><span
+lang=EN-US>3-19</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=575 height=359 src="aboutHelp_teacher_home.files/image021.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-19 </span></b><b><span
+style='font-family:宋体'>测试管理－试卷管理－手动组卷－确认组卷</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>自动组卷</span></b><span style='font-family:宋体'>主要针对<b>有单一类型题目的考试</b>，这里可以利用计算机协助选择题目，自动组卷无疑提高了组卷的高效性。自动组卷步骤如图</span><span
+lang=EN-US>3-20</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=580 height=363 src="aboutHelp_teacher_home.files/image022.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-20 </span></b><b><span
+style='font-family:宋体'>测试管理－试卷管理－自动组卷</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-family:宋体'>选择题目类型具体形式由图</span><span
+lang=EN-US>3-21</span><span style='font-family:宋体'>所示，设置完成后就可以自动组卷了。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=586 height=366 src="aboutHelp_teacher_home.files/image023.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-21 </span></b><b><span
+style='font-family:宋体'>测试管理－试卷管理－自动组卷－添加试题</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260004"><span
+lang=EN-US>3.5.3 </span></a><span style='font-family:宋体'>管理课程测试</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>课程测试管理</span></b><span style='font-family:宋体'>是针<b>对一组试卷何时开始考试、考试时长的等因素来进行管理</b>。教师可以添加、编辑、删除课程测试信息等。<b>课程测试管理</b>首界面如图</span><span
+lang=EN-US>3-22</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=580 height=328 src="aboutHelp_teacher_home.files/image024.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-22 </span></b><b><span
+style='font-family:宋体'>测试管理－课程测试管理</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>添加操作由图</span><span lang=EN-US>3-23</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=605 height=378 src="aboutHelp_teacher_home.files/image025.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-23 </span></b><b><span
+style='font-family:宋体'>测试管理－课程测试管理－添加课程测试</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>编辑操作由图</span><span lang=EN-US>3-24</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=608 height=379 src="aboutHelp_teacher_home.files/image026.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-24 </span></b><b><span
+style='font-family:宋体'>测试管理－课程测试管理－编辑课程测试</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260005"><span
+lang=EN-US>3.5.4 </span></a><span style='font-family:宋体'>管理学生成绩</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>成绩管理</span></b><span style='font-family:宋体'>是<b>教师针对自己所教授的所有学生的成绩信息的管理</b>，有助于教师了解每个学生的学习情况。成绩管理主界面由图</span><span
+lang=EN-US>3-25</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=580 height=317 src="aboutHelp_teacher_home.files/image027.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-25 </span></b><b><span
+style='font-family:宋体'>测试管理－成绩管理</span></b></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368260006"></a><a name="_5.6_论坛管理"></a><span
+lang=EN-US>3.6 </span><span style='font-family:宋体'>管理论坛信息</span></h2>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>教师的<b>论坛管理</b>是教师对于自己<b>所授课程的讨论进行管理</b>，二级栏目又称<b>课程讨论管理</b>，可执行<b>置顶或不置顶，标记为精品或取消精品标记，删除讨论</b>的等操作。教师课程讨论管理如图</span><span
+lang=EN-US>3-26</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=567 height=339 src="aboutHelp_teacher_home.files/image028.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-26 </span></b><b><span
+style='font-family:宋体'>论坛管理－课程讨论管理</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>点击<b>标题</b>可以进入<b>课程讨论的具体信息里面查看</b>，也可以进行<b>管理操作</b>。具体内容页面由图</span><span
+lang=EN-US>3-27</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=588 height=367 src="aboutHelp_teacher_home.files/image029.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-27 </span></b><b><span
+style='font-family:宋体'>论坛管理－课程讨论管理具体内容</span></b></p>
+
+<h2 style='margin-top:8.75pt;margin-right:0cm;margin-bottom:8.75pt;margin-left:
+0cm;text-indent:0cm'><a name="_Toc368260007"></a><a name="_5.7_资源管理"></a><span
+lang=EN-US>3.7 </span><span style='font-family:宋体'>管理课程资源</span></h2>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>资源管理</span></b><span style='font-family:宋体'>是针对<b>教师所上传的给学生授课的所需资源进行的管理</b>，包括对<b>视频的管理、文档的管理、链接的管理</b>。最后再在<b>章节管理</b>中汇总，让资源管理与实际章节操作相链接。便于学生用户及时看到老师新上传的资源信息。</span></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260008"><span
+lang=EN-US>3.7.1 </span></a><span style='font-family:宋体'>管理视频资源</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>视频资源管理</span></b><span style='font-family:宋体'>主要是<b>针对提供给学生学习观看的教学视频的资源</b>，由<b>各任课老师负责管理各自课程</b>的<b>视频资源</b>，包括<b>添加、视频上传、编辑、删除</b>等操作。便于学生学习使用，观看或下载。视频管理主界面由图</span><span
+lang=EN-US>3-28</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=573 height=358 src="aboutHelp_teacher_home.files/image030.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-28 </span></b><b><span
+style='font-family:宋体'>资源管理－视频管理</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>可以<b>添加视频资源</b>，<b>添加步骤</b>：填写视频名称、选择上传视频资源（注：视频格式只能是</span><span
+lang=EN-US>flv</span><span style='font-family:宋体'>）、选择视频所属科目、填写资源描述，具体界面由图</span><span
+lang=EN-US>3-29</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=586 height=365 src="aboutHelp_teacher_home.files/image031.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-29 </span></b><b><span
+style='font-family:宋体'>资源管理－视频管理－添加视频资源</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>点击视频资源主界面标题即可<b>编辑视频资源</b>，<b>编辑步骤</b>：修改需要修改的部分，如需更改视频资源上传资源即可；若不需更改视频资源，则不用上传资源（注：视频格式只能是</span><span
+lang=EN-US>flv</span><span style='font-family:宋体'>），上传视频完成后会返回“上传成功”，此时才可以进行添加视频资源信息的确认，具体界面由图</span><span
+lang=EN-US>3-30</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=592 height=369 src="aboutHelp_teacher_home.files/image032.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-30 </span></b><b><span
+style='font-family:宋体'>资源管理－视频管理－编辑视频资源</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260009"><span
+lang=EN-US>3.7.2 </span></a><span style='font-family:宋体'>管理文档资源</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>文档资源管理</span></b><span style='font-family:宋体'>主要是<b>针对提供给学生下载学习的教学文档的资源</b>，由<b>各任课老师负责管理各自课程</b>的<b>文档资源</b>，包括<b>添加、上传文档、编辑、删除</b>等操作。便于学生下载阅读。文档管理主界面由图</span><span
+lang=EN-US>3-31</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=569 height=356 src="aboutHelp_teacher_home.files/image033.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-31 </span></b><b><span
+style='font-family:宋体'>资源管理－文档管理</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>其添加文档、编辑文档、删除文档操作和管理视频资源相同，这里就不一一列举了。<b>注意</b>：只能添加</span><span lang=EN-US>txt</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>doc</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>xls</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>pdf</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>exe</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>jpg</span><span
+style='font-family:宋体'>等文档文件上传；上传文档完成后会返回“上传成功”，此时才可以进行添加文档资源信息的确认。</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260010"><span
+lang=EN-US>3.7.3 </span></a><span style='font-family:宋体'>管理链接资源</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>链接资源管理</span></b><span style='font-family:宋体'>主要是<b>针对提供给学生网上链接学习的教学链接的资源</b>，由<b>各任课老师负责管理各自课程</b>的<b>链接资源</b>，包括<b>添加、编辑、删除</b>等操作。便于学生链接到相应网站阅读或学习。链接管理主界面由图</span><span
+lang=EN-US>3-32</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=586 height=366 src="aboutHelp_teacher_home.files/image034.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-32 </span></b><b><span
+style='font-family:宋体'>资源管理－链接管理</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<h3 style='margin-left:0cm;text-indent:0cm'><a name="_Toc368260011"><span
+lang=EN-US>3.7.4 </span></a><span style='font-family:宋体'>管理章节内容</span></h3>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>章节管理</span></b><span style='font-family:宋体'>主要是<b>针对提供给学生学习中心开放课程学习的教学资源按章节排序的管理</b>，由<b>各任课老师负责管理各自课程</b>的<b>章节管理</b>，包括<b>添加、编辑、删除</b>等操作。章节管理要添加或更改章节中存在的各类资源（视频资源、文档资源、链接资源）信息。章节可以根据课程名称进行筛选。章节管理主界面由图</span><span
+lang=EN-US>3-33</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=578 height=360 src="aboutHelp_teacher_home.files/image035.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-33 </span></b><b><span
+style='font-family:宋体'>资源管理－章节管理</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><b><span style='font-family:
+宋体'>添加章节资源</span></b><span style='font-family:宋体'>时，需要填写章节号（即第几章）、章节名称、选择该章节所属课程、填写章节描述、选择章节资源类型、根据展示课程资源选择需要的资源移动到“选中资源”的框内。完成后提交章节信息。具体页面由图</span><span
+lang=EN-US>3-34</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=580 height=363 src="aboutHelp_teacher_home.files/image036.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-34 </span></b><b><span
+style='font-family:宋体'>资源管理－章节管理－添加章节信息</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>        </span><span style='font-family:
+宋体'>点击章节资源主页面的章节名称即可<b>编辑章节资源</b>，编辑时，更改需要更改的内容。完成后提交章节信息。具体页面由图</span><span
+lang=EN-US>3-35</span><span style='font-family:宋体'>所示：</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=570 height=358 src="aboutHelp_teacher_home.files/image037.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:7.1pt'><b><span
+style='font-family:宋体'>图</span><span lang=EN-US>3-35 </span></b><b><span
+style='font-family:宋体'>资源管理－章节管理－编辑章节信息</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/iteach.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title>我教你 — 学习平台 — 课程管理</title>
+<!-- author：郭海蓉  time:2013-07 -->
+</head>
+<body>
+	<!-- 导航栏目 -->
+	<div id="navibar" class="row-fluid"></div>
+	<!-- 主框体 -->
+	<div class="container main1">
+		<div class="row-fluid">
+			<div id="pictures" class="span12 pictures"></div>
+		</div>
+		<div class="row-fluid">
+			<div id="column" class="span2 box"></div>
+			<div class="span10 well">
+				<div class="box">
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="bbs_manage">
+							<div id="content">
+								<ul class="nav nav-tabs" id="subCols"></ul>
+								<div id="myTabContent" class="tab-content">
+									<form onsubmit="return false;" class="form-inline">
+										<a class="btn btn-info disabled">搜索</a> <select
+											style="display: none" class="span2" id="seleteSchoolID"
+											value="0">
+										</select> <select class="span2" id="courseCateId" value="0">
+										</select> <select class="span3" id="searchType" value="">
+											<option value="1">按~课程名称</option>
+											<option value="2">按~课程代码</option>
+										</select><input id="searchWord" name="searchWord" type="text"
+											class="span3" placeholder="请输入内容.."> <a type="button"
+											id="search" class="btn"><i class="icon-search"></i></a>
+									</form>
+									<div class="buttonGroup">
+										<a type="button" id="addCourseClass" class="btn btn-success"
+											onclick="buttonHtml('eduman_Courses_add.html');"> <i
+											class="icon-plus-sign icon-white"> </i>新增
+										</a> <a type="button" id="deleteCourse"
+											onclick="javascript:deleteCourse();" class="btn btn-danger">
+											<i class=" icon-trash icon-white"> </i>删除
+										</a> <a id="updateScore" class="btn btn-primary"
+											onclick="updateScore()"><i
+											class='icon-white icon-plus-sign'></i>更新成绩 </a>
+									</div>
+									<div id="openCloseBBS">
+										<!--数据显示  -->
+										<table class="table table-hover table-bordered"
+											id="tableContent">
+											<thead>
+												<tr>
+													<th><a href="#" id="chooseall">全选</a></th>
+													<th class="tdcenter">序</th>
+													<th class="tdcenter">代码</th>
+													<th class="tdcenter">名称</th>
+													<th class="tdcenter">课程类型</th>
+													<th class="tdcenter">学分</th>
+													<th class="tdcenter">领域</th>
+													<th class="tdcenter">创建机构</th>
+													<th class="tdcenter">状态</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+										<!-- 分页区域 -->
+										<div id="pagination" class="pagination pagination-right"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+	<!-- 更新成绩弹出层 start -->
+	<div id="updateScoreModal" class="modal hide fade">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+			<h3>更新课程成绩</h3>
+		</div>
+		<div class="modal-body">正在更新成绩……可能需要较长时间，请稍等。</div>
+		<div class="modal-footer"></div>
+	</div>
+	<!-- 更新成绩弹出层 end -->
+</body>
+<script src="../js/ext/jquery-1.8.3.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/ext/bootstrap.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
+<script type="text/javascript" src="../js/eduman_Courses_Manage.js"></script>
+</html>

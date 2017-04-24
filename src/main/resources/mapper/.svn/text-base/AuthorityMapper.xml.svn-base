@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="authority">
+
+	<!-- 查询栏目和模块 by yangzq -->
+	<resultMap id="columnsResultMap" type="com.swust.kelab.model.FunctionModel">
+		<id column="fumo_id" property="fumoId" />
+		<result column="fumo_parentid" property="fumoParentid" />
+		<result column="fumo_name" property="fumoName" />
+		<result column="fumo_describe" property="fumoDescribe" />
+		<result column="fumo_type" property="fumoType" />
+		<result column="fumo_url" property="fumoUrl" />
+		<result column="fumo_ordinal" property="fumoOrdinal" />
+		<result column="fumo_icon" property="fumoIcon"/>
+		<collection property="functions" ofType="com.swust.kelab.model.FunctionModel">
+			<id column="paren_id" property="fumoId" />
+			<result column="paren_paren_id" property="fumoParentid" />
+			<result column="paren_name" property="fumoName" />
+			<result column="paren_describe" property="fumoDescribe" />
+			<result column="paren_type" property="fumoType" />
+			<result column="paren_url" property="fumoUrl" />
+			<result column="paren_ordinal" property="fumoOrdinal" />
+			<result column="paren_icon" property="fumoIcon"/>
+			<collection property="actions" javaType="ArrayList" ofType="com.swust.kelab.domain.Action">
+				<id column="acti_id" property="actiId" />
+				<result column="acti_name" property="actiName" />
+				<result column="acti_url" property="actiUrl" />
+				<result column="acti_type" property="actiType" />
+			</collection>
+		</collection>
+	</resultMap>
+
+	<resultMap type="com.swust.kelab.domain.Action" id="actionResultMap">
+		<id column="acti_id" property="actiId" />
+		<result column="acti_name" property="actiName" />
+		<result column="acti_describe" property="actiDescribe" />
+		<result column="acti_url" property="actiUrl" />
+		<result column="acti_type" property="actiType" />
+	</resultMap>
+
+
+	<!-- 查询所有权限 by yangzq -->
+	<select id="selectFunctions" parameterType="java.util.HashMap"
+		resultMap="columnsResultMap">
+		<![CDATA[
+		SELECT
+			f1.fumo_id,
+			f1.fumo_parentid,
+			f1.fumo_name,
+			f1.fumo_describe,
+			f1.fumo_type,
+			f1.fumo_url,
+			f1.fumo_ordinal,
+			f1.fumo_icon,
+			f2.fumo_id as paren_id,
+			f2.fumo_parentid as paren_paren_id,
+			f2.fumo_name as paren_name,
+			f2.fumo_describe as paren_describe,
+			f2.fumo_type as paren_type,
+			f2.fumo_url as paren_url,
+			f2.fumo_ordinal as paren_ordinal,
+			f2.fumo_icon as paren_icon,
+			ac.acti_id,
+			ac.acti_name,
+			ac.acti_url,
+			ac.acti_type
+		FROM
+			FunctionAction fu
+		LEFT OUTER JOIN FunctionModel f2 ON f2.fumo_id=fu.fuac_fumo_id
+		LEFT OUTER JOIN FunctionModel f1 ON f1.fumo_id=f2.fumo_parentid
+		LEFT OUTER JOIN Action ac ON ac.acti_id=fu.fuac_acti_id
+		WHERE
+			f1.fumo_type = 1
+		]]>
+		ORDER BY f1.fumo_id
+	</select>
+
+
+	<!-- 查询所有栏目 by yangzq  权限查询历史记录 -->
+	<select id="selectColumns" resultMap="columnsResultMap">
+	<![CDATA[
+		SELECT
+			f1.fumo_id,
+			f1.fumo_parentid,
+			f1.fumo_name,
+			f1.fumo_describe,
+			f1.fumo_type,
+			f1.fumo_url,
+			f1.fumo_ordinal,
+			f1.fumo_icon,
+			f2.fumo_id as paren_id,
+			f2.fumo_parentid as paren_paren_id,
+			f2.fumo_name as paren_name,
+			f2.fumo_describe as paren_describe,
+			f2.fumo_type as paren_type,
+			f2.fumo_url as paren_url,
+			f2.fumo_ordinal as paren_ordinal,
+			f2.fumo_icon as paren_icon,
+			ac.acti_id,
+			ac.acti_name,
+			ac.acti_url,
+			ac.acti_type
+		FROM
+			FunctionAction fu
+		LEFT OUTER JOIN FunctionModel f2 ON f2.fumo_id=fu.fuac_fumo_id
+		LEFT OUTER JOIN FunctionModel f1 ON f1.fumo_id=f2.fumo_parentid
+		LEFT OUTER JOIN Action ac ON ac.acti_id=fu.fuac_acti_id
+		WHERE
+			f1.fumo_type = 1
+		AND ac.acti_id IN
+		]]>
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+				#{item}
+		</foreach>
+		ORDER BY f1.fumo_id,f2.fumo_id
+	</select>
+	
+	
+	<!-- 根据二级栏目查询所有权限模块  by yangzq    2013/8/4修改版本 -->
+	<select id="queryAuthorityColumns" resultMap="columnsResultMap">
+	<![CDATA[
+		SELECT
+			f1.fumo_id,
+			f1.fumo_parentid,
+			f1.fumo_name,
+			f1.fumo_describe,
+			f1.fumo_type,
+			f1.fumo_url,
+			f1.fumo_ordinal,
+			f1.fumo_icon,
+			f2.fumo_id as paren_id,
+			f2.fumo_parentid as paren_paren_id,
+			f2.fumo_name as paren_name,
+			f2.fumo_describe as paren_describe,
+			f2.fumo_type as paren_type,
+			f2.fumo_url as paren_url,
+			f2.fumo_ordinal as paren_ordinal,
+			f2.fumo_icon as paren_icon,
+			ac.acti_id,
+			ac.acti_name,
+			ac.acti_url,
+			ac.acti_type
+		FROM
+			FunctionAction fu
+		LEFT OUTER JOIN FunctionModel f2 ON f2.fumo_id=fu.fuac_fumo_id
+		LEFT OUTER JOIN FunctionModel f1 ON f1.fumo_id=f2.fumo_parentid
+		LEFT OUTER JOIN Action ac ON ac.acti_id=fu.fuac_acti_id
+		WHERE
+			f1.fumo_type = 1
+		AND fu.fuac_fumo_id IN
+		]]>
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+				#{item}
+		</foreach>
+		ORDER BY f1.fumo_id,f2.fumo_id
+	</select>
+	
+	
+	<!-- 查询角色对应的所有功能编号 by yangzq -->
+	<select id="selectRoleFunctions" parameterType="INTEGER"
+		resultType="com.swust.kelab.domain.ReAuthority">
+		<![CDATA[
+		SELECT
+			reau_id as reauId,
+			reau_role_id as reauRoleId,
+			reau_fumo_id as reauFumoId,
+			reau_actions as reauActions
+		FROM
+			Re_Authority reau
+		WHERE
+			reau.reau_role_id = #{roleId}
+		]]>
+		ORDER BY reau.reau_fumo_id
+	</select>
+
+
+	<!-- 查询角色权限Action by yangzq -->
+	<select id="selectActions" resultType="com.swust.kelab.domain.ReAuthority">
+		<![CDATA[
+			SELECT 
+				reau_id as reauId,
+				reau_role_id as reauRoleId,
+				reau_fumo_id as reauFumoId,
+				reau_createtime as reauCreatetime,
+				reau_actions as reauActions
+			FROM 
+				Re_Authority reau
+			WHERE 
+				reau.reau_role_id IN
+		]]>
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+				#{item}
+		</foreach>
+		ORDER BY reau.reau_fumo_id
+	</select>
+
+	<!-- 新增角色保存权限模块 by yangzq -->
+	<insert id="saveReAuthority" parameterType="com.swust.kelab.domain.ReAuthority">
+	<![CDATA[
+		INSERT INTO
+			Re_Authority (
+			reau_role_id, 
+			reau_fumo_id, 
+			reau_createtime,
+			reau_actions
+		)
+		values (
+			#{reauRoleId},
+			#{reauFumoId},
+			#{reauCreatetime},
+			#{reauActions}
+		)
+	]]>
+	</insert>
+	
+	<!-- 新增模块功能 by yangzq -->
+	<insert id="saveFunctionAction" parameterType="com.swust.kelab.domain.FunctionAction">
+	<![CDATA[
+		INSERT INTO
+			FunctionAction (
+			fuac_fumo_id, 
+			fuac_acti_id
+		)
+		values (
+			#{fuacFumoId},
+			#{fuacActiId}
+		)
+	]]>
+	</insert>
+	
+	<!-- 根据roleId删除权限信息 by yangzq -->
+	<delete id="deleteReAuthorityByRoleId" parameterType="String">
+	<![CDATA[
+		DELETE FROM
+			Re_Authority
+		WHERE
+			reau_role_id in
+	]]>
+	<foreach item="item" index="index" collection="array" open="("
+		separator="," close=")">
+		#{item}
+	</foreach>
+	</delete>
+	
+	
+	<!-- 查询用户对应的权限action，用于白名单 by yangzq -->
+	<select id="queryUserAuthorAction" parameterType="int"
+		 resultType="String">
+	<![CDATA[
+	SELECT
+		reau.reau_actions
+	FROM
+		Re_Authority reau
+	LEFT OUTER JOIN Re_UserRole re ON re.rero_role_id = reau.reau_role_id
+	WHERE 
+		re.rero_user_id=#{userId}
+	]]>
+	</select>
+	
+	<!-- 查询所有action的url by yangzq -->
+	<select id="queryAllActionUrl" resultType="String">
+	<![CDATA[
+	SELECT
+		acti_url
+	FROM
+		Action
+	WHERE
+		acti_type=2 and acti_id in
+	]]>
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+	<!-- 获取一级栏目 by yangzq -->
+	<select id="firLevelCol" resultType="com.swust.kelab.model.FunctionModel">
+		SELECT 
+			fumo_id as fumoId,
+			fumo_name as fumoName
+		FROM FunctionModel
+		WHERE
+		   fumo_type = 1
+	</select>
+	
+	
+	<!-- 查询二级栏目 by yangzq -->
+	<select id="secLevelCol" parameterType="int" resultType="com.swust.kelab.model.FunctionModel">
+		SELECT 
+			fumo_id as fumoId,
+			fumo_name as fumoName
+		FROM FunctionModel
+		WHERE
+		   fumo_type = 2 AND fumo_parentid = #{firId}
+	</select>
+	
+	<select id="tempLink" resultType="com.swust.kelab.domain.FunctionAction">
+		SELECT 
+			fuac_fumo_id as fuacFumoId,
+			fuac_acti_id as fuacActiId
+		FROM FunctionAction
+		ORDER BY fuacFumoId
+	</select>
+	
+	<select id="tempAction" resultMap="actionResultMap">
+		SELECT 
+			*
+		FROM Action
+	</select>
+	
+	
+	<!-- 保存一二级栏目  by yangzq -->
+	<insert id="saveFunctionModel" parameterType="com.swust.kelab.model.FunctionModel">
+	INSERT INTO
+		FunctionModel (
+			fumo_parentid,
+			fumo_name,
+			fumo_describe,
+			fumo_type,
+			fumo_url,
+			fumo_ordinal,
+			fumo_icon
+		)
+		values (
+			#{fumoParentid},
+			#{fumoName},
+			#{fumoDescribe},
+			#{fumoType},
+			#{fumoUrl},
+			#{fumoOrdinal},
+			#{fumoIcon}
+		)
+	</insert>
+	
+	<!-- 保存action与栏目的联系表  by yangzq-->
+	<insert id="saveFuncAction" parameterType="com.swust.kelab.domain.FunctionAction">
+	<![CDATA[
+	INSERT INTO
+			FunctionAction (
+			fuac_fumo_id, 
+			fuac_acti_id
+		)
+		values (
+			#{fuacFumoId},
+			#{fuacActiId}
+		)
+	]]>
+	</insert>
+	
+	<!-- 保存action by yangzq -->
+	<insert id="saveAction" parameterType="com.swust.kelab.domain.Action" 
+		useGeneratedKeys="true" keyProperty="actiId">
+	<![CDATA[	
+	INSERT INTO
+			Action (
+			acti_name, 
+			acti_describe,
+			acti_url,
+			acti_type
+		)
+		values (
+			#{actiName},
+			#{actiDescribe},
+			#{actiUrl},
+			#{actiType}
+		)
+	]]>
+	</insert>
+	
+	<!-- 更新栏目 by yangzq -->
+	<update id="editFunctionModel" parameterType="com.swust.kelab.model.FunctionModel">
+	<![CDATA[
+		UPDATE
+			FunctionModel
+		SET
+			fumo_parentid = #{fumoParentid},
+			fumo_name = #{fumoName},
+			fumo_describe = #{fumoDescribe},
+			fumo_type = #{fumoType},
+			fumo_url = #{fumoUrl},
+			fumo_ordinal = #{fumoOrdinal},
+			fumo_icon = #{fumoIcon}
+		WHERE
+			fumo_id = #{fumoId}
+	]]>
+	</update>
+	
+	<!-- 编辑操作信息 by yangzq -->
+	<update id="editAction" parameterType="com.swust.kelab.domain.Action">
+	<![CDATA[
+		UPDATE
+			Action
+		SET
+			acti_name = #{actiName}, 
+			acti_url = #{actiUrl}
+		WHERE
+			acti_id = #{actiId}
+	]]>
+	</update>
+	
+	
+	<!-- 根据actioniD查询中间表的fumoIds by yangzq -->
+	<select id="queryFuncActionFumoIds" parameterType="String" resultType="String">
+		SELECT
+			fuac_fumo_id
+		FROM
+			FunctionAction
+		WHERE
+			fuac_acti_id = #{actIds}
+	</select>
+
+	<!-- 根据fumoid获取所有actionid by yangzq -->
+	<select id="queryFuncActionsByFumoIds" parameterType="String" resultType="String">
+		SELECT
+			fuac_acti_id
+		FROM
+			FunctionAction
+		WHERE
+			fuac_fumo_id = #{fumoIds}
+	</select>
+
+	<!-- 根据actionid删除action  by yangzq-->
+	<delete id="deleteAction" parameterType="int">
+		DELETE FROM
+			Action
+		WHERE
+			acti_id in 
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	
+	<!-- 根据条件删除中间关联表 by yangzq -->
+	<delete id="deleteFunctionAction" parameterType="map">
+		DELETE FROM
+			FunctionAction
+		WHERE
+			fuac_fumo_id = #{fumoId}
+		<if test="actId !=null and actId >0">
+			AND fuac_acti_id = #{actId}
+		</if>
+	</delete>
+	
+	<!-- 根据fumoId删除栏目 by yangzq -->
+	<delete id="deleteFunctionModel" parameterType="map">
+		DELETE FROM
+			FunctionModel
+		WHERE
+			fumo_id=#{fumoId}
+	</delete>
+</mapper>

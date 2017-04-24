@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.min.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title>我教你 — 学习平台 — 学生成绩确认统计</title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-bar-chart-o"></i> 教务统计
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>学生成绩确认统计</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content white-bg">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">								
+								    <div class="col-sm-3"></div>
+									<div id="errorarea" class="col-sm-6">
+										<img src="../img/alert.jpg">
+										<h3>对不起，导出或下载失败！可能相应数据为空或文件不存在！</h3>
+										<p>如有需要，请联系管理员获取帮助！</p>
+										<input class=" btn btn-large  btn-primary" type="button"
+											name="back" style="margin-top: 50px;" value="返回"
+											onclick="javascript:history.go(-1);" />
+									</div>
+									<div class="col-sm-3"></div>						
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script type="text/javascript" src="../js/sysman_Class.js"></script>
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+</body>
+</html>

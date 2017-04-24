@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link href="../css/ncss/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all" />
+<link href="../css/home.css" rel="stylesheet" type="text/css"
+	media="all" />
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+	<!-- header -->
+	<div class="header-nav">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<img src="../img/iteach-logo-small.png" alt=" " />
+				</div>
+				<div id="getnav" class="navbar-collapse collapse" role="navigation">
+				<!-- 	<div class="setTitle nav navbar-nav">个性化网络教学平台</div>
+					<ul class="nav navbar-nav navbar-right hidden-sm">
+						<li><a href="#" data-toggle="modal" data-target="#myModal">登录</a></li>
+						<li><a href="#">注册</a></li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+
+		<!-- 轮播start 
+		<div id="myCarousel" class="carousel slide home_Carousel">
+			< 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!--<!-- 轮播（Carousel）项目 >
+			
+			<div class="carousel-inner">
+				<div class="item active home_Carousel">
+					<img src="../img/homeImages/bann.jpg" alt="First slide">
+				</div>
+				<div class="item home_Carousel">
+					<img src="../img/homeImages/bann1.jpg" alt="Second slide">
+				</div>
+				<div class="item home_Carousel">
+					<img src="../img/homeImages/bann.jpg" alt="Third slide">
+				</div>
+			</div>
+			<!-- 轮播（Carousel）导航 ->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right" href="#myCarousel"
+				data-slide="next">&rsaquo;</a>
+		</div>
+		<!-- 轮播end -->
+		<div id="pictures"></div>
+	</div>
+	<!-- //header -->
+
+	<!-- 主页内容 s -->
+	<div class="container-fluid">
+		<!-- 名师讲堂 s -->
+		<div class="b-title">
+			<h3 id="responsive-embed" class="page-header">名师讲堂</h3>
+			<!-- 实际调用了最新课程数据 -->
+		</div>
+		<div class="blog-right1" id="showTeacher">
+			<!-- js打印 homeLearning js -->
+		</div>
+		<!-- 名师讲堂 e -->
+		<!-- 猜你喜欢 s -->
+		<div class="b-title">
+			<h3 id="responsive-embed" class="page-header">猜你喜欢</h3>
+		</div>
+		<div class="blog-right1" id="recommendCourses">
+	<!-- 		<div class="portfolio1" data-cat="logo"
+				style="display: inline-block; opacity: 1;">
+				<div class="portfolio-wrapper">
+					<a href="#" class="b-link-stripe b-animate-go  thickbox"> <img
+						src="../img/homeImages/1.jpg" />
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left b-delay03 ">
+								<img src="../img/homeImages/set.png" alt="" />
+							</h2>
+						</div>
+					</a>
+					<div class="blog-right-l">
+						<h5>
+							<a href="single.html">Blog post titles in here</a>
+						</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Aenean sed nulla eget turpis viverra ornare.</p>
+					</div>
+				</div>
+			</div>
+			<div class="portfolio1" data-cat="app"
+				style="display: inline-block; opacity: 1;">
+				<div class="portfolio-wrapper">
+					<a href="#" class="b-link-stripe b-animate-go  thickbox"> <img
+						src="../img/homeImages/2.jpg" />
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<img src="../img/homeImages/set.png" alt="" />
+							</h2>
+						</div>
+					</a>
+					<div class="blog-right-l">
+						<h5>
+							<a href="single.html">Blog post titles in here</a>
+						</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Aenean sed nulla eget turpis viverra ornare.</p>
+					</div>
+				</div>
+			</div>
+			<div class="portfolio1" data-cat="web"
+				style="display: inline-block; opacity: 1;">
+				<div class="portfolio-wrapper">
+					<a href="#" class="b-link-stripe b-animate-go  thickbox"> <img
+						src="../img/homeImages/3.jpg" />
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<img src="../img/homeImages/set.png" alt="" />
+							</h2>
+						</div>
+					</a>
+					<div class="blog-right-l">
+						<h5>
+							<a href="single.html">Blog post titles in here</a>
+						</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Aenean sed nulla eget turpis viverra ornare.</p>
+					</div>
+				</div>
+			</div>
+			<div class="portfolio1 app mix_all " data-cat="logo"
+				style="display: inline-block; opacity: 1;">
+				<div class="portfolio-wrapper">
+					<a href="#" class="b-link-stripe b-animate-go  thickbox"> <img
+						src="../img/homeImages/1.jpg" />
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<img src="../img/homeImages/set.png" alt="" />
+							</h2>
+						</div>
+					</a>
+					<div class="blog-right-l">
+						<h5>
+							<a href="single.html">Blog post titles in here</a>
+						</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Aenean sed nulla eget turpis viverra ornare.</p>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<!-- 猜你喜欢 e -->
+
+		<!-- 平台应用统计 s -->
+		<div class="b-title">
+			<h3 id="responsive-embed" class="page-header">平台应用统计</h3>
+		</div>
+		<div class="blog-right1">
+			<div class="col-xs-4">
+				<ul class="media-list"  id="medialist1">
+				</ul>
+			</div>
+			<div class="col-xs-4">
+				<ul class="media-list" id="medialist2">
+				</ul>
+			</div>
+			<div class="col-xs-4">
+				<ul class="media-list" id="medialist3">
+				</ul>
+			</div>
+		</div>
+		<!-- 平台应用统计 e -->
+	</div>
+	<div class="overfooter"></div>
+	<!--与页脚间距 -->
+	<!-- 主页内容 e -->
+	<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grids">
+				<div class="footer-grid">
+					<h3>app下载</h3>
+					<div class="para">
+						<img id="androidHD" class="appIcon"
+							src="../img/app/android-128-black.png"> <img id="android"
+							class="appIcon" src="../img/app/android-128-black.png"> <!-- <img
+							id="apple" class="appIcon" src="../img/app/apple-128-black.png">
+						<img id="appleHD" class="appIcon"
+							src="../img/app/apple-128-black.png"> -->
+					</div>
+				</div>
+				<div class="footer-grid">
+					<h3>关于我们</h3>
+					<p>知识工程与教育技术团队</p>
+					<br>
+					<p>
+						团队长期致力于数据工程与知识工程的相关研究开发工作，承担了多项国家级、省部级项目，为企事业单位开发了众多的应用软件，获得软件著作权12项。
+
+					</p>
+				</div>
+				<div class="footer-grid">
+					<h3>注意事项</h3>
+					<p>请使用谷歌浏览器（Chrome）、火狐浏览器（Firefox）、360安全浏览器（V6）和IE9及以上版本浏览器浏览本站。</p>
+				</div>
+				<div class="footer-grid">
+					<h3>友情链接</h3>
+					<div class="para" id="link">
+						
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<p class="template">
+				平台开发与技术支持<a href="http://iteach.swust.edu.cn/kelab/" target="_blank">@知识工程实验室</a><br>赛尔网络下一代互联网技术创新项目（编号：NGII20150510）
+			</p>
+		</div>
+	</div>
+	<!-- footer -->
+</body>
+<!--登录弹出层 s -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">登录</h4>
+				<p id="loginInfo" class="text-center text-info">欢迎登陆学习平台！</p>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="inputName3" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="username"
+								placeholder="请输入用户名">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-6">
+							<input type="password" class="form-control" id="password"
+								placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="authcode" 
+								placeholder="请输入验证码">
+						</div>
+						<div class="col-sm-3">
+							<img  alt="验证码" onclick="reloadcode()" id="imgcode"
+								src="checkcode.jsp">
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<a href="forgotPassword_home.html" type="button" class="btn btn-default">忘记密码？</a>
+				<button id="loginbut" type="button" class="btn btn-primary">登录</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--登录弹出层 e -->
+<!-- 最新课程描述 start -->
+<div id="DesModal" class="modal fade" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" aria-hidden="true" data-dismiss="modal"
+					type="button">×</button>
+				<h4 id="courseTitle">查看课程详情请登录</h4>
+			</div>
+			<div id="homeLearningDes" class="modal-body"></div>
+			<div class="modal-footer">
+				<a class="btn btn-default" data-dismiss="modal">关闭</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 最新课程描述 end -->
+<!-- js -->
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/njs/bootstrap.min.js"></script>
+<script src="../js/extend.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<!-- <script src="../js/winHome.js"></script> -->
+
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/home.js"></script>
+<script type="text/javascript" src="../js/md5.js"></script>
+<script type="text/javascript" src="../js/homeLearning.js"></script>
+<script type="text/javascript" src="../js/login.js"></script>
+</html>

@@ -1,0 +1,15 @@
+.inner-image
+{
+	width:250px;
+	height:150px;
+	padding:20px;
+}
+.course-name
+{
+	padding-top: 30px;
+}
+.course-credit
+{
+	padding-top:20px;
+	padding-bottom: 20px;
+}

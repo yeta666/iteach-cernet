@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<!-- 时间选择css -->
+<link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+	    </nav>
+	    <div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">			
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-calendar-o"></i> 测试管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>题库管理</strong></li>
+					</ol>
+				</div>
+			</div>
+			 <div class="wrapper wrapper-content">
+                <div class="row animated fadeInRight">
+		            <div class="row">
+		                <div class="col-lg-12">
+		                    <div class="wrapper wrapper-content animated fadeInRight">
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-credit-card"></i> 题库管理
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<!-- 查询区域 -->
+									<div class="ibox-content" style="padding-left: 4px;">
+										<form role="form" class="form-inline">
+											<select id="quCourse" class="form-control1"
+												onchange="changeFun()">
+												<option value="-1">选择课程</option>
+											</select> 
+											<select id="quType" name="quType" class="form-control1"
+												onchange="changeFun()">
+												<option value="-1">选择题型</option>
+												<option value="1">单选题</option>
+												<option value="2">多选题</option>
+												<option value="3">判断题</option>
+												<option value="4">填空题</option>
+												<option value="5">问答题</option>
+											</select>											
+											<input type="text" placeholder="开始时间"
+												data-date-format="yyyy-mm-dd" class="form-control1"
+												id="startTime"> ~ <input type="text"
+												placeholder="结束时间" data-date-format="yyyy-mm-dd"
+												class="form-control1" id="endTime"> <input
+												type="text" placeholder="请输入关键词" id="keyword"
+												class="form-control1">
+											<button class="btn btn-primary" id="search">
+												<i class="fa fa-search"></i> 搜索
+											</button>
+											<br>
+											<!-- 管理员“增加删除”信息区域 -->
+											<span id="noticeadddel"> <a id="addQu"
+												onclick="buttonHtml('sysman_Questions_add.html');"
+												class="btn btn-warning"> <i class="fa fa-plus"></i>
+													增加
+											</a> <a id="delQu" class="btn btn-danger"> <i
+													class="fa fa-minus"></i> 删除
+											</a> <a type="button" class="btn btn-info" data-toggle="modal"
+												data-keyboard="true" data-backdrop="true"
+												href="#importModal"> <i class="fa fa-sign-out"></i>批量导入试题
+											</a>
+											</span>
+											<!-- /管理员“增加删除”信息区域 -->
+										</form>
+
+										<div id="delInfo"></div>
+										<!-- 查询区域 -->
+										<div id="user-center-content">
+											<table class="table table-hover table-bordered">
+												<thead>
+													<tr>
+														<th><a href="#" id="chooseall">全选</a></th>
+														<th>编号</th>
+														<th>题库</th>
+														<th>类型</th>
+														<th>题干</th>
+														<th>创建时间</th>
+													</tr>
+												</thead>
+												<tbody id="mainTable">
+												</tbody>
+											</table>
+										</div>
+
+										<!-- 分页区域 -->									
+										
+										    <div id="pagination" class="pagination page-left"  ></div>
+										
+										<br/><br/>
+										<!-- /分页区域 -->
+									</div>
+								</div>
+							</div>	
+		                    </div>	             
+		            </div>
+                </div>
+            </div>
+            <div id="footer" class="footer">  
+            </div>
+	   </div>
+  </div>
+	<div class="modal inmodal" id="importModal" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal"><i class="fa fa-close"></i>关闭</a>
+					<h3>
+						批量导入试题 <span style="color: red;" id="tipMsg"></span>
+					</h3>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-info">
+						<h4 class="alert-heading">批量导入须知</h4>
+						<ol>
+							<li>添加试题前，请确认该试题中对于的课程已经在。若不存在，请联系管理员添加。</li>
+							<li>批量导入试题目前仅支持EXCEL格式文件，且需要按照如下文件格式写入。<strong>（请严格参照模板中的范例填写）</strong></li>
+							<li><a
+								href="../../handler/train/downloadRe?fileName=batchQuesTemplate.xls"
+								style="color: red"> 点击这里 </a>下载模板文件<strong>（如果格式不正确将不能导入）</strong>，模板中的课程编号请在下面下载的文件查找。</li>
+							<li><span id="involveDownload"> <a
+									href="../../handler/train/downloadRe?fileName=CourseIds.xls"
+									style="color: red"> 点击这里 </a>下载已添加的课程编号。
+							</span></li>
+						</ol>
+					</div>
+					<div id="faileArea" style="display: none">
+						<div class="row alert alert-error">
+							<a class="close" data-dismiss="alert">×</a>
+							<h3 class="alert-heading">批量导入试题失败：</h3>
+							<a href="" id="failDownload" style="color: red"> 点击这里 </a>下载批量导入失败数据，具体原因见该文件！
+						</div>
+					</div>
+					<div id="infomsg"></div>
+					<div class="btn-toolbar">
+						<form id="uploadform" class="form-inline well">
+							<label class="control-label" for="file">上传附件</label> <input
+								class="input-file" id="file" name="file" type="file">
+							<button class="btn btn-primary" type="button" id="upload">上传导入</button>
+							<button class="btn btn-danger" type="button" id="dataImport"
+								style="display: none" onclick="">导入</button>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../js/njs/jquery-2.1.1.min.js"></script>
+<script src="../js/extend.js"></script>
+<script src="../js/njs/bootstrap.min.js"></script>
+<script src="../js/njs/jquery.metisMenu.js"></script>
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+<!--时间选择js -->
+<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/sysman_Questions.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="../js/njs/hplus.js"></script>
+<!--控制导航自动缩进-->
+</html>

@@ -55,8 +55,48 @@ $(function() {
 						var resultData = data.data.result;
 						if(resultData == "success") {
 							$.cookie('colVideo', '0'); //控制视频 唯一开启
-							window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-							return;
+							//获取userId
+							$.ajax({
+								type: 'GET',
+								contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
+								url: '../../handler/home/navibar',
+								async: false, // 需要同步请求数据
+								dataType: 'json',
+								success: function(data, status) {
+									var resultData = data.data;
+									//获取用户类型
+									$.ajax({
+										url : "http://127.0.0.1:8081/adaptive_ui/getUserType",
+										type : "get",
+										data : {
+											"userId": resultData.userId
+										},
+										dataType : "text",
+										success : function(data) {
+											var result = JSON.parse(data);
+											//console.log(result);
+											if(result.status){
+												$.cookie("userType", result.data);
+												window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+											}else{
+												//后台计算不出用户类型，计算不出的原因result.message
+												if(confirm("请问是否愿意填写一张调查表，好让系统为您进行个性化定制？")){
+													//调查表
+													window.location.href = "questionary.html";
+													return;
+												}else{
+													//默认定制
+													$.cookie("userType", "default");
+													window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+												}
+											}
+										},
+										error : function(XHR) {
+											alert("出现错误，请稍后重试！错误码： " + XHR.status);
+										}
+									});
+								}
+							});
 						} else if(resultData == "passwordError" || resultData == "null") {
 							alert("用户或者密码错误！");
 						} else if(resultData == "unVerify") {

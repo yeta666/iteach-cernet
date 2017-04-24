@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/iteach/!svn/ver/393/iteach-svn/src/main/resources/mapper
+END
+GradeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/GradeMapper.xml
+END
+GradeAndClassMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/GradeAndClassMapper.xml
+END
+ScoreExportConfirm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ScoreExportConfirm.xml
+END
+EvaluateMethodMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/EvaluateMethodMapper.xml
+END
+CourseMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iteach/!svn/ver/393/iteach-svn/src/main/resources/mapper/CourseMapper.xml
+END
+VedioServerMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/VedioServerMapper.xml
+END
+VideoServerMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/VideoServerMapper.xml
+END
+ExamMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ExamMapper.xml
+END
+LearningProcessRecordMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/LearningProcessRecordMapper.xml
+END
+AttachmentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/AttachmentMapper.xml
+END
+webtest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/webtest.xml
+END
+QuestionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/QuestionMapper.xml
+END
+ClasInfoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ClasInfoMapper.xml
+END
+StudentMassedLearningMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/StudentMassedLearningMapper.xml
+END
+RecomMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/iteach/!svn/ver/329/iteach-svn/src/main/resources/mapper/RecomMapper.xml
+END
+BbsPostMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/BbsPostMapper.xml
+END
+ReUserRoleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ReUserRoleMapper.xml
+END
+CourseSelectInformationMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/iteach/!svn/ver/204/iteach-svn/src/main/resources/mapper/CourseSelectInformationMapper.xml
+END
+RoleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/RoleMapper.xml
+END
+BbsReplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/BbsReplyMapper.xml
+END
+CourseCategoryMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/CourseCategoryMapper.xml
+END
+SystemParameterMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/SystemParameterMapper.xml
+END
+StudentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/StudentMapper.xml
+END
+NoticeAnnouncementMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/NoticeAnnouncementMapper.xml
+END
+AuthorityMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/AuthorityMapper.xml
+END
+LogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/LogMapper.xml
+END
+AnnouncementMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/AnnouncementMapper.xml
+END
+ReChapterResourceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ReChapterResourceMapper.xml
+END
+ReSelectCourseMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ReSelectCourseMapper.xml
+END
+CourseCateMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/CourseCateMapper.xml
+END
+UserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/UserMapper.xml
+END
+PaperMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/PaperMapper.xml
+END
+ChapterMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/ChapterMapper.xml
+END
+ResourceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iteach/!svn/ver/301/iteach-svn/src/main/resources/mapper/ResourceMapper.xml
+END
+MassedLearningMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/MassedLearningMapper.xml
+END
+DepartmentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/iteach/!svn/ver/2/iteach-svn/src/main/resources/mapper/DepartmentMapper.xml
+END
