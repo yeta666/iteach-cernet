@@ -1,4 +1,7 @@
 $(function(){
+	//初始化数据
+	var finish_question_num = 0;
+	var answer_index = ["a", "b", "c", "d"];
 	
 	//初始化按钮信息提示
 	$("#submit_btn, #remove_btn").popover({
@@ -19,7 +22,7 @@ $(function(){
 			$_this.popover('hide');
 			
 			//要求完成所有题目
-			/*if(finish_question_num != parseInt($("#total_question_num").html())){
+			/*if(finish_question_num != parseInt($("#total_question_num").val())){
 				alert("请完成所有题目后提交！");
 				return ;
 			}*/
@@ -61,8 +64,8 @@ $(function(){
 				dataType: "json",
 				success: function(data){
 					if(data.status){
-						var userTypeJson = JSON.stringify(data.data);
-						$.cookie("userType", userTypeJson);
+						console.log(data.data);
+						$.cookie("userType", data.data);
 						window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 					}else{
 						$.bootstrapLoading.end();
@@ -89,15 +92,10 @@ $(function(){
 		//给确定取消提交按钮绑定事件
 		$("#remove_btn_ok").click(function(){
 			//默认定制
-			var userTypeJson = JSON.stringify([{"type":"default","level":0}]);
-			$.cookie("userType", userTypeJson);
+			$.cookie("userType", "default");
 			window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 		});
 	});
-	
-	//初始化数据
-	var finish_question_num = 0;
-	var answer_index = ["a", "b", "c", "d"];
 	
 	//获取调查表数据
 	$.ajax({
@@ -108,7 +106,7 @@ $(function(){
 		success: function(data){
 			if(data.status){
 				//初始化总题目数量
-				$("#total_question_num").html(data.data.length);
+				$("#total_question_num").val(data.data.length);
 				
 				//初始化题目导航的高度
 				var question_navbar_height = $(window).height() * 0.9 / (data.data.length / 2) - 2;

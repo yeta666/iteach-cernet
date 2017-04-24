@@ -106,7 +106,7 @@
 		SELECT
 		count(*)
 		FROM
-		Re_SelectCource as resc
+		Re_SelectCourse as resc
 		WHERE
 		rsco_valid=1
 		and rsco_verify=1
@@ -133,7 +133,7 @@
 		SELECT
 		rsco_cour_id as courId
 		FROM
-		Re_SelectCource
+		Re_SelectCourse
 		WHERE
 		rsco_valid=1 and rsco_verify=1
 		and rsco_user_id = ${userId}
@@ -212,7 +212,7 @@
 		SELECT
 		count(*)
 		FROM
-		Re_SelectCource as rsco
+		Re_SelectCourse as rsco
 		LEFT JOIN
 		User as
 		user
@@ -280,7 +280,7 @@
 		<!-- <if test="userId != null"> ,rsco.rsco_id as rscoId </if> -->
 		FROM
 		Course as cour
-		<!-- <if test="userId != null"> , Re_SelectCource as rsco </if> -->
+		<!-- <if test="userId != null"> , Re_SelectCourse as rsco </if> -->
 		LEFT JOIN Attachment as atta
 		ON atta.atta_id = cour.cour_coverPictureId
 		left join
@@ -288,7 +288,7 @@
 		left join
 		EvaluateMethod on cour_tepa_id=evme_id
 		WHERE
-		<!-- <if test="userId != null"> rsco.rsco_id = ( SELECT rsco_id FROM Re_SelectCource 
+		<!-- <if test="userId != null"> rsco.rsco_id = ( SELECT rsco_id FROM Re_SelectCourse 
 			as rsco WHERE rsco.rsco_user_id = #{userId} AND rsco.rsco_cour_id = #{courId} 
 			) AND </if> -->
 		cour.cour_id = #{courId}
@@ -301,7 +301,7 @@
 		SELECT
 		COUNT(rsc.rsco_id) as rsccount
 		FROM
-		Re_SelectCource as rsc
+		Re_SelectCourse as rsc
 		WHERE
 		rsco_valid=1 and rsco_verify=1 and
 		rsc.rsco_cour_id = #{courId}
@@ -333,7 +333,7 @@
 			SELECT
 			rsco_cour_id
 			FROM
-			Re_SelectCource as rsc
+			Re_SelectCourse as rsc
 			WHERE
 			rsco_valid=1 and rsco_verify=1 and
 			rsc.rsco_user_id =
@@ -377,7 +377,7 @@
 			b.rsco_state as courseStatusCode
 		FROM
 			Course as a,
-			Re_SelectCource as b,
+			Re_SelectCourse as b,
 			ExamPaper as c
 		WHERE
 			rsco_valid=1 and 
@@ -500,7 +500,7 @@
 			<if test="userId != null">
 				and c.cour_id NOT IN(
 				select rsco_cour_id from
-				Re_SelectCource
+				Re_SelectCourse
 				WHERE rsco_valid=1 and rsco_verify=1 and rsco_user_id
 				= #{userId}
 				)
@@ -563,7 +563,7 @@
 			<if test="userId != null">
 				and c.cour_id NOT IN(
 				select rsco_cour_id from
-				Re_SelectCource
+				Re_SelectCourse
 				WHERE rsco_valid=1 and rsco_verify=1 and rsco_user_id
 				= #{userId}
 				)
@@ -605,7 +605,7 @@
 			co.cour_describe as courDescribe ,
 			co.cour_state as courState 
 			FROM Course co
-			LEFT OUTER JOIN Re_SelectCource re ON re.rsco_cour_id=co.cour_id 
+			LEFT OUTER JOIN Re_SelectCourse re ON re.rsco_cour_id=co.cour_id 
 		]]>
 		<where>
 			co.cour_state = 1 and rsco_valid=1 and rsco_verify=1
@@ -661,7 +661,7 @@
 	<select id="selectCount" parameterType="java.util.HashMap"
 		resultType="java.lang.Integer">
 		SELECT COUNT(co.cour_id) FROM Course co LEFT OUTER JOIN
-		Re_SelectCource re ON re.rsco_cour_id=co.cour_id
+		Re_SelectCourse re ON re.rsco_cour_id=co.cour_id
 		<where>
 			co.cour_state = 1 and rsco_valid=1 and rsco_verify=1
 			<if test="userId>0">
@@ -765,7 +765,7 @@
 			csin.csin_cour_id = c.cour_id
 		</if>
 		<if test="userId != null and userId >0">
-			LEFT OUTER JOIN Re_SelectCource rsco ON rsco.rsco_cour_id
+			LEFT OUTER JOIN Re_SelectCourse rsco ON rsco.rsco_cour_id
 			= c.cour_id
 		</if>
 		<trim prefix="where" prefixOverrides="and|or">
@@ -995,7 +995,7 @@
 			csin.csin_cour_id = c.cour_id
 		</if>
 		<if test="userId != null and userId >0">
-			LEFT OUTER JOIN Re_SelectCource rsco ON rsco.rsco_cour_id
+			LEFT OUTER JOIN Re_SelectCourse rsco ON rsco.rsco_cour_id
 			= c.cour_id
 		</if>
 		<trim prefix="where" prefixOverrides="and|or">
@@ -1389,7 +1389,7 @@
 		FROM
 		Course C
 		LEFT
-		JOIN Re_SelectCource AS SC ON
+		JOIN Re_SelectCourse AS SC ON
 		C.cour_id=SC.rsco_cour_id
 		WHERE
 		rsco_valid=1 and rsco_verify=1 and (
@@ -1418,7 +1418,7 @@
 		from
 		Course
 		left
-		join Re_SelectCource on cour_id=rsco_cour_id
+		join Re_SelectCourse on cour_id=rsco_cour_id
 		<where>
 			<if test="courseIds!=null and courseIds.size()>0">
 				cour_id in
@@ -1442,7 +1442,7 @@
 		sum(user_loginState) as onlineNum
 		from
 		Course
-		inner join Re_SelectCource
+		inner join Re_SelectCourse
 		on rsco_cour_id=cour_id
 		inner join User on user_id=rsco_user_id
 		<where>
