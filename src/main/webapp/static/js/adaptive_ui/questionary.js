@@ -44,7 +44,7 @@ $(function(){
 			
 			//伪造数据
 			var forge_answers = [];
-			for(var i = 0; i < 44; i++){
+			for(var i = 0; i < 22; i++){
 				var random_num = parseInt(Math.random() * 2) + 1;
 				if(random_num == 1){
 					forge_answers.push("a");
@@ -109,17 +109,13 @@ $(function(){
 				$("#total_question_num").val(data.data.length);
 				
 				//初始化题目导航的高度
-				var question_navbar_height = $(window).height() * 0.9 / (data.data.length / 2) - 2;
+				var question_navbar_height = $(window).height() * 0.9 / data.data.length - 2;
 				
 				for(var i = 1; i <= data.data.length; i++){
 					//初始化题目导航
 					
 					var $a = $('<a href="#question' + i + '" style="display: block; width: '+question_navbar_height+'px; height: '+question_navbar_height+'px; border: 1px solid rgb(95, 202, 255); border-radius: '+question_navbar_height+'px; text-align: center; line-height: '+question_navbar_height+'px; font-size: 12px; margin: 2px 0; background-color: rgb(192, 229, 248); color: black;">'+i+'</a>');
-					if(i <= data.data.length / 2){
-						$a.appendTo($(".question_navbar")[1]);
-					}else{
-						$a.appendTo($(".question_navbar")[0]);
-					}
+					$a.appendTo($(".question_navbar"));
 					
 					//初始化调查表数据
 					var $formGroup = $('<div class="form-group"></div>');
