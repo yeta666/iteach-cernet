@@ -16,7 +16,7 @@ body {
 	padding: 20px 100px;
 }
 
-.questionary_box>p {
+.questionary_box > p {
 	font-size: 16px;
 }
 
@@ -35,12 +35,5 @@ body {
 	position: fixed;
 	left: 50%;
 	top: 0;
-}
-
-.question_navbar2 {
 	margin-left: 465px;
-}
-
-.question_navbar1 {
-	margin-left: 495px;
 }

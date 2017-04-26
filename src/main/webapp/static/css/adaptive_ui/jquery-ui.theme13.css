@@ -8,7 +8,7 @@
  *
  * http://api.jqueryui.com/category/theming/
  *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?scope=&folderName=ui-lightness&cornerRadiusShadow=5px&offsetLeftShadow=-5px&offsetTopShadow=-5px&thicknessShadow=5px&opacityShadow=20&bgImgOpacityShadow=10&bgTextureShadow=flat&bgColorShadow=000000&opacityOverlay=50&bgImgOpacityOverlay=20&bgTextureOverlay=diagonals_thick&bgColorOverlay=666666&iconColorError=ffd27a&fcError=ffffff&borderColorError=cd0a0a&bgImgOpacityError=18&bgTextureError=diagonals_thick&bgColorError=b81900&iconColorHighlight=228ef1&fcHighlight=363636&borderColorHighlight=fed22f&bgImgOpacityHighlight=75&bgTextureHighlight=highlight_soft&bgColorHighlight=ffe45c&iconColorActive=ef8c08&fcActive=eb8f00&borderColorActive=fbd850&bgImgOpacityActive=65&bgTextureActive=glass&bgColorActive=ffffff&iconColorHover=ef8c08&fcHover=c77405&borderColorHover=fbcb09&bgImgOpacityHover=100&bgTextureHover=glass&bgColorHover=fdf5ce&iconColorDefault=ef8c08&fcDefault=1c94c4&borderColorDefault=cccccc&bgImgOpacityDefault=100&bgTextureDefault=glass&bgColorDefault=f6f6f6&iconColorContent=222222&fcContent=333333&borderColorContent=dddddd&bgImgOpacityContent=100&bgTextureContent=highlight_soft&bgColorContent=eeeeee&iconColorHeader=ffffff&fcHeader=ffffff&borderColorHeader=e78f08&bgImgOpacityHeader=35&bgTextureHeader=gloss_wave&bgColorHeader=f6a828&cornerRadius=4px&fsDefault=1.1em&fwDefault=bold&ffDefault=Trebuchet%20MS%2CTahoma%2CVerdana%2CArial%2Csans-serif
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?scope=&folderName=pepper-grinder&cornerRadiusShadow=18px&offsetLeftShadow=-10px&offsetTopShadow=0&thicknessShadow=5px&opacityShadow=60&bgImgOpacityShadow=40&bgTextureShadow=diagonal_maze&bgColorShadow=000000&opacityOverlay=60&bgImgOpacityOverlay=20&bgTextureOverlay=diagonal_maze&bgColorOverlay=6e4f1c&iconColorError=fbdb93&fcError=ffffff&borderColorError=681818&bgImgOpacityError=68&bgTextureError=fine_grain&bgColorError=b83400&iconColorHighlight=3572ac&fcHighlight=3a3427&borderColorHighlight=b2a266&bgImgOpacityHighlight=15&bgTextureHighlight=fine_grain&bgColorHighlight=f7f3de&iconColorActive=8c291d&fcActive=140f06&borderColorActive=d9d6c4&bgImgOpacityActive=15&bgTextureActive=fine_grain&bgColorActive=eceadf&iconColorHover=ffffff&fcHover=ffffff&borderColorHover=654b24&bgImgOpacityHover=65&bgTextureHover=fine_grain&bgColorHover=654b24&iconColorDefault=b83400&fcDefault=654b24&borderColorDefault=cbc7bd&bgImgOpacityDefault=10&bgTextureDefault=fine_grain&bgColorDefault=f8f7f6&iconColorContent=222222&fcContent=1f1f1f&borderColorContent=d9d6c4&bgImgOpacityContent=10&bgTextureContent=fine_grain&bgColorContent=eceadf&iconColorHeader=b83400&fcHeader=453821&borderColorHeader=d4d1bf&bgImgOpacityHeader=15&bgTextureHeader=fine_grain&bgColorHeader=ffffff&cornerRadius=6px&fsDefault=1.1em&fwDefault=bold&ffDefault=Trebuchet%20MS%2CTahoma%2CVerdana%2CArial%2Csans-serif
  */
 
 
@@ -29,24 +29,24 @@
 	font-size: 1em;
 }
 .ui-widget.ui-widget-content {
-	border: 1px solid #cccccc;
+	border: 1px solid #cbc7bd;
 }
 .ui-widget-content {
-	border: 1px solid #dddddd;
-	background: #eeeeee url("../../jquery_ui_images/ui-bg_highlight-soft_100_eeeeee_1x100.png") 50% top repeat-x;
-	color: #333333;
+	border: 1px solid #d9d6c4;
+	background: #eceadf url("../../jquery_ui_images/ui-bg_fine-grain_10_eceadf_60x60.png") 50% 50% repeat;
+	color: #1f1f1f;
 }
 .ui-widget-content a {
-	color: #333333;
+	color: #1f1f1f;
 }
 .ui-widget-header {
-	border: 1px solid #e78f08;
-	background: #f6a828 url("../../jquery_ui_images/ui-bg_gloss-wave_35_f6a828_500x100.png") 50% 50% repeat-x;
-	color: #ffffff;
+	border: 1px solid #d4d1bf;
+	background: #ffffff url("../../jquery_ui_images/ui-bg_fine-grain_15_ffffff_60x60.png") 50% 50% repeat;
+	color: #453821;
 	font-weight: bold;
 }
 .ui-widget-header a {
-	color: #ffffff;
+	color: #453821;
 }
 
 /* Interaction states
@@ -60,10 +60,10 @@
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border: 1px solid #cccccc;
-	background: #f6f6f6 url("../../jquery_ui_images/ui-bg_glass_100_f6f6f6_1x400.png") 50% 50% repeat-x;
+	border: 1px solid #cbc7bd;
+	background: #f8f7f6 url("../../jquery_ui_images/ui-bg_fine-grain_10_f8f7f6_60x60.png") 50% 50% repeat;
 	font-weight: bold;
-	color: #1c94c4;
+	color: #654b24;
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -72,7 +72,7 @@ a.ui-button,
 a:link.ui-button,
 a:visited.ui-button,
 .ui-button {
-	color: #1c94c4;
+	color: #654b24;
 	text-decoration: none;
 }
 .ui-state-hover,
@@ -83,10 +83,10 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-	border: 1px solid #fbcb09;
-	background: #fdf5ce url("../../jquery_ui_images/ui-bg_glass_100_fdf5ce_1x400.png") 50% 50% repeat-x;
+	border: 1px solid #654b24;
+	background: #654b24 url("../../jquery_ui_images/ui-bg_fine-grain_65_654b24_60x60.png") 50% 50% repeat;
 	font-weight: bold;
-	color: #c77405;
+	color: #ffffff;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -98,7 +98,7 @@ a:visited.ui-button,
 .ui-state-focus a:visited,
 a.ui-button:hover,
 a.ui-button:focus {
-	color: #c77405;
+	color: #ffffff;
 	text-decoration: none;
 }
 
@@ -111,20 +111,20 @@ a.ui-button:focus {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-	border: 1px solid #fbd850;
-	background: #ffffff url("../../jquery_ui_images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+	border: 1px solid #d9d6c4;
+	background: #eceadf url("../../jquery_ui_images/ui-bg_fine-grain_15_eceadf_60x60.png") 50% 50% repeat;
 	font-weight: bold;
-	color: #eb8f00;
+	color: #140f06;
 }
 .ui-icon-background,
 .ui-state-active .ui-icon-background {
-	border: #fbd850;
-	background-color: #eb8f00;
+	border: #d9d6c4;
+	background-color: #140f06;
 }
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
-	color: #eb8f00;
+	color: #140f06;
 	text-decoration: none;
 }
 
@@ -133,24 +133,24 @@ a.ui-button:active,
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #fed22f;
-	background: #ffe45c url("../../jquery_ui_images/ui-bg_highlight-soft_75_ffe45c_1x100.png") 50% top repeat-x;
-	color: #363636;
+	border: 1px solid #b2a266;
+	background: #f7f3de url("../../jquery_ui_images/ui-bg_fine-grain_15_f7f3de_60x60.png") 50% 50% repeat;
+	color: #3a3427;
 }
 .ui-state-checked {
-	border: 1px solid #fed22f;
-	background: #ffe45c;
+	border: 1px solid #b2a266;
+	background: #f7f3de;
 }
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
 .ui-widget-header .ui-state-highlight a {
-	color: #363636;
+	color: #3a3427;
 }
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
-	border: 1px solid #cd0a0a;
-	background: #b81900 url("../../jquery_ui_images/ui-bg_diagonals-thick_18_b81900_40x40.png") 50% 50% repeat;
+	border: 1px solid #681818;
+	background: #b83400 url("../../jquery_ui_images/ui-bg_fine-grain_68_b83400_60x60.png") 50% 50% repeat;
 	color: #ffffff;
 }
 .ui-state-error a,
@@ -199,28 +199,28 @@ a.ui-button:active,
 	background-image: url("../../jquery_ui_images/ui-icons_222222_256x240.png");
 }
 .ui-widget-header .ui-icon {
-	background-image: url("../../jquery_ui_images/ui-icons_ffffff_256x240.png");
+	background-image: url("../../jquery_ui_images/ui-icons_b83400_256x240.png");
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon,
 .ui-button:hover .ui-icon,
 .ui-button:focus .ui-icon {
-	background-image: url("../../jquery_ui_images/ui-icons_ef8c08_256x240.png");
+	background-image: url("../../jquery_ui_images/ui-icons_ffffff_256x240.png");
 }
 .ui-state-active .ui-icon,
 .ui-button:active .ui-icon {
-	background-image: url("../../jquery_ui_images/ui-icons_ef8c08_256x240.png");
+	background-image: url("../../jquery_ui_images/ui-icons_8c291d_256x240.png");
 }
 .ui-state-highlight .ui-icon,
 .ui-button .ui-state-highlight.ui-icon {
-	background-image: url("../../jquery_ui_images/ui-icons_228ef1_256x240.png");
+	background-image: url("../../jquery_ui_images/ui-icons_3572ac_256x240.png");
 }
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
-	background-image: url("../../jquery_ui_images/ui-icons_ffd27a_256x240.png");
+	background-image: url("../../jquery_ui_images/ui-icons_fbdb93_256x240.png");
 }
 .ui-button .ui-icon {
-	background-image: url("../../jquery_ui_images/ui-icons_ef8c08_256x240.png");
+	background-image: url("../../jquery_ui_images/ui-icons_b83400_256x240.png");
 }
 
 /* positioning */
@@ -410,46 +410,44 @@ a.ui-button:active,
 .ui-corner-top,
 .ui-corner-left,
 .ui-corner-tl {
-	border-top-left-radius: 4px;
+	border-top-left-radius: 6px;
 }
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
 .ui-corner-tr {
-	border-top-right-radius: 4px;
+	border-top-right-radius: 6px;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
 .ui-corner-bl {
-	border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 6px;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-br {
-	border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 6px;
 }
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #666666 url("../../jquery_ui_images/ui-bg_diagonals-thick_20_666666_40x40.png") 50% 50% repeat;
-	opacity: .5;
-	filter: Alpha(Opacity=50); /* support: IE8 */
+	background: #6e4f1c url("../../jquery_ui_images/ui-bg_diagonal-maze_20_6e4f1c_10x10.png") 50% 50% repeat;
+	opacity: .6;
+	filter: Alpha(Opacity=60); /* support: IE8 */
 }
 .ui-widget-shadow {
-	-webkit-box-shadow: -5px -5px 5px #000000;
-	box-shadow: -5px -5px 5px #000000;
+	-webkit-box-shadow: -10px 0 5px #000000;
+	box-shadow: -10px 0 5px #000000;
 }
 
-/*Ëá™ÂÆö‰πâÊ†∑Âºè*/
-.main-content, .header-section, .sticky-left-side{
-	background: #b81900 url("../../jquery_ui_images/ui-bg_diagonals-thick_18_b81900_40x40.png") 50% 50% repeat;
-	background: #666666 url("../../jquery_ui_images/ui-bg_diagonals-thick_20_666666_40x40.png") 50% 50% repeat;
-	background: #fdf5ce url("../../jquery_ui_images/ui-bg_glass_100_fdf5ce_1x400.png") 50% 50% repeat-x;
+/*◊‘∂®“Â—˘ Ω*/
+.main-content, .header-section, .sticky-left-side, #footer{
+	background: #f7f3de url("../../jquery_ui_images/ui-bg_fine-grain_15_f7f3de_60x60.png") 50% 50% repeat;
 }
 .group-active{
-	background-color: #f6a828; 
+	background-color: #f8f7f6;
 }
 #user_menu_left a{
 	display: block;
@@ -457,7 +455,7 @@ a.ui-button:active,
 	padding-left: 30px;
 }
 .toggle-btn:hover{
-	background: #f6a828;
+	background: #f8f7f6;
     color: #fff;
-    border-right-color: #f6a828;
+    border-right-color: #f8f7f6;
 }

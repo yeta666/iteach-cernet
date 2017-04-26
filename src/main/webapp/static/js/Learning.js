@@ -54,69 +54,70 @@ function buildNewStr(str){
 //显示我的课程   @author:Mryang
 function showmycourse(){
 	$.getJSON("../../handler/course/viewCourseList.do",{},function(data){
-		var mycourse = data.data.courseList;
-		var mycoursehtml = "";
-		if(mycourse != null && mycourse.length>0){
-			var coursenum = mycourse.length;
-			for(var i=0;i<=coursenum;i++) {
-				if(i % 3 ==0 && i==0){//开始新的一行
-					mycoursehtml += "<div class=\"row\" style=\"margin-bottom: 20px;margin-right: 0px;\"><ul style=\"list-style-type:none\">";
-				}else if(i % 3 ==0 && i>0){
-					mycoursehtml += "</ul></div><div class=\"row\" style=\"margin-bottom: 20px;margin-right: 0px;\"><ul style=\"list-style-type:none\">";
-				}
-				if(i==0){
-					mycoursehtml +="<li class=\"col-xs-4\">"+
-					"<div class=\"thumbnail\">"+
-					"<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\"><img src=\"../../upload/eduman/addcourse.jpg\"  title=\"点击开始选择课程学习\" id=\"addcourseimg\" /></a>"+
-					"</div>"+
-					"<div class=\"caption  text-center\">"+
-					"	<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\" class=\"btn btn-info\"><i class=\"fa fa-caret-square-o-right\"></i> 添加课程</a>"+
-					"</div>"+
-					"</li>";
-				}else if(i>0){
-					mycoursehtml +="<li class=\"col-xs-4\">"+
-					"<div class=\"thumbnail\">"+//
-					"<a href=\"Learning_chooseCourse.html?"+colIds+"&courId="+mycourse[i-1].courId+"&selectedType=1"+"\"><img src=\"../../"+mycourse[i-1].courImg+mycourse[i-1].fileName+"\"  class=\"pop\" courid=\""+mycourse[i-1].courId+"\" coursedes=\""+mycourse[i-1].courDescribe+"\""
-					+ " coursetitle=\""+mycourse[i-1].courName+"\" data-toogle=\"popover\" data-placement=\"top\" data-content=\""
-					+"主讲："+mycourse[i-1].courTeacherIds+"\""
-					+ " title data-original-title=\""+mycourse[i-1].courName+"\" data-trigger=\"hover\" data-html=\"true\" /></a>";
-					//+ "<div class=\"coursetile\">"+mycourse[i-1].courName+"</div>"
-					
-					var gotcoure = mycourse[i-1].courName;
-					var op = countlen(gotcoure);
-					if(op<29){
-						mycoursehtml += "<div class=\"coursetile text-center\"><font color=\"#00BFFF\">"+gotcoure+"</div>";
+		if(data.ret){
+			var mycourse = data.data.courseList;
+			var mycoursehtml = "";
+			if(mycourse != null && mycourse.length>0){
+				var coursenum = mycourse.length;
+				for(var i=0;i<=coursenum;i++) {
+					if(i % 3 ==0 && i==0){//开始新的一行
+						mycoursehtml += "<div class=\"row\" style=\"margin-bottom: 20px;margin-right: 0px;\"><ul style=\"list-style-type:none\">";
+					}else if(i % 3 ==0 && i>0){
+						mycoursehtml += "</ul></div><div class=\"row\" style=\"margin-bottom: 20px;margin-right: 0px;\"><ul style=\"list-style-type:none\">";
 					}
-					else{
-						var nString =  buildNewStr(gotcoure);
-						mycoursehtml += "<div class=\"coursetile text-center\"><font color=\"#00BFFF\">"+nString+"</div>";
-					}				
-					mycoursehtml+="</div>"+
-					"<div class=\"caption  text-center\">"+	
-					"	<a href=\"Learning_chooseCourse.html?"+colIds+"&courId="+mycourse[i-1].courId+"&selectedType=1"+"\" class=\"btn btn-info\"><i class=\"fa fa-caret-square-o-right\"></i> 开始课程学习</a>"+
-					"</div>"+
-					"</li>";
+					if(i==0){
+						mycoursehtml +="<li class=\"col-xs-4\">"+
+						"<div class=\"thumbnail\">"+
+						"<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\"><img src=\"../../upload/eduman/addcourse.jpg\"  title=\"点击开始选择课程学习\" id=\"addcourseimg\" /></a>"+
+						"</div>"+
+						"<div class=\"caption  text-center\">"+
+						"	<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\" class=\"btn btn-info\"><i class=\"fa fa-caret-square-o-right\"></i> 添加课程</a>"+
+						"</div>"+
+						"</li>";
+					}else if(i>0){
+						mycoursehtml +="<li class=\"col-xs-4\">"+
+						"<div class=\"thumbnail\">"+//
+						"<a href=\"Learning_chooseCourse.html?"+colIds+"&courId="+mycourse[i-1].courId+"&selectedType=1"+"\"><img src=\"../../"+mycourse[i-1].courImg+mycourse[i-1].fileName+"\"  class=\"pop\" courid=\""+mycourse[i-1].courId+"\" coursedes=\""+mycourse[i-1].courDescribe+"\""
+						+ " coursetitle=\""+mycourse[i-1].courName+"\" data-toogle=\"popover\" data-placement=\"top\" data-content=\""
+						+"主讲："+mycourse[i-1].courTeacherIds+"\""
+						+ " title data-original-title=\""+mycourse[i-1].courName+"\" data-trigger=\"hover\" data-html=\"true\" /></a>";
+						//+ "<div class=\"coursetile\">"+mycourse[i-1].courName+"</div>"
+						
+						var gotcoure = mycourse[i-1].courName;
+						var op = countlen(gotcoure);
+						if(op<29){
+							mycoursehtml += "<div class=\"coursetile text-center\"><font color=\"#00BFFF\">"+gotcoure+"</div>";
+						}
+						else{
+							var nString =  buildNewStr(gotcoure);
+							mycoursehtml += "<div class=\"coursetile text-center\"><font color=\"#00BFFF\">"+nString+"</div>";
+						}				
+						mycoursehtml+="</div>"+
+						"<div class=\"caption  text-center\">"+	
+						"	<a href=\"Learning_chooseCourse.html?"+colIds+"&courId="+mycourse[i-1].courId+"&selectedType=1"+"\" class=\"btn btn-info\"><i class=\"fa fa-caret-square-o-right\"></i> 开始课程学习</a>"+
+						"</div>"+
+						"</li>";
+					}
 				}
+				mycoursehtml +="</ul></div>";
+			}else{
+				mycoursehtml += "<div class=\"row\"><ul style=\"list-style-type:none\">";
+				mycoursehtml +="<li class=\"col-xs-4\">"+
+				"<div class=\"thumbnail\">"+
+				"<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\"><img src=\"../../upload/eduman/addcourse.jpg\"  title=\"点击开始选择课程学习\" /></a>"+
+				"</div>"+
+				"<div class=\"caption  text-center\">"+
+				"	<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\" class=\"btn btn-info\"><i class=\"fa fa-caret-square-o-right\"></i> 添加课程</a>"+
+				"</div>"+
+				"</li></ul></div>";
 			}
-			mycoursehtml +="</ul></div>";
-		}else{
-			mycoursehtml += "<div class=\"row\"><ul style=\"list-style-type:none\">";
-			mycoursehtml +="<li class=\"col-xs-4\">"+
-			"<div class=\"thumbnail\">"+
-			"<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\"><img src=\"../../upload/eduman/addcourse.jpg\"  title=\"点击开始选择课程学习\" /></a>"+
-			"</div>"+
-			"<div class=\"caption  text-center\">"+
-			"	<a href=\"Learning_showAllCourse.html?firstCol=2&secondCol=16\" class=\"btn btn-info\"><i class=\"fa fa-caret-square-o-right\"></i> 添加课程</a>"+
-			"</div>"+
-			"</li></ul></div>";
+			
+			$("#myCourse").append(mycoursehtml);
+			$(".pop ").popover();
+			$("#addcourseimg").click(function(){
+				window.location.href = 'Learning_showAllCourse.html?firstCol=2&secondCol=16';
+			});
 		}
-		
-		$("#myCourse").append(mycoursehtml);
-		$(".pop ").popover();
-		$("#addcourseimg").click(function(){
-			window.location.href = 'Learning_showAllCourse.html?firstCol=2&secondCol=16';
-		});
-		
 	});
 }
 
