@@ -6,7 +6,7 @@ var params;// 请求的参数
 var viewaction = '';// 分页请求的action
 $(document).ready(function() {
 	ShowColumn();// Show Column
-	backToTop();// back To Top
+	//backToTop();// back To Top
 	paginationPage();// 分頁
 	clearInfo();// 清除信息
 	timepicker("exin_begintime");
