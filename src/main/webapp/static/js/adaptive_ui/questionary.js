@@ -1,4 +1,5 @@
 $(function(){
+	
 	//初始化数据
 	var finish_question_num = 0;
 	var answer_index = ["a", "b", "c", "d"];
@@ -44,7 +45,7 @@ $(function(){
 			
 			//伪造数据
 			var forge_answers = [];
-			for(var i = 0; i < 44; i++){
+			for(var i = 0; i < 22; i++){
 				var random_num = parseInt(Math.random() * 2) + 1;
 				if(random_num == 1){
 					forge_answers.push("a");
@@ -53,29 +54,44 @@ $(function(){
 				}
 			}
 			
-			//提交数据
+			//获取userId
 			$.ajax({
-				url: "http://127.0.0.1:8081/adaptive_ui/getUserTypeByQuestionary",
-				type: "post",
-				data: {
-					"answers": JSON.stringify(forge_answers)
-					//"answers": JSON.stringify(answers)
+				type: 'GET',
+				contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
+				url: '../../handler/home/navibar',
+				async: false, // 需要同步请求数据
+				dataType: 'json',
+				success: function(data, status) {
+					var resultData = data.data;
+					//提交数据
+					$.ajax({
+						url: "http://127.0.0.1:8081/adaptive_ui/getUserTypeByQuestionary",
+						type: "post",
+						data: {
+							"userId": resultData.userId,
+							"answers": JSON.stringify(forge_answers)
+							//"answers": JSON.stringify(answers)
+						},
+						dataType: "json",
+						success: function(data){
+							if(data.status){
+								console.log(data.data);
+								$.cookie("userType", data.data);
+								window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+							}else{
+								$.bootstrapLoading.end();
+								$("#submitBtn").popover('hide');
+								//后台计算不出用户类型，计算不出的原因data.message
+								alert(data.message);
+							}
+						},
+						error: function(XHR){
+							alert(XHR.status);
+						}
+					});
 				},
-				dataType: "json",
-				success: function(data){
-					if(data.status){
-						console.log(data.data);
-						$.cookie("userType", data.data);
-						window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-					}else{
-						$.bootstrapLoading.end();
-						$("#submitBtn").popover('hide');
-						//后台计算不出用户类型，计算不出的原因data.message
-						alert(data.message);
-					}
-				},
-				error: function(XHR){
-					alert(XHR.status);
+				error : function(XHR) {
+					alert("出现错误，请稍后重试！错误码： " + XHR.status);
 				}
 			});
 		});
@@ -109,17 +125,13 @@ $(function(){
 				$("#total_question_num").val(data.data.length);
 				
 				//初始化题目导航的高度
-				var question_navbar_height = $(window).height() * 0.9 / (data.data.length / 2) - 2;
+				var question_navbar_height = $(window).height() * 0.9 / data.data.length - 2;
 				
 				for(var i = 1; i <= data.data.length; i++){
 					//初始化题目导航
 					
 					var $a = $('<a href="#question' + i + '" style="display: block; width: '+question_navbar_height+'px; height: '+question_navbar_height+'px; border: 1px solid rgb(95, 202, 255); border-radius: '+question_navbar_height+'px; text-align: center; line-height: '+question_navbar_height+'px; font-size: 12px; margin: 2px 0; background-color: rgb(192, 229, 248); color: black;">'+i+'</a>');
-					if(i <= data.data.length / 2){
-						$a.appendTo($(".question_navbar")[1]);
-					}else{
-						$a.appendTo($(".question_navbar")[0]);
-					}
+					$a.appendTo($(".question_navbar"));
 					
 					//初始化调查表数据
 					var $formGroup = $('<div class="form-group"></div>');

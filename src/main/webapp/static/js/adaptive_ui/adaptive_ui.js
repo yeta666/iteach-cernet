@@ -78,30 +78,18 @@ $(function() {
 	console.log(userType);
 	if(userType == "活跃型"){
 		//活跃型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme11.css");
 	}else if(userType == "沉思型"){
 		//沉思型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme12.css");
 	}else if(userType == "感悟型"){
 		//感悟型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
-	}else if(userType == "自觉型"){
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme13.css");
+	}else if(userType == "直觉型"){
 		//自觉型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
-	}else if(userType == "视觉型"){
-		//视觉型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
-	}else if(userType == "言语型"){
-		//言语型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
-	}else if(userType == "序列型"){
-		//序列型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
-	}else if(userType == "综合型"){
-		//综合型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");
 	}else if(userType == "default"){
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme15.css");
 	}
 	
 })
