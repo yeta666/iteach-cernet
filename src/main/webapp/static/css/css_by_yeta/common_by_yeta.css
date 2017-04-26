@@ -44,7 +44,7 @@ input, select, textarea {
 }
 
 a {
-    color: #65CEA7;
+    /* color: #65CEA7; */
 }
 
 a:focus, a:active, a:hover {

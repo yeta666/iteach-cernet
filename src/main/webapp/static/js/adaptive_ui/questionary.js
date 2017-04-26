@@ -1,4 +1,5 @@
 $(function(){
+	
 	//初始化数据
 	var finish_question_num = 0;
 	var answer_index = ["a", "b", "c", "d"];
@@ -53,29 +54,44 @@ $(function(){
 				}
 			}
 			
-			//提交数据
+			//获取userId
 			$.ajax({
-				url: "http://127.0.0.1:8081/adaptive_ui/getUserTypeByQuestionary",
-				type: "post",
-				data: {
-					"answers": JSON.stringify(forge_answers)
-					//"answers": JSON.stringify(answers)
+				type: 'GET',
+				contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
+				url: '../../handler/home/navibar',
+				async: false, // 需要同步请求数据
+				dataType: 'json',
+				success: function(data, status) {
+					var resultData = data.data;
+					//提交数据
+					$.ajax({
+						url: "http://127.0.0.1:8081/adaptive_ui/getUserTypeByQuestionary",
+						type: "post",
+						data: {
+							"userId": resultData.userId,
+							"answers": JSON.stringify(forge_answers)
+							//"answers": JSON.stringify(answers)
+						},
+						dataType: "json",
+						success: function(data){
+							if(data.status){
+								console.log(data.data);
+								$.cookie("userType", data.data);
+								window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+							}else{
+								$.bootstrapLoading.end();
+								$("#submitBtn").popover('hide');
+								//后台计算不出用户类型，计算不出的原因data.message
+								alert(data.message);
+							}
+						},
+						error: function(XHR){
+							alert(XHR.status);
+						}
+					});
 				},
-				dataType: "json",
-				success: function(data){
-					if(data.status){
-						console.log(data.data);
-						$.cookie("userType", data.data);
-						window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-					}else{
-						$.bootstrapLoading.end();
-						$("#submitBtn").popover('hide');
-						//后台计算不出用户类型，计算不出的原因data.message
-						alert(data.message);
-					}
-				},
-				error: function(XHR){
-					alert(XHR.status);
+				error : function(XHR) {
+					alert("出现错误，请稍后重试！错误码： " + XHR.status);
 				}
 			});
 		});

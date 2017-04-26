@@ -78,18 +78,18 @@ $(function() {
 	console.log(userType);
 	if(userType == "活跃型"){
 		//活跃型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme11.css");
 	}else if(userType == "沉思型"){
 		//沉思型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme12.css");
 	}else if(userType == "感悟型"){
 		//感悟型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme13.css");
 	}else if(userType == "直觉型"){
 		//自觉型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme2.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");
 	}else if(userType == "default"){
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme15.css");
 	}
 	
 })
