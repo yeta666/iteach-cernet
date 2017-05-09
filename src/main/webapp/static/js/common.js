@@ -93,6 +93,7 @@ function loadNavibarInfo() {
 				var resultData = data.data;
 				getNavibar(resultData);
 				userId = resultData.userId;
+				$.cookie("userId", userId);
 				userType = resultData.userType;
 				departId = resultData.userDepaId;
 				departmentTypeID = resultData.userDepaType;
