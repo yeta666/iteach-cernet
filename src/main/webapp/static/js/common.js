@@ -93,6 +93,7 @@ function loadNavibarInfo() {
 				var resultData = data.data;
 				getNavibar(resultData);
 				userId = resultData.userId;
+				$.cookie("userId", userId);
 				userType = resultData.userType;
 				departId = resultData.userDepaId;
 				departmentTypeID = resultData.userDepaType;
@@ -279,16 +280,16 @@ function ShowColumn() {
 					if(colVal != null) {
 						// 动态加载左边导航--yeta，以下是个性化模块的导航
 						var $accordion = $('<div id="accordion"></div>');
-						$.each(colVal,function(index, item) {
+						$.each(colVal,function(index1, item) {
 							var $group = $('<div class="group" style="zoom:1;"></div>');
 							var $h3 = $('<h3><a href="'+item.colurl+'" style="display:block; padding:5px 0; padding-left:25px;"><i class="fa '+item.colicon+'"></i> <span>'+item.colname+'</span></a></h3>');
 							var $div = $('<div style="padding: 0;"></div>');
 							var $ul = $('<ul style="padding: 0; margin: 0;" class="group_ul"></ul>');
 							if(item.subcols != null && item.subcols.length > 0 && item.subcols != "") {
 								$.ajaxSettings.async = false;
-								var firColId = getRequest("firstCol");
+								var firColId = index1 + 1;
 								var secondColID = getRequest("secondCol");
-								$.each(item.subcols, function(index, it) {
+								$.each(item.subcols, function(index2, it) {
 									if(secondColID == it.colid) {
 										var $li = $('<li style="list-style: none;" class="group-active"><a href="'+it.colurl+'?firstCol='+firColId+'&secondCol='+it.colid+
 												'" style="display: block; text-decoration: none; padding: 10px 5px 10px 60px; ">'+it.colname+'</a></li>');
@@ -346,14 +347,14 @@ function ShowColumn() {
 		icons: null,
 		heightStyle: "content",
 		header: "> div > h3"
-	}).sortable({
+	})/*.sortable({
 		axis: "y",
 		handle: "h3",
 		stop: function(event, ui) {
 			// 当排序时，IE 不能注册 blur，所以触发 focusout 处理程序来移除 .ui-state-focus
 			ui.item.children("h3").triggerHandler("focusout");
 		}
-	});
+	})*/;
 	highlightColum(); // 暂未检查
 }
 

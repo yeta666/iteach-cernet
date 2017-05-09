@@ -1,5 +1,7 @@
 $(function(){
 	
+	console.log($.cookie("userId"));
+	
 	//初始化数据
 	var finish_question_num = 0;
 	var answer_index = ["a", "b", "c", "d"];
@@ -63,6 +65,9 @@ $(function(){
 				dataType: 'json',
 				success: function(data, status) {
 					var resultData = data.data;
+					$.cookie("userId", resultData.userId);
+					console.log($.cookie("userId"));
+					debugger;
 					//提交数据
 					$.ajax({
 						url: "http://127.0.0.1:8081/adaptive_ui/getUserTypeByQuestionary",
@@ -99,17 +104,20 @@ $(function(){
 	
 	$("#remove_btn").click(function(){
 		
-		//给取消确定取消提交按钮绑定事件
 		var $_this = $(this);
 		$("#remove_btn_remove").click(function(){
 			$_this.popover('hide');
 		});
 		
-		//给确定取消提交按钮绑定事件
 		$("#remove_btn_ok").click(function(){
-			//默认定制
-			$.cookie("userType", "default");
-			window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+			if($.cookie("questionary") == "login"){
+				//默认定制
+				$.cookie("userType", "default");
+				window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+			}else{
+				//返回上一个操作
+				window.history.back();
+			}
 		});
 	});
 	

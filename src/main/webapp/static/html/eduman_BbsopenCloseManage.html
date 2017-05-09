@@ -1,76 +1,73 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<link href="../css/ncss/bootstrap.css" rel="stylesheet">
-		<link href="../css/ncss/font-awesome.css" rel="stylesheet">
-		<link href="../css/ncss/style.css" rel="stylesheet">
-		<link href="../css/ncss/animate.css" rel="stylesheet">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
 
-		<!--普遍样式-->
-		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/common_by_yeta.css" />
-		<!--左边导航样式-->
-		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/leftside_by_yeta.css" />
-		<!--顶部导航样式-->
-		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/headersection_by_yeta.css" />
-		<!--主体部分样式-->
-		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/maincontent_by_yeta.css" />
-		<!--底部样式-->
-		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/footer_by_yeta.css" />
-		<!--响应式样式-->
-		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/style-responsive.css" />
-	</head>
+<!--普遍样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/common_by_yeta.css" />
+<!--左边导航样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/leftside_by_yeta.css" />
+<!--顶部导航样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/headersection_by_yeta.css" />
+<!--主体部分样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/maincontent_by_yeta.css" />
+<!--底部样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/footer_by_yeta.css" />
+<!--响应式样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/style-responsive.css" />
+<!-- 个性化定制组件样式 -->
+<link href="../css/adaptive_ui/jquery-ui.structure.css" rel="stylesheet">
+<link id="adaptive_ui" href="" rel="stylesheet">
+</head>
 
-	<body>
+<body>
 
-		<section>
-			<!-- left side start-->
-			<div class="left-side sticky-left-side">
+	<section>
+		<!-- left side start-->
+		<div class="left-side sticky-left-side">
 
-				<!--logo and iconic logo start-->
-				<div class="logo">
-					<a href="index.html"><img src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
-				</div>
+			<!--logo and iconic logo start-->
+			<div class="logo">
+				<a href="index.html"><img
+					src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+			</div>
 
-				<div class="logo-icon text-center">
-					<a href="index.html"><img src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
-				</div>
-				<!--logo and iconic logo end-->
+			<div class="logo-icon text-center">
+				<a href="index.html"><img
+					src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+			</div>
+			<!--logo and iconic logo end-->
 
-				<div class="left-side-inner">
+			<div class="left-side-inner">
 
-					<!-- visible to small devices only -->
-					<div class="visible-xs hidden-sm hidden-md hidden-lg">
-						<div class="media logged-user">
-							<img alt="user" src="" class="media-object user_img">
-							<div class="media-body">
-								<h4 class="user_name"></h4>
-							</div>
+				<!-- visible to small devices only -->
+				<div class="visible-xs hidden-sm hidden-md hidden-lg">
+					<div class="media logged-user">
+						<img alt="user" src="" class="media-object user_img">
+						<div class="media-body">
+							<h4 class="user_name"></h4>
 						</div>
-						<ul class="nav nav-pills nav-stacked custom-nav">
-							<li>
-								<a href="personalInformation_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> <span>个人资料</span></a>
-							</li>
-							<li>
-								<a href="modifyPassword_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> <span>密码设置</span></a>
-							</li>
-							<li>
-								<a href="aboutSystem_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> <span>关于系统</span></a>
-							</li>
-							<li>
-								<a href="aboutHelp_home.html?firstCol=1&secondCol=14"><i class="fa fa-cog"></i> <span>联机帮助</span></a>
-							</li>
-							<li>
-								<a href="#" onclick="loginOff();"><i class="fa fa-sign-out"></i> <span>安全退出</span></a>
-							</li>
-						</ul>
 					</div>
+					<ul id="user_menu_left">
+						<!-- class="nav nav-pills nav-stacked custom-nav" -->
+					</ul>
+				</div>
 
-					<!--sidebar nav start-->
-					<ul class="nav nav-pills nav-stacked custom-nav" id="left_side">
-						<!-- <li class="menu-list nav-active">
+				<!--sidebar nav start-->
+				<ul class="nav nav-pills nav-stacked custom-nav" id="left_side">
+					<!-- <li class="menu-list nav-active">
 							<a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
 							<ul class="sub-menu-list">
 								<li class="active">
@@ -78,256 +75,174 @@
 								</li>
 							</ul>
 						</li> -->
-					</ul>
-					<!--sidebar nav end-->
+				</ul>
+				<!--sidebar nav end-->
 
-				</div>
 			</div>
-			<!-- left side end-->
+		</div>
+		<!-- left side end-->
 
-			<!-- main content start-->
-			<div class="main-content">
+		<!-- main content start-->
+		<div class="main-content">
 
-				<!-- header section start-->
-				<div class="header-section">
+			<!-- header section start-->
+			<div class="header-section">
 
-					<!--toggle button start-->
-					<a class="toggle-btn"><i class="fa fa-bars"></i></a>
-					<!--toggle button end-->
+				<!--toggle button start-->
+				<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+				<!--toggle button end-->
 
-					<!--notification menu start -->
-					<div class="menu-right">
-						<ul class="notification-menu">
-							<li>
-								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-									<i class="fa fa-tasks"></i>
-									<span class="badge">8</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-head pull-right">
-									<h5 class="title">You have 8 pending task</h5>
-									<ul class="dropdown-list user-list">
-										<li class="new">
-											<a href="#">
-												<div class="task-info">
-													<div>Database update</div>
-												</div>
-												<div class="progress progress-striped">
-													<div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-														<span class="">40%</span>
-													</div>
-												</div>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-									<i class="fa fa-envelope-o"></i>
-									<span class="badge">5</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-head pull-right">
-									<h5 class="title">You have 5 Mails </h5>
-									<ul class="dropdown-list normal-list">
-										<li class="new">
-											<a href="">
-												<span class="thumb"><img src="" alt="" /></span>
-												<span class="desc">
-                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
-												<span class="msg">Lorem ipsum dolor sit amet...</span>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-									<i class="fa fa-bell-o"></i>
-									<span class="badge">4</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-head pull-right">
-									<h5 class="title">Notifications</h5>
-									<ul class="dropdown-list normal-list">
-										<li class="new">
-											<a href="">
-												<span class="label label-danger"><i class="fa fa-bolt"></i></span>
-												<span class="name">Server #1 overloaded.  </span>
-												<em class="small">34 mins</em>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<img class="user_img" src="" alt="user" />
-									<span class="user_name"></span>
-									<span class="caret"></span>
-								</a>
-								<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-									<li>
-										<a href="personalInformation_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> 个人资料</a>
-									</li>
-									<li>
-										<a href="modifyPassword_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> 密码设置</a>
-									</li>
-									<li>
-										<a href="aboutSystem_home.html?firstCol=1&secondCol=14"><i class="fa fa-user"></i> 关于系统</a>
-									</li>
-									<li>
-										<a href="aboutHelp_home.html?firstCol=1&secondCol=14"><i class="fa fa-cog"></i> 联机帮助</a>
-									</li>
-									<li>
-										<a href="#" onclick="loginOff();"><i class="fa fa-sign-out"></i> 安全退出</a>
-									</li>
-								</ul>
-							</li>
-
-						</ul>
-					</div>
-					<!--notification menu end -->
-
-				</div>
-				<!-- header section end-->
-
-				<!-- page heading start-->
-				<div class="page-heading">
-					<h3 id="system_title_by_yeta"></h3>
-					<ul class="breadcrumb">
-						<li>
-							<a href="home.html">主页</a>
-						</li>
-						<li class="active">论坛管理</li>
+				<!--notification menu start -->
+				<div class="menu-right">
+					<ul id="user_menu_right">
 					</ul>
 				</div>
-				<!-- page heading end-->
+				<!--notification menu end -->
 
-				<!--body wrapper start-->
-				<div class="wrapper">
-					<div class="row animated fadiInRight">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="ibox float-e-margins">
-									<div class="ibox-title">
-										<h2><i class="fa fa-envelope"></i> 论坛管理</h2>
-										<div class="ibox-tools">
-											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-											</a>
-											<a class="close-link"> <i class="fa fa-times"></i>
-											</a>
-										</div>
+			</div>
+			<!-- header section end-->
+
+			<!-- page heading start-->
+			<div class="page-heading">
+				<h3 id="system_title_by_yeta"></h3>
+				<ul class="breadcrumb">
+					<li><a href="home.html">主页</a></li>
+					<li class="active">论坛管理</li>
+				</ul>
+			</div>
+			<!-- page heading end-->
+
+			<!--body wrapper start-->
+			<div class="wrapper">
+				<div class="row animated fadiInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h2>
+										<i class="fa fa-envelope"></i> 论坛管理
+									</h2>
+									<div class="ibox-tools">
+										<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+										</a> <a class="close-link"> <i class="fa fa-times"></i>
+										</a>
 									</div>
-									<div class="ibox-content m-b-sm border-bottom">
-										<!-- 主框体 -->
+								</div>
+								<div class="ibox-content m-b-sm border-bottom">
+									<!-- 主框体 -->
 
-										<div class="row-fluid">
-											<div id="pictures" class="span12 pictures"></div>
-										</div>
-										<div class="row-fluid">
-											<div id="column" class="span2 box"></div>
+									<div class="row-fluid">
+										<div id="pictures" class="span12 pictures"></div>
+									</div>
+									<div class="row-fluid">
+										<div id="column" class="span2 box"></div>
 
-											<div class="box">
-												<div id="myTabContent" class="tab-content">
-													<div class="tab-pane fade active in" id="bbs_manage">
-														<div id="content">
+										<div class="box">
+											<div id="myTabContent" class="tab-content">
+												<div class="tab-pane fade active in" id="bbs_manage">
+													<div id="content">
 
-															<div id="myTabContent" class="tab-content">
-																<form onsubmit="return false;" class="form-inline">
-																	<select class="form-control" id="seleteSchoolID" value="0" placeholder="请选择学校">
-																	</select>
-																	<select class="span3 form-control" id="searchType" value="0">
-																		<option value="1">按~课程名称</option>
-																		<option value="2">按~课程代码</option>
-																		<option value="3">按~课程开闭状态</option>
-																		<option value="4">按~版主</option>
-																	</select>
-																	<select class="span3" id="searchTypeTwo" value="" style="display: none">
-																		<option value="1">开启</option>
-																		<option value="0">关闭</option>
-																	</select>
-																	<input id="searchWord" name="searchWord" type="text" style="display: none" class="form-control" placeholder="请输入内容.."></input>
-																	<a id="searchPostInOC" class="btn btn-primary"><i class="fa fa-search"></i>搜索</a>
-																</form>
-																<div class="buttonGroup" id="functionButton">
-																	<a type="button" class="btn btn-success" id="bbs_open" onclick="javascript:bbsOpenClose(1);"> <i class="fa fa-check"></i> 开启
-																	</a>
-																	<a type="button" class="btn btn-danger" id="bbs_open" onclick="javascript:bbsOpenClose(2);"> <i class="fa fa-warning"></i> 关闭
-																	</a>
-																</div>
-																<div id="openCloseBBS">
-																	<!--数据显示  -->
-																	<table class="table table-hover table-bordered" id="openCloseBBS">
-																		<thead>
-																			<tr>
-																				<th>
-																					<a href="#" id="choosePostStatus">全选</a>
-																				</th>
-																				<th>序</th>
-																				<th>代码</th>
-																				<th>名称</th>
-																				<th>版主</th>
-																				<th>开闭状态</th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																		</tbody>
-																	</table>
-																	<!-- 分页区域 -->
+														<div id="myTabContent" class="tab-content">
+															<form onsubmit="return false;" class="form-inline">
+																<select class="form-control" id="seleteSchoolID"
+																	value="0" placeholder="请选择学校">
+																</select> <select class="span3 form-control" id="searchType"
+																	value="0">
+																	<option value="1">按~课程名称</option>
+																	<option value="2">按~课程代码</option>
+																	<option value="3">按~课程开闭状态</option>
+																	<option value="4">按~版主</option>
+																</select> <select class="span3" id="searchTypeTwo" value=""
+																	style="display: none">
+																	<option value="1">开启</option>
+																	<option value="0">关闭</option>
+																</select> <input id="searchWord" name="searchWord" type="text"
+																	style="display: none" class="form-control"
+																	placeholder="请输入内容.."></input> <a id="searchPostInOC"
+																	class="btn btn-primary"><i class="fa fa-search"></i>搜索</a>
+															</form>
+															<div class="buttonGroup" id="functionButton">
+																<a type="button" class="btn btn-success" id="bbs_open"
+																	onclick="javascript:bbsOpenClose(1);"> <i
+																	class="fa fa-check"></i> 开启
+																</a> <a type="button" class="btn btn-danger" id="bbs_open"
+																	onclick="javascript:bbsOpenClose(2);"> <i
+																	class="fa fa-warning"></i> 关闭
+																</a>
+															</div>
+															<div id="openCloseBBS">
+																<!--数据显示  -->
+																<table class="table table-hover table-bordered"
+																	id="openCloseBBS">
+																	<thead>
+																		<tr>
+																			<th><a href="#" id="choosePostStatus">全选</a></th>
+																			<th>序</th>
+																			<th>代码</th>
+																			<th>名称</th>
+																			<th>版主</th>
+																			<th>开闭状态</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																	</tbody>
+																</table>
+																<!-- 分页区域 -->
 
-																	<div id="pagination" class="pagination page-left"></div>
+																<div id="pagination" class="pagination page-left"></div>
 
-																	<br/><br/>
-																</div>
+																<br />
+																<br />
 															</div>
 														</div>
-
 													</div>
+
 												</div>
 											</div>
 										</div>
-
-										<!--span10  -->
 									</div>
+
+									<!--span10  -->
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--body wrapper end-->
-
-				<!--footer section start-->
-				<footer id="footer">
-
-				</footer>
-				<!--footer section end-->
-
 			</div>
-			<!-- main content end-->
-		</section>
+			<!--body wrapper end-->
 
-		<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
-		<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
-		<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
-		<script src="../js/njs/jquery.metisMenu.js"></script>
-		<!-- 导航手风琴插件 -->
-		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
-		<!-- 美化滚动条插件 -->
-		<script src="../js/jquery.scrollUp.min.js" type="text/javascript"></script>
-		<!-- 回到顶部插件 -->
-		<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
-		<!-- 延迟加载插件 -->
-		<script src="../js/ext/highcharts.js" type="text/javascript"></script>
-		<script src="../js/extend.js" type="text/javascript"></script>
-		<!-- 不晓得啥子用 -->
-		<script src="../js/utils.js" type="text/javascript"></script>
-		<script src="../js/common.js" type="text/javascript"></script>
-		<script type="text/javascript" src="../js/cachepage.js"></script>
-		<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
-		<script type="text/javascript" src="../js/eduman_BbsopenCloseManage.js"></script>
-		<script src="../js/njs/hplus.js?v=2.2.0"></script>
-		<script src="../js/yeta_script.js" type="text/javascript"></script>
+			<!--footer section start-->
+			<footer id="footer"> </footer>
+			<!--footer section end-->
 
-	</body>
+		</div>
+		<!-- main content end-->
+	</section>
+
+	<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+	<!-- 导航手风琴插件 -->
+	<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+	<!-- 美化滚动条插件 -->
+	<script src="../js/jquery.scrollUp.min.js" type="text/javascript"></script>
+	<!-- 回到顶部插件 -->
+	<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
+	<!-- 延迟加载插件 -->
+	<script src="../js/ext/highcharts.js" type="text/javascript"></script>
+	<script src="../js/extend.js" type="text/javascript"></script>
+	<!-- 不晓得啥子用 -->
+	<script src="../js/utils.js" type="text/javascript"></script>
+	<script src="../js/common.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
+	<script type="text/javascript" src="../js/eduman_BbsopenCloseManage.js"></script>
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!-- 模块化界面js -->
+	<script src="../js/adaptive_ui/jquery-ui.js" type="text/javascript"></script>
+	<script src="../js/adaptive_ui/adaptive_ui.js" type="text/javascript"></script>
+
+</body>
 
 </html>
