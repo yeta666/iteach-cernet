@@ -38,11 +38,24 @@ $(document).ready(function(){
 			credit =  data.data.course.courCredit;//已选学分
 			//resoID = data.data.chapterList
 			teachID = data.data.course.courTeacherIds;
-			//	$.getScript("Learning_chooseCourse.js", function(){
-			showCourseDes(data.data.course);
-			//	});	
-			chooseChapter(blockDivData,selType);
+			
 			lastPost(courseId);//课程讨论信息
+			showCourseDes(data.data.course);
+			chooseChapter(blockDivData,selType);
+			
+			var userType = $.cookie("userType");
+			if(userType != null && userType != "" && userType != undefined){
+				if(userType == "活跃型"){
+					$($("#panels_ul > li")[2]).addClass("active");
+					$("#coursePost").addClass("active");
+				}else if(userType == "沉思型"){
+					$($("#panels_ul > li")[1]).addClass("active");
+					$("#courseChapter").addClass("active");
+				}else{
+					$($("#panels_ul > li")[0]).addClass("active");
+					$("#courseintro").addClass("active");
+				}
+			}
 			$("#dropcourse-btn").click(function(){
 				dropCoruse(reselectID);
 			});
@@ -188,7 +201,7 @@ function showCourseDes(courData){
 
 	couuseDes += "<br/></p>";
 	$("#coursedes").empty().append(couuseDes);
-
+	
 	var courseintro = "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+courData.courDescribe+"</p>";
 	$("#courseintro").empty().append(courseintro);
 }
@@ -252,8 +265,6 @@ function chooseChapter(data,selType) {
 				$records.append(rowhtml);
 				data[count].chapOrdinal=1000;
 			}
-
-
 		}
 		else{
 			for(var q=0;q<data.length;q++){
@@ -403,8 +414,7 @@ function getFirstReplay(postId){
 
 
 //课程论坛最新信息
-function lastPost(courseId)
-{
+function lastPost(courseId){
 	$.ajax({
 		type:"post",
 		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
@@ -444,6 +454,7 @@ function lastPost(courseId)
 			}else{
 				postlist += '<li style="list-style:none">暂无讨论</li>';
 			}
+			
 			$("#coursePost").empty().append(postlist);
 		}
 	});

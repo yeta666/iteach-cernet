@@ -1,74 +1,144 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title></title>
 <link href="../css/ncss/bootstrap.css" rel="stylesheet">
 <link href="../css/ncss/font-awesome.css" rel="stylesheet">
-<link href="../css/ncss/animate.css" rel="stylesheet">
 <link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
 <link href="../css/ncss/common.css" rel="stylesheet">
-<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
 <!-- 时间选择css -->
 <link rel="stylesheet" type="text/css" href="../css/datetimepicker.css">
-<title></title>
+<!--普遍样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/common_by_yeta.css" />
+<!--左边导航样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/leftside_by_yeta.css" />
+<!--顶部导航样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/headersection_by_yeta.css" />
+<!--主体部分样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/maincontent_by_yeta.css" />
+<!--底部样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/footer_by_yeta.css" />
+<!--响应式样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/style-responsive.css" />
+<!-- 个性化定制组件样式 -->
+<link href="../css/adaptive_ui/jquery-ui.structure.css" rel="stylesheet">
+<link id="adaptive_ui" href="" rel="stylesheet">
 </head>
+
 <body>
-	<div id="wrapper">
-		<nav class="navbar-default navbar-static-side" role="navigation">
-			<div class="sidebar-collapse">
-				<ul  id="side-menu" class="nav">
+
+	<section>
+		<!-- left side start-->
+		<div class="left-side sticky-left-side">
+
+			<!--logo and iconic logo start-->
+			<div class="logo">
+				<a href="index.html"><img
+					src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+			</div>
+
+			<div class="logo-icon text-center">
+				<a href="index.html"><img
+					src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+			</div>
+			<!--logo and iconic logo end-->
+
+			<div class="left-side-inner">
+
+				<!-- visible to small devices only -->
+				<div class="visible-xs hidden-sm hidden-md hidden-lg">
+					<div class="media logged-user">
+						<img alt="user" src="" class="media-object user_img">
+						<div class="media-body">
+							<h4 class="user_name"></h4>
+						</div>
+					</div>
+
+					<ul id="user_menu_left">
+						<!-- class="nav nav-pills nav-stacked custom-nav" -->
+					</ul>
+				</div>
+
+				<!--sidebar nav start-->
+				<ul class="nav nav-pills nav-stacked custom-nav" id="left_side">
+					<!-- <li class="menu-list nav-active">
+							<a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+							<ul class="sub-menu-list">
+								<li class="active">
+									<a href="blank_page.html"> Blank Page</a>
+								</li>
+							</ul>
+						</li> -->
+				</ul>
+				<!--sidebar nav end-->
+
+			</div>
+		</div>
+		<!-- left side end-->
+
+		<!-- main content start-->
+		<div class="main-content">
+
+			<!-- header section start-->
+			<div class="header-section">
+
+				<!--toggle button start-->
+				<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+				<!--toggle button end-->
+
+				<!--notification menu start -->
+				<div class="menu-right">
+					<ul id="user_menu_right">
+					</ul>
+				</div>
+				<!--notification menu end -->
+
+			</div>
+			<!-- header section end-->
+
+			<!-- page heading start-->
+			<div class="page-heading">
+				<h3 id="system_title_by_yeta"></h3>
+				<ul class="breadcrumb">
+					<li><a href="home.html">主页</a></li>
+					<li class="active">测试管理</li>
 				</ul>
 			</div>
-	    </nav>
-	    <div id="page-wrapper" class="gray-bg dashbard-1">
-			<div class="row border-bottom">
-				<nav class="navbar navbar-static-top" role="navigation"
-					style="margin-bottom: 0">
-				<div id="scaling" class="navbar-header">				
-				</div>
-				<ul  id ="navibartitle" class="nav navbar-top-links" >
-					<!--commonjs 118行 打印 -->
-				</ul>
-				</nav>
-			</div>
-			<div class="row wrapper border-bottom white-bg page-heading">
-				<div class="col-lg-10">
-					<h2>
-						<i class="fa fa-calendar-o"></i> 测试管理
-					</h2>
-					<ol class="breadcrumb">
-						<li><a href="home.html">主页</a></li>
-						<li><a href="sysman_Paper.html?firstCol=6&secondCol=28">测试管理</a></li>
-						<li><strong>试卷管理</strong></li>
-					</ol>
-				</div>
-				<div class="col-lg-2"></div>
-			</div>
-			<div class="wrapper wrapper-content">
-                <div class="row animated fadeInRight">
-		            <div class="row">
-		                <div class="col-lg-12">
-		                    <div class="wrapper wrapper-content animated fadeInRight">
-							   <div class="ibox float-e-margins">	
-							       <div class="ibox-title">
-									<h2>
-										<i class="fa fa fa-bell"></i> 手动组卷
-									</h2>
-									<div class="ibox-tools">
+			<!-- page heading end-->
+
+			<!--body wrapper start-->
+			<div class="wrapper">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa fa-bell"></i> 手动组卷
+										</h2>
+										<div class="ibox-tools">
 											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-											</a>  <a class="close-link"> <i class="fa fa-times"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
 											</a>
+										</div>
 									</div>
-								</div>						       						   		                                                                       
-		                              <!-- 查询区域 -->                           		
-									<div id="myTabContent" class="ibox-content" >
-		                                <form role="form" class="form-inline">
-		                                    <!-- 管理员“增加删除”信息区域 -->										
-											<select id="quCourse"
-											class="form-control1" onchange="chooseSourse();">
-											<option value="-1">选择课程</option>
-											</select> 
-											<select id="quType" name="quType" class="form-control1"
+									<!-- 查询区域 -->
+									<div id="myTabContent" class="ibox-content">
+										<form role="form" class="form-inline">
+											<!-- 管理员“增加删除”信息区域 -->
+											<select id="quCourse" class="form-control1"
+												onchange="chooseSourse();">
+												<option value="-1">选择课程</option>
+											</select> <select id="quType" name="quType" class="form-control1"
 												onchange="changeQuType();">
 												<option value="-1">选择题型</option>
 												<option value="1">单选题</option>
@@ -77,15 +147,21 @@
 												<option value="4">填空题</option>
 												<option value="5">问答题</option>
 											</select>
-												<!-- /管理员“增加删除”信息区域 -->			                                                               
-		                                    <input type="text" placeholder="开始时间" data-date-format="yyyy-mm-dd" class="form-control1" id="startTime">                                   
-		                                     ~                                  
-		                                    <input type="text" placeholder="结束时间" data-date-format="yyyy-mm-dd" class="form-control1" id="endTime">
-		                                    <input type="text" placeholder="请输入关键词" id="keyword" class="form-control1">		                                 
-		                                    <button class="btn btn-primary" id="search"><i class="fa fa-search"></i> 搜索</button><br>	                                   
-		                                </form>
-		                                <div style="color: red" id="tipMsg"></div>
-		                                <div id="param_field">
+											<!-- /管理员“增加删除”信息区域 -->
+											<input type="text" placeholder="开始时间"
+												data-date-format="yyyy-mm-dd" class="form-control1"
+												id="startTime"> ~ <input type="text"
+												placeholder="结束时间" data-date-format="yyyy-mm-dd"
+												class="form-control1" id="endTime"> <input
+												type="text" placeholder="请输入关键词" id="keyword"
+												class="form-control1">
+											<button class="btn btn-primary" id="search">
+												<i class="fa fa-search"></i> 搜索
+											</button>
+											<br>
+										</form>
+										<div style="color: red" id="tipMsg"></div>
+										<div id="param_field">
 											<div class="form-horizontal">
 												<div id="course" class="control-group col-sm-12">
 													<label class="control-label col-sm-2" for="courseName"><strong>已选课程：</strong></label>
@@ -107,14 +183,15 @@
 														<input type="text" id="isSelectedQues"
 															class="span8 form-control" disabled value="未选择">
 													</div>
-													<div class="col-sm-6" style="cursor:default">
-													   
+													<div class="col-sm-6" style="cursor: default">
+
 														<button id="showTotalMsg" align="center"
-															class="btn btn-info disabled"
-															>已选择 0 题</button>
+															class="btn btn-info disabled">已选择
+															0 题</button>
 													</div>
 												</div>
-												<div id="buttonGroup" class="control-group col-sm-12 col-md-offset-3">
+												<div id="buttonGroup"
+													class="control-group col-sm-12 col-md-offset-3">
 													<button id="adduser" class="btn btn-primary"
 														onclick="batchAdd()">
 														<i class="icon-plus-sign icon-white"></i> 添加所选
@@ -124,27 +201,32 @@
 														<i class="icon-trash icon-white"></i> 清空所选
 													</button>
 												</div>
-												<br><br><br><br><br><br>
-												</div>
-												
+												<br>
+												<br>
+												<br>
+												<br>
+												<br>
+												<br>
 											</div>
-										</div>
-		                            </div>					    
-		                        </div>	
-		                        <div class="ibox float-e-margins">
-									<div class="ibox-title">
-										<h2>
-											<i class="fa fa-tasks"></i> 试题列表
-										</h2>
-										<div class="ibox-tools">
-											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-											</a> <a class="close-link"> <i class="fa fa-times"></i>
-											</a>
+
 										</div>
 									</div>
+								</div>
+							</div>
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h2>
+										<i class="fa fa-tasks"></i> 试题列表
+									</h2>
+									<div class="ibox-tools">
+										<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+										</a> <a class="close-link"> <i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
+								<!-- 查询区域 -->
+								<div class="ibox-content">
 									<!-- 查询区域 -->
-									<div class="ibox-content" >
-										<!-- 查询区域 -->
 									<div id="user-center-content">
 										<table class="table table--hover table-bordered">
 											<thead>
@@ -162,37 +244,54 @@
 											</tbody>
 										</table>
 									</div>
-									<div id="pagination" class="pagination page-left"></div><br><br>
+									<div id="pagination" class="pagination page-left"></div>
+									<br>
+									<br>
 									<div id="stepBtn">
-										<input id="start_next" class="btn btn-primary" value="下一步" type="button"
-											onclick="selectedQuesShow()" class="btn" />
+										<input id="start_next" class="btn btn-primary" value="下一步"
+											type="button" onclick="selectedQuesShow()" class="btn" />
 									</div>
-								
+
 								</div>
-								</div>              
-		                </div>
-		            </div>
-                </div>
-            </div>
-            <div id="footer" class="footer">                
-            </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--body wrapper end-->
+
+			<!--footer section start-->
+			<footer id="footer"> </footer>
+			<!--footer section end-->
+
 		</div>
-	</div>
+		<!-- main content end-->
+	</section>
+
+	<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
+
+	<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+	<!-- 美化滚动条插件 -->
+
+	<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
+	<!-- 延迟加载插件 -->
+	<script src="../js/ext/highcharts.js" type="text/javascript"></script>
+	<script src="../js/extend.js" type="text/javascript"></script>
+	<script src="../js/utils.js" type="text/javascript"></script>
+	<script src="../js/common.js?ver=1" type="text/javascript"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<!--时间选择js -->
+	<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+	<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="../js/sysman_Paper_manual.js"></script>
+	<script src="../js/njs/hplus.js"></script>
+
+	<!-- 模块化界面js -->
+	<script src="../js/adaptive_ui/jquery-ui.js" type="text/javascript"></script>
+	<script src="../js/adaptive_ui/adaptive_ui.js" type="text/javascript"></script>
+
 </body>
-<script src="../js/njs/jquery-2.1.1.min.js"></script>
-<script src="../js/extend.js"></script>
-<script src="../js/njs/bootstrap.min.js"></script>
-<script src="../js/njs/jquery.metisMenu.js"></script>	
-<script type="text/javascript" src="../js/utils.js"></script>
-<script type="text/javascript" src="../js/common.js"></script>
-<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
-<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
-<script type="text/javascript" src="../js/cachepage.js"></script>
-<!--时间选择js -->
-<script src="../js/ext/bootstrap-datetimepicker.js"></script>
-<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-<script type="text/javascript" src="../js/sysman_Paper_manual.js"></script>
-<!-- Custom and plugin javascript -->
-<script src="../js/njs/hplus.js?v=2.2.0"></script> 
-<!--控制导航自动缩进-->
+
 </html>
