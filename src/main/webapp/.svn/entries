@@ -1,0 +1,74 @@
+10
+
+dir
+429
+http://10.10.4.217/svn/iteach/iteach-svn/src/main/webapp
+http://10.10.4.217/svn/iteach
+
+
+
+2016-06-27T02:46:42.094107Z
+429
+hezz
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5614f838-5816-4ed5-b545-81a364db1fcf
+
+META-INF
+dir
+
+WEB-INF
+dir
+
+index.jsp
+file
+
+
+
+
+2016-01-23T09:38:53.558000Z
+abaa9c2af316d0907291e9b2ee69d946
+2016-01-23T08:51:38.021577Z
+2
+heyh
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+320
+
+static
+dir
+
+upload
+dir
+

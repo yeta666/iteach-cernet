@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="massedLearning">
+
+	<resultMap type="com.swust.kelab.domain.MassedLearning" id="BaseOfMassedLearning">
+		<id column="male_id" property="maleId" jdbcType="INTEGER" />
+		<result column="male_cour_id" property="maleCourId" jdbcType="INTEGER" />
+		<result column="male_reso_id" property="maleResoId" jdbcType="INTEGER" />
+		<result column="male_name" property="maleName" jdbcType="VARCHAR" />
+		<result column="male_describe" property="maleDescribe"
+			jdbcType="LONGVARCHAR" />
+		<result column="male_createTime" property="maleCreatetime"
+			jdbcType="TIMESTAMP" />
+		<result column="male_startTime" property="maleStarttime"
+			jdbcType="TIMESTAMP" />
+		<result column="male_duration" property="maleDuration"
+			jdbcType="INTEGER" />
+		<result column="male_schoolId" property="maleSchoolid"
+			jdbcType="INTEGER" />
+		<result column="male_teacherId" property="maleTeacherid"
+			jdbcType="INTEGER" />
+		<result column="male_state" property="maleState" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="createMassedLearning" parameterType="com.swust.kelab.domain.MassedLearning"
+		keyProperty="maleId">
+		INSERT INTO
+		MassedLearning(
+		male_cour_id,male_reso_id,male_name,male_describe,
+		male_createTime,male_startTime,male_endTime,male_schoolId,
+		male_teacherId,male_state
+		)
+		VALUES(
+		#{maleCourId,jdbcType=INTEGER},
+		#{maleResoId, jdbcType=INTEGER},
+		#{maleName,jdbcType=VARCHAR},
+		#{maleDescribe,jdbcType=LONGVARCHAR},
+		#{maleCreatetime, jdbcType=TIMESTAMP},
+		#{maleStarttime,jdbcType=TIMESTAMP},
+		#{maleEndTime, jdbcType=TIMESTAMP},
+		#{maleSchoolid,	jdbcType=INTEGER},
+		#{maleTeacherid, jdbcType=INTEGER},
+		#{maleState,jdbcType=INTEGER}
+		)
+	</insert>
+
+	<select id="queryMassedLearningInfoByMaLe" parameterType="com.swust.kelab.domain.MassedLearning"
+		resultMap="BaseOfMassedLearning">
+		SELECT * FROM MassedLearning
+		<where>
+			<if test="maleId != null and maleId >0">
+				male_id = #{maleId}
+			</if>
+			<if test="maleCourId != null and maleCourId > 0">
+				and male_cour_id = #{maleCourId}
+			</if>
+			<if test="maleResoId != null and maleResoId > 0">
+				and male_reso_id =#{maleResoId}
+			</if>
+			<if test="maleName != null and maleName != ''">
+				and male_name = #{maleName}
+			</if>
+		</where>
+	</select>
+
+	<select id="queryMassedLearningManagerByCourId" parameterType="int" 
+						resultType="com.swust.kelab.domain.MassedLearningManage">
+		SELECT mlma_id as mlmaId,
+				mlma_maxTime as mlmaMaxTime,
+				mala_maxStudentNum as malaMaxStudentNum,
+				male_createTime as maleCreateTime
+		FROM MassedLearningManage
+		<where>
+				mlma_cour_id = #{mlmaCourId}
+		</where>
+	</select>
+
+
+	<select id="queryMassedLearningInfoByQuery" parameterType="hashmap"
+		resultType="com.swust.kelab.model.MassedLearningModel">
+		SELECT
+		ML.male_id as maleId,
+		ML.male_name as maleName,
+		ML.male_cour_id as maleCourseId,
+		ML.male_reso_id as maleResouseId,
+		ML.male_describe as	maleDescribe,
+		ML.male_createTime as maleCreateTime,
+		ML.male_schoolId as	maleSchoolId,
+		ML.male_teacherId as maleTeacherId,
+		ML.male_state as maleState,
+		ML.male_startTime as maleStartDate,
+		ML.male_endTime as maleEndDate,
+		C.cour_name as maleCourseName,
+		U.user_realname as	maleTeacherName,
+		D.depa_name as maleSchoolName,
+		M.mlma_maxTime as mlmaMaxTime,
+		M.mala_maxStudentNum as mlmaMaxStudentNum
+		FROM MassedLearning as ML
+		LEFT JOIN Course as C ON C.cour_id = ML.male_cour_id
+		LEFT JOIN User as U ON U.user_id = ML.male_teacherId
+		LEFT JOIN Department as D ON D.depa_id = ML.male_schoolId
+		LEFT JOIN MassedLearningManage as M ON M.mlma_cour_id = ML.male_cour_id
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="maleId != null and maleId >0">
+				male_id = #{maleId}
+			</if>
+			<if test="maleTeacherId != null and maleTeacherId > 0">
+				AND male_teacherId = #{maleTeacherId}
+			</if>
+			<if test="maleSchoolId != null and maleSchoolId > 0">
+				AND male_schoolId = #{maleSchoolId}
+			</if>
+			<if test="maleState != null and maleState >= 0">
+				AND male_state = #{maleState}
+			</if>
+			<if test="maleName != null and maleName != ''">
+				AND male_name like CONCAT('%','${maleName}','%' )
+			</if>
+			<if test="maleCreateTime != null">
+				AND male_createTime = #{maleCreateTime}
+			</if>
+		</trim>
+		order by ML.male_createTime Desc
+		<if test="maxCount!=null">
+			limit
+			<if test="startIndex!=null">
+				#{startIndex},
+			</if>
+			#{maxCount}
+		</if>
+	</select>
+
+	<select id="countMassedLearning" parameterType="hashmap"
+		resultType="Integer">
+		SELECT COUNT(*) FROM MassedLearning as ML
+		LEFT JOIN Course as C ON
+		C.cour_id = ML.male_cour_id
+		LEFT JOIN User as U ON U.user_id =
+		ML.male_teacherId
+		LEFT JOIN Department as D ON D.depa_id = ML.male_schoolId
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="maleId != null and maleId >0">
+				male_id = #{maleId}
+			</if>
+			<if test="maleTeacherId != null and maleTeacherId > 0">
+				AND male_teacherId = #{maleTeacherId}
+			</if>
+			<if test="maleSchoolId != null and maleSchoolId > 0">
+				AND male_schoolId = #{maleSchoolId}
+			</if>
+			<if test="maleState != null and maleState >= 0">
+				AND male_state = #{maleState}
+			</if>
+			<if test="maleName != null and maleName != ''">
+				AND male_name like CONCAT('%','${maleName}','%' )
+			</if>
+			<if test="maleCreateTime != null">
+				AND male_createTime = #{maleCreateTime}
+			</if>
+		</trim>
+		
+	</select>
+
+	<select id="findConflictMassedLearning" parameterType="hashmap" 
+			resultType="com.swust.kelab.model.StudentMassedLearningInfoModel">
+		SELECT
+			ML.male_id as  stuMaleId,
+			ML.male_name as stuMaleName,
+			ML.male_startTime as stuMaleStartTime,
+			ML.male_endTime as stuMaleEndTime,
+			SML.smle_user_id as stuId,
+			SML.smle_male_id as stuMaleId
+		FROM MassedLearning as ML
+		LEFT JOIN StudentMassedLearning as SML on SML.smle_male_id = ML.male_id
+		<trim prefix="WHERE" prefixOverrides="AND">
+			ML.male_state = 0
+			<if test="endTime != null">
+				<![CDATA[
+				AND ML.male_startTime <= #{endTime, jdbcType=TIMESTAMP}
+				]]> 
+			</if>
+			<if test="startTime != null">
+				<![CDATA[
+				AND ML.male_endTime >= #{startTime, jdbcType=TIMESTAMP}
+				]]>
+			</if>
+			<if test="maleId != null and maleId > 0">
+				AND male_id != #{maleId}
+			</if>
+			<if test="stuIds  != null and stuIds.length != 0">
+				AND SML.smle_user_id in
+				<foreach collection="stuIds" item="stuId" index="index" separator="," open="(" close=")">
+					#{stuId}				
+				</foreach>
+			</if>				
+		</trim>
+	</select> 
+
+	<!-- 添加学生集中学习记录 -->
+	<insert id="addStudentToMassedLearning" parameterType="java.util.List">
+		INSERT INTO StudentMassedLearning
+		(smle_user_id, smle_male_id)
+		VALUES
+		<foreach collection="list" item="smle" index="index"
+			separator=",">
+			(#{smle.smleUserId, jdbcType=INTEGER},#{smle.smleMaleId,
+			jdbcType=INTEGER})
+		</foreach>
+	</insert>
+
+	<!-- 查询学生集中学习记录 -->
+	<select id="findStudentFromStuMasLearning" parameterType="com.swust.kelab.domain.StudentMassedLearning"
+		resultType="com.swust.kelab.model.StudentMassedLearningInfoModel">
+		SELECT smle_id as smaleId,
+		smle_user_id as stuId,
+		smle_male_id as stuMaleId,
+		U.user_realname as stuName
+		FROM StudentMassedLearning
+		LEFT JOIN User as U on U.user_id = smle_user_id
+		LEFT JOIN MassedLearning as male on male.male_id = smle_male_id
+		<where>
+			<if test="smleId != null and smleId > 0">
+				smle_id = #{smleId}
+			</if>
+			<if test="smleUserId != null and smleUserId >0">
+				and smle_user_id = #{smleUserId}
+			</if>
+			<if test="smleMaleId != null and smleMaleId > 0">
+				and smle_male_id = #{smleMaleId}
+			</if>
+		</where>
+	</select>
+	<!-- 删除某集中学习中的学生 -->
+	<delete id="deleteStudentFromStuMasLearning" parameterType="hashmap">
+		DELETE FROM StudentMassedLearning
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="smleMaleId != null and smleMaleId > 0">
+				smle_male_id = #{smleMaleId}
+			</if>
+			
+			<if test="deleStuId != null and deleStuId.length > 0">
+				AND smle_user_id in
+				<foreach collection="deleStuId" open="(" close=")" separator="," item="delestuId">
+				 #{delestuId}
+				</foreach>
+			</if>
+		</trim>
+	</delete>
+
+	<!-- 删除集中学习 -->
+	<delete id="deleteMasLearning">
+	<![CDATA[
+		delete from MassedLearning
+		where
+			male_id in
+		]]>
+		<foreach item="item" index="index" collection="list"
+     	 open="(" separator="," close=")">
+       		 #{item}
+  		</foreach>
+	</delete>
+	
+	<!-- 查询一个集中学习有多少学生参加 -->
+	<select id="countStudentInMassedLearning" parameterType="hashmap" resultType="Integer">
+		SELECT COUNT(*) FROM StudentMassedLearning WHERE smle_male_id = #{maleId}
+	</select>
+	<!-- 更新集中学习的状态 -->
+	<update id="updateMassedLearningState" parameterType="hashmap">
+		UPDATE MassedLearning SET male_state = #{state} WHERE male_id = #{maleId}
+	</update>
+	
+</mapper>

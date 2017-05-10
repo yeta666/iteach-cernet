@@ -1,0 +1,39 @@
+body {
+	background: #ddf4ff url(../../img/oldbg2-bg.jpg) repeat-x;
+	font-family: "Î¢ÈíÑÅºÚ";
+}
+
+.outer_box {
+	width: 920px;
+	background: url(../../img/oldbg2.jpg) no-repeat top center;
+	padding-top: 105px;
+	margin: 0 auto;
+}
+
+.questionary_box {
+	width: 100%;
+	background-color: white;
+	padding: 20px 100px;
+}
+
+.questionary_box > p {
+	font-size: 16px;
+}
+
+.btn_div {
+	padding: 40px 0;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.btn_div table {
+	width: 100%;
+	text-align: center;
+}
+
+.question_navbar {
+	position: fixed;
+	left: 50%;
+	top: 0;
+	margin-left: 465px;
+}

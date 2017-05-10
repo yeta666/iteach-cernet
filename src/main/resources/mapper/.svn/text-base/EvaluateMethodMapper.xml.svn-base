@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="evaluateMethod">
+
+	<!--
+		修改评估方法
+		@Author EasonLian 
+	 -->
+	<update id="modeEvaluateMethod" parameterType="com.swust.kelab.domain.EvaluateMethod">
+		UPDATE
+			EvaluateMethod
+		SET
+			evme_name = #{evmeName},
+			evme_pattern = #{evmePattern},
+			evme_threhold = #{evmeThrehold}
+			<if test="evmeDescribe != null">
+				,evme_describe = #{evmeDescribe}
+			</if>
+		WHERE
+			evme_id = #{evmeId}
+	</update>
+
+	<!--
+		添加评估方法
+		@Author EasonLian 
+	 -->
+	<insert id="addEvaluateMethod" parameterType="com.swust.kelab.domain.EvaluateMethod">
+		INSERT
+			INTO EvaluateMethod(
+				evme_name,
+				evme_pattern,
+				evme_threhold
+				<if test="evmeDescribe != null">
+					,evme_describe
+				</if>
+			) VALUES(
+				#{evmeName},
+				#{evmePattern},
+				#{evmeThrehold}
+				<if test="evmeDescribe != null">
+					,#{evmeDescribe}
+				</if>
+			)
+	</insert>
+
+	<!--
+		批量删除
+		@Author EasonLian 
+	 -->
+	<delete id="delEvaluateMethod"
+			parameterType="hashmap">
+		DELETE
+			FROM EvaluateMethod
+		<if test="ids">
+			WHERE
+				evme_id in ${ids}
+		</if>
+	</delete>
+
+	<!--
+		 获取数据条数
+		 @author EasonLian
+	 -->
+	<select id="getEvaluateMethodCount"
+			parameterType="hashmap"
+			resultType="integer">
+		SELECT	
+			count(*)
+		FROM
+			EvaluateMethod as evme
+		WHERE
+			1 = 1
+		<if test="evmeId != null">
+			AND evme_id = #{evmeId,jdbcType=INTEGER}
+		</if>
+		<if test="evmeName != null">
+			AND	(
+				evme_name LIKE '%${evmeName}%'
+				OR evme_describe LIKE '%${evmeName}%'
+				)
+		</if>
+	</select>
+
+	<!--
+		查询所有以及模糊查询 
+		@author EasonLian
+	 -->
+	<select id="viewEvaluateMethodList"
+			parameterType="hashmap"
+			resultType="com.swust.kelab.domain.EvaluateMethod">
+		SELECT	
+			evme_id as evmeId,
+			evme_name as evmeName,
+			evme_pattern as evmePattern,
+			evme_threhold as evmeThrehold,
+			evme_describe as evmeDescribe
+		FROM
+			EvaluateMethod as evme
+		WHERE
+			1 = 1
+		<if test="evmeId != null">
+			AND evme_id = #{evmeId,jdbcType=INTEGER}
+		</if>
+		<if test="evmeName != null">
+			AND	(
+				evme_name LIKE '%${evmeName}%'
+				OR evme_describe LIKE '%${evmeName}%'
+				)
+		</if>
+		ORDER BY 
+			evme_id
+		DESC
+		<!-- <if test="evmeDescribe != null">
+			AND evme_describe = #{evmeDescribe,jdbcType=VARCHAR}
+		</if> -->
+	</select>
+
+	<!-- 查询课程列表对应的所有评价方式 @author 吴岘辉-->
+	<select id="getEvaluateMethodByCourse" parameterType="list" resultType="CourseEvaluateModel">
+		select 
+			cour_id as courseId,
+			evme_id as evaluateMethodId,
+			evme_pattern as evaluatePattern,
+			evme_threhold as threhold
+		from 
+			Course
+			inner join EvaluateMethod on evme_id=cour_tepa_id
+		<where>
+			<if test="list!=null and list.size()>0">
+				cour_id in
+				<foreach collection="list" item="courseId" index="index"
+					open="(" close=")" separator=",">
+                    	<![CDATA[#{courseId}]]>
+				</foreach>
+			</if>
+		</where>
+	</select>
+	
+	<!--
+		通过 chapId 查找对应课程的评分标准
+		@Author EasonLian
+		@Type select 
+	 -->
+	 <select id="selectOneByCourId" parameterType="integer" resultType="com.swust.kelab.domain.EvaluateMethod">
+	 	SELECT
+	 		evme_id as evmeId,
+	 		evme_name as evmeName,
+	 		evme_pattern as evmePattern,
+	 		evme_threhold as evmeThrehold,
+	 		evme_describe as evmeDescribe
+	 	FROM
+	 		EvaluateMethod as evme
+	 	WHERE
+	 		evme.evme_id = (
+	 			SELECT cour_tepa_id FROM Course WHERE cour_id = #{courId})
+	 </select>
+	 
+	 <!-- 获取所有的考核方式(id和名称),供筛选使用 -->
+	 <select id="viewAll" resultType="EvaluateMethod">
+	 	select 
+	 		evme_id as evmeId,
+	 		evme_name as evmeName,
+	 		evme_pattern as evmePattern,
+	 		evme_threhold as evmeThrehold
+	 	from
+	 		EvaluateMethod
+	 </select>
+</mapper>

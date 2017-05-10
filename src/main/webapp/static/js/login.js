@@ -39,7 +39,6 @@ $(function() {
 			var userLoginname = $("#userLoginname").val();
 			var userPwd = hex_md5($("#userPwd").val()); // 对密码进行MD5码加密
 			var authcode = $("#authcode").val();
-			console.log(userPwd);
 			$.ajax({
 				type: 'POST',
 				contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
@@ -52,13 +51,55 @@ $(function() {
 				},
 				dataType: 'json',
 				success: function(data) {
-					console.log(data);
 					if(data.ret) {
 						var resultData = data.data.result;
 						if(resultData == "success") {
 							$.cookie('colVideo', '0'); //控制视频 唯一开启
-							window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-							return;
+							//获取userId
+							$.ajax({
+								type: 'GET',
+								contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
+								url: '../../handler/home/navibar',
+								async: false, // 需要同步请求数据
+								dataType: 'json',
+								success: function(data, status) {
+									var resultData = data.data;
+									//获取用户类型
+									$.ajax({
+										url : "http://127.0.0.1:8081/adaptive_ui/getUserType",
+										type : "post",
+										data : {
+											"userId": resultData.userId,
+											"userPassword": "b59c67bf196a4758191e42f76670ceba"
+										},
+										dataType : "text",
+										success : function(data) {
+											var result = JSON.parse(data);
+											console.log(result);
+											if(result.status){
+												$.cookie("userType", result.data);
+												window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+											}else{
+												//后台计算不出用户类型，计算不出的原因result.message
+												if(confirm("请问是否愿意填写一张调查表，好让系统为您进行个性化定制？")){
+													//设置是登陆时进入调查表
+													$.cookie("questionary", "login");
+													//调查表
+													window.location.href = "questionary.html";
+													return;
+												}else{
+													//默认定制
+													$.cookie("userType", "default");
+													window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+												}
+											}
+										},
+										error : function(XHR) {
+											alert("个性化界面服务没有开启，请联系管理员！错误码： " + XHR.status);
+										}
+									});
+								}
+							});
 						} else if(resultData == "passwordError" || resultData == "null") {
 							alert("用户或者密码错误！");
 						} else if(resultData == "unVerify") {

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header"></div>
+				<ul id="navibartitle" class="nav navbar-top-links">
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa fa-gears"></i>系统管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>系统参数设置</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+								<!-- ibox float-e-margins- -->
+								<div class="ibox float-e-margins">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-eye-slash"></i> 系统参数设置
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<div id="infomsg"></div>
+
+										<div class="panel-body">
+											<div class="panel-group" id="accordion">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<h3 class="panel-title">
+															<a data-toggle="collapse" data-parent="#accordion"
+																href="sysman_Parameters.html#collapseOne">学习中心设置</a>
+														</h3>
+													</div>
+													<div id="collapseOne" class="panel-collapse collapse in">
+														<div class="panel-body">
+															<div id="study_center"></div>
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<h3 class="panel-title">
+															<a data-toggle="collapse" data-parent="#accordion"
+																href="sysman_Parameters.html#collapseTwo">论坛交流设置</a>
+														</h3>
+													</div>
+													<div id="collapseTwo" class="panel-collapse collapse">
+														<div class="panel-body">
+															<div id="bbs_center"></div>
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<h3 class="panel-title">
+															<a data-toggle="collapse" data-parent="#accordion"
+																href="sysman_Parameters.html#collapseThree">系统设置</a>
+														</h3>
+													</div>
+													<div id="collapseThree" class="panel-collapse collapse">
+														<div class="panel-body">
+															<div id="system_center"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12 col-sm-offset-4">
+												<button id="modparam" class="btn btn-success"><i class="fa fa-check-square-o"></i> 保存修改</button>
+											<a href="sysman_Parameters.html?firstCol=12&secondCol=49" class="btn btn-info" id="cancelmod"><i class="fa fa-repeat"></i> 返回</a>
+											 </div>
+										</div>
+									</div>
+								</div>
+								<!-- - -->
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer"></div>
+
+		</div>
+	</div>
+	<script src="../js/njs/jquery-2.1.1.min.js"></script>
+	<script src="../js/extend.js"></script>
+	<script src="../js/njs/bootstrap.min.js"></script>
+	<script src="../js/ajaxfileupload.js"></script>
+	<!-- data -->
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+	<script type="text/javascript" src="../js/cachepage.js"></script>
+	<script type="text/javascript" src="../js/sysman_Parameters.js"></script>
+
+
+	<script src="../js/njs/jquery.metisMenu.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="../js/njs/hplus.js?v=2.2.0"></script>
+	<!--控制导航自动缩进-->
+
+</body>
+</html>

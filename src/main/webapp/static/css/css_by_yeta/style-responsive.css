@@ -61,11 +61,11 @@
     }
 
     body .menu-right {
-        margin-right: 15px;
+        margin-right: 0px;
     }
 
     body .left-side {
-        top: 60px;
+        padding-top: 0px;
     }
 
     .lock-wrapper {

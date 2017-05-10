@@ -1,0 +1,49 @@
+10
+
+dir
+429
+http://10.10.4.217/svn/iteach/iteach-svn/src/main/java/com/swust/kelab
+http://10.10.4.217/svn/iteach
+
+
+
+2016-06-15T04:23:57.817454Z
+427
+pangjt
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5614f838-5816-4ed5-b545-81a364db1fcf
+
+domain
+dir
+
+model
+dir
+
+recom
+dir
+
+repos
+dir
+
+service
+dir
+
+utils
+dir
+
+web
+dir
+

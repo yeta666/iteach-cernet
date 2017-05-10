@@ -1,6 +1,6 @@
 @charset "utf-8";
 body {
-    background: #424f63;
+    /* background: #424f63; */
     font-family: "微软雅黑";
     color: #7a7676;
     line-height: 20px;
@@ -9,13 +9,9 @@ body {
 }
 
 body .logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 240px;
+    width: 223px;
     z-index: 100;
-    background: #424f63;
-
+    /* background: #424f63; */
 }
 
 body .header-section {
@@ -31,15 +27,15 @@ body .main-content {
 }
 
 body .menu-right {
-    margin-right: 255px;
+    margin-right: 240px;
 }
 
 body.left-side-collapsed .header-section {
-    left: 52px;
+    left: 0px;
 }
 
 body.left-side-collapsed .menu-right {
-    margin-right: 67px;
+    margin-right: 0px;
 }
 
 input, select, textarea {
@@ -48,7 +44,7 @@ input, select, textarea {
 }
 
 a {
-    color: #65CEA7;
+    /* color: #65CEA7; */
 }
 
 a:focus, a:active, a:hover {

@@ -1,0 +1,23 @@
+body {
+	background: url("../img/bg.png") repeat scroll center center transparent;
+}
+
+#content
+{
+	background-color: #EFF8FB;
+	position: absolute;
+	width: 954px;
+	height: 1000px;
+	z-index: 1;
+	top: 0px;
+}
+
+.list-topic
+{
+	font-size: 20px;
+}
+
+.pagination
+{
+	padding-left: 250px;
+}

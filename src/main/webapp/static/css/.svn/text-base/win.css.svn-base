@@ -1,0 +1,30 @@
+/*id选择器*/  
+#win {  
+    /*希望窗口有边框*/  
+    border: 0px ;  
+    /*希望窗口宽度和高度固定，不要太大*/  
+    width: 94px;  
+    height: 171px;  
+    /*希望控制窗口的位置*/  
+    position: absolute;  /*绝对定位*/  
+    top: 100px;  
+    left: 0px;  
+    /*希望窗口开始时不可见*/  
+    display: block; 
+    z-index:9999; 
+}  
+
+/*控制内容区域的样式*/  
+#content {  
+    padding-left: 2px;  
+    padding-top: 3px;
+     z-index:9999;   
+}  
+/*控制关闭按钮的位置*/  
+#close {  
+    /*使关闭按钮向右侧移动*/  
+    margin-left: 91px; 
+    /*让鼠标进入时可以显示小手，告知用户可以点击操作*/  
+    cursor: pointer;  
+     z-index:9999; 
+}  

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="noticeAnnouncement">
+
+	<!--
+		通过id查询单条通知公告
+		@author easonlian 
+	 -->
+	<select id="viewOneNoticeAnnouncement" parameterType="integer" resultType="com.swust.kelab.domain.NoticeAnnouncement">
+		SELECT
+			noan.noan_id as noanId,
+			noan.noan_title as noanTitle,
+			noan.noan_content as noanContent,
+			noan.noan_creatorid as noanCreatorid,
+			noan.noan_roleids as noanRoleids,
+			noan.noan_topdays as noanTopdays,
+			noan.noan_isimport as noanIsimport,
+			noan.noan_attachment as noanAttachment
+		FROM
+			NoticeAnnouncement as noan
+		WHERE
+			noan.noan_id = #{noanId}
+	</select>
+
+	<!--
+		批量删除通知公告
+		@author easonLian 
+	 -->
+	<delete id="delNoticeAnnouncement" parameterType="hashmap">
+		DELETE
+			FROM NoticeAnnouncement 
+		WHERE
+			noan_id in (${ids})
+	</delete>
+
+	<!--
+		批量添加
+		@author EasonLian 
+	 -->
+	<insert 
+			id="addNoticeAnnouncement" 
+			parameterType="com.swust.kelab.domain.NoticeAnnouncement">
+		INSERT INTO
+			NoticeAnnouncement(
+				noan_title,
+				noan_content,
+				noan_roleids,
+				noan_topdays,
+				noan_isimport,
+				noan_creatorid
+				<!-- ,noan_attachment -->
+				
+					, noan_courid
+				
+				, noan_deparid
+			) VALUES 
+			(
+				#{noanTitle},
+				#{noanContent},
+				#{noanRoleids},
+				#{noanTopdays},
+				#{noanIsimport},
+				#{noanCreatorid}
+				<!-- <if test="noanAttachment != null">
+					,#{item.noanAttachment}
+				</if> -->
+				
+				, #{noanCourid},
+				
+				 #{noanDeparid}
+			)
+	</insert>
+	
+	<!--
+		按id修改
+		@author EAsonlian 
+	 -->
+	<update id="modNoticeAnnouncement" parameterType="com.swust.kelab.domain.NoticeAnnouncement">
+		UPDATE
+			NoticeAnnouncement
+		SET
+			noan_title = #{noanTitle},
+			noan_content = #{noanContent},
+			noan_roleids = #{noanRoleids},
+			noan_topdays = #{noanTopdays},
+			noan_isimport = #{noanIsimport},
+			noan_creatorid = #{noanCreatorid},
+			noan_attachment = #{noanAttachment}
+		WHERE
+			noan_id = #{noanId}
+	</update>
+	
+	<!--
+		按照角色查询消息
+		@author EasonLian 
+	 -->
+	<select id="viewNoticeAnnouncementList" 
+			parameterType="hashmap"
+			resultType="com.swust.kelab.model.NoticeAnnouncementModel">
+		SELECT 
+			noan.noan_id as noanId,
+			noan.noan_title as noanTitle,
+			noan.noan_content as noanContent,
+			noan.noan_pubtime as noanPubtime,
+			noan.noan_creatorid as noanCreatorid,
+			noan.noan_roleids as noanRoleids,
+			noan.noan_topdays as noanTopdays,
+			noan.noan_isimport as noanIsimport,
+			user.user_realname as userName,
+			noan.noan_attachment as noanAttachment
+		FROM 
+			NoticeAnnouncement as noan
+			left join User as user on user.user_id=noan.noan_creatorid 
+		<where>
+			1=1
+			<if test="userType1!=4">
+				and (
+				noan.noan_roleids LIKE '%,${userType1},%'
+				OR noan.noan_creatorid = #{userId}
+				)
+			</if>			
+			<if test="userDepaType==3">
+				and (noan.noan_courid=1 or noan.noan_deparid=#{userDepaId})
+			</if>
+			<if test="startTime != null and endTime != null">
+				<![CDATA[
+				AND (
+					noan.noan_pubtime >= #{startTime}
+					AND noan.noan_pubtime <= #{endTime}
+				)
+				]]>
+			</if>
+			<if test="keyword != null">
+				AND (
+					noan.noan_title LIKE '%${keyword}%'
+					OR user.user_realname LIKE '%${keyword}%'
+				)
+			</if>
+			<!-- 管理员查询 -->
+			<!-- <if test="userType == 4">
+				(
+					noan.noan_roleids is null
+					OR noan.noan_creatorid = #{userId}
+					OR noan.noan_roleids = 4
+				)
+			</if>
+			<if test="userType == 3">
+				(
+					noan.noan_roleids is null
+					OR noan.noan_creatorid = #{userId}
+					OR noan.noan_roleids = 3
+					OR noan.noan_deparid = #{userDepaId}
+					<if test="userDepaParentId != null">
+						OR noan.noan_deparid = #{userDepaParentId}
+					</if>
+				)
+			</if>
+			<if test="userType == 2">
+				(
+					noan.noan_roleids is null
+					OR noan.noan_creatorid = #{userId}
+					OR (
+						noan.noan_deparid in #{deparIds}
+						)
+				)
+			</if>
+			<if test="usrType == 1">
+				(
+					noan.noan_roleids is null
+					OR noan.noan_courid in (${courIds})
+				)
+			</if>
+			<if test="noanId != null">
+				AND noan.noan_id = #{noanId,jdbcType=INTEGER}
+			</if> -->
+		</where>
+		LIMIT
+			#{start},#{rows}
+	</select>
+	
+	<!--
+		按照角色查询消息，获取此条件查询时的总条件
+		@author EasonLian 
+	 -->
+	<select id="getNoticeAnnouncementListCount" 
+			parameterType="hashmap"
+			resultType="integer">
+		SELECT 
+			count(*)
+		FROM 
+			NoticeAnnouncement as noan
+		<where>
+			<if test="noanId != null">
+				AND noan.noan_id = #{noanId,jdbcType=INTEGER}
+			</if>
+			<![CDATA[
+			(
+				noan.noan_roleids is null 
+				OR 	noan.noan_roleids < #{userType}
+			)
+			]]>
+		</where>
+	</select>
+	
+</mapper>

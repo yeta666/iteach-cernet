@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<link href="../css/ncss/style.css" rel="stylesheet">
+<link href="../css/ncss/common.css" rel="stylesheet">
+<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
+<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+			</ul>
+
+		</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+				<div id="scaling" class="navbar-header">
+				</div>
+				<ul  id ="navibartitle" class="nav navbar-top-links" >
+					<!--commonjs 118行 打印 -->
+				</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h2>
+						<i class="fa fa-credit-card"></i> 用户管理
+					</h2>
+					<ol class="breadcrumb">
+						<li><a href="home.html">主页</a></li>
+						<li><strong>管理员管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="row animated fadeInRight">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="wrapper wrapper-content animated fadeInRight">
+
+							
+
+								<!-- 学生学习进度- -->
+								<div class="ibox float-e-margins" 
+									style="display: block;">
+									<div class="ibox-title">
+										<h2>
+											<i class="fa fa-user"></i>
+											<!--fa-barcode-->
+											管理员管理
+										</h2>
+										<div class="ibox-tools">
+											<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+											</a> <a class="dropdown-toggle" data-toggle="dropdown"
+												href="table_basic.html#"> <i class="fa fa-wrench"></i>
+											</a> <a class="close-link"> <i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="ibox-content">
+										<!-- search START -->
+									<form onsubmit="return false;" class="form-search"  style="margin-bottom: 5px;">
+
+										 <span style="margin-bottom: 5px;"> <a id="addManager"
+												onclick="buttonHtml('sysman_Manager_add.html');"
+											class="btn btn-warning" type="button"><i class="fa fa-plus"></i>&nbsp;增加 </a> 
+												 <a
+											id="info-warning" href="#delManModel" 
+											class="btn btn-danger" data-toggle="modal"> <i class="fa fa-minus"></i>&nbsp;删除 </a> <a
+											id="impEducational" class="btn btn-success"
+											data-backdrop="true" data-keyboard="true" data-toggle="modal">
+												<i class="fa fa-sign-in"></i>&nbsp;批量导入 </a> </span>
+										
+										
+										<select id="quUnit" name="quUnit" class="form-control1">
+												<option value="-1">=单位=</option></select> 
+												<input id="admin-name" type="text" data-provide="typeahead" class=" form-control1"
+											placeholder="请输入系统管理员姓名或工号"> 
+											<button id="search" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button>
+											
+											
+									</form>
+									<!-- search END -->
+									
+									<div id='waring-data' style='display: none;'>
+										
+									</div>
+									
+									<div id="res-center" class="tab-pane fade in active">
+										<table class="
+													table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th><a href="#" id="chooseall">全选</a>
+													</th>
+													<td>序</td>
+													<th>管理员工号</th>
+													<th>姓名</th>
+													<th>电话</th>
+													<th>邮箱</th>
+													<th>所属单位</th>
+												</tr>
+											</thead>
+											<tbody id="mainTable">
+												<!-- js生成 -->
+											</tbody>
+										</table>
+										<div id="waring-nodata"></div>
+										
+										<div id="pagination" class="pagination page-left"  ></div>
+										
+										<br/><br/>
+									</div>
+										
+										
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="footer">
+				
+			</div>
+
+		</div>
+		
+		<!-- modal-- -->
+								<div class="modal inmodal" id="delManModel" tabindex="-1" role="dialog" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h4 class="modal-title" id="myModalLabel">警告</h4>
+											</div>
+											<div class="modal-body">
+												<p id="model-info" style="color: red;">用户删除将无法恢复,是否继续删除</p>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success"
+													data-dismiss="modal">
+													<i class="fa fa-close"></i> 关闭
+												</button>
+												<button id="make-sure" data-dismiss="modal" aria-hidden="true" class="btn btn-primary"><i class="fa fa-info"></i> 确认</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="modal inmodal" id="importModal" tabindex="-1" role="dialog" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content animated flipInY">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">&times;</span><span
+														class="sr-only">Close</span>
+												</button>
+												<h4 class="modal-title" id="myModalLabel">批量导入用户 </h4>
+											</div>
+											<div class="modal-body">
+												<h4 class="alert-heading">批量导入须知</h4>
+				<ol>
+					<li>批量导入用户目前仅支持EXCEL格式文件，且需要按照如下文件格式写入<span style="color: red">请参照模板中的范例填写</span>
+					</li>
+					<li><a
+						href="../../handler/adminUserInfo/downloadUserInfoModel?fileName=userInfoMode.zip&userType=4"
+						style="color: red"> 点击这里 </a>下载模板文件<font color="red">（如果格式不正确将不能导入）</font>
+					</li>
+				</ol>
+				<div class="btn-toolbar"  >
+				<form id="uploadform" onsubmit="return false;" class="form-inline well"  style="height:60px;">
+					<p class="col-xs-8 pull-left">
+					<label class="control-label" for="file">上传附件</label>
+					 <input
+						class="input-file " id="file" name="file" type="file"   style="display:inline;"></p>
+					<p class="col-xs-4">
+					<button data-dismiss="modal" class="btn btn-sm btn-primary " type="button"
+						id="upload" name='1'>上传导入</button>
+					<button class="btn btn-sm btn-danger" type="button" id="dataImport"
+						style="display: none" onclick="">导入</button>
+						</p>
+				</form>
+			</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success"
+													data-dismiss="modal">
+													<i class="fa fa-close"></i> 关闭
+												</button>
+												<button id="make-sure" data-dismiss="modal" aria-hidden="true" class="btn btn-primary"><i class="fa fa-info"></i> 确认</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								
+								<!-- modal-- -->
+		
+		
+	</div>
+	 <script src="../js/njs/jquery-2.1.1.min.js"></script>
+    <script src="../js/extend.js"></script>
+    <script src="../js/njs/bootstrap.min.js?v=3.4.0"></script>
+    <script src="../js/njs/jquery.metisMenu.js"></script>
+	
+
+<script type="text/javascript" src="../js/utils.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="../js/cachepage.js"></script>
+
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/sysman_Manager.js"></script>
+<script type="text/javascript" src="../js/fileUploadModel.js"></script>
+    <script src="../js/njs/hplus.js?v=2.2.0"></script> <!--控制导航自动缩进-->
+</body>
+</html>
