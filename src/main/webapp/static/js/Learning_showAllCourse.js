@@ -6,12 +6,14 @@ var colIds = "";
 var selectedCourse;
 var itemOnePage = 6;
 var nowCategory = 0;
+
+var courses = [];
+
 $(document).ready(function(){
 	ShowColumn();	
 	timepicker("course-start-time");
 	timepicker("course-end-time");
 	colIds = urlColHtml();
-	recommendCourseslist();//猜你喜欢
 	AjaxJson("../../handler/courseCategory/viewAllCates",{
 		isOpen:1
 	},backOfCategroy);
@@ -23,6 +25,7 @@ $(document).ready(function(){
 	pageRecord(9);
 	loadCourse();// 加载全部课程
 	bindSearch();// 绑定搜索按钮
+	recommendCourseslist();//猜你喜欢
 }
 );
 
@@ -202,6 +205,9 @@ function refreshContent(pageRecords) {
 		return false;
 	}else{
 		$.each(pageRecords.data,function(itemIndex, item){
+			
+			courses.push(item);
+			
 			if(itemIndex % 3 ==0 && itemIndex==0){//开始新的一行
 				HTML += "<div class=\"row\"><ul style=\"list-style-type:none\">";
 			}else if(itemIndex % 3 ==0 && itemIndex>0){
@@ -371,6 +377,7 @@ function getCourse()
 		},
 		dataType:'json',
 		success:function(result){
+			console.log(result)
 			var m = result.data.result;
 			var ht = "";
 			var courdet="";
@@ -474,13 +481,21 @@ function recommendCourseslist() {
 							if(recommendCourseData[i].courType==""||recommendCourseData[i].courType==null){
 								recommendCourseData[i].courType="暂无课程类型";
 							}
-							homehtml +="</a>"+
-							"<div class=\"caption\">"+//here 下一行的teach在传值存在的情况下可以取消屏蔽，并删除"主讲教师测试"
-							/*"主讲："+"主讲教师测试"teach+"<br />领域："+recommendCourseData[i].courCates+"<br />"*/"课程类型："+recommendCourseData[i].courType+"<br />学分："+recommendCourseData[i].courCredit+"<br />学习人数："+recommendCourseData[i].courChoosedNum+
-							/*"<br />开始时间："+(recommendCourseData[i].opentTime==undefined?'':recommendCourseData[i].opentTime)+"<br/>"+
-							"结束时间："+(recommendCourseData[i].closeTime==undefined?'':recommendCourseData[i].closeTime)+*/
-							"</div>"+
-							"</li>";
+							//console.log(courses);
+							for(var cc = 0; cc < courses.length; cc++){
+								if(courses[cc].courId == recommendCourseData[i].courId){
+									var teacher = courses[cc].courTeachers.split("$");
+									//console.log(teacher);
+									homehtml +="</a>"+
+									"<div class=\"caption\">" +
+									"主讲：" + teacher[0] + "<br />领域：" + courses[cc].courCates + "<br />课程类型：" + 
+									courses[cc].courType + "<br />学分：" + courses[cc].courCredit + "&nbsp;&nbsp;&nbsp;&nbsp;学习人数：" + courses[cc].courChoosedNum +
+									"<br />开始时间：" + (courses[cc].opentTime==undefined ? '' : courses[cc].opentTime) + "<br/>" +
+									"结束时间：" + (courses[cc].closeTime==undefined ? '' : courses[cc].closeTime) +
+									"</div>"+
+									"</li>";
+								}
+							}
 						}
 						homehtml +="</ul></div>";
 					}
