@@ -20,12 +20,15 @@ $(document).ready(function(){
 	$.getJSON("../../handler/chapter/viewChapterListByCourse.do",{
 		"courId":courId,
 	},function(data){
-		var blockDivData = data.data.chapterList;
-		coursename= data.data.course.courName;
-		createChapter(blockDivData);
-		//显示课程图片
-		var courseimtstr = "<img src=\"../../"+data.data.course.courImg+data.data.course.fileName+"\" /  style='width: 100%; padding-left: 30px;'>";
-		$("#courseimg").append(courseimtstr);
+		//console.log(data);
+		if(data.ret){
+			var blockDivData = data.data.chapterList;
+			coursename= data.data.course.courName;
+			createChapter(blockDivData);
+			//显示课程图片
+			var courseimtstr = "<img src=\"../../"+data.data.course.courImg+data.data.course.fileName+"\" /  style='width: 100%; padding-left: 30px;'>";
+			$("#courseimg").append(courseimtstr);
+		}
 	});
 	$.getJSON("../../handler/resource/viewResourceListByChapter.do",{
 		"chapId":chapId,

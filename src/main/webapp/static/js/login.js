@@ -69,8 +69,7 @@ $(function() {
 										url : "http://127.0.0.1:8081/adaptive_ui/getUserType",
 										type : "post",
 										data : {
-											"userId": resultData.userId,
-											"userPassword": "b59c67bf196a4758191e42f76670ceba"
+											"userId": resultData.userId
 										},
 										dataType : "text",
 										success : function(data) {
@@ -98,6 +97,7 @@ $(function() {
 											alert("个性化界面服务没有开启，请联系管理员！错误码： " + XHR.status);
 										}
 									});
+									window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 								}
 							});
 						} else if(resultData == "passwordError" || resultData == "null") {
