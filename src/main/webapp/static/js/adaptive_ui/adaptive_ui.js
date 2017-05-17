@@ -31,7 +31,7 @@ $(function() {
 			});
 		}
 	});
-
+	
 	//初始化用户操作menu
 	var user_menu = 
 		'<li><div>'+
@@ -47,6 +47,9 @@ $(function() {
 				'<a href="aboutHelp_home.html?firstCol=1&secondCol=14"><i style="font-size: 16px;" class="fa fa-google"></i> &nbsp;<span>联机帮助</span></a>'+
 		'</div></li>'+
 		'<li><div>'+
+				'<a href="questionary.html" onclick="$.cookie(\'questionary\', \'user\');"><i style="font-size: 16px;" class="fa fa-book"></i>  <span>填调查表</span></a>'+
+		'</div></li>'+
+		'<li><div>'+
 				'<a href="#" onclick="loginOff();"><i style="font-size: 16px;" class="fa fa-sign-out"></i> <span>安全退出</span></a>'+
 		'</div></li>';
 	
@@ -57,12 +60,12 @@ $(function() {
 	//顶部导航右边显示的用户操作
 	$("#user_menu_right").children().remove();
 	var $user_menu_right = $('<li style="height: 48px;">'+
-			'<div style="height: 100%; width: 100px;">'+
+			'<div style="height: 100%; width: 120px;">'+
 				'<img style="height: 100%;" class="user_img" src="'+imgUrl+'" alt="user" />'+
-				'<span class="user_name" style="margin-left:7px;">'+userName+'</span>'+
+				'<span class="user_name" style="margin-left: 7px;">'+userName+'</span>'+
 			'</div>'+
 		'</li>');
-	var $ul = $('<ul style="width: 120px;"></ul>');
+	var $ul = $('<ul style="width: 130px;"></ul>');
 	$ul.html(user_menu);
 	$user_menu_right.append($ul);
 	$("#user_menu_right").append($user_menu_right).menu({
@@ -78,18 +81,21 @@ $(function() {
 	console.log(userType);
 	if(userType == "活跃型"){
 		//活跃型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme11.css");
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");
+		//$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme11.css");
 	}else if(userType == "沉思型"){
 		//沉思型对应的模块展示
 		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme12.css");
 	}else if(userType == "感悟型"){
 		//感悟型对应的模块展示
 		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme13.css");
+		//$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme15.css");
 	}else if(userType == "直觉型"){
-		//自觉型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");
+		//直觉型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme16.css");	
 	}else if(userType == "default"){
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme15.css");
+		//默认型对应的模块展示
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme17.css");
 	}
 	
 })

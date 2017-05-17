@@ -54,7 +54,7 @@ function get2min(second) {
 }
 
 function backToTop() {
-	// back to top
+	/*// back to top
 	$("img.lazy").unveil();
 	$("#start-intro").click(function() {
 		bootstro.start();
@@ -69,7 +69,7 @@ function backToTop() {
 		scrollText : '', // Text for element
 		activeOverlay : false
 		// Set CSS color to display scrollUp active point, e.g '#00FFFF'
-	});
+	});*/
 }
 function timepicker(idName) {
 	// 新的时间插件显示示例

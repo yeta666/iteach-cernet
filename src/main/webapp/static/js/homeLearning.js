@@ -110,6 +110,7 @@ function recommendCourseslist() {
 				return;
 			}
 			var courseList = data.data.result;
+			console.log(courseList);
 			for(var i = 0; i < courseList.length; i++) {
 				$('<div class="guess_you_like item" courCateIds="' + courseList[i].courCateIds + '" courCredit="' +
 					courseList[i].courCredit + '" courDescribe="' + courseList[i].courDescribe + '" courTeacherIds="' +

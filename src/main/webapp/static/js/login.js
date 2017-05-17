@@ -66,33 +66,37 @@ $(function() {
 									var resultData = data.data;
 									//获取用户类型
 									$.ajax({
-										url : "http://127.0.0.1:8081/adaptive_ui/getUserType",
-										type : "get",
+										url : "../../handler/userType/getUserType",
+										type : "post",
 										data : {
 											"userId": resultData.userId
 										},
-										dataType : "text",
+										dataType : "json",
 										success : function(data) {
-											var result = JSON.parse(data);
-											//console.log(result);
-											if(result.status){
-												$.cookie("userType", result.data);
-												window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-											}else{
-												//后台计算不出用户类型，计算不出的原因result.message
-												if(confirm("请问是否愿意填写一张调查表，好让系统为您进行个性化定制？")){
-													//调查表
-													window.location.href = "questionary.html";
-													return;
-												}else{
-													//默认定制
-													$.cookie("userType", "default");
+											console.log(data);
+											if(data.success){
+												var result = JSON.parse(data.message);
+												if(result.status){
+													$.cookie("userType", result.data);
 													window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+												}else{
+													//后台计算不出用户类型，计算不出的原因result.message
+													if(confirm("请问是否愿意填写一张调查表，好让系统为您进行个性化定制？")){
+														//设置是登陆时进入调查表
+														$.cookie("questionary", "login");
+														//调查表
+														window.location.href = "questionary.html";
+														return;
+													}else{
+														//默认定制
+														$.cookie("userType", "default");
+														window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+													}
 												}
 											}
 										},
 										error : function(XHR) {
-											alert("出现错误，请稍后重试！错误码： " + XHR.status);
+											alert("自适应界面服务没有开启，请联系管理员！错误码： " + XHR.status);
 										}
 									});
 								}
