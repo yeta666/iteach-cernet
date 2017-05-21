@@ -5,6 +5,8 @@ import com.swust.kelab.httpClient.HttpClientMethods;
 import com.swust.kelab.httpClient.HttpResult;
 import com.swust.kelab.httpClient.Params;
 import com.swust.kelab.httpClient.Result;
+import com.swust.kelab.utils.Base64Util;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -50,8 +52,10 @@ public class AccessTokenService {
         h_headerNamesList.add("Authorization");
         p_params.setHeaderNamesList(h_headerNamesList);
         List<String> h_headervaluesList = new ArrayList<String>();
-        Base64Utils base64Utils = new Base64Utils();
-        h_headervaluesList.add("Basic " + base64Utils.getBase64(CLIENT_ID + ":" + CLIENT_SECRET));
+        //Base64Utils base64Utils = new Base64Utils();
+        //h_headervaluesList.add("Basic " + base64Utils.getBase64(CLIENT_ID + ":" + CLIENT_SECRET));
+        Base64Util base64util = new Base64Util();
+        h_headervaluesList.add("Basic " + base64util.encodeStr(CLIENT_ID + ":" + CLIENT_SECRET));
         p_params.setHeaderValuesList(h_headervaluesList);
         //请求
         HttpClientMethods httpClientMethods = new HttpClientMethods();

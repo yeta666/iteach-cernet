@@ -122,7 +122,7 @@ function storeTheQues(id) {
 	} else if (add_type == 2) {
 		var count = 0;
 		$("[name='answer_option']").each(function() {
-			if ($(this).attr("checked")) {
+			if ($(this).is(':checked')) {
 				count++;
 				ans += $(this).val();
 			}
