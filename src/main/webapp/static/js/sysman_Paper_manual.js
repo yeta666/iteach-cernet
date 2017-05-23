@@ -44,12 +44,23 @@ $(document).ready(function() {
 	});*/
 	$('#chooseall').click(function() {
 		if($(this).html()=="全选"){
-			$('input[name="chooseQu"]').prop("checked", true);
+			console.log($("#quCourse").val());
+			if($("#quCourse").val() == "-1"){
+				alert("没有选择课程！");
+				return ;
+			}
+			var $checks = $('input[name="chooseQu"]');
+			$checks.prop("checked", true);
 			$(this).text("反选");
+			for(var i = 0; i < $checks.length; i++){
+				if($checks[i].checked){
+					setSelected($($checks[i]).val());
+				}
+			}
 		}
 		else{
-		$('input[name="chooseQu"]').prop("checked",false);
-		$(this).text("全选");
+			$('input[name="chooseQu"]').prop("checked",false);
+			$(this).text("全选");
 		}
 	});
 	// 加载试题数据
@@ -145,7 +156,7 @@ function refreshContent(pageRecords) {
 			}
 			var options = "A";
 			var code = options.charCodeAt(0);// 转换成ASCII码
-			courseHtml += "<tr><td><input type='checkbox' name='chooseQu' value='" + item.exquId
+			courseHtml += "<tr><td><input onclick='setSelected(" + item.exquId + ")' type='checkbox' name='chooseQu' value='" + item.exquId
 					+ "'></td><td class='tdcenter'>" + item.exquId + "</td>" + "<td class='tdcenter' id='"
 					+ item.courId + "'>" + item.courName + "</td><td class='tdcenter'>" + exTypeName
 					+ "</td><td class='tdcenter'><a href='#' rel='popover'  data-original-title='<strong>"

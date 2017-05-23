@@ -93,6 +93,8 @@ $(function() {
 														window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 													}
 												}
+											}else{
+												window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 											}
 										},
 										error : function(XHR) {
