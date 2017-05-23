@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>自适应界面服务管理</title>
+		<link href="../css/ncss/bootstrap.css" rel="stylesheet">
+		<link href="../css/ncss/font-awesome.css" rel="stylesheet">
+		<link href="../css/ncss/style.css" rel="stylesheet">
+		<link href="../css/ncss/animate.css" rel="stylesheet">
+		<!--普遍样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/common_by_yeta.css" />
+		<!--左边导航样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/leftside_by_yeta.css" />
+		<!--顶部导航样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/headersection_by_yeta.css" />
+		<!--主体部分样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/maincontent_by_yeta.css" />
+		<!--底部样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/footer_by_yeta.css" />
+		<!--响应式样式-->
+		<link rel="stylesheet" type="text/css" href="../css/css_by_yeta/style-responsive.css" />
+		<!-- 个性化定制组件样式 -->
+		<link href="../css/adaptive_ui/jquery-ui.structure.css" rel="stylesheet">
+		<link id="adaptive_ui" href="" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<section>
+			<!-- left side start-->
+			<div class="left-side sticky-left-side">
+
+				<!--logo and iconic logo start-->
+				<div class="logo">
+					<a href="index.html"><img src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+				</div>
+
+				<div class="logo-icon text-center">
+					<a href="index.html"><img src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+				</div>
+				<!--logo and iconic logo end-->
+
+				<div class="left-side-inner">
+
+					<!-- visible to small devices only -->
+					<div class="visible-xs hidden-sm hidden-md hidden-lg">
+						<div class="media logged-user">
+							<img alt="user" src="" class="media-object user_img">
+							<div class="media-body">
+								<h4 class="user_name"></h4>
+							</div>
+						</div>
+
+						<ul id="user_menu_left">
+							<!-- class="nav nav-pills nav-stacked custom-nav" -->
+						</ul>
+					</div>
+
+					<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav" id="left_side">
+						<!-- <li class="menu-list nav-active">
+							<a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+							<ul class="sub-menu-list">
+								<li class="active">
+									<a href="blank_page.html"> Blank Page</a>
+								</li>
+							</ul>
+						</li> -->
+					</ul>
+					<!--sidebar nav end-->
+
+				</div>
+			</div>
+			<!-- left side end-->
+
+			<!-- main content start-->
+			<div class="main-content">
+
+				<!-- header section start-->
+				<div class="header-section">
+
+					<!--toggle button start-->
+					<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+					<!--toggle button end-->
+
+					<!--notification menu start -->
+					<div class="menu-right">
+						<ul id="user_menu_right">
+						</ul>
+					</div>
+					<!--notification menu end -->
+
+				</div>
+				<!-- header section end-->
+
+				<!-- page heading start-->
+				<div class="page-heading">
+					<h3 id="system_title_by_yeta"></h3>
+					<ul class="breadcrumb">
+						<li>
+							<a href="home.html">主页</a>
+						</li>
+						<li class="active">自适应界面服务管理</li>
+					</ul>
+				</div>
+				<!-- page heading end-->
+
+				<!--body wrapper start-->
+				<div class="wrapper">
+					<div class="row animated fadeInRight">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="wrapper wrapper-content animated fadeInRight">
+									<div class="ibox float-e-margins">
+										<div class="ibox-title">
+											<h2>
+												<i class="fa fa fa-bell"></i> 自适应界面服务管理
+											</h2>
+											<div class="ibox-tools">
+												<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+												<a class="close-link"> <i class="fa fa-times"></i></a>
+											</div>
+										</div>
+
+										<div class="ibox-content m-b-sm border-bottom">
+											<div class="p-xs">
+												<ul id="myTab" class="nav nav-tabs">
+													<li class="active">
+														<a href="#notice" data-toggle="tab">注意</a>
+													</li>
+													<li>
+														<a href="#model" data-toggle="tab">模型管理</a>
+													</li>
+													<li>
+														<a href="#userAnswers" data-toggle="tab">用户答案管理</a>
+													</li>
+													<li>
+														<a href="#trainArrayAttributes" data-toggle="tab">训练集属性管理</a>
+													</li>
+												</ul>
+					
+												<div class="tab-content">
+													<div class="tab-pane fade in active" id="notice">
+														注意了！！！
+													</div>
+													<div class="tab-pane fade in" id="model">
+														<div style="margin-top: 20px;">
+															<div class="col-xs-9">
+															</div>
+															<div class="col-xs-3">
+																<button class="btn btn-danger" id="deleteModelBtn">删除</button>
+															</div>
+														</div>
+														<table class="table table-striped table-hover table-condensed text-center table-responsive">
+															<thead>
+																<tr>
+																	<th style="text-align: center;"><input type="checkbox" class="modelCheckAll" /></th>
+																	<th style="text-align: center;">序号</th>
+																	<th style="text-align: center;">创建时间</th>
+																	<th style="text-align: center;">模型内容</th>
+																	<th style="text-align: center;">模型类型</th>
+																</tr>
+															</thead>
+															<tbody id="modelTbody">
+					
+															</tbody>
+														</table>
+														<!-- 模态框（Modal） -->
+														<div class="modal fade" id="modelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																		<h4 class="modal-title" id="myModalLabel">模型内容</h4>
+																	</div>
+																	<div class="modal-body" id="modalBody"></div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+															<!-- /.modal -->
+														</div>
+													</div>
+													<div class="tab-pane fade in" id="userAnswers">
+														<div style="margin-top: 20px;">
+															<div class="col-xs-9">
+															</div>
+															<div class="col-xs-3">
+																<button class="btn btn-danger" id="deleteUserAnswersBtn">删除</button>
+															</div>
+														</div>
+														<table class="table table-striped table-hover table-condensed text-center">
+															<thead>
+																<tr>
+																	<th style="text-align: center;"><input type="checkbox" class="userAnswerscheckAll" /></th>
+																	<th style="text-align: center;">序号</th>
+																	<th style="text-align: center;">用户姓名</th>
+																	<th style="text-align: center;">用户答案</th>
+																	<th style="text-align: center;">用户类型</th>
+																</tr>
+															</thead>
+															<tbody id="userAnswersBody">
+					
+															</tbody>
+														</table>
+													</div>
+													<div class="tab-pane fade in" id="trainArrayAttributes">
+														<div style="margin-top: 20px;">
+														</div>
+														<table class="table table-striped table-hover table-condensed text-center">
+															<thead>
+																<tr>
+																	<th style="text-align: center;">序号</th>
+																	<th style="text-align: center;">属性序号</th>
+																	<th style="text-align: center;">属性名</th>
+																	<th style="text-align: center;">适用模型</th>
+																</tr>
+															</thead>
+															<tbody id="trainArrayAttributesBody">
+					
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>		
+					</div>
+				</div>
+				<!--body wrapper end-->
+
+				<!--footer section start-->
+				<footer id="footer">
+
+				</footer>
+				<!--footer section end-->
+
+			</div>
+			<!-- main content end-->
+		</section>
+
+		<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
+		<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
+		<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
+		
+		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+		<!-- 美化滚动条插件 -->
+		
+		<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
+		<!-- 延迟加载插件 -->
+		<script src="../js/ext/highcharts.js" type="text/javascript"></script>
+		<script src="../js/extend.js" type="text/javascript"></script>
+		<script src="../js/utils.js" type="text/javascript"></script>
+		<script src="../js/common.js?ver=1" type="text/javascript"></script>
+		<script src="../js/userCenter.js" type="text/javascript"></script>
+		<script src="../js/njs/hplus.js"></script>
+		
+		<!-- 模块化界面js -->
+		<script src="../js/adaptive_ui/jquery-ui.js" type="text/javascript"></script>
+		<script src="../js/adaptive_ui/adaptive_ui.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				//页面加载时获取所有
+				getAllModels();
+				getAllUserAnswers();
+				getAllTrainArrayAttributes();
+
+				//全选/反选功能
+				$(".modelCheckAll").click(function() {
+					var $checks = $(".modelCheckOne");
+					setChecks($checks);
+				});
+
+				$(".userAnswerscheckAll").click(function() {
+					var $checks = $(".userAnswersCheckOne");
+					setChecks($checks);
+				});
+
+				//删除操作
+				$("#deleteModelBtn").click(function() {
+					var $checks = $(".modelCheckOne");
+					//请求删除
+					var ids = getIds($checks);
+					if(ids == "") {
+						alert("请选择要删除的模型！");
+					} else {
+						deleteOneOrMany(ids, "model");
+					}
+				});
+
+				$("#deleteUserAnswersBtn").click(function() {
+					var $checks = $(".userAnswersCheckOne");
+					//请求删除
+					var ids = getIds($checks);
+					if(ids == "") {
+						alert("请选择要删除的用户答案！");
+					} else {
+						deleteOneOrMany(ids, "userAnswers");
+					}
+				});
+			})
+
+			function setChecks($checks) {
+				for(var i = 0; i < $checks.length; i++) {
+					if(this.checked) {
+						$checks[i].checked = true;
+					} else {
+						$checks[i].checked = false;
+					}
+				}
+			}
+
+			function getIds($checks) {
+				var ids = "";
+				//获取哪些被选中
+				for(var i = 0; i < $checks.length; i++) {
+					if($checks[i].checked) {
+						ids += $($checks[i]).attr("idd") + ",";
+					}
+				}
+				//去掉最后一个,
+				return ids.substring(0, ids.length - 1);
+			}
+
+			function getAllModels() {
+				//先清空
+				$("#modelTbody").children().remove();
+
+				$.ajax({
+					type: "get",
+					url: "../../handler/model/getAll",
+					data: {},
+					dataType: "json",
+					success: function(result) {
+						//console.log(result);
+						if(result.ret){
+							var data1 = result.data.result;
+							if(data1.success){
+								var data = JSON.parse(data1.message);
+								if(data.status) {
+									var result = data.data;
+									for(var i = 1; i <= result.length; i++) {
+										var $tr = $('<tr></tr>');
+										var $td1 = $('<td><input type="checkbox" class="modelCheckOne" idd="' + result[i - 1].id + '" /></td>');
+										var $td2 = $('<td>' + i + '</td>');
+										var $td3 = $('<td>' + new Date(result[i - 1].createDate) + '</td>');
+										var $a = $('<a href="" data-toggle="modal" data-target="#modelModal" model="' + result[i - 1].model + '">点击查看详细</a>').click(function() {
+											//给模态框加载模型内容
+											$("#modalBody").html($(this).attr("model"));
+										});
+										var $td4 = $('<td></td>');
+										$td4.append($a);
+										var $td5 = $('<td>' + result[i - 1].type + '</td>');
+										$tr.append($td1);
+										$tr.append($td2);
+										$tr.append($td3);
+										$tr.append($td4);
+										$tr.append($td5);
+										$("#modelTbody").append($tr);
+									}
+								} else {
+									alert(data.message);
+								}
+							}
+						}
+					},
+					error: function(XHR) {
+						alert(XHR.status);
+					}
+				});
+			}
+
+			function getAllUserAnswers() {
+				//先清空
+				$("#userAnswersBody").children().remove();
+
+				$.ajax({
+					type: "get",
+					url: "../../handler/userAnswers/getAll",
+					data: {},
+					dataType: "json",
+					success: function(result) {
+						//console.log(result);
+						if(result.ret){
+							var data1 = result.data.result;
+							if(data1.success){
+								var data = JSON.parse(data1.message);
+								if(data.status) {
+									var result = data.data;
+									for(var i = 1; i <= result.length; i++) {
+										$('<tr><td><input type="checkbox" class="userAnswersCheckOne" idd="' + result[i - 1].userId + '" /></td><td>' + i + '</td><td>' + result[i - 1].userName + '</td><td>' +
+											result[i - 1].answers + '</td><td>' + result[i - 1].userType + '</td></tr>').appendTo($("#userAnswersBody"));
+									}
+								} else {
+									alert(data.message);
+								}
+							}
+						}
+					},
+					error: function(XHR) {
+						alert(XHR.status);
+					}
+				});
+			}
+
+			function getAllTrainArrayAttributes() {
+				//先清空
+				$("#trainArrayAttributesBody").children().remove();
+
+				$.ajax({
+					type: "get",
+					url: "../../handler/trainArrayAttributes/getAll",
+					data: {},
+					dataType: "json",
+					success: function(result) {
+						//console.log(result);
+						if(result.ret){
+							var data1 = result.data.result;
+							if(data1.success){
+								var data = JSON.parse(data1.message);
+								if(data.status) {
+									var result = data.data;
+									var html = '';
+									for(var i = 1; i <= result.length; i++) {
+										var attributes_array = result[i - 1].attributes.split(",");
+										html += '<tr><td rowspan="' + attributes_array.length + '" style="vertical-align: middle">' + i + '</td><td>' + 1 + '</td><td>' + attributes_array[0] + '</td><td rowspan="' + attributes_array.length + '" style="vertical-align: middle">' + result[i - 1].modelType + '</td></tr>';
+										for(var j = 2; j <= attributes_array.length; j++) {
+											html += '<tr><td>' + j + '</td><td>' + attributes_array[j - 1] + '</td></tr>';
+										}
+									}
+									$("#trainArrayAttributesBody").html(html);
+								} else {
+									alert(data.message);
+								}
+							}
+						}
+					},
+					error: function(XHR) {
+						alert(XHR.status);
+					}
+				});
+			}
+
+			function deleteOneOrMany(ids, deleteWho) {
+				var url = "";
+				if(deleteWho == "model") {
+					url = "../../handler/model/delete";
+				} else if(deleteWho == "userAnswers") {
+					url = "../../handler/userAnswers/delete"
+				}
+				$.ajax({
+					type: "post",
+					url: url,
+					data: {
+						"ids": ids
+					},
+					dataType: "json",
+					success: function(result) {
+						//console.log(result);
+						if(result.ret){
+							var data1 = result.data.result;
+							if(data1.success){
+								var data = JSON.parse(data1.message);
+								if(data.status) {
+									alert("删除成功！");
+									if(deleteWho == "model") {
+										getAllModels();
+									} else if(deleteWho == "userAnswers") {
+										getAllUserAnswers();
+									}
+								} else {
+									alert(data.message);
+								}
+							}
+						}
+					},
+					error: function(XHR) {
+						alert(XHR.status);
+					}
+				});
+			}
+		</script>
+
+	</body>
+
+</html>
