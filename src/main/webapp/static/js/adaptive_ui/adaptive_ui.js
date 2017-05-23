@@ -81,28 +81,18 @@ $(function() {
 	console.log(userType);
 	if(userType == "活跃型"){
 		//活跃型对应的模块展示
-		if(userGender.equal("女")){
-			//女
-			$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");
-		}else{
-			//男或出错
-			$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme11.css");
-		}
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");
+		//$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme11.css");
 	}else if(userType == "沉思型"){
 		//沉思型对应的模块展示
 		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme12.css");
 	}else if(userType == "感悟型"){
 		//感悟型对应的模块展示
-		if(userGender.equal("女")){
-			//女
-			$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme13.css");
-		}else{
-			//男或出错
-			$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme15.css");
-		}
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme13.css");
+		//$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme15.css");
 	}else if(userType == "直觉型"){
 		//直觉型对应的模块展示
-		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme16.css");	//1.活跃型（男）、2.沉思型、3.感悟型（女）、4.活跃型（女）、5.感悟型（男）、6.直觉型、7.默认
+		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme16.css");	
 	}else if(userType == "default"){
 		//默认型对应的模块展示
 		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme17.css");

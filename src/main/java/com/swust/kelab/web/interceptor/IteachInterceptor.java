@@ -31,6 +31,14 @@ public class IteachInterceptor implements HandlerInterceptor {
         if(request.getRequestURI().endsWith("recom.do")){
         	return true;
         }
+        //获取所有调查表题目
+        if(request.getRequestURI().endsWith("question/getAll")){
+        	return true;
+        }
+        //获取用户类型
+        if(request.getRequestURI().endsWith("userType/getUserType")){
+        	return true;
+        }
         // 请求到登录页面 放行
         if (request.getRequestURI().endsWith("/login") || request.getRequestURI().endsWith("/loginOff")) {
             Cookie cookie = new Cookie("authCookie", "");
@@ -40,8 +48,10 @@ public class IteachInterceptor implements HandlerInterceptor {
             return true;
         }
         String url = request.getHeader("referer");
-        if (url.contains("home.html") || url.contains("_error.html"))
-            return true;
+        if(url != null){
+        	if (url.contains("home.html") || url.contains("_error.html"))
+                return true;
+        }
         Cookie[] cookies = request.getCookies();
         String cookieValue = CookieUtil.findCookieValue(cookies, "user");
         // 校验登陆数据是否完整

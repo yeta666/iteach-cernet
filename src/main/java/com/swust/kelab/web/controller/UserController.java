@@ -21,12 +21,15 @@ import com.swust.kelab.domain.Attachment;
 import com.swust.kelab.domain.Department;
 import com.swust.kelab.domain.Role;
 import com.swust.kelab.domain.User;
+import com.swust.kelab.httpClient.Result;
 import com.swust.kelab.model.CommonQuery;
 import com.swust.kelab.model.QueryData;
 import com.swust.kelab.model.StudentMassedLearningInfoModel;
 import com.swust.kelab.model.TeacherModel;
 import com.swust.kelab.model.UserPersonalInfo;
 import com.swust.kelab.model.UserSearchInfoModel;
+import com.swust.kelab.oauth.AccessToken;
+import com.swust.kelab.oauth.AccessTokenService;
 import com.swust.kelab.recom.RecomService;
 import com.swust.kelab.recom.UserRecom;
 import com.swust.kelab.service.AttachmentService;
@@ -51,7 +54,10 @@ import com.swust.kelab.web.json.JsonAndView;
 @Controller()
 @RequestMapping("/user")
 public class UserController {
-
+	
+	@Autowired
+    private AccessTokenService accessTokenService;
+	
     final Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     private UserService userService;
@@ -192,6 +198,16 @@ public class UserController {
                     }
                     CookieUtil.colsCookie(userPhoto, "photo", "/", "", 100000, response);
                     result = "success";
+                    
+                    //获取access_token
+                    Result getAccessTokenResult = accessTokenService.getAccessTokenService();
+                    if (!getAccessTokenResult.isSuccess()) {
+                    	request.getSession().setAttribute("access_token", null);
+                    } else {
+                    	AccessToken accessToken = (AccessToken) getAccessTokenResult.getData();
+                    	request.getSession().setAttribute("access_token", accessToken);
+                    }
+                    
                 } catch (UnsupportedEncodingException e) {
                     logger.error("addCookieToResponse error!\n" + e.getLocalizedMessage());
                 }
@@ -228,6 +244,7 @@ public class UserController {
         jv.setRet(flag);
         HttpSession session = request.getSession();
         session.removeAttribute("userId");
+        request.getSession().setAttribute("access_token", null);
         return jv;
     }
 

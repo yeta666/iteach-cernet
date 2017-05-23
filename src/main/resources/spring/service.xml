@@ -16,5 +16,6 @@
 	<context:component-scan base-package="com.swust.kelab.service" />
 	<context:component-scan base-package="com.swust.kelab.recom" />
 	<context:component-scan base-package="com.swust.kelab.utils"/>
-	
+	<context:component-scan base-package="com.swust.kelab.adaptive_ui" />
+	<context:component-scan base-package="com.swust.kelab.oauth" />
 </beans>

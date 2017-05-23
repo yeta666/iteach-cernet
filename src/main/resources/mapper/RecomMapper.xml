@@ -41,8 +41,8 @@
 		select user as user,course as course,rate as rate from user_rate where user=#{userId} and course=#{courseId}
 	</select>
 	<insert id="insertUserRate" parameterType="hashMap" >
-		insert into user_rate(user,course,rate)
-		values(#{userId},#{courseId},#{rate})
+		insert into user_rate(user,course,rate,time)
+		values(#{userId},#{courseId},#{rate},now())
 	</insert>
 	<insert id="insertUserRateByBatch" parameterType="java.util.List">
 		replace into user_rate(user,course,rate,time) values
@@ -52,7 +52,8 @@
 	</insert>
 
 	<update id="updateUserRate" parameterType="hashMap">
-		update user_rate set rate=(rate+#{rate})/2 where user=#{userId} and
+		<!-- update user_rate set rate=(rate+#{rate})/2 where user=#{userId} and -->
+		update user_rate set rate=#{rate} where user=#{userId} and
 		course=#{courseId}
 	</update>
 	

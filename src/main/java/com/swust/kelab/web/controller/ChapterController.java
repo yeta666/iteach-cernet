@@ -156,8 +156,10 @@ public class ChapterController {
 	public JsonAndView viewChapterListByCourse(
 			HttpServletRequest request,
 			@RequestParam(value="courId") int courId) {
+		
 		JsonAndView jav = new JsonAndView();
 		User user = CookieUtil.getCookieUser(request);
+		 
 		Map<String, Object> data=chapterService.viewChapterListByCourse(
                 request.getSession().getServletContext()
                 .getRealPath("/"),courId,user.getUserId());
@@ -180,7 +182,7 @@ public class ChapterController {
 	@RequestMapping(value="/assessChapter",method=RequestMethod.POST)
     public JsonAndView assessChapter(HttpServletRequest request,int chapterId,double score) {
         JsonAndView jav = new JsonAndView(); 
-        User user = CookieUtil.getCookieUser(request);
+        User user = CookieUtil.getCookieUser(request);      
         if(user!=null){
         	int userId = user.getUserId();
         	 if(!chapterService.assessChapter(userId,chapterId, score)){
