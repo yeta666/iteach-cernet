@@ -1,7 +1,7 @@
 $(function() {
 	
-	// 伪造数据
-	/*var forge_answers = "";
+	/*// 伪造数据
+	var forge_answers = "";
 	for(var i = 0; i < 22; i++) {
 		var random_num = parseInt(Math.random() * 2) + 1;
 		if(random_num == 1) {
@@ -18,12 +18,11 @@ $(function() {
 			}
 		}
 	}
-	console.log(forge_answers);*/
+	console.log(forge_answers);
 
-	//console.log($.cookie("userId"));
+	console.log($.cookie("userId"));*/
 
 	// 初始化数据
-	var finish_question_num = 0;
 	var answers_index = ["a", "b"];
 
 	// 初始化按钮信息提示
@@ -44,16 +43,6 @@ $(function() {
 		$("#submit_btn_ok").click(function() {
 			$_this.popover('hide');
 
-			// 要求完成所有题目
-			if(finish_question_num != parseInt($("#total_question_num").val())){
-				alert("请完成所有题目后提交！");
-				return ; 
-			}
-			
-			$.bootstrapLoading.start({
-				loadingTips: "正在上传数据，请稍候..."
-			});
-
 			// 封装数据
 			var answers = "";
 			var radios = $("input[type=radio]");
@@ -65,39 +54,45 @@ $(function() {
 				}
 			}
 			var new_answers = answers.substring(0, answers.length - 1);
-			//console.log(new_answers);
 			
-			// 提交数据
-			$.ajax({
-				url: "../../handler/userType/getUserType",
-				type: "post",
-				data: {
-					"userId": $.cookie("userId"),
-					//"userId": parseInt(Math.random() * 532) + 1,
-					//"answers": forge_answers
-					"answers": new_answers
-				},
-				dataType: "json",
-				success: function(result) {
-					console.log(result);
-					if(result.success){
-						var data = JSON.parse(result.message);
-						if(data.status) {
-							//console.log(data.data);
-							$.cookie("userType", data.data);
-							window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-						} else {
-							$.bootstrapLoading.end();
-							$("#submitBtn").popover('hide');
-							// 后台计算不出用户类型，计算不出的原因data.message
-							alert(data.message);
+			// 要求完成所有题目
+			if(forge_answers.split(",").length != 22){
+				alert("请完成所有题目！");
+			}else{
+				$.bootstrapLoading.start({
+					loadingTips: "正在上传数据，请稍候..."
+				});
+				// 提交数据
+				$.ajax({
+					url: "../../handler/userType/getUserType",
+					type: "post",
+					data: {
+						"userId": $.cookie("userId"),
+						//"answers": forge_answers
+						"answers": new_answers
+					},
+					dataType: "json",
+					success: function(result) {
+						console.log(result);
+						if(result.success){
+							var data = JSON.parse(result.message);
+							if(data.status) {
+								//console.log(data.data);
+								$.cookie("userType", data.data);
+								window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+							} else {
+								$.bootstrapLoading.end();
+								$("#submitBtn").popover('hide');
+								// 后台计算不出用户类型，计算不出的原因data.message
+								alert(data.message);
+							}
 						}
+					},
+					error: function(XHR) {
+						alert(XHR.status);
 					}
-				},
-				error: function(XHR) {
-					alert(XHR.status);
-				}
-			});
+				});
+			}
 		});
 	});
 
@@ -127,7 +122,7 @@ $(function() {
 		data: {},
 		dataType: "json",
 		success: function(result) {
-			console.log(result);
+			//console.log(result);
 			if(result.ret){
 				var result1 = result.data.result;
 				if(result1.success){
@@ -157,8 +152,6 @@ $(function() {
 								var $a = $('<a href="javascript:" style="display: inline-block; width: 18px; height: 16px; background: transparent url(./../img/radio.gif) no-repeat; vertical-align: middle; "></a>').click(function(e) {
 									// 点击任何一个回答选项，与之对应的题目导航背景变绿
 									$(".question_navbar > a[href=#" + $($(this).children()).attr("name") + "]").css("background-color", "rgb(174, 197, 45)");
-									// 完成题目数量+1
-									finish_question_num++;
 									// 改变背景图片
 									$(this).css("background", "transparent url(./../img/radio.gif) no-repeat 0 -16px");
 									// 取消相同name的radio的选中状态，并改变背景图片
