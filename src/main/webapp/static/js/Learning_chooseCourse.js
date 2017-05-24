@@ -227,7 +227,7 @@ function chooseChapter(data,selType) {
 		var t=0;
 		var count = 0;
 		var colVideo = $.cookie('colVideo');
-		if(colVideo!=''&&colVideo=='0'){
+		if(colVideo != '' && colVideo == '0'){
 			for(var q=0;q<data.length;q++){
 				//start
 				t=1000;
@@ -238,8 +238,7 @@ function chooseChapter(data,selType) {
 					}
 				}
 				//end
-				var rowhtml="<tr><td style='padding-left: 15px;'>"+"第"+data[count].chapOrdinal+"章："
-				+data[count].chapName+"</td><td>";
+				var rowhtml="<tr><td style='padding-left: 15px;'>"+"第"+data[count].chapOrdinal+"章："+data[count].chapName+"</td><td>";
 				if(((data[count].resources).length)!=0){
 					var icount =1;
 					for(var j=0;j<data[count].resources.length;j++){

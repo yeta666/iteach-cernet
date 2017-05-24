@@ -70,7 +70,6 @@ function createPlayer(videoAddr) {
 
 	myplayer.onPlay(function(){
 		$.cookie('colVideo', '1'); //控制视频 唯一开启
-		console.log("视频开启后：" + $.cookie('colVideo'));
 		buffereTime = 0;
 		if(userT==1&&cheatingControl=="是"){
 				window.setTimeout("getRandomCode();",CheatingInterval*60*1000);
