@@ -93,7 +93,6 @@ function loadNavibarInfo() {
 				var resultData = data.data;
 				getNavibar(resultData);
 				userId = resultData.userId;
-				$.cookie("userId", userId);
 				userType = resultData.userType;
 				departId = resultData.userDepaId;
 				departmentTypeID = resultData.userDepaType;
@@ -163,6 +162,10 @@ function loginOff() {
 			success: function(data) {
 				if(data.ret) {
 					alert("退出成功！谢谢使用！");
+					$.cookie("userId", null, {
+						path: '/'
+					});
+					$.cookie("userId", null);
 					$.cookie("colVideo", null, {
 						path: '/'
 					});

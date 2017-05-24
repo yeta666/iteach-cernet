@@ -33,7 +33,6 @@ public class QuestionService {
         	//初始化参数
             Params params = new Params();
             params.setUri(GET_QUESTION_URI);
-            
             params.setAccess_token(accessToken.getAccess_token());
             //请求
             HttpClientMethods httpClientMethods = new HttpClientMethods();

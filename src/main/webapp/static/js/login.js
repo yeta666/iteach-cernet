@@ -36,6 +36,7 @@ $(function() {
 		},
 		submitHandler: function(form) {
 			//data = $(form).serialize();
+			$.cookie("userId", null);
 			var userLoginname = $("#userLoginname").val();
 			var userPwd = hex_md5($("#userPwd").val()); // 对密码进行MD5码加密
 			var authcode = $("#authcode").val();
@@ -63,44 +64,48 @@ $(function() {
 								async: false, // 需要同步请求数据
 								dataType: 'json',
 								success: function(data, status) {
-									var resultData = data.data;
-									//获取用户类型
-									$.ajax({
-										url : "../../handler/userType/getUserType",
-										type : "post",
-										data : {
-											"userId": resultData.userId
-										},
-										dataType : "json",
-										success : function(data) {
-											console.log(data);
-											if(data.success){
-												var result = JSON.parse(data.message);
-												if(result.status){
-													$.cookie("userType", result.data);
-													window.location.href = "userCenter.html?firstCol=1&secondCol=14";
-												}else{
-													//后台计算不出用户类型，计算不出的原因result.message
-													if(confirm("请问是否愿意填写一张调查表，好让系统为您进行个性化定制？")){
-														//设置是登陆时进入调查表
-														$.cookie("questionary", "login");
-														//调查表
-														window.location.href = "questionary.html";
-														return;
-													}else{
-														//默认定制
-														$.cookie("userType", "default");
+									if(data.ret){
+										var resultData = data.data;
+										$.cookie("userId", resultData.userId);
+										//获取用户类型
+										$.ajax({
+											url : "../../handler/userType/getUserType",
+											type : "post",
+											data : {
+												"userId": resultData.userId
+											},
+											dataType : "json",
+											success : function(data) {
+												console.log(data);
+												if(data.success){
+													var result = JSON.parse(data.message);
+													if(result.status){
+														$.cookie("userType", result.data);
 														window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+													}else{
+														//后台计算不出用户类型，计算不出的原因result.message
+														if(confirm("请问是否愿意填写一张调查表，好让系统为您进行个性化定制？")){
+															//设置是登陆时进入调查表
+															$.cookie("questionary", "login");
+															//调查表
+															window.location.href = "questionary.html";
+															return;
+														}else{
+															//默认定制
+															$.cookie("userType", "default");
+															window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+														}
 													}
+												}else{
+													alert("授权服务未开启，请联系管理员！");
 												}
-											}else{
-												window.location.href = "userCenter.html?firstCol=1&secondCol=14";
+											},
+											error : function(XHR) {
+												alert("自适应界面服务没有开启，请联系管理员！错误码： " + XHR.status);
 											}
-										},
-										error : function(XHR) {
-											alert("自适应界面服务没有开启，请联系管理员！错误码： " + XHR.status);
-										}
-									});
+										});
+									}
+									console.log(data);
 								}
 							});
 						} else if(resultData == "passwordError" || resultData == "null") {
