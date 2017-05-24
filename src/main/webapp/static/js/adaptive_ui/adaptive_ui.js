@@ -1,6 +1,22 @@
 $(function() {
 	//此js的目的是所有个性化模块的初始化
 
+	if($.cookie("toggle") == "open"){
+		//展开
+		$("body").removeClass('left-side-collapsed chat-view');
+		$(".toggle-btn").removeClass('menu-collapsed');
+		//改变footer的宽度
+		$("#footer").css("width", $(".wrapper").outerWidth());
+		$("#footer").css("left", "240px");
+	}else{
+		//如果之前用户选择了折叠左边导航栏
+		$("body").addClass('left-side-collapsed');
+		$(".toggle-btn").addClass('menu-collapsed');
+		//改变footer的宽度
+		$("#footer").css("width", "100%");
+		$("#footer").css("left", "0");
+	}
+	
 	// Menu Toggle
 	jQuery('.toggle-btn').click(function() {
 		var body = jQuery('body');
@@ -9,9 +25,17 @@ $(function() {
 			if (!body.hasClass('left-side-collapsed')) {
 				body.addClass('left-side-collapsed');
 				jQuery(this).addClass('menu-collapsed');
+				$.cookie("toggle", "close");
+				//改变footer的宽度
+				$("#footer").css("width", "100%");
+				$("#footer").css("left", "0");
 			} else {
 				body.removeClass('left-side-collapsed chat-view');
 				jQuery(this).removeClass('menu-collapsed');
+				$.cookie("toggle", "open");
+				//改变footer的宽度
+				$("#footer").css("width", $(".wrapper").outerWidth());
+				$("#footer").css("left", "240px");
 			}
 		} else {
 			if (body.hasClass('left-side-show'))

@@ -81,6 +81,7 @@ $(function() {
 													var result = JSON.parse(data.message);
 													if(result.status){
 														$.cookie("userType", result.data);
+														$.cookie("toggle", "open");
 														window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 													}else{
 														//后台计算不出用户类型，计算不出的原因result.message
