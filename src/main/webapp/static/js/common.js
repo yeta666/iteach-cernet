@@ -149,23 +149,29 @@ function entrancePerson() {
 }
 // login Out
 function loginOff() {
-	if(userId > 0) {
+	if(userId > 0 || $.cookie("userId") != null) {
+		var data;
+		if(userId > 0){
+			data = userId;
+		}else if($.cookie("userId") != null){
+			data = $.cookie("userId");
+		}
 		$.ajax({
 			type: 'POST',
 			contentType: 'application/x-www-form-urlencoded;charset=UTF-8', // 发送信息至服务器时内容编码类型
 			url: '../../handler/user/loginOff',
 			async: false, // 需要同步请求数据
 			data: {
-				userId: userId
+				userId: data
 			},
 			dataType: 'json',
 			success: function(data) {
 				if(data.ret) {
-					alert("退出成功！谢谢使用！");
 					$.cookie("userId", null, {
 						path: '/'
 					});
 					$.cookie("userId", null);
+					$.cookie("userType", null);
 					$.cookie("colVideo", null, {
 						path: '/'
 					});
@@ -192,8 +198,7 @@ function loginOff() {
 					});
 					// 清除photo信息
 					// 删除cookie
-					document.cookie = "Search=;expires=" +
-						(new Date(0)).toGMTString();
+					document.cookie = "Search=;expires=" + (new Date(0)).toGMTString();
 					userId = 0;
 				}
 			}

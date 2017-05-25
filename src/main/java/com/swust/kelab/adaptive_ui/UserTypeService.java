@@ -45,7 +45,7 @@ public class UserTypeService {
             HttpResult userTypeResult = httpClientMethods.post(params);
             //验证请求结果
             if (!userTypeResult.isSuccess()) {
-                return new Result(false, -1, userTypeResult.getResponseContent(), null);
+                return new Result(false, -2, userTypeResult.getResponseContent(), null);
             } else {
                 //获取userType
                 return new Result(true, userTypeResult.getStatusCode(), userTypeResult.getResponseContent(), null);

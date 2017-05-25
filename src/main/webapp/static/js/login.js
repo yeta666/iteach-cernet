@@ -55,7 +55,7 @@ $(function() {
 					if(data.ret) {
 						var resultData = data.data.result;
 						if(resultData == "success") {
-							$.cookie('colVideo', '0'); //控制视频 唯一开启
+							$.cookie('colVideo', '0'); //控制视频 唯一开启设为否
 							//获取userId
 							$.ajax({
 								type: 'GET',
@@ -99,11 +99,18 @@ $(function() {
 														}
 													}
 												}else{
-													alert("授权服务未开启，请联系管理员！");
+													if(data.statusCode == -1){
+														alert("授权服务未开启，请联系管理员！");
+													}else if(data.statusCode == -2){
+														alert("自适应界面服务未开启，请联系管理员！");
+													}
+													loginOff();
 												}
 											},
 											error : function(XHR) {
 												alert("自适应界面服务没有开启，请联系管理员！错误码： " + XHR.status);
+												debugger;
+												loginOff();
 											}
 										});
 									}
