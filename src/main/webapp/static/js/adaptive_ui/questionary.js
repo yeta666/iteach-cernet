@@ -56,7 +56,7 @@ $(function() {
 			var new_answers = answers.substring(0, answers.length - 1);
 			
 			// 要求完成所有题目
-			if(forge_answers.split(",").length != 22){
+			if(new_answers.split(",").length != 22){
 				alert("请完成所有题目！");
 			}else{
 				$.bootstrapLoading.start({
