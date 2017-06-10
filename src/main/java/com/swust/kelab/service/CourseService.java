@@ -2045,14 +2045,12 @@ public class CourseService {
 		return map;
 	}
 
-	public List<Map<String, Object>> viewCourseListByMentroId(Integer userId,
-			Integer departId) {
+	public List<Map<String, Object>> viewCourseListByMentroId(Integer userId, Integer departId) {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		Map<String, Object> queryData = new HashMap<String, Object>();
 		queryData.put("userId", userId);
 
-		List<CourseModel> courses = courseDAO
-				.viewCourseInfoByMentroId(queryData);
+		List<CourseModel> courses = courseDAO.viewCourseInfoByMentroId(queryData);
 		if (courses.size() == 0) {
 			return null;
 		}

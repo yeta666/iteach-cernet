@@ -180,10 +180,8 @@ public class CourseController {
 	public JsonAndView viewCourseList(int userId, int departId,
 			HttpServletRequest request) {
 		JsonAndView jav = new JsonAndView();
-		List<Map<String, Object>> courses = courseService
-				.viewCourseListByMentroId(userId, departId);
-		logDBService.insertNewLog(request, LogDBService.SELECT_OPERATION,
-				"集中学习", "集中学习中课程列表");
+		List<Map<String, Object>> courses = courseService.viewCourseListByMentroId(userId, departId);
+		logDBService.insertNewLog(request, LogDBService.SELECT_OPERATION, "集中学习", "集中学习中课程列表");
 		if (courses == null) {
 			jav.setRet(false);
 			jav.setErrcode(1);

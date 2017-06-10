@@ -415,97 +415,98 @@ function recommendCourseslist() {
 	$.ajax({
 		type:"post",
 		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
-		//url:'../../handler/courseReom',
-		url: "http://127.0.0.1:8082/recom/courseRecom",
+		url: "../../handler/recom/courseRecommend",
 		data: {
 			"userId": userId
 		},
 		dataType:'json',
-		success:function(result){
-			if(result.ret){
-				var recommendCourseData= result.data.result;
-				var homehtml = "";
-				if(recommendCourseData != null){
-					var recomle = "";
-					if(recommendCourseData.length<6){
-						recomle = recommendCourseData.length;
-					}else{
-						recomle = 6;
-					}
-					if(recomle==0)
-					{
-						homehtml = "<div class=\"alert fade in\">"
-							+ "<button class='close' data-dismiss=\"alert\" type=\"button\"></button><strong>无推荐课程！</strong>sorry，无法判断你所感兴趣的课程！"
-							+ "</div>";
-
-					}else{
-						for(var i=0;i<recomle;i++) {
-							if(i % 3 ==0 && i==0){//开始新的一行
-								homehtml += "<div class=\"row\"><ul style=\"list-style-type:none\">";
-							}else if(i % 3 ==0 && i>0){
-								homehtml += "</ul></div><div class=\"row\"><ul style=\"list-style-type:none\">";
-							}
-							//here start 教师信息
-							/*
-							var teacherInfo = item.courTeachers.split("$$$");
-							var teach = "";
-							for(var i=0;i<teacherInfo.length-1;i++)
-							{
-								var te = teacherInfo[i].split("$&$");
-								if(te.length==3)
-								{
-									var m = formatString(te[1]);
-									teach +="<a href=\"#myModal\" data-toggle=\"modal\" style='cursor:pointer;' onclick='showTeacherInfo(\""+m+"\",null,\""+te[0]+"\")'>"+te[0]+"</a>&nbsp;&nbsp;&nbsp;";
-								}
-								else if(te.length == 4)
-								{
-									var m = formatString(te[2]);
-									teach+="<a href='#myModal' data-toggle=\"modal\" style='cursor:pointer;' onclick='showTeacherInfo(\""+m+"\",\""+te[0]+"\",\""+te[1]+"\")'>"+te[1]+"</a>&nbsp;&nbsp;&nbsp;";
-								}			
-							}*/
-							//here end
-							//替换416行的引号部分//recommendCourseData[i].courImg+recommendCourseData[i].fileName
-							homehtml +="<li class=\"col-xs-4\">"+
-							"<a href=\"Learning_chooseCourse.html?courId="+recommendCourseData[i].courId+"&selectedType=1&"+colIds+"\" class=\"thumbnail\" title=\"点击查看详情\">"+
-							"<img src=\"../../"+"static/img/homeImages/recourseimg.jpg"+"\"  />";	
-
-							var gotcoure = recommendCourseData[i].courName;
-							var op = countlen(gotcoure);
-							if(op<29){
-								homehtml += "<div class=\"coursetile\">"+gotcoure+"</div>";
-							}
-							else{
-								var nString =  buildNewStr(gotcoure);
-								homehtml += "<div class=\"coursetile\">"+nString+"</div>";
-							}
-							if(recommendCourseData[i].courType==""||recommendCourseData[i].courType==null){
-								recommendCourseData[i].courType="暂无课程类型";
-							}
-							//console.log(courses);
-							for(var cc = 0; cc < courses.length; cc++){
-								if(courses[cc].courId == recommendCourseData[i].courId){
-									var teacher = courses[cc].courTeachers.split("$");
-									//console.log(teacher);
-									homehtml +="</a>"+
-									"<div class=\"caption\">" +
-									"主讲：" + teacher[0] + "<br />领域：" + courses[cc].courCates + "<br />课程类型：" + 
-									courses[cc].courType + "<br />学分：" + courses[cc].courCredit + "&nbsp;&nbsp;&nbsp;&nbsp;学习人数：" + courses[cc].courChoosedNum +
-									"<br />开始时间：" + (courses[cc].opentTime==undefined ? '' : courses[cc].opentTime) + "<br/>" +
-									"结束时间：" + (courses[cc].closeTime==undefined ? '' : courses[cc].closeTime) +
-									"</div>"+
-									"</li>";
-								}
-							}
+		success:function(data){
+			if(data.data.result.success){
+				var result = JSON.parse(data.data.result.message);
+				if(result.ret){
+					var recommendCourseData= result.data.result;
+					var homehtml = "";
+					if(recommendCourseData != null){
+						var recomle = "";
+						if(recommendCourseData.length<6){
+							recomle = recommendCourseData.length;
+						}else{
+							recomle = 6;
 						}
-						homehtml +="</ul></div>";
-					}
-				}
-				$("#recommendCourses").append(homehtml);
-			}else{
-				console.log("数据加载出错，请联系管理员！");
-				return ;
-			}
+						if(recomle==0)
+						{
+							homehtml = "<div class=\"alert fade in\">"
+								+ "<button class='close' data-dismiss=\"alert\" type=\"button\"></button><strong>无推荐课程！</strong>sorry，无法判断你所感兴趣的课程！"
+								+ "</div>";
 
+						}else{
+							for(var i=0;i<recomle;i++) {
+								if(i % 3 ==0 && i==0){//开始新的一行
+									homehtml += "<div class=\"row\"><ul style=\"list-style-type:none\">";
+								}else if(i % 3 ==0 && i>0){
+									homehtml += "</ul></div><div class=\"row\"><ul style=\"list-style-type:none\">";
+								}
+								//here start 教师信息
+								/*
+								var teacherInfo = item.courTeachers.split("$$$");
+								var teach = "";
+								for(var i=0;i<teacherInfo.length-1;i++)
+								{
+									var te = teacherInfo[i].split("$&$");
+									if(te.length==3)
+									{
+										var m = formatString(te[1]);
+										teach +="<a href=\"#myModal\" data-toggle=\"modal\" style='cursor:pointer;' onclick='showTeacherInfo(\""+m+"\",null,\""+te[0]+"\")'>"+te[0]+"</a>&nbsp;&nbsp;&nbsp;";
+									}
+									else if(te.length == 4)
+									{
+										var m = formatString(te[2]);
+										teach+="<a href='#myModal' data-toggle=\"modal\" style='cursor:pointer;' onclick='showTeacherInfo(\""+m+"\",\""+te[0]+"\",\""+te[1]+"\")'>"+te[1]+"</a>&nbsp;&nbsp;&nbsp;";
+									}			
+								}*/
+								//here end
+								//替换416行的引号部分//recommendCourseData[i].courImg+recommendCourseData[i].fileName
+								homehtml +="<li class=\"col-xs-4\">"+
+								"<a href=\"Learning_chooseCourse.html?courId="+recommendCourseData[i].courId+"&selectedType=1&"+colIds+"\" class=\"thumbnail\" title=\"点击查看详情\">"+
+								"<img src=\"../../"+"static/img/homeImages/recourseimg.jpg"+"\"  />";	
+
+								var gotcoure = recommendCourseData[i].courName;
+								var op = countlen(gotcoure);
+								if(op<29){
+									homehtml += "<div class=\"coursetile\">"+gotcoure+"</div>";
+								}
+								else{
+									var nString =  buildNewStr(gotcoure);
+									homehtml += "<div class=\"coursetile\">"+nString+"</div>";
+								}
+								if(recommendCourseData[i].courType==""||recommendCourseData[i].courType==null){
+									recommendCourseData[i].courType="暂无课程类型";
+								}
+								//console.log(courses);
+								for(var cc = 0; cc < courses.length; cc++){
+									if(courses[cc].courId == recommendCourseData[i].courId){
+										var teacher = courses[cc].courTeachers.split("$");
+										//console.log(teacher);
+										homehtml +="</a>"+
+										"<div class=\"caption\">" +
+										"主讲：" + teacher[0] + "<br />领域：" + courses[cc].courCates + "<br />课程类型：" + 
+										courses[cc].courType + "<br />学分：" + courses[cc].courCredit + "&nbsp;&nbsp;&nbsp;&nbsp;学习人数：" + courses[cc].courChoosedNum +
+										"<br />开始时间：" + (courses[cc].opentTime==undefined ? '' : courses[cc].opentTime) + "<br/>" +
+										"结束时间：" + (courses[cc].closeTime==undefined ? '' : courses[cc].closeTime) +
+										"</div>"+
+										"</li>";
+									}
+								}
+							}
+							homehtml +="</ul></div>";
+						}
+					}
+					$("#recommendCourses").append(homehtml);
+				}else{
+					console.log("数据加载出错，请联系管理员！");
+					return ;
+				}
+			}
 		}
 	});
 

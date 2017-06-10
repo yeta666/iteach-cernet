@@ -44,9 +44,9 @@ public class ChapterService {
 	@Autowired
 	private ReChapterResourceDAO rcreDAO;
 	@Autowired
-	private RecomDao recomDao;
-	@Autowired
 	private LearnProcessRecordDAO lpreDAO;
+	@Autowired
+	private RecomDao recomDao;
 	
 	   @Autowired
 	    private CourseCateDAO courseCateDAO;

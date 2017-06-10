@@ -98,37 +98,40 @@ function recommendCourseslist() {
 	$.ajax({
 		type: "post",
 		contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-		//url:'../../handler/courseReom',
-		url: "http://127.0.0.1:8082/recom/courseRecom",
+		url: "../../handler/recom/courseRecommend",
 		dataType: "json",
 		data: {
 			"userId": userId
 		},
-		success: function(data) {
-			if(!data.ret) {
-				console.log("数据加载出错，请联系管理员！");
-				return;
-			}
-			var courseList = data.data.result;
-			console.log(courseList);
-			for(var i = 0; i < courseList.length; i++) {
-				$('<div class="guess_you_like item" courCateIds="' + courseList[i].courCateIds + '" courCredit="' +
-					courseList[i].courCredit + '" courDescribe="' + courseList[i].courDescribe + '" courTeacherIds="' +
-					courseList[i].courTeacherIds + '" courseStuCount="' + courseList[i].courChoosedNum + '" courId="' +
-					courseList[i].courId + '"><a href="#courseModal" data-toggle="modal"> <img src="../../static/img/homeImages/recourseimg.jpg" alt="' +
-					courseList[i].courName + '" /></a><p>' +
-					courseList[i].courName + '</p></div>').click(function() {
-					//点击课程出现课程简介
-					//为模态框加载数据
-					$("#courCateIds").html($(this).attr("courCateIds"));
-					$("#courCredit").html($(this).attr("courCredit"));
-					$("#courDescribe").html($(this).attr("courDescribe"));
-					$("#courTeacherIds").html($(this).attr("courTeacherIds"));
-					$("#courseStuCount").html($(this).attr("courseStuCount"));
-					$("#courId").html($(this).attr("courId"));
-					$("#courName").html(this.childNodes[1].innerHTML);
-					document.getElementById("courImg").src = this.childNodes[0].childNodes[1].src;
-				}).appendTo($("#gallery"));
+		success: function(result) {
+			if(result.data.result.success){
+				var data = JSON.parse(result.data.result.message);
+				//console.log(data);
+				if(!data.ret) {
+					alert.log("数据加载出错，请联系管理员！");
+					return;
+				}
+				var courseList = data.data.result;
+				//console.log(courseList);
+				for(var i = 0; i < courseList.length; i++) {
+					$('<div class="guess_you_like item" courCateIds="' + courseList[i].courCateIds + '" courCredit="' +
+						courseList[i].courCredit + '" courDescribe="' + courseList[i].courDescribe + '" courTeacherIds="' +
+						courseList[i].courTeacherIds + '" courseStuCount="' + courseList[i].courChoosedNum + '" courId="' +
+						courseList[i].courId + '"><a href="#courseModal" data-toggle="modal"> <img src="../../static/img/homeImages/recourseimg.jpg" alt="' +
+						courseList[i].courName + '" /></a><p>' +
+						courseList[i].courName + '</p></div>').click(function() {
+						//点击课程出现课程简介
+						//为模态框加载数据
+						$("#courCateIds").html($(this).attr("courCateIds"));
+						$("#courCredit").html($(this).attr("courCredit"));
+						$("#courDescribe").html($(this).attr("courDescribe"));
+						$("#courTeacherIds").html($(this).attr("courTeacherIds"));
+						$("#courseStuCount").html($(this).attr("courseStuCount"));
+						$("#courId").html($(this).attr("courId"));
+						$("#courName").html(this.childNodes[1].innerHTML);
+						document.getElementById("courImg").src = this.childNodes[0].childNodes[1].src;
+					}).appendTo($("#gallery"));
+				}
 			}
 		}
 	});

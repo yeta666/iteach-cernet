@@ -60,6 +60,10 @@ public class IteachInterceptor implements HandlerInterceptor {
 		if (request.getRequestURI().endsWith("trainArrayAttributes/getAll")) {
 			return true;
 		}
+		// 获取推荐课程
+		if (request.getRequestURI().endsWith("recom/courseRecommend")) {
+			return true;
+		}
 		// 请求到登录页面 放行
 		if (request.getRequestURI().endsWith("/login") || request.getRequestURI().endsWith("/loginOff")) {
 			Cookie cookie = new Cookie("authCookie", "");
