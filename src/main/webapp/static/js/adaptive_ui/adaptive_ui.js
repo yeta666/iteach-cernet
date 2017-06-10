@@ -1,6 +1,6 @@
 $(function() {
 	//此js的目的是所有个性化模块的初始化
-
+	
 	if($.cookie("toggle") == "open"){
 		//展开
 		$("body").removeClass('left-side-collapsed chat-view');
@@ -48,11 +48,17 @@ $(function() {
 	jQuery(window).resize(function() {
 		if (jQuery('body').css('position') == 'relative') {
 			jQuery('body').removeClass('left-side-collapsed');
+			//改变footer的宽度
+			$("#footer").css("width", $(".wrapper").outerWidth());
+			$("#footer").css("left", "0");
 		} else {
 			jQuery('body').css({
 				left : '',
 				marginRight : ''
 			});
+			//改变footer的宽度
+			$("#footer").css("width", $(".wrapper").outerWidth());
+			$("#footer").css("left", "240");
 		}
 	});
 	

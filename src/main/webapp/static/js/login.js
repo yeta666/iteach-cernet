@@ -76,7 +76,7 @@ $(function() {
 											},
 											dataType : "json",
 											success : function(data) {
-												console.log(data);
+												//console.log(data);
 												if(data.success){
 													var result = JSON.parse(data.message);
 													if(result.status){
@@ -100,7 +100,7 @@ $(function() {
 													}
 												}else{
 													if(data.statusCode == -1){
-														alert("授权服务未开启，请联系管理员！");
+														alert("安全服务未开启，请联系管理员！");
 													}else if(data.statusCode == -2){
 														alert("自适应界面服务未开启，请联系管理员！");
 													}
@@ -114,7 +114,6 @@ $(function() {
 											}
 										});
 									}
-									console.log(data);
 								}
 							});
 						} else if(resultData == "passwordError" || resultData == "null") {
