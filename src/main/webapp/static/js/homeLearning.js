@@ -117,8 +117,7 @@ function recommendCourseslist() {
 					$('<div class="guess_you_like item" courCateIds="' + courseList[i].courCateIds + '" courCredit="' +
 						courseList[i].courCredit + '" courDescribe="' + courseList[i].courDescribe + '" courTeacherIds="' +
 						courseList[i].courTeacherIds + '" courseStuCount="' + courseList[i].courChoosedNum + '" courId="' +
-						courseList[i].courId + '"><a href="#courseModal" data-toggle="modal"> <img src="../../static/img/homeImages/recourseimg.jpg" alt="' +
-						courseList[i].courName + '" /></a><p>' +
+						courseList[i].courId + '"><a href="#courseModal" data-toggle="modal"><img src="../../' + courseList[i].courImg + courseList[i].fileName +'" /></a><p>' +
 						courseList[i].courName + '</p></div>').click(function() {
 						//点击课程出现课程简介
 						//为模态框加载数据

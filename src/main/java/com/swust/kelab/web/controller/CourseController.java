@@ -108,8 +108,7 @@ public class CourseController {
 	public JsonAndView viewCourseList(HttpServletRequest request,
 			HttpServletResponse response) {
 		User user = CookieUtil.getCookieUser(request);
-		return new JsonAndView().addData("courseList", courseService
-				.viewCourseListService(request.getSession().getServletContext()
+		return new JsonAndView().addData("courseList", courseService.viewCourseListService(request.getSession().getServletContext()
 						.getRealPath("/"),
 						user == null ? null : user.getUserId(),
 						user == null ? null : user.getUserType(), false));

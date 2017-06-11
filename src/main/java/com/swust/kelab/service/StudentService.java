@@ -262,8 +262,7 @@ public class StudentService {
 		while (it.hasNext()) {
 			CourseModel cm = it.next();
 			// 判断路径是否存在，不存在文件，返回默认图片
-			String relativePath = projectPath + cm.getCourImg()
-					+ cm.getFileName();
+			String relativePath = projectPath + "/" + cm.getCourImg() + cm.getFileName();
 			if (!new File(relativePath).exists()) {
 				cm.setCourImg("upload/eduman/coursepic.jpg");
 				cm.setFileName("");

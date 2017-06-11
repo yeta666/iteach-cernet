@@ -343,6 +343,7 @@ function showSearchCourse(data)
 function showAllCourse(data)
 {
 	var allCourse = data.values;
+	console.log(allCourse);
 	var HTML = "";
 	for(var i=0;i<allCourse.length;i++) {
 		HTML += "<div id='newcourse-link"+allCourse[i].courId+"' class='courseBlockDiv-img'>" +
@@ -366,7 +367,6 @@ function showAllCourse(data)
 //获取课程信息
 function getCourse()
 {
-	alert(1);
 	$.ajax({
 		type:"post",
 		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
@@ -423,6 +423,7 @@ function recommendCourseslist() {
 		success:function(data){
 			if(data.data.result.success){
 				var result = JSON.parse(data.data.result.message);
+				console.log(result);
 				if(result.ret){
 					var recommendCourseData= result.data.result;
 					var homehtml = "";
@@ -466,9 +467,9 @@ function recommendCourseslist() {
 								}*/
 								//here end
 								//替换416行的引号部分//recommendCourseData[i].courImg+recommendCourseData[i].fileName
-								homehtml +="<li class=\"col-xs-4\">"+
+								homehtml += "<li class=\"col-xs-4\">"+
 								"<a href=\"Learning_chooseCourse.html?courId="+recommendCourseData[i].courId+"&selectedType=1&"+colIds+"\" class=\"thumbnail\" title=\"点击查看详情\">"+
-								"<img src=\"../../"+"static/img/homeImages/recourseimg.jpg"+"\"  />";	
+								"<img src=\"../../" + recommendCourseData[i].courImg + recommendCourseData[i].fileName + "\"  />";	
 
 								var gotcoure = recommendCourseData[i].courName;
 								var op = countlen(gotcoure);
