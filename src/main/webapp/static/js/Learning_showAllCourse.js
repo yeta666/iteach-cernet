@@ -343,7 +343,7 @@ function showSearchCourse(data)
 function showAllCourse(data)
 {
 	var allCourse = data.values;
-	console.log(allCourse);
+	//console.log(allCourse);
 	var HTML = "";
 	for(var i=0;i<allCourse.length;i++) {
 		HTML += "<div id='newcourse-link"+allCourse[i].courId+"' class='courseBlockDiv-img'>" +

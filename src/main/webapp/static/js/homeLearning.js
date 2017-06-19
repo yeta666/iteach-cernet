@@ -14,7 +14,11 @@ $(document).ready(function(){
 			queue: false
 		}
 	});
-
+	
+	$container.isotope({
+		filter: '.famous_teacher_course'
+	});
+	
 	// filter items when filter link is clicked
 	$('#filters a').click(function() {
 		var selector = $(this).attr('data-filter');
@@ -66,6 +70,7 @@ function homeCourselist() {
 	//获取名师讲堂数据
 	$.getJSON("../../handler/course/viewAllCourseList.do", {}, function(data) {
 		var courseList = data.data.courseList;
+		//console.log(courseList);
 		for(var i = 0; i < courseList.length; i++) {
 			$('<div class="famous_teacher_course item" courCateIds="' + courseList[i].courCateIds + '" courCredit="' +
 				courseList[i].courCredit + '" courDescribe="' + courseList[i].courDescribe + '" courTeacherIds="' +

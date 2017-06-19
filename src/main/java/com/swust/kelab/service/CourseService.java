@@ -256,6 +256,7 @@ public class CourseService {
 			cm.setCourTeacherIds(teacherNames);
 			// 判断路径是否存在，不存在文件，返回默认图片
 			String relativePath = projectPath + "/" + cm.getCourImg() + cm.getFileName();
+			System.out.println(relativePath);
 			if (!new File(relativePath).exists()) {
 				cm.setCourImg("upload/eduman/coursepic.jpg");
 				cm.setFileName("");
