@@ -501,6 +501,7 @@ function addPuttogatherCheck()
  */
 function getCourseList()
 {
+	console.log(departId + " " + userId);
 	AjaxJson("../../handler/course/viewCourseList", {
 		departId : departId,
 		userId : userId
@@ -513,6 +514,7 @@ function getCourseList()
  */
 function showCourseToSelect(backInfo)
 {
+	console.log(backInfo);
 	if(backInfo.data != null){
 		var data = backInfo.data.courses;
 		var Html = "<option value=-1>=选择课程=</option>";
@@ -550,6 +552,7 @@ function getChapter(courseId)
  */
 function showChapterToSelect(backInfo)
 {
+	console.log(backInfo);
 	chapterList = backInfo.data.chapterList;
 	var data = chapterList;
 	var Html = "<option value=-1>=选择章节=</option>";

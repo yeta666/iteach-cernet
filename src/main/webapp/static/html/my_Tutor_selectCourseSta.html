@@ -1,50 +1,118 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title></title>
 <link href="../css/ncss/bootstrap.css" rel="stylesheet">
 <link href="../css/ncss/font-awesome.css" rel="stylesheet">
-<link href="../css/ncss/animate.css" rel="stylesheet">
 <link href="../css/ncss/style.css" rel="stylesheet">
-<link href="../css/ncss/common.css" rel="stylesheet">
-<link id="cssfile" href="../css/ncss/color.css" type="text/css" rel="stylesheet">
-<title></title>
+<link href="../css/ncss/animate.css" rel="stylesheet">
+<!--普遍样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/common_by_yeta.css" />
+<!--左边导航样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/leftside_by_yeta.css" />
+<!--顶部导航样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/headersection_by_yeta.css" />
+<!--主体部分样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/maincontent_by_yeta.css" />
+<!--底部样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/footer_by_yeta.css" />
+<!--响应式样式-->
+<link rel="stylesheet" type="text/css"
+	href="../css/css_by_yeta/style-responsive.css" />
+<!-- 个性化定制组件样式 -->
+<link href="../css/adaptive_ui/jquery-ui.structure.css" rel="stylesheet">
+<link id="adaptive_ui" href="" rel="stylesheet">
 </head>
+
 <body>
-	<div id="wrapper">
-		<nav class="navbar-default navbar-static-side" role="navigation">
-		<div class="sidebar-collapse">
-			<ul class="nav" id="side-menu">
-			</ul>
 
-		</div>
-		</nav>
+	<section>
+		<!-- left side start-->
+		<div class="left-side sticky-left-side">
 
-		<div id="page-wrapper" class="gray-bg dashbard-1">
-			<div class="row border-bottom">
-				<nav class="navbar navbar-static-top" role="navigation"
-					style="margin-bottom: 0">
-				<div id="scaling" class="navbar-header">
+			<!--logo and iconic logo start-->
+			<div class="logo">
+				<a href="home.html"><img
+					src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+			</div>
+
+			<div class="logo-icon text-center">
+				<a href="home.html"><img
+					src="/iteach/static/img/iteach-logo-small.png" alt="logo"></a>
+			</div>
+			<!--logo and iconic logo end-->
+
+			<div class="left-side-inner">
+
+				<!-- visible to small devices only -->
+				<div class="visible-xs hidden-sm hidden-md hidden-lg">
+					<div class="media logged-user">
+						<img alt="user" src="" class="media-object user_img">
+						<div class="media-body">
+							<h4 class="user_name"></h4>
+						</div>
+					</div>
+
+					<ul id="user_menu_left">
+						<!-- class="nav nav-pills nav-stacked custom-nav" -->
+					</ul>
 				</div>
-				<ul  id ="navibartitle" class="nav navbar-top-links" >
-					<!--commonjs 118行 打印 -->
+
+				<!--sidebar nav start-->
+				<ul class="nav nav-pills nav-stacked custom-nav" id="left_side">
+					<!-- <li class="menu-list nav-active">
+							<a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+							<ul class="sub-menu-list">
+								<li class="active">
+									<a href="blank_page.html"> Blank Page</a>
+								</li>
+							</ul>
+						</li> -->
 				</ul>
-				</nav>
+				<!--sidebar nav end-->
+
 			</div>
-			<div class="row wrapper border-bottom white-bg page-heading">
-				<div class="col-lg-10">
-					<h2>
-						<i class="fa fa-mortar-board"></i>  我的课堂
-					</h2>
-					<ol class="breadcrumb">
-						<li><a href="home.html">主页</a></li>
-						<li><a href="my_Tutor.html?firstCol=5&secondCol=19"></a>我的课程</li>
-						<li><strong>查看我的课程</strong></li>
-					</ol>
+		</div>
+		<!-- left side end-->
+
+		<!-- main content start-->
+		<div class="main-content">
+
+			<!-- header section start-->
+			<div class="header-section">
+
+				<!--toggle button start-->
+				<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+				<!--toggle button end-->
+
+				<!--notification menu start -->
+				<div class="menu-right">
+					<ul id="user_menu_right">
+					</ul>
 				</div>
-				<div class="col-lg-2"></div>
+				<!--notification menu end -->
+
 			</div>
-			<div class="wrapper wrapper-content">
+			<!-- header section end-->
+
+			<!-- page heading start-->
+			<div class="page-heading">
+				<h3 id="system_title_by_yeta"></h3>
+				<ul class="breadcrumb">
+					<li><a href="home.html">主页</a></li>
+					<li class="active">我的课程</li>
+				</ul>
+			</div>
+			<!-- page heading end-->
+
+			<!--body wrapper start-->
+			<div class="wrapper">
 				<div class="row animated fadeInRight">
 					<div class="row">
 						<div class="col-lg-12">
@@ -56,8 +124,7 @@
 									</h2>
 									<div class="ibox-tools">
 										<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-										</a> 
-										 <a class="close-link"> <i class="fa fa-times"></i>
+										</a> <a class="close-link"> <i class="fa fa-times"></i>
 										</a>
 									</div>
 								</div>
@@ -65,67 +132,69 @@
 
 								<div class="ibox-content m-b-sm border-bottom">
 									<div class="p-xs">
-										
-										<!-- 查询区域 -->
-									<form class="form-search">
-										 <p class="form-inline">
-										<input id="startTime" data-date-format="yyyy-mm-dd"
-											class="span2 form-control1" placeholder="开始时间..." type="text"> <input
-											id="endTime" data-date-format="yyyy-mm-dd" class="span2 form-control1"
-											placeholder="结束时间..." type="text"> 
-											 <input type="text" placeholder="请输入搜索内容" id="keyword"
-											name="keyword" class="input-medium search-query form-control1">
-										</p>
-										 <p class="form-inline">
-										 <select
-											style="display: none" class="span2 form-control1" id="seleteSchoolID"></select>
-										<select class="span2 form-control1" id="grade">
-										</select> <select class="span2 form-control1" id="class">
-										</select> <select
-											class="span2 form-control1" id="searchType">
-											<option value="1">按~学生姓名</option>
-											<option value="2">按~学生学号</option>
-										</select> <select class="span2 form-control1" id="passOrNot">
-											<option value="0">所有成绩</option>
-											<option value="1">通过</option>
-											<option value="2">未通过</option>
-										</select>
-											<a id="search" type="button" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</a>
-								</p>
-									</form>
-								
-									<div id="viewData">
-										<!--数据显示  -->
-										<table class="table table-hover table-bordered"
-											id="viewListTable">
 
-											<thead>
-												<tr>
-													<th>序</th>
-													<th>选修课程</th>
-													<th>学生姓名</th>
-													<th>学号</th>
-													<th>所属学校</th>
-													<th>年级</th>
-													<th>班级</th>
-													<th>选课时间</th>
-													<th>成绩</th>
-													<th>学分</th>
-												</tr>
-											</thead>
-											<tbody>
-											</tbody>
-										</table>
+										<!-- 查询区域 -->
+										<form class="form-search">
+											<p class="form-inline">
+												<input id="startTime" data-date-format="yyyy-mm-dd"
+													class="span2 form-control1" placeholder="开始时间..."
+													type="text"> <input id="endTime"
+													data-date-format="yyyy-mm-dd" class="span2 form-control1"
+													placeholder="结束时间..." type="text"> <input
+													type="text" placeholder="请输入搜索内容" id="keyword"
+													name="keyword"
+													class="input-medium search-query form-control1">
+											</p>
+											<p class="form-inline">
+												<select style="display: none" class="span2 form-control1"
+													id="seleteSchoolID"></select> <select
+													class="span2 form-control1" id="grade">
+												</select> <select class="span2 form-control1" id="class">
+												</select> <select class="span2 form-control1" id="searchType">
+													<option value="1">按~学生姓名</option>
+													<option value="2">按~学生学号</option>
+												</select> <select class="span2 form-control1" id="passOrNot">
+													<option value="0">所有成绩</option>
+													<option value="1">通过</option>
+													<option value="2">未通过</option>
+												</select> <a id="search" type="button" class="btn btn-primary"><i
+													class="fa fa-search"></i> 搜索</a>
+											</p>
+										</form>
+
+										<div id="viewData">
+											<!--数据显示  -->
+											<table class="table table-hover table-bordered"
+												id="viewListTable">
+
+												<thead>
+													<tr>
+														<th>序</th>
+														<th>选修课程</th>
+														<th>学生姓名</th>
+														<th>学号</th>
+														<th>所属学校</th>
+														<th>年级</th>
+														<th>班级</th>
+														<th>选课时间</th>
+														<th>成绩</th>
+														<th>学分</th>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
 
 											<!-- 分页区域 -->
-										
-										<div id="pagination" class="pagination page-left"  ></div>
-										
-										<br/><br/>
-										<!-- /分页区域 -->
-									</div>
-										
-										
+
+											<div id="pagination" class="pagination page-left"></div>
+
+											<br />
+											<br />
+											<!-- /分页区域 -->
+										</div>
+
+
 									</div>
 								</div>
 
@@ -169,44 +238,46 @@
 									</div>
 								</div>
 								<!-- modal-- -->
-								
-
-
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="footer" class="footer">
-				
-			</div>
+			<!--body wrapper end-->
+
+			<!--footer section start-->
+			<footer id="footer"> </footer>
+			<!--footer section end-->
 
 		</div>
-	</div>
-	<script src="../js/njs/jquery-2.1.1.min.js"></script>
-	<script src="../js/extend.js"></script>
-	<script src="../js/njs/bootstrap.min.js"></script>
-	<!-- data -->
-	<script type="text/javascript" src="../js/utils.js"></script>
-	<script type="text/javascript" src="../js/common.js"></script>
+		<!-- main content end-->
+	</section>
+
+	<script src="../js/njs/jquery-2.1.1.min.js" type="text/javascript"></script>
+	<script src="../js/njs/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/njs/jQuery.Cookie.js" type="text/javascript"></script>
+
+	<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+	<!-- 美化滚动条插件 -->
+
+	<script src="../js/jquery.unveil.min.js" type="text/javascript"></script>
+	<!-- 延迟加载插件 -->
+	<script src="../js/ext/highcharts.js" type="text/javascript"></script>
+	<script src="../js/extend.js" type="text/javascript"></script>
+	<script src="../js/utils.js" type="text/javascript"></script>
+	<script src="../js/common.js?ver=1" type="text/javascript"></script>
 	<script type="text/javascript" src="../js/cachepage.js"></script>
-	
-	<!--时间选择js -->
-<script src="../js/ext/bootstrap-datetimepicker.js"></script>
-<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-	
-	<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.unveil.min.js"></script>
 	<script type="text/javascript" src="../js/select_SchoolCourse.js"></script>
-<script type="text/javascript" src="../js/my_Tutor_selectCourseSta.js"></script>
+	<script type="text/javascript" src="../js/my_Tutor_selectCourseSta.js"></script>
+	<!--时间选择js -->
+	<script src="../js/ext/bootstrap-datetimepicker.js"></script>
+	<script src="../js/ext/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script src="../js/njs/hplus.js"></script>
 
-
-	<script src="../js/njs/jquery.metisMenu.js"></script>
-
-	<!-- Custom and plugin javascript -->
-	<script src="../js/njs/hplus.js?v=2.2.0"></script>
-	<!--控制导航自动缩进-->
+	<!-- 模块化界面js -->
+	<script src="../js/adaptive_ui/jquery-ui.js" type="text/javascript"></script>
+	<script src="../js/adaptive_ui/adaptive_ui.js" type="text/javascript"></script>
 
 </body>
+
 </html>

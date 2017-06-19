@@ -30,8 +30,6 @@ import com.swust.kelab.model.UserPersonalInfo;
 import com.swust.kelab.model.UserSearchInfoModel;
 import com.swust.kelab.oauth.AccessToken;
 import com.swust.kelab.oauth.AccessTokenService;
-import com.swust.kelab.recom.RecomService;
-import com.swust.kelab.recom.UserRecom;
 import com.swust.kelab.service.AttachmentService;
 import com.swust.kelab.service.DepartmentService;
 import com.swust.kelab.service.LoginService;
@@ -70,9 +68,6 @@ public class UserController {
 
     @Resource
     HttpServletRequest request;
-    
-    @Autowired
-    private RecomService recomService;
 
     /** Injected by Spring */
     @Autowired
@@ -82,29 +77,6 @@ public class UserController {
 
     @Autowired
     private DepartmentService departmentService;
-
-    @RequestMapping(value = "/recom.do", method = RequestMethod.GET)
-    public JsonAndView testRecom(final String s,Integer userId){
-    	JsonAndView jav = new JsonAndView();
-    	if(s!=null&&!"".equals(s)){
-    	    new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    if("recom".equals(s)){ //手动触发生推荐引擎【先训练模型，再为每个用户重新生成推荐结果，默认是每日3点】
-                        recomService.recomScheduled();
-                    }else if("random".equals(s)){ //随机生成评分记录
-                        recomService.randomUserRate();
-                    }
-                }
-            }).start();
-    	    jav.addData("result", "任务开始执行中！请稍后"); 
-    	}
-    	if(userId!=null&&userId>0){
-    		UserRecom userRecom=recomService.getUserRecom(userId);
-    		jav.addData("result", userRecom);
-    	}
-    	return jav;
-    }
     /**
      * 找回密码验证问题
      * 

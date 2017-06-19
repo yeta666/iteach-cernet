@@ -108,7 +108,7 @@ $(function() {
 	});
 	
 	var userType = $.cookie("userType");
-	console.log(userType);
+	//console.log(userType);
 	if(userType == "活跃型"){
 		//活跃型对应的模块展示
 		$("#adaptive_ui").attr("href", "../css/adaptive_ui/jquery-ui.theme14.css");

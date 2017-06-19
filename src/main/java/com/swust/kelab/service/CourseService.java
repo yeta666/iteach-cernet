@@ -255,8 +255,7 @@ public class CourseService {
 						teacherNames.length() - 1);
 			cm.setCourTeacherIds(teacherNames);
 			// 判断路径是否存在，不存在文件，返回默认图片
-			String relativePath = projectPath + cm.getCourImg()
-					+ cm.getFileName();
+			String relativePath = projectPath + "/" + cm.getCourImg() + cm.getFileName();
 			if (!new File(relativePath).exists()) {
 				cm.setCourImg("upload/eduman/coursepic.jpg");
 				cm.setFileName("");
@@ -2045,14 +2044,12 @@ public class CourseService {
 		return map;
 	}
 
-	public List<Map<String, Object>> viewCourseListByMentroId(Integer userId,
-			Integer departId) {
+	public List<Map<String, Object>> viewCourseListByMentroId(Integer userId, Integer departId) {
 		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		Map<String, Object> queryData = new HashMap<String, Object>();
 		queryData.put("userId", userId);
 
-		List<CourseModel> courses = courseDAO
-				.viewCourseInfoByMentroId(queryData);
+		List<CourseModel> courses = courseDAO.viewCourseInfoByMentroId(queryData);
 		if (courses.size() == 0) {
 			return null;
 		}
