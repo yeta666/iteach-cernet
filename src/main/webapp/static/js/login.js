@@ -101,16 +101,19 @@ $(function() {
 												}else{
 													if(data.statusCode == -1){
 														alert("安全服务未开启，请联系管理员！");
+														$.cookie("userType", "default");
+														window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 													}else if(data.statusCode == -2){
 														alert("自适应界面服务未开启，请联系管理员！");
+														$.cookie("userType", "default");
+														window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 													}
-													loginOff();
 												}
 											},
 											error : function(XHR) {
 												alert("自适应界面服务没有开启，请联系管理员！错误码： " + XHR.status);
-												debugger;
-												loginOff();
+												$.cookie("userType", "default");
+												window.location.href = "userCenter.html?firstCol=1&secondCol=14";
 											}
 										});
 									}
